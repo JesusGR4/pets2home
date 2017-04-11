@@ -1,0 +1,141 @@
+<section id="single-film" class="wow fadeIn animated">
+    <!-- content  -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 col-xs-12">
+                <!-- post image -->
+                <div class="blog-image margin-three"><img src="../../assets/img/films/princesa.jpg" alt=""></div>
+                <!-- end post image -->
+                <!-- Galery -->
+                <div class="blog-galery">
+                    <div class="row lightbox-gallery">
+                        <div class="col-md-4 col-sm-6 wow fadeIn animated">
+                            <!-- photo item -->
+                            <a class="popup-youtube" href="{{movie.trailer_url}}" title="Lightbox gallery image title..."><img
+                                    src="../../assets/img/films/frames/princesa_frame_video.jpg" alt="" class="project-img-gallery"></a>
+                            <!-- end photo item -->
+                        </div>
+                        <div class="col-md-4 col-sm-6 wow fadeIn animated">
+                            <!-- photo item -->
+                            <a href="../../assets/img/films/frames/princesa_frame_1.jpg" title="La Princesa Prometida 1"><img
+                                    src="../../assets/img/films/frames/princesa_frame_1.jpg" alt="" class="project-img-gallery"></a>
+                            <!-- end photo item -->
+                        </div>
+                        <div class="col-md-4 col-sm-6 wow fadeIn animated">
+                            <!-- photo item -->
+                            <a href="../../assets/img/films/frames/princesa_frame_2.jpg" title="La Princesa Prometida 2"><img
+                                    src="../../assets/img/films/frames/princesa_frame_2.jpg" alt="" class="project-img-gallery"></a>
+                            <!-- end photo item -->
+                        </div>
+                    </div>
+                </div>
+                <!-- END Galery -->
+                <!-- social icon -->
+                <div class="col-md-8 col-sm-9 product-details-social no-padding">
+                    <!-- social media sharing -->
+                    <span class="black-text text-uppercase text-small vertical-align-middle margin-right-five">Compártelo</span>
+                    <a href="javascript:;" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="javascript:;" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <a href="javascript:;" target="_blank"><i class="fa fa-google-plus"></i></a>
+                    <a href="javascript:;" target="_blank"><i class="fa fa-linkedin"></i></a>
+                    <!-- end social media sharing -->
+                </div>
+                <!-- end social icon -->
+            </div>
+
+            <!-- sidebar  -->
+            <div class="col-md-8 col-xs-12  xs-margin-top-ten">
+                <!-- title -->
+                <h1 class="blog-details-headline text-black">{{movie.title}}</h1>
+
+                <div class="thin-separator-line bg-youfeelm no-margin-lr"></div>
+                <!-- END title -->
+
+                <!-- Sinopsis -->
+                <div class="blog-details-text">
+                    <p>{{movie.description}}</p>
+                </div>
+                <!-- END Sinopsis -->
+
+                <!-- Event Data -->
+                <div class="row margin-bottom-seven">
+                    <div class="col-md-6 col-xs-12">
+                        <ul>
+                            <li>
+                                <div class="text-black text-uppercase">Título Original <span class="event-details">{{movie.original_title}}</span></div>
+                            </li>
+                            <li>
+                                <div class="text-black text-uppercase">Director <span class="event-details" *ngIf = "movie.directors != null">
+                                    <a *ngFor="let director of movie.directors" [routerLink]="['/filmCatalog']" [queryParams]="{director_id: director.id}">{{director.name}} {{director.surnames}}</a>
+                                </span></div>
+                            </li>
+                            <li>
+                                <div class="text-black text-uppercase">Reparto <span class="event-details" *ngIf = "movie.actors != null">
+                                    <a *ngFor="let actor of movie.actors" [routerLink]="['/filmCatalog']" [queryParams]="{actor_id: actor.id}">{{actor.name}} {{actor.surnames}}</a>
+                                </span></div>
+                            </li>
+                            <li>
+                                <div class="text-black text-uppercase">Duración
+                                    <span class="event-details">{{movie.duration}}'</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="text-black text-uppercase">Año <span class="event-details">{{movie.year}}</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <ul>
+                            <li>
+                                <div class="text-black text-uppercase">País <span *ngIf = "movie.countries != null"
+                                        class="event-details"><a *ngFor="let country of movie.countries" [routerLink]="['/filmCatalog']" [queryParams]="{country_id: country.id}">{{country.name}}</a></span></div>
+                            </li>
+                            <li>
+                                <div class="text-black text-uppercase">Género
+                                    <span *ngIf = "movie.genres != null" class="event-details">
+                                        <a *ngFor="let genre of movie.genres" [routerLink]="['/filmCatalog']" [queryParams]="{genre_id: genre.id}" class="label label-white">{{genre.name}}</a>
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="text-black text-uppercase">Calificación <span class="event-details"><a [routerLink]="['/filmCatalog']" [queryParams]="{qualification_id: movie.qualification_id}">{{movie.qualification_name}}</a></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="text-black text-uppercase">Idioma Original
+                                    <span class="event-details" *ngIf = "movie.original_languages != null">
+                                        <span class="label label-white" *ngFor="let language of movie.original_languages">{{language.name}}</span>
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="text-black text-uppercase">Versiones disponibles
+                                    <span class="event-details" *ngIf = "movie.languages != null">
+                                        <a *ngFor="let language of movie.languages" [routerLink]="['/filmCatalog']" [queryParams]="{language_id: language.id}" class="label label-white">{{language.name}}</a>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- END Event Data -->
+
+                <!-- CTA -->
+                <div class="row margin-three">
+
+                    <div class="col-md-12 col-xs-12">
+                        <button class="highlight-button-orange button" type="button">Crea un evento</button>
+                        <button class="highlight-button-blue button" type="button">Eventos en marcha</button>
+                    </div>
+
+                </div>
+                <!-- END CTA -->
+
+            </div>
+            <!-- end sidebar  -->
+        </div>
+    </div>
+    <!-- end content  -->
+</section>

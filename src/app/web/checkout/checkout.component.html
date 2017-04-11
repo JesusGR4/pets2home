@@ -1,0 +1,177 @@
+<section id="checkout" class="wow fadeIn animated bg-gray">
+  <!-- content  -->
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-10 col-md-offset-1 col-sm-12 bg-white">
+
+        <!-- Title -->
+        <h1 class="text-large text-center">Reserva de Entradas / Compra de Entradas</h1>
+        <div class="separator-line bg-youfeelm"></div>
+        <!-- END Title -->
+
+        <!-- Shop Cart -->
+        <div class="row">
+
+          <div class="col-sm-12 shop-cart-table">
+            <table class="table shop-cart text-center">
+              <thead>
+              <tr>
+                <th width="10%"></th>
+                <th class="text-left text-uppercase font-weight-600 letter-spacing-2 text-small black-text">
+                  Película
+                </th>
+                <th>Lugar</th>
+                <th class="text-left text-uppercase font-weight-600 letter-spacing-2 text-small black-text">
+                  Precio
+                </th>
+                <th class="text-left text-uppercase font-weight-600 letter-spacing-2 text-small black-text">
+                  Cantidad
+                </th>
+                <th class="text-left text-uppercase font-weight-600 letter-spacing-2 text-small black-text">
+                  Total
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="product-thumbnail text-left">
+                  <a href="javascript:;"><img class="img-thumbnail"
+                                              src="http://localhost:4200/assets/img/films/princesa.jpg"
+                                              alt=""></a>
+                </td>
+                <td class="text-left">
+                  <a href="javascript:;">La Princesa Prometida</a>
+                  <span class="text-uppercase display-block text-small margin-two">id: 290397</span>
+                </td>
+                <td class="text-left">
+                  Neocine Centrofama
+                  <br>Puerta nueva s/n
+                  <br>30008 Murcia, España
+                </td>
+                <td class="text-left">
+                  6,00 €
+                </td>
+                <td class="product-quantity">
+                  <div class="select-style med-input shop-shorting shop-shorting-cart no-border-round">
+                    <select>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">...</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="product-subtotal text-left bold text-total">6,00 €</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <!-- END Shop Cart -->
+        <hr>
+
+        <!-- Billing form -->
+        <div class="row">
+          <div class="col-md-12 margin-bottom-three">
+            <p class="pull-right"> Si ya eres usuario puedes <a href="#modal-login" class="modal-popup"> <span
+              class="border-bottom bold">iniciar
+                                sesión desde aquí.</span></a></p>
+          </div>
+          <form id="billing-form" method="post" action="javascript:void(0)" name="billing-form">
+            <div class="col-md-3 col-sm-12">
+              <label>* Nombre:</label>
+              <input type="text" name="Name">
+            </div>
+            <div class="col-md-5 col-sm-12">
+              <label>* Apellidos:</label>
+              <input type="text" name="Last Name">
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <label>* Email:</label>
+              <input type="text" name="Email Address">
+            </div>
+            <div class="col-md-12 margin-bottom-three">
+              <div class="checkbox">
+                <!-- checkbox  -->
+                <label><input type="checkbox"><span class="bold"> Permito que se cree una cuenta con los datos
+                  proporcionados.</span></label>
+                <!-- end checkbox  -->
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label>* Contraseña:</label>
+              <input type="password" name="password">
+            </div>
+            <div class="col-md-6">
+              <label>* Repetir contraseña:</label>
+              <input type="password" name="password">
+            </div>
+          </form>
+        </div>
+        <!-- END Billing form -->
+
+        <!--
+        <div class="cardWrap">
+            <div class="card cardLeft">
+                <div><img alt="" class="logo" src="../../assets/img/logo-white.png"></div>
+
+                <div class="row">
+                    <div class="col-md-3 hidden-sm hidden-xs">
+                        <img class="img-responsive" alt="" src="../../assets/img/films/princesa.jpg">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="cardTitle">
+                            <h2>La Princesa Prometida</h2>
+                            <span>Evento</span>
+                        </div>
+                        <div class="cardPlace">
+                            <h2>Neocine Centrofama, Puerta nueva s/n<br>30008
+                                Murcia, España</h2>
+                            <span>Lugar</span>
+                        </div>
+                        <div class="cardDate">
+                            <h2>29/07/2017</h2>
+                            <span>Fecha</span>
+                        </div>
+                        <div class="cardTime">
+                            <h2>20:00</h2>
+                            <span>Hora</span>
+                        </div>
+                        <div class="cardBuyer hidden">
+                            <h2>Marcos Blaya Miralles
+                                <small>mblaya2@alu.ucam.edu</small>
+                            </h2>
+                            <span>Comprador</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card cardRight">
+                <div class="qrcode text-center">
+                    <div><img alt="" class="img-responsive"
+                              src="https://upload.wikimedia.org/wikipedia/commons/6/65/QR_code_for_QRpedia.png">
+                    </div>
+                    <span>E4CY0J</span>
+                </div>
+            </div>
+
+        </div>
+        -->
+
+        <div class="row">
+          <div class="col-md-4 col-md-offset-8">
+            <a href="javascript:;"
+               class="btn-event btn-lg btn button btn-round xs-margin-bottom-five">Comprar</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- END content  -->
+</section>

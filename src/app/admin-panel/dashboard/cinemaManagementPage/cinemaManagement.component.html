@@ -1,0 +1,737 @@
+<!-- START PANEL -->
+<div class="padding-30 sm-no-padding xs-no-padding">
+    <div class="panel panel-default">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-tabs-primary nav-tabs-fillup">
+            <li>
+                <a data-toggle="tab" href="#companies"><span>Compañías</span></a>
+            </li>
+            <li class="active">
+                <a data-toggle="tab" href="#cinemas"><span>Cines</span></a>
+            </li>
+        </ul>
+        <!-- END Nav tabs -->
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- Tab Companies -->
+            <div class="tab-pane slide-left" id="companies">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-transparent">
+                            <div class="panel-heading">
+                                <div class="panel-title">Gestión de Compañías
+
+                                </div>
+                                <div class="tools pull-right">
+                                    <button type="button"
+                                            class="btn btn-primary btn-cons btn-animated from-top pg pg-arrow_down"
+                                            (click)="createCinemaCompanyModal()">
+                                        <span>Añadir nueva</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Email</th>
+                                            <th>Teléfono</th>
+                                            <th>Imagen</th>
+                                            <th>Descripción</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let cc of cinemaCompanies | paginate: { itemsPerPage: 8, currentPage: p, id: 'p' }">
+                                            <td class="v-align-middle">
+                                                <p>{{cc.name}}</p>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <p>{{cc.email}}</p>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <p>{{cc.phone}}</p>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <img *ngIf="cc.image_url" [src]="cc.image_url"
+                                                     class="img-responsive img-thumbnail img-100"/>
+                                                <img *ngIf="!cc.image_url" src="../../assets/img/theaters/ucc.jpg"
+                                                     class="img-responsive img-thumbnail img-100"/>
+                                            </td>
+                                            <td width="40%" class="v-align-middle">
+                                                <p>{{cc.description}}</p>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <div class="btn-group btn-group-sm sm-m-t-10">
+                                                    <button type="button" class="btn btn-default" title="Editar"
+                                                            (click)="editCinemaCompanyModal(cc)"><i
+                                                            class="fa fa-pencil tip"></i>
+                                                    </button>
+                                                    <button type="button" (click)="deleteCinemaCompanyModal(cc)"
+                                                            class="btn btn-default" title="Eliminar"><i
+                                                            class="fa fa-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <pagination-controls (pageChange)="p = $event" id="p"></pagination-controls>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Tab Companies -->
+            <!-- Tab Cinemas -->
+            <div class="tab-pane slide-left active" id="cinemas">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-transparent">
+                            <div class="panel-heading">
+                                <div class="panel-title">Gestión de Cines
+
+                                </div>
+                                <div class="tools pull-right">
+                                    <button type="button"
+                                            class="btn btn-primary btn-cons btn-animated from-top pg pg-arrow_down"
+                                            (click)="createCinemaModal()">
+                                        <span>Añadir nuevo</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div id="filters" class="row">
+                                    <div class="col-md-12">
+                                        <p class="modal-title">Filtrar por: </p>
+                                        <ul class="list-inline">
+                                            <li>
+                                                <div class="form-group form-group-default form-group-default-select2">
+                                                    <label class="">Compañía</label>
+                                                    <select class="full-width select2" name="companies"
+                                                            data-init-plugin="select2"
+                                                            [(ngModel)]="cinemaCompanySelected">
+                                                        <option value="0">Selecciona una compañia</option>
+                                                        <option *ngFor="let cc of cinemaCompanies"
+                                                                [value]="cc.id"
+                                                                [attr.selected]="cinemaCompanies.id == cc.id ? true : null"
+                                                        >{{cc.name}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-group form-group-default form-group-default-select2">
+                                                    <label class="">Ciudad</label>
+                                                    <ng-select
+                                                            [allowClear]="true"
+                                                            [options]="cities"
+                                                            [(ngModel)]="cinemaCitySelected"
+                                                            notFoundMsg="No hay cines en ninguna ciudad">
+                                                            name="cities">
+                                                    </ng-select>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="form-group form-group-default form-group-default-select2">
+                                                    <button type="button"
+                                                            class="btn btn-primary btn-cons btn-animated from-top pg pg-arrow_down"
+                                                            (click)="filterButton()">
+                                                        <span>Filtrar</span>
+                                                    </button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th width="5%"><i class="fa fa-star-o"></i></th>
+                                            <th>Nombre</th>
+                                            <th>Compañía</th>
+                                            <th>Ciudad</th>
+                                            <th>Provincia</th>
+                                            <th>Salas</th>
+                                            <th>Usuarios</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let c of cinemas | paginate: { itemsPerPage: 8, currentPage: n, id: 'n' }">
+                                            <td class="v-align-middle">
+                                                <fieldset class="rating">
+                                                    <input *ngIf="c.featured == 1" type="checkbox" checked
+                                                           [attr.id]="'star' + c.id" name="rating" value="1"/>
+                                                    <label (click)="featureCinema(c)"
+                                                           class="full" [attr.for]="'star' + c.id"></label>
+                                                </fieldset>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <p>{{c.name}}</p>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <p>{{c.cinema_company_name}}</p>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <p>{{c.city_name}}</p>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <p>{{c.province_name}}</p>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <button type="button" class="btn btn-default" title="verSalas"
+                                                        (click)="editRoomsCinemaModal(c)"><i
+                                                        class="fa fa-eye"></i>
+                                                </button>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <div class="btn-group btn-group-sm sm-m-t-10">
+                                                    <button type="button" class="btn btn-default" title="verUsuarios"
+                                                            (click)="editUsersCinemaModal(c)"><i
+                                                            class="fa fa-eye"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-default" title="crearUsuarios"
+                                                            routerLink="/admin-panel/dashboard/userManagement"><i
+                                                            class="fa fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <div class="btn-group btn-group-sm sm-m-t-10">
+                                                    <button type="button" class="btn btn-default" title="Editar"
+                                                            (click)="editCinemaModal(c)"><i class="fa fa-pencil"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-default" title="Eliminar"
+                                                            (click)="deleteCinemaModal(c)">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                    <button *ngIf="c.published === 1" type="button"
+                                                            class="btn btn-default" title="Deshabilitar"
+                                                            (click)="unpublishCinema(c)">
+                                                        <i class="fa fa-ban"></i>
+                                                    </button>
+                                                    <button *ngIf="c.published === 0" type="button"
+                                                            class="btn btn-default" title="Habilitar"
+                                                            (click)="publishCinema(c)">
+                                                        <i class="fa fa-check-square-o"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <pagination-controls (pageChange)="n = $event" id="n"></pagination-controls>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Tab Cinemas -->
+        </div>
+        <!-- END Tab panes -->
+    </div>
+</div>
+
+<!-- Modal New/Edit Company -->
+<div class="modal fade slide-up disable-scroll" id="addCompany" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                            class="pg-close fs-14"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-t-20">
+
+                    <form id="form-company" #formCompany="ngForm" role="form" autocomplete="off"
+                          novalidate="novalidate">
+                        <input hidden name="id" [(ngModel)]="cinemaCompany.name"/>
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
+                                <div class="form-group form-group-default" aria-required="true">
+                                    <label>Nombre de la compañía</label>
+                                    <input type="text" [(ngModel)]="cinemaCompany.name" class="form-control" name="name"
+                                           required aria-required="" value="{{cinemaCompany.name}}">
+
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group form-group-default" aria-required="true">
+                                    <label>Email</label>
+                                    <input type="email" [(ngModel)]="cinemaCompany.email" class="form-control"
+                                           required value="{{cinemaCompany.email}}" #cinemaCompanyEmail="ngModel"
+                                           name="cinemaCompanyEmail">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
+                                <div class="form-group form-group-default">
+                                    <label>Teléfono</label>
+                                    <input type="text" [(ngModel)]="cinemaCompany.phone" class="form-control"
+                                           name="phone" required
+                                           aria-required="" value="{{cinemaCompany.phone}}"
+                                           [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group form-group-default">
+                                    <label>Imagen</label>
+                                    <form #form="ngForm"
+                                          action="http://localhost:80/youfeelmws/public/api/admin/cinemaCompanies/updateImage"
+                                          enctype="multipart/form-data"
+                                          class="dropzone no-margin">
+                                        <div class="fallback">
+                                            <input name="file" type="file">
+                                        </div>
+                                    </form>
+                                    <input [(ngModel)]="cinemaCompany.image_url" [hidden]="true" id="imageDropzone"
+                                           #imageCinemaCompany name="image_url" type="text"
+                                           [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group form-group-default">
+                                    <label>Descripción</label>
+                                    <textarea [(ngModel)]="cinemaCompany.description" rows="10" class="form-control"
+                                              name="descripcion" value="{{cinemaCompany.description}}"
+                                              [ngModelOptions]="{standalone: true}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </form>
+
+                    <button *ngIf="cinemaCompanyMode == 'new'" [disabled]="!formCompany.valid" type="button"
+                            class="btn btn-primary btn-cons" (click)="saveCinemaCompany(imageCinemaCompany.value)">Crear
+                    </button>
+                    <button *ngIf="cinemaCompanyMode == 'edit'" [disabled]="!formCompany.valid" type="button"
+                            class="btn btn-primary btn-cons" (click)="updateCinemaCompany(imageCinemaCompany.value)">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- END Modal New/Edit Company -->
+
+<!-- Modal New/Edit Cinema -->
+<div class="modal fade slide-up disable-scroll" id="addCinema" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                            class="pg-close fs-14"></i>
+                    </button>
+                </div>
+
+                <div class="modal-body m-t-20">
+
+                    <form id="form-cinema" #formCinema="ngForm" role="form" autocomplete="off" novalidate="novalidate">
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group form-group-default" aria-required="true">
+                                    <label>Nombre</label>
+                                    <input type="text" [(ngModel)]="cinema.name" class="form-control" name="name"
+                                           required aria-required="" value="{{cinema.name}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                    <label class="">Compañía</label>
+                                    <select [(ngModel)]="cinema.cinema_company_id" name="cinemaCinemaCompany"
+                                            class="full-width select2">
+                                        <option *ngFor="let cc of cinemaCompanies" value="{{cc.id}}">{{cc.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group form-group-default" aria-required="true">
+                                    <label>Dirección</label>
+                                    <input type="text" [(ngModel)]="cinema.address" class="form-control" name="address"
+                                           required aria-required="" value="{{cinema.address}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                    <label class="">Provincia</label>
+                                    <ng-select
+                                            [options]="provinces"
+                                            (selected)="changeFilteredCities($event)"
+                                            [(ngModel)]="province_id"
+                                            name="cinemaProvince">
+                                    </ng-select>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                    <label class="">Ciudad</label>
+                                    <ng-select
+                                            [options]="filteredCity"
+                                            name="cinemaCity"
+                                            [(ngModel)]="city_id">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
+                                <div class="form-group form-group-default">
+                                    <label>Teléfono</label>
+                                    <input type="text" [(ngModel)]="cinema.phone" class="form-control"
+                                           name="cinemaPhone" required
+                                           aria-required="" value="{{cinema.phone}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group form-group-default" aria-required="true">
+                                    <label>email</label>
+                                    <input type="email" [(ngModel)]="cinema.email" class="form-control"
+                                           required value="{{cinema.email}}" name="cinemaEmail">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group form-group-default">
+                                    <label>Web</label>
+                                    <input type="text" [(ngModel)]="cinema.web" class="form-control"
+                                           value="{{cinema.web}}" name="cinemaWeb">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row clearfix">
+                            <div class="col-md-4">
+                                <div class="form-group form-group-default" aria-required="true">
+                                    <label>URL Google Map</label>
+                                    <input type="text" [(ngModel)]="cinema.google_map_url" class="form-control"
+                                           value="{{cinema.google_map_url}}" name="cinemaGoogleMapURL">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-group-default" aria-required="true">
+                                    <label>URL Facebook</label>
+                                    <input type="text" [(ngModel)]="cinema.fb_url" class="form-control"
+                                           value="{{cinema.fb_url}}" name="cinemaFbURL">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-group-default" aria-required="true">
+                                    <label>URL Twitter</label>
+                                    <input type="text" [(ngModel)]="cinema.tw_url" class="form-control"
+                                           value="{{cinema.tw_url}}" name="cinemaTwURL">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group form-group-default">
+                                    <label>Descripción</label>
+                                    <textarea [(ngModel)]="cinema.description" rows="10" class="form-control"
+                                              name="cinemaDescripcion" value="{{cinema.description}}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <button *ngIf="cinemaMode == 'new'" type="button"
+                                    class="btn btn-primary btn-cons" [disabled]="!formCinema.valid"
+                                    (click)="saveCinema()">Crear
+                            </button>
+                            <button *ngIf="cinemaMode == 'edit'" [disabled]="!formCinema.valid" type="button"
+                                    class="btn btn-primary btn-cons" (click)="updateCinema()">Guardar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- END Modal New/Edit Cinema -->
+
+<!-- Modal New/Edit Romms -->
+<div class="modal fade slide-up disable-scroll" id="viewRooms" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                            class="pg-close fs-14"></i>
+                    </button>
+                </div>
+
+                <div class="modal-body m-t-20">
+
+                    <div class="row clearfix  m-b-20">
+                        <div class="col-sm-6">
+                            <p class="modal-title">Añadir Salas</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <span class="table-add fa fa-plus-circle text-primary pull-right"
+                                  (click)="addRoom()"></span>
+                        </div>
+                    </div>
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+
+                            <div class="table-responsive">
+                                <div id="table" class="table-editable">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <th width="30%">Sala</th>
+                                            <th width="20%">Aforo</th>
+                                            <th width="40%">Formato</th>
+                                            <th width="10%"></th>
+                                        </tr>
+
+                                        <tr *ngFor="let forRoom of rooms">
+                                            <td>
+                                                <input type="text" [(ngModel)]="forRoom.name" #roomName="ngModel"
+                                                       name="roomName"
+                                                       value="{{forRoom.name}}"
+                                                       class="form-control" required>
+                                            </td>
+
+                                            <td>
+                                                <input type="text" [(ngModel)]="forRoom.seating" #roomSeating="ngModel"
+                                                       name="roomSeating"
+                                                       value="{{forRoom.seating}}"
+                                                       class="form-control" required>
+                                            </td>
+                                            <td>
+                                                <ng-select
+                                                        [multiple]="true"
+                                                        [options]="formats"
+                                                        [(ngModel)]="forRoom.formats">
+                                                </ng-select>
+                                            </td>
+                                            <td>
+                                                <span class="table-remove fa fa-close text-danger"
+                                                      (click)="removeRoom(forRoom)"></span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-primary btn-cons m-t-45"
+                                    (click)="updateRoomsByCinema()">Guardar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- END Modal New/Edit Romms -->
+
+<!-- Modal view Users -->
+<div class="modal fade slide-up disable-scroll" id="viewUsers" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                            class="pg-close fs-14"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-t-20">
+
+
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>ROL</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let u of users">
+                                <td class="v-align-middle">
+                                    <p>{{u.name}} {{u.surnames}}</p>
+                                </td>
+                                <td class="v-align-middle">
+                                    <p>{{u.email}}</p>
+                                </td>
+                                <td class="v-align-middle">
+                                    <p>{{u.phone}}</p>
+                                </td>
+                                <td class="v-align-middle">
+                                    <span *ngIf="u.profile_id === 1" class="label label-youfeelmer">Youfeelmer</span>
+                                    <span *ngIf="u.profile_id === 2" class="label label-provider">Proveedor</span>
+                                    <span *ngIf="u.profile_id === 3" class="label label-manager">Encargado</span>
+                                    <span *ngIf="u.profile_id === 4" class="label label-programmer">Programador</span>
+                                    <span *ngIf="u.profile_id === 5" class="label label-promoter">Promotor</span>
+                                </td>
+                                <td class="v-align-middle">
+                                    <div class="btn-group btn-group-sm sm-m-t-10">
+                                        <button type="button" class="btn btn-default" title="Editar"
+                                                (click)="removeUser(u)"><i
+                                                class="fa fa-remove" (click)="removeUser(u)"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                       aria-expanded="false" aria-controls="collapseOne">
+                                        Añadir Usuario
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Email</th>
+                                            <th>Teléfono</th>
+                                            <th>ROL</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let u of usersNoCinema">
+                                            <td class="v-align-middle">
+                                                <p>{{u.name}} {{u.surnames}}</p>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <p>{{u.email}}</p>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <p>{{u.phone}}</p>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <span *ngIf="u.profile_id === 1" class="label label-youfeelmer">Youfeelmer</span>
+                                                <span *ngIf="u.profile_id === 2"
+                                                      class="label label-provider">Proveedor</span>
+                                                <span *ngIf="u.profile_id === 3"
+                                                      class="label label-manager">Encargado</span>
+                                                <span *ngIf="u.profile_id === 4" class="label label-programmer">Programador</span>
+                                                <span *ngIf="u.profile_id === 5"
+                                                      class="label label-promoter">Promotor</span>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <div class="btn-group btn-group-sm sm-m-t-10">
+                                                    <button type="button" class="btn btn-default" title="Editar"
+                                                            (click)="addUser(u)"><i
+                                                            class="fa fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button (click)="updateUsersByCinema()" type="button" class="btn btn-primary btn-cons"
+                            data-dismiss="modal">Guardar
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- END Modal view Users -->
+
+<!-- Modal confirm delete company -->
+<div class="modal fade slide-up disable-scroll" id="deleteCompany" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                            class="pg-close fs-14"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-t-20">
+                    <p>¿Seguro que quieres eliminar esta compañía, {{cinemaCompany.name}}?</p>
+                    <!-- dialog buttons -->
+
+                    <button type="button" class="btn btn-default btn-cons m-t-45" data-dismiss="modal">Cancelar</button>
+                    <button type="button" (click)="deleteCinemaCompany(cinemaCompany)"
+                            class="btn btn-primary btn-cons m-t-45" data-dismiss="modal">OK
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal confirm delete cinema -->
+<div class="modal fade slide-up disable-scroll" id="deleteCinema" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                            class="pg-close fs-14"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-t-20">
+                    <p>¿Seguro que quieres eliminar este cine, {{cinema.name}}?</p>
+
+                    <button type="button" class="btn btn-default btn-cons m-t-45" data-dismiss="modal">Cancelar</button>
+                    <button type="button" (click)="deleteCinema(cinema)" class="btn btn-primary btn-cons m-t-45"
+                            data-dismiss="modal">OK
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,304 @@
+<section id="eventCreate" class="wow fadeIn animated bg-gray">
+    <!-- content  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-sm-12 margin-bottom">
+                <div class="text-center"><h3 class="black-text">Creación de evento</h3></div>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2 col-sm-12  margin-bottom">
+                <ol class="cd-breadcrumb triangle center-col">
+                    <li [ngClass]="{'current': step == 1}"><a (click)="goStep(1)">Paso 1</a></li>
+                    <li [ngClass]="{'current': step == 2}"><a (click)="goStep(2)">Paso 2</a></li>
+                    <li [ngClass]="{'current': step == 3}"><a (click)="goStep(3)">Paso 3</a></li>
+                    <li [ngClass]="{'current': step == 4}"><a (click)="goStep(4)">Paso 4</a></li>
+                </ol>
+            </div>
+
+            <div class="col-md-8 col-md-offset-2 col-sm-12 tab-content bg-white">
+                <!-- step1 content -->
+                <div class="med-text fade in" id="step1" [hidden]="step != 1">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 margin-bottom-three">
+                            <h2>Selección de película</h2>
+                        </div>
+                        <div class="col-md-12 col-sm-12 margin-bottom-three">
+                            <h4>Escribe el título de la película</h4>
+                            <ng-select
+                                    [allowClear]="true"
+                                    [options]="movies"
+                                    [(ngModel)]="movie.id"
+                                    (selected)="selectMovie()"
+                                    (deselected)="deselectMovie()"
+                                    required
+                                    name="movies">
+                            </ng-select>
+                            <span class="required pull-right"><a href="javascript:;" routerLink="/filmCatalog"> Consulta
+                                nuestro catálogo </a></span>
+                            <div class="text-danger" *ngIf="!movie.id && invalidTab1">Debes seleccionar una película</div>
+                            <div class="alert alert-block alert-info  margin-eight no-margin-bottom" role="alert" [hidden]="!movieNotfound">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <h3 class="alert-info margin-two no-margin-top">Lo sentimos, la película seleccionada no
+                                    la tenemos en catálogo.</h3>
+                                <p>¿Te gastaría proponer esta película? <a href="javascript:;">Proponer</a></p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 col-sm-12" [hidden]="movie == null" [hidden]="movie.languages == null">
+                            <h4>Selecciona la versión para proyectar</h4>
+                        </div>
+
+                        <div class="col-md-12 col-xs-12 margin-bottom-three versions" [hidden]="movie.languages == null">
+                            <fieldset>
+                                <div *ngFor="let language of movie.languages">
+                                    <input id="{{language.name}}" class="radio-inline__input" type="radio"
+                                           name="language" value="{{language.id}}" [(ngModel)]="event.language_id"/>
+                                    <label class="radio-inline__label text-center" for="{{language.name}}">
+                                        <div class="title">
+                                            {{language.name}}
+                                        </div>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <div class="text-danger" *ngIf="(!movie || !movie.language_id) && invalidTab1">Debes seleccionar una versión</div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 tab-pane-footer">
+                            <a class="btn btn-steps pull-right" (click)="goStep(2)" data-toggle="tab"> Siguiente </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end step1 content -->
+                <!-- tab2 content -->
+                <div class="fade in" id="step2" [hidden]="step != 2">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 margin-bottom-three">
+                            <h2>Selección de Cine</h2>
+                        </div>
+                        <div class="col-md-12 col-sm-12 margin-bottom-three">
+                            <h4>Selecciona el cine donde se celebrará el evento</h4>
+                            <ng-select
+                                    [allowClear]="true"
+                                    [options]="cinemas"
+                                    [(ngModel)]="cinema_select_id"
+                                    (selected)="selectCinema()"
+                                    (deselected)="deselectCinema()"
+                                    name="cinemas">
+                            </ng-select>
+                            <span class="required pull-right"><a href="javascript:;" routerLink=""> Consulta
+                                nuestra red de cines </a></span>
+
+                            <div class="alert alert-block alert-warning margin-eight no-margin-bottom" role="alert" [hidden]="suggestions.length == 0">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <h3 class="alert-warning margin-two no-margin-top">La película no es compatible con la
+                                    sala de cine seleccionada.</h3>
+                                <p> A continuación te mostramos el listado de cines en los que se puede proyectar.</p>
+                            </div>
+                            <div class="text-danger" *ngIf="invalidTab2">Debes seleccionar un cine</div>
+
+                        </div>
+
+                        <div class="col-md-12 col-xs-12 margin-bottom-three versions" [hidden]="suggestions.length == 0">
+                            <fieldset>
+                                <div *ngFor="let suggestion of suggestions">
+                                    <input id="{{suggestion.id}}" class="radio-inline__input" type="radio"
+                                           name="cinema" value="{{suggestion.id}}" (change)="getCinema('radio-button')" [(ngModel)]="cinema.id"/>
+                                    <label class="radio-inline__label text-center" for="{{suggestion.id}}">
+                                        <div class="title">
+                                            {{suggestion.name}}
+                                        </div>
+                                        <span>{{suggestion.city_name}} - {{suggestion.province_name}}</span>
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 tab-pane-footer">
+                            <a class="btn btn-black pull-left" (click)="goStep(1)" data-toggle="tab"> Anterior </a>
+                            <a class="btn btn-steps pull-right" (click)="goStep(3)" data-toggle="tab"> Siguiente </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end step2 content -->
+                <!-- step3 content -->
+                <div class="fade in" id="step3" [hidden]="step != 3">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 margin-bottom-three">
+                            <h2>Detalles del evento</h2>
+                        </div>
+                        <div class="col-md-12 col-sm-12 margin-bottom-three">
+                            <h4><span>01</span> Elige día y hora. ¿Cuándo quieres que se celebre el evento? <i
+                                    class="fa fa-info-circle"></i></h4>
+
+                            <div class="row">
+                                <div class="form-group col-md-4 col-xs-12">
+                                    <label>Fecha</label>
+                                    <my-date-picker [options]="myDatePickerOptions"
+                                                    (dateChanged)="onDateChanged($event)"
+                                                    [(ngModel)]="event.date"></my-date-picker>
+                                    <div class="text-danger" *ngIf="invalidDate == true || (!event.date && invalidTab3)">Debes seleccionar una fecha válida</div>
+                                </div>
+                                <div class="col-md-8 col-xs-12">
+                                    <label>Hora</label>
+                                    <fieldset>
+                                        <input id="hour-1" class="radio-inline__input" type="radio" [(ngModel)]="event.hour"
+                                               name="hora" value="12.00"/>
+                                        <label class="radio-inline__label" for="hour-1">
+                                            12:00
+                                        </label>
+                                        <input id="hour-2" class="radio-inline__input" type="radio" [(ngModel)]="event.hour"
+                                               name="hora" value="14.30"/>
+                                        <label class="radio-inline__label" for="hour-2">
+                                            14:30
+                                        </label>
+                                        <input id="hour-3" class="radio-inline__input" type="radio" [(ngModel)]="event.hour"
+                                               name="hora" value="20.30"/>
+                                        <label class="radio-inline__label" for="hour-3">
+                                            20:30
+                                        </label>
+                                        <div class="text-danger" *ngIf="!event.hour && invalidTab3">Debes seleccionar una hora</div>
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12 col-sm-12">
+                            <h4><span>02</span> Información del evento</h4>
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <label>Descripción del evento</label>
+                            <textarea class="no-margin-bottom" [(ngModel)]="event.description"></textarea>
+                            <div class="text-danger" *ngIf="!event.description && invalidTab3">Debes introducir una descripción para el evento</div>
+                            <label class="no-margin-bottom">Extras</label>
+                            <div class="checkbox">
+                                <!-- checkbox  -->
+                                <label><input type="checkbox" name="Checkbox1" [(ngModel)]="event.q_and_a"> Me gustaría tener tiempo para un
+                                    Q&A.</label>
+                                <!-- end checkbox  -->
+                            </div>
+                            <div class="checkbox">
+                                <!-- checkbox  -->
+                                <label><input type="checkbox" name="Checkbox2" [(ngModel)]="event.launch_event"> Me gustaría presentar el evento.</label>
+                                <!-- end checkbox  -->
+                            </div>
+                            <div class="checkbox">
+                                <!-- checkbox  -->
+                                <label><input type="checkbox" name="private" [(ngModel)]="event.private"> Evento privado.</label>
+                                <!-- end checkbox  -->
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Otros Extras..." [(ngModel)]="event.needs"></textarea>
+                                <i class="fa fa-info-circle"></i>
+                            </div>
+
+                        </div>
+
+                        <!--
+                        <div class="col-md-12 col-sm-12 margin-bottom-three">
+                            <h4><span>03</span> ¿A quién quieres invitar?</h4>
+                        </div>
+                        <div class="col-md-12 col-xs-12 margin-bottom-three">
+                            <fieldset class="event-mode">
+                                <input id="item-4" class="radio-inline__input" type="radio"
+                                       name="accessible-radio" value="item-4"/>
+                                <label class="radio-inline__label pull-left" for="item-4">
+                                    <h5>Sólo a tus amigos</h5>
+                                    <span>El evento se hará de forma privada.</span>
+                                </label>
+                                <input id="item-5" class="radio-inline__input" type="radio"
+                                       name="accessible-radio" value="item-5" checked="checked"/>
+                                <label class="radio-inline__label pull-right no-margin-right" for="item-5">
+                                    <h5>A todo el mundo</h5>
+                                    <span>Al evento podrá asistir todos los que quieran.</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                         -->
+
+                        <div class="col-md-12 col-sm-12 margin-bottom-three" *ngIf="!session && !session.name">
+                            <h4><span>03</span> Promotor</h4>
+                        </div>
+                        <div class="col-md-6 col-xs-12" *ngIf="!session || !session.name">
+                            <input class="form-control" type="name" name="Nombre" placeholder="Nombre"
+                                   [(ngModel)]="event.user.name">
+                            <div class="text-danger" *ngIf="!event.user.name && !session.name && invalidTab3">Debes introducir un nombre</div>
+                        </div>
+                        <div class="col-md-6 col-xs-12" *ngIf="!session || !session.name">
+                            <input class="form-control" type="name" name="Apellidos" placeholder="Apellidos"
+                                   [(ngModel)]="event.user.surnames">
+                            <div class="text-danger" *ngIf="!event.user.surnames && !session.name && invalidTab3">Debes introducir tus apellidos</div>
+                        </div>
+                        <div class="col-md-6 col-xs-12" *ngIf="!session || !session.name">
+                            <input class="form-control" type="name" name="Teléfono" placeholder="Teléfono"
+                                   [(ngModel)]="event.user.phone">
+                            <div class="text-danger" *ngIf="!event.user.phone && !session.name && invalidTab3">Debes introducir un número de teléfono</div>
+                        </div>
+                        <div class="col-md-6 col-xs-12" *ngIf="!session || !session.name">
+                            <input class="form-control" type="email" name="Email" placeholder="Email"
+                                   [(ngModel)]="event.user.email">
+                            <div class="text-danger" *ngIf="!event.user.email && !session.name && invalidTab3">Debes introducir un email</div>
+                        </div>
+                        <div class="col-md-12" *ngIf="!session && !session.name">
+                            <span>Se creará una cuenta Youfeelmer en el sistema.</span><br>
+                            <span>Ya tengo una cuenta. <a href="#modal-login" class="modal-popup bold">Login</a></span>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 tab-pane-footer">
+                            <a class="btn btn-black pull-left" (click)="goStep(2)"> Anterior </a>
+                            <a class="btn btn-steps pull-right" (click)="goStep(4)"> Siguiente </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end step3 content -->
+                <!-- step4 content -->
+                <div class="fade in" id="step4" [hidden]="step != 4">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 margin-bottom-three">
+                            <h2>Resumen</h2>
+                        </div>
+                        <div class="col-md-12 col-sm-12 margin-bottom-three">
+                            <h4>La proyección de <strong>"{{movie.title}}"</strong> se celebrará en el cine
+                                <strong>"{{cinema.name}}"</strong> el día <strong>"{{eventDate | date: 'dd/MM/yyyy'}}"</strong> a las <strong>"{{event.hour}}"</strong>.
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-4 col-sm-12 margin-bottom-three resume">
+                            Necesitas vender <span class="resume-number">{{ event.crowdfunding_target }}</span> entradas o más
+                        </div>
+                        <div class="col-md-4 col-sm-12 margin-bottom-three resume">
+                            Precio aprox. <span class="resume-number">{{ event.vat_price }} €</span> por entrada
+                        </div>
+                        <div class="col-md-4 col-sm-12 margin-bottom-three resume" *ngIf="dayBefore">
+                            La fecha límite es <span class="resume-number">{{ dayBefore | date: 'dd/MM/yyyy' }}</span> para confirmar el evento
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 margin-bottom-three">
+                            <div class="checkbox">
+                                <!-- checkbox  -->
+                                <label><input type="checkbox" name="accept" [(ngModel)]="accept"> Acepto los <a href="javascript:;" class="bold">Términos del promotor</a></label>
+                                <div class="text-danger" *ngIf="!accept && invalidTab4">Debes aceptar los términos y condiciones</div>
+                                <!-- end checkbox  -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 tab-pane-footer">
+                            <a class="btn btn-black pull-left" (click)="goStep(3)"> Anterior </a>
+                            <a class="btn btn-steps pull-right" (click)="saveEvent()"> Siguiente </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end step4 content -->
+            </div>
+        </div>
+    </div>
+</section>

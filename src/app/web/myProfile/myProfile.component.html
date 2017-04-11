@@ -1,0 +1,188 @@
+<section id="myProfile">
+    <div class="container">
+        <div class="row">
+            <!-- section title -->
+            <div class="col-md-12 text-center">
+                <h3 class="section-title no-padding">Mi Perfil</h3>
+            </div>
+            <!-- end section title -->
+        </div>
+        <div class="row margin-ten no-margin-bottom">
+            <div class="col-md-3 col-sm-12 text-center xs-margin-bottom-ten">
+
+                    <div class="overlay gallery-hover">
+                        <a href="#" data-toggle="modal" data-target="#cambiarImagen">
+                            <i class="fa fa-pencil edit-icon"></i>
+                            <img  *ngIf="user.profile_img_url" [src]="user.profile_img_url" class="img-responsive" alt="">
+                            <img  *ngIf="!user.profile_img_url" src="../../assets/img/profiles/avatar2x.jpg" class="img-responsive" alt="">
+                        </a>
+                    </div>
+
+            </div>
+            <div class="col-md-9 col-sm-12 sm-margin-bottom-ten">
+                <div class="col-md-12 col-sm-12 no-padding">
+                    <form #profileEdit="ngForm" role="form" action="" novalidate autocomplete="off">
+                        <div class="row clearfix">
+                            <div class="col-md-4">
+                                <div class="form-group form-group-default" aria-required="true">
+                                    <label>Nombre</label>
+                                    <input type="text" [(ngModel)]="user.name" #name="ngModel" class="form-control" name="nombre" required=""
+                                           aria-required="true" value="{{user.name}}">
+                                    <p [hidden]="name.valid || sendUpdateProfile == false" color="danger" padding-left>
+                                        Es obligatorio introducir tu nombre
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-group-default">
+                                    <label>Apellidos</label>
+                                    <input type="text" [(ngModel)]="user.surnames" #surnames="ngModel" class="form-control" name="apellidos" required=""
+                                           aria-required="true" value="{{user.surnames}}">
+                                    <p [hidden]="surnames.valid || sendUpdateProfile == false" color="danger" padding-left>
+                                        Es obligatorio introducir tus apellidos
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-group-default">
+                                    <label>Usuario</label>
+                                    <input type="text" [(ngModel)]="user.username" #username="ngModel" class="form-control" name="usuario" required=""
+                                           aria-required="true" value="{{user.username}}">
+                                    <p [hidden]="username.valid || sendUpdateProfile == false" color="danger" padding-left>
+                                        Es obligatorio introducir tu nombre de usuario
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group form-group-default">
+                                    <label>Email</label>
+                                    <input type="email" [(ngModel)]="user.email" #email="ngModel" class="form-control" name="email"
+                                           value="{{user.email}}" required=""
+                                           aria-required="true">
+                                    <p [hidden]="email.valid || sendUpdateProfile == false" color="danger" padding-left>
+                                        Es obligatorio introducir tu email
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3" *ngIf="user.profile == 1">
+                              <div class="form-group form-group-default">
+                                <label>Provincia</label>
+                                <ng-select
+                                  [allowClear]="true"
+                                  [options]="provinces"
+                                  [(ngModel)]="province_id"
+                                  (selected)="getCitiesByProvince($event)"
+                                  placeholder="Provincia"
+                                  name="province">
+                                </ng-select>
+                              </div>
+                            </div>
+                            <div class="col-md-3" *ngIf="user.profile == 1">
+                              <div class="form-group form-group-default">
+                                <label>Ciudad</label>
+                                <ng-select
+                                  [allowClear]="true"
+                                  [options]="provinceCities"
+                                  [(ngModel)]="city_id"
+                                  placeholder="Ciudad"
+                                  name="city">
+                                </ng-select>
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                    </form>
+                    <button (click)="onUpdateProfile(profileEdit)" class="highlight-button-dark btn btn-medium button">Guardar</button>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6 pull-right">
+                            <a href="#" class="pull-right" data-toggle="modal" data-target="#changePw">Cambiar contraseña</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Modal Cambiar imagen -->
+<div class="modal fade slide-up disable-scroll" id="cambiarImagen" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-body text-center m-t-20">
+
+                    <form #form="ngForm" action="http://localhost:80/youfeelmws/public/api/user/profile/updateProfileImage"
+                          enctype="multipart/form-data"
+                          class="dropzone no-margin">
+                        <div class="fallback">
+                            <input name="file" type="file">
+                        </div>
+                    </form>
+
+                    <form #imageForm="ngForm">
+                        <input [hidden]="true" id="imageDropzone" #image name="img" type="text" required>
+                    </form>
+
+                    <button [disabled]="!imageForm.form.valid" (click)="onFileUpload(image)" type="submit" class="highlight-button-dark btn btn-medium button" data-dismiss="modal">Guardar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- END Modal Cambiar imagen -->
+
+<!-- Modal Cambiar contraseña -->
+<div class="modal fade slide-up disable-scroll" id="changePw" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-body m-t-20">
+
+                    <form #changePassword="ngForm" role="form" action="" novalidate>
+                        <div class="form-group form-group-default">
+                            <label>Introduce tu contraseña actual</label>
+                            <input type="password" [(ngModel)]="password.oldpassword" #oldpassword="ngModel"
+                                   class="form-control" name="oldPassword" placeholder="******" required=""
+                                   aria-required="true">
+                            <p [hidden]="oldpassword.valid || sendChangePassword == false" color="danger" padding-left>
+                                Es obligatorio introducir tu antigua contraseña
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="form-group form-group-default">
+                            <label>Introduce tu nueva contraseña</label>
+                            <input type="password" [(ngModel)]="password.newpassword" #newpassword="ngModel"
+                                   class="form-control" name="newPassword" placeholder="******" required=""
+                                   aria-required="true">
+                            <p [hidden]="newpassword.valid || sendChangePassword == false" color="danger" padding-left>
+                                Es obligatorio introducir tu nueva contraseña
+                            </p>
+                        </div>
+                        <div class="form-group form-group-default">
+                            <label>Verifica tu nueva contraseña</label>
+                            <input type="password" [(ngModel)]="password.newpassword_confirmation" #newpassword_confirmation="ngModel"
+                                   class="form-control" name="newpassword_confirmation" placeholder="******" required=""
+                                   aria-required="true">
+                            <p [hidden]="newpassword_confirmation.valid || sendChangePassword == false" color="danger" padding-left>
+                                Es obligatorio confirmar tu nueva contraseña
+                            </p>
+                        </div>
+                    </form>
+
+                    <button type="button" (click)="onChangePassword(changePassword)" class="highlight-button-dark btn btn-medium button" data-dismiss="modal">Guardar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- END Modal Cambiar contraseña -->

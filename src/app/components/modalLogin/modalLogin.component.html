@@ -1,0 +1,113 @@
+<!-- modal login -->
+<div id="modal-login" class="white-popup-block mfp-hide col-lg-3 col-md-6 col-sm-7 col-xs-11 center-col bg-white text-center modal-popup-main">
+    <span class="slider-subtitle5 black-text">Login</span>
+    <div class="row">
+        <div class="col-md-12">
+            <facebook-login-component (onLoginEvent) = "triggerOnLoginEvent($event, session)"></facebook-login-component>
+        </div>
+
+        <div class="col-md-12 signup-or-separator">
+            <span class="h6 signup-or-separator--text">o</span>
+            <hr>
+        </div>
+
+        <div class="col-md-12">
+            <form #modalLoginForm="ngForm" role="form" action="" novalidate>
+                <!-- input -->
+                <input type="text" [(ngModel)]="login.email" #loginEmail="ngModel" name="email" placeholder="Email" required>
+                <p [hidden]="loginEmail.valid || sendLogin == false" color="danger" padding-left>
+                    Es obligatorio introducir el email
+                </p>
+                <!-- end input -->
+                <!-- input  -->
+                <input type="password" [(ngModel)]="login.password" #loginPassword="ngModel" name="password" placeholder="Contraseña" required>
+                <p [hidden]="loginPassword.valid || sendLogin == false" color="danger" padding-left>
+                    Es obligatorio introducir la contraseña
+                </p>
+                <!-- end input -->
+            </form>
+        </div>
+        <div class="col-md-12">
+            <p>¿Has olvidado tu contraseña? <a href="#modal-forgot" class="modal-popup">Recuperar contraseña</a></p>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" [disabled]="!modalLoginForm.valid" (click)="onLogin(modalLoginForm)" class="highlight-button btn btn-medium button popup-modal-dismiss no-margin">Inicia sesión</button>
+        </div>
+        <div class="col-md-12 form-register">
+            <p>¿Aún no estás registrado? <a href="#modal-register" class="modal-popup">Regístrate</a></p>
+        </div>
+    </div>
+
+    <div id="modal-register" class="white-popup-block mfp-hide col-lg-3 col-md-6 col-sm-7 col-xs-11 center-col bg-white text-center modal-popup-main">
+        <span class="slider-subtitle5 black-text">Registro</span>
+        <div class="row">
+            <div class="col-md-12">
+                <facebook-login-component></facebook-login-component>
+            </div>
+
+            <div class="col-md-12 signup-or-separator">
+                <span class="h6 signup-or-separator--text">o</span>
+                <hr>
+            </div>
+
+            <div class="col-md-12">
+                <form #registerForm="ngForm" role="form" action="" novalidate>
+                    <!-- input -->
+                    <input type="text" [(ngModel)]="user.email" #registerEmail="ngModel" name="email" placeholder="Email" required>
+                    <p [hidden]="registerEmail.valid || sendRegister == false" color="danger" padding-left>
+                        Es obligatorio introducir el email
+                    </p>
+                    <!-- end input -->
+                    <!-- input -->
+                    <input type="text" [(ngModel)]="user.name" #registerName="ngModel" name="name" placeholder="Nombre" required>
+                    <p [hidden]="registerName.valid || sendRegister == false" color="danger" padding-left>
+                        Es obligatorio introducir el nombre
+                    </p>
+                    <!-- end input -->
+                    <!-- input -->
+                    <input type="text" [(ngModel)]="user.surnames" #registerSurnames="ngModel" name="surnames" placeholder="Apellidos" required>
+                    <p [hidden]="registerSurnames.valid || sendRegister == false" color="danger" padding-left>
+                        Es obligatorio introducir los apellidos
+                    </p>
+                    <!-- end input -->
+                    <!-- input  -->
+                    <input type="password" [(ngModel)]="user.password" #registerPassword="ngModel" name="password" placeholder="contraseña" required>
+                    <p [hidden]="registerPassword.valid || sendRegister == false" color="danger" padding-left>
+                        Es obligatorio introducir el password
+                    </p>
+                    <!-- end input -->
+                </form>
+            </div>
+            <div class="col-md-12">
+                <p>¿Tienes una cuenta creada? <a href="#modal-login" class="modal-popup">Login</a></p>
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="!registerForm.valid" (click)="onRegister(registerForm)" class="highlight-button btn btn-medium button popup-modal-dismiss no-margin">Registro</button>
+    </div>
+    <!-- end modal Register -->
+    <!-- modal forgot -->
+    <div id="modal-forgot" class="white-popup-block mfp-hide col-lg-3 col-md-6 col-sm-7 col-xs-11 center-col bg-white text-center modal-popup-main">
+        <span class="slider-subtitle5 black-text">Recuperar contraseña</span>
+        <div class="row">
+            <div class="col-md-12">
+                <form #passRecoveryForm="ngForm" role="form" action="" novalidate>
+                    <!-- input -->
+                    <input type="email" [(ngModel)]="email.email" #emailRecovery="ngModel" name="email" class="form-control" placeholder="Email" required>
+                    <!-- end input -->
+                    <p [hidden]="emailRecovery.valid || sendRecovery == false" color="danger" padding-left>
+                        Es obligatorio introducir el email
+                    </p>
+                </form>
+            </div>
+            <div class="col-md-12">
+                <button type="submit" class="highlight-button btn btn-medium button popup-modal-dismiss no-margin" (click)="onPasswordRecovery(passRecoveryForm)">Enviar nueva contraseña</button>
+            </div>
+        </div>
+    </div>
+    <!-- end modal forgot -->
+    <!-- END MODALS -
+
+
+</div>
+<!-- end modal login -->

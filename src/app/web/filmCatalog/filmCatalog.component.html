@@ -1,0 +1,112 @@
+<section id="filmCatalog">
+    <div class="container">
+        <div class="row">
+            <!-- section title -->
+            <div class="col-md-12 text-center">
+                <h3 class="section-title no-padding">Catálogo</h3>
+            </div>
+            <!-- end section title -->
+        </div>
+        <div class="row margin-ten no-margin-bottom">
+
+            <div class="col-md-12">
+                <a data-toggle="collapse" data-parent="#collapse-one" href="#collapse-three-link1"
+                   class="btn-small-black-border-light btn btn-small btn-round button xs-no-margin pull-left"><i class="icon-97"></i> Filtrar</a>
+
+                <form class="controls">
+                    <div class="pull-right">
+                        <span>Más recientes</span>
+                        <input class='toggle' type="checkbox" name='check-4'/>
+                        <span>Órden Alfabético</span>
+                    </div>
+                </form>
+                <hr>
+
+                <div id="collapse-three-link1" class="panel-collapse collapse row">
+                    <form>
+                        <div class="col-md-2">
+                            <div class="select-style input-round">
+                                <ng-select
+                                        [allowClear]="true"
+                                        [options]="countries"
+                                        [multiple]="true"
+                                        [(ngModel)]="filter.countries_id"
+                                        placeholder="País"
+                                        name="countries">
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="select-style input-round">
+                                <ng-select
+                                        [allowClear]="true"
+                                        [options]="genres"
+                                        [multiple]="true"
+                                        [(ngModel)]="filter.genres_id"
+                                        placeholder="Género"
+                                        name="genres">
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="select-style input-round">
+                                <ng-select
+                                        [allowClear]="true"
+                                        [options]="languages"
+                                        [multiple]="true"
+                                        [(ngModel)]="filter.languages_id"
+                                        placeholder="Idioma"
+                                        name="languages">
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="select-style input-round">
+                                <ng-select
+                                        [allowClear]="true"
+                                        [options]="tags"
+                                        [multiple]="true"
+                                        [(ngModel)]="filter.tags_id"
+                                        placeholder="Tag"
+                                        name="tags">
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="select-style input-round">
+                                <ng-select
+                                        [allowClear]="true"
+                                        [options]="qualifications"
+                                        [multiple]="true"
+                                        [(ngModel)]="filter.qualifications_id"
+                                        placeholder="Calificación"
+                                        name="qualifications">
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group form-group-default form-group-default-select2">
+                                <button type="button"
+                                        class="btn btn-primary btn-cons btn-animated from-top pg pg-arrow_down"
+                                        (click)="applyFilter()">
+                                    <span>Filtrar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div *ngFor="let m of movies" class="col-md-3 col-sm-6 col-xs-12  margin-bottom-three wow fadeInUp animated">
+                <filmCard [movie]="m"></filmCard>
+            </div>
+        </div>
+        <div class="form-group form-group-default form-group-default-select2">
+            <button type="button"
+                    class="btn btn-primary btn-cons btn-animated from-top pg pg-arrow_down"
+                    (click)="mas()">
+                <span>Mas</span>
+            </button>
+        </div>
+    </div>
+</section>

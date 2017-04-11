@@ -1,0 +1,957 @@
+/* here you can put your own css to customize and override the theme */
+.page-header.navbar .page-logo {
+    background: transparent !important;
+}
+
+.page-content {
+    min-height: 900px !important;
+}
+
+.status-green {
+    position: absolute;
+    left: -25px;
+    top: 55%;
+    font-size: 18px;
+    color: #82E0AA;
+}
+
+.status-red {
+    position: absolute;
+    left: -25px;
+    top: 55%;
+    font-size: 18px;
+    color: #E43A45;
+}
+
+.status-grey {
+    position: absolute;
+    left: -25px;
+    top: 55%;
+    font-size: 18px;
+    color: #cccccc;
+}
+
+.prediction {
+    font-size: 24px;
+    top: 5px;
+    position: relative;
+    margin-right: 5px;
+}
+
+.page-container {
+    min-height: 850px;
+}
+
+.few-minutes {
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    z-index: 9999;
+    font-size: 18px;
+    text-align: center;
+    color: #f4f4f4;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.img-circle-small {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
+
+.nav-item {
+    border-right: 5px solid #fff !important;
+}
+
+.no-border {
+    border: none !important;
+}
+
+.border-dark-blue {
+    border-color: #578ABE !important;
+}
+
+.border-blue {
+    border-color: #67A1DD !important;
+}
+
+.border-cyan {
+    border-color: #67B4DB !important;
+}
+
+.border-dark-green {
+    border-color: #61A890 !important;
+}
+
+.border-green {
+    border-color: #6CB56F !important;
+}
+
+.border-green-apple {
+    border-color: #98C965 !important;
+}
+
+.border-yellow {
+    border-color: #E8CA32 !important;
+}
+
+.border-orange-yellow {
+    border-color: #E1A52C !important;
+}
+
+.border-orange {
+    border-color: #D28833 !important;
+}
+
+.border-orange-dark {
+    border-color: #BE5F16 !important;
+}
+
+.border-red {
+    border-color: #B52D0D !important;
+}
+
+.border-red-dark {
+    border-color: #A00032 !important;
+}
+
+.border-purple {
+    border-color: #9564BA !important;
+}
+
+.border-purple-dark {
+    border-color: #874EB2 !important;
+}
+
+.color-dark-blue {
+    color: #578ABE !important;
+}
+
+.color-blue {
+    color: #67A1DD !important;
+}
+
+.color-cyan {
+    color: #67B4DB !important;
+}
+
+.color-dark-green {
+    color: #61A890 !important;
+}
+
+.color-green {
+    color: #6CB56F !important;
+}
+
+.color-green-apple {
+    color: #98C965 !important;
+}
+
+.color-yellow {
+    color: #E8CA32 !important;
+}
+
+.color-orange-yellow {
+    color: #E1A52C !important;
+}
+
+.color-orange {
+    color: #D28833 !important;
+}
+
+.color-orange-dark {
+    color: #BE5F16 !important;
+}
+
+.color-red {
+    color: #B52D0D !important;
+}
+
+.color-red-dark {
+    color: #A00032 !important;
+}
+
+.color-purple {
+    color: #9564BA !important;
+}
+
+.color-purple-dark {
+    color: #874EB2 !important;
+}
+
+.color-grey1 {
+    color: #EFF2F2 !important;
+}
+
+.color-grey2 {
+    color: #C5C9CC !important;
+}
+
+.color-grey3 {
+    color: #A2ADAE !important;
+}
+
+.color-grey4 {
+    color: #8D9596 !important;
+}
+
+.color-grey5 {
+    color: #455468 !important;
+}
+
+.color-grey6 {
+    color: #3B485A !important;
+}
+
+.bkg-dark-blue {
+    background-color: #578ABE !important;
+    color: #fff
+}
+
+.bkg-blue {
+    background-color: #67A1DD !important;
+    color: #fff
+}
+
+.bkg-cyan {
+    background-color: #67B4DB !important;
+    color: #fff
+}
+
+.bkg-dark-green {
+    background-color: #61A890 !important;
+    color: #fff
+}
+
+.bkg-green {
+    background-color: #6CB56F !important;
+    color: #fff
+}
+
+.bkg-green-apple {
+    background-color: #98C965 !important;
+    color: #fff
+}
+
+.bkg-yellow {
+    background-color: #E8CA32 !important;
+    color: #fff
+}
+
+.bkg-orange-yellow {
+    background-color: #E1A52C !important;
+    color: #fff
+}
+
+.bkg-orange {
+    background-color: #D28833 !important;
+    color: #fff
+}
+
+.bkg-orange-dark {
+    background-color: #BE5F16 !important;
+    color: #fff
+}
+
+.bkg-red {
+    background-color: #B52D0D !important;
+    color: #fff
+}
+
+.bkg-red-dark {
+    background-color: #A00032 !important;
+    color: #fff
+}
+
+.bkg-purple {
+    background-color: #9564BA !important;
+    color: #fff
+}
+
+.bkg-purple-dark {
+    background-color: #874EB2 !important;
+    color: #fff
+}
+
+.bkg-grey1 {
+    background-color: #EFF2F2 !important;
+}
+
+.bkg-grey2 {
+    background-color: #C5C9CC !important;
+    color: #fff;
+}
+
+.bkg-grey3 {
+    background-color: #A2ADAE !important;
+    color: #fff
+}
+
+.bkg-grey4 {
+    background-color: #8D9596 !important;
+    color: #fff
+}
+
+.bkg-grey5 {
+    background-color: #455468 !important;
+    color: #fff
+}
+
+.bkg-grey6 {
+    background-color: #3B485A !important;
+    color: #fff
+}
+
+.table-hover > tbody > tr:hover, .table > tbody > tr.active > td, .table > tbody > tr.active > th, .table > tbody > tr > td.active, .table > tbody > tr > th.active, .table > tfoot > tr.active > td, .table > tfoot > tr.active > th, .table > tfoot > tr > td.active, .table > tfoot > tr > th.active, .table > thead > tr.active > td, .table > thead > tr.active > th, .table > thead > tr > td.active, .table > thead > tr > th.active {
+    background-color: #f8fbff !important;
+}
+
+.hover:hover {
+    background-color: #f1f4f8 !important;
+}
+
+.hiddenRow {
+    background-color: #f1f4f8 !important;
+    height: 49px !important;
+    vertical-align: bottom !important;
+}
+
+.list-group a {
+    float: right;
+}
+
+.btn.btn-sm {
+    font-size: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+.month-select span {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #B1B1B1;
+}
+
+.month-select a {
+    font-size: 20px;
+    color: #979797;
+}
+
+.month-select input {
+    height: 30px;
+    margin-right: -4px;
+}
+
+.month-select button {
+    height: 30px;
+}
+
+.user-analytics {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../../../pages/img/analytics_grey.png");
+    margin: 0 auto;
+    text-align: center;
+}
+
+.user-analytics.active {
+    background-image: url("../../../pages/img/analytics_color.png");
+}
+
+.user-facebook {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../../../pages/img/facebook_grey.png");
+    margin: 0 auto;
+    text-align: center;
+}
+
+.user-facebook.active {
+    background-image: url("../../../pages/img/facebook_color.png");
+}
+
+.user-twitter {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../../../pages/img/twitter_grey.png");
+    margin: 0 auto;
+    text-align: center;
+}
+
+.user-twitter.active {
+    background-image: url("../../../pages/img/twitter_color.png");
+}
+
+.user-mailchimp {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../../../pages/img/mailchimp_grey.png");
+    margin: 0 auto;
+    text-align: center;
+}
+
+.user-mailchimp.active {
+    background-image: url("../../../pages/img/mailchimp_color.png");
+}
+
+.id {
+    padding: 10px 0px;
+    color: #9A9A9A;
+    font-size: 16px;
+    font-weight: 300
+}
+
+.id_row {
+    margin: 30px 0px 60px;
+}
+
+.tools.input-group {
+    display: table !important;
+}
+
+.apply {
+    width: 100px !important;
+}
+
+.tips {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    background-color: #f7f7f7;
+    letter-spacing: 0px;
+}
+
+.advice {
+    background-color: #F3F3F3;
+}
+
+.vnews {
+    border-left: 15px solid #F3C200;
+}
+
+.valert {
+    border-left: 15px solid #E35B5A;
+}
+
+.vinfo {
+    border-left: 15px solid #32C5D2;
+}
+
+/* liScroll styles */
+
+.tickercontainer {
+    /* the outer div with the black border */
+    background: #fff;
+    width: 600px;
+    height: 27px;
+    margin-top: 6px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #F9F9F9;
+    border-radius: 3px;
+}
+
+.tickercontainer .mask {
+    /* that serves as a mask. so you get a sort of padding both left and right */
+    position: relative;
+    left: 10px;
+    top: 8px;
+    width: 718px;
+    overflow: hidden;
+}
+
+ul.newsticker {
+    /* that's your list */
+    position: relative;
+    left: 750px;
+    font-family: "Lato", sans-serif;
+    font-size: 12px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+ul.newsticker li {
+    float: left; /* important: display inline gives incorrect results when you check for elem's width */
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+ul.newsticker a {
+    white-space: nowrap;
+    padding: 0;
+    color: #E7505A;
+    font-family: "Lato", sans-serif;
+    font-size: 12px;
+    margin: 0 50px 0 0;
+}
+
+ul.newsticker span {
+    margin: 0 10px 0 0;
+}
+
+.invest_legend {
+    border-top: 1px solid #EAEAEA;
+    padding: 10px 0px 0px;
+    transition: fade 0.5s;
+}
+
+.invest_legend i {
+    font-size: 20px;
+    top: 2px;
+    position: relative;
+}
+
+.invest_legend {
+    font-size: 12px;
+}
+
+.helps {
+    color: #9A9A9A;
+    font-size: 12px;
+    font-family: Lato;
+    letter-spacing: .2px;
+    margin-top: 10px;
+}
+
+.modal-label small {
+    font-size: 12px;
+    color: #8f8f8f;
+}
+
+@media (max-width: 1024px) {
+
+    .control-label {
+        font-size: 12px;
+    }
+
+}
+
+.prediction_value {
+    font-size: 18px;
+}
+
+@media (max-width: 1024px) {
+
+    .prediction_value {
+        font-size: 14px;
+    }
+
+}
+
+.mvalues {
+    /*position: absolute;
+    left: 30px;
+    bottom: 50px;*/
+    font-size: 18px;
+    color: #fff;
+}
+
+.visual-year {
+    font-size: 60px !important;
+    margin-top: 10px;
+    margin-left: -30px;
+    color: rgba(255, 255, 255, 0.31) !important;
+}
+
+.visual-year small {
+    font-size: 22px;
+}
+
+@media (max-width: 1024px) {
+
+    .visual-year {
+        font-size: 30px !important;
+        margin-top: 10px;
+        margin-left: -20px;
+        color: rgba(255, 255, 255, 0.31) !important;
+    }
+
+    .visual-year small {
+        font-size: 16px;
+    }
+
+    .mvalues {
+        font-size: 16px;
+    }
+
+    .table thead tr th {
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+}
+
+.more {
+    min-height: 32px;
+}
+
+@media (max-width: 768px) {
+
+    .dashboard-stat {
+        margin-top: 10px;
+    }
+
+}
+
+.page-title small .fa {
+    font-size: 18px;
+    color: #BDBDBD;
+}
+
+.contact {
+    color: #6F7C9A;
+    font-size: 13px;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 40px;
+    max-width: 190px;
+}
+
+.popover-content {
+    font-size: 13px;
+}
+
+.alert_comercio::before {
+    background-color: #000;
+}
+
+.alert_comercio {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.alert_comercio .alert {
+    margin: 0 auto;
+    width: 50%;
+    position: relative;
+    top: 30%;
+    z-index: 999999999999;
+}
+
+.ic-state {
+    font-size: 22px;
+}
+
+.form-inline {
+    display: -webkit-inline-box;
+}
+
+.profile-sidebar-portlet {
+    min-height: 280px;
+}
+
+.page-container-bg-solid .page-title, .page-container-bg-solid .page-title small {
+    color: #B1B1B1;
+}
+
+.portlet.light > .portlet-title > .caption {
+    color: #B1B1B1;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.modal-content {
+    color: #fff;
+    background-color: #0E1A35;
+}
+
+.modal .modal-header {
+    border-bottom: 1px solid #0E1A35;
+}
+
+.modal-body {
+    padding: 30px 15px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.modal-footer .btn {
+    border: 1px solid #fff !important;
+    background: transparent;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+.modal-header .cerrar {
+    float: right;
+    font-size: 22px;
+    padding: 0%;
+    margin-top: -5px;
+    color: #ccc;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.settings {
+    cursor: pointer;
+    padding: 24px 12px;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.settings > a > i {
+    top: 3px;
+    color: #c0cddc;
+    font-size: 19px;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.settings > a > i:hover {
+    color: #8491a0;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav > li > a {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+}
+
+.cont .label {
+    width: 24px;
+    height: 24px;
+}
+
+.page-title small {
+    font-size: 14px;
+    color: #0E1A35 !important;
+}
+
+.change-user {
+    margin-top: 30px;
+    text-align: right;
+    color: #ccc;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.source-icon {
+    float: left;
+    width: 24px;
+    margin-right: 15px;
+}
+
+/*	--------------------------------------------------
+	:: Table Filter
+	-------------------------------------------------- */
+.panel {
+    border: 1px solid #ddd;
+    background-color: #fcfcfc;
+}
+
+.panel .btn-group {
+    margin: 15px 0 30px;
+}
+
+.panel .btn-group .btn {
+    transition: background-color .3s ease;
+}
+
+.table-filter {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.table-filter tbody tr:hover {
+    cursor: pointer;
+    background-color: #eee;
+}
+
+.table-filter tbody tr td {
+    padding: 10px;
+    vertical-align: middle;
+    border-top-color: #eee;
+}
+
+.table-filter tbody tr.selected td {
+    background-color: #eee;
+}
+
+.table-filter tr td:first-child {
+    width: 38px;
+}
+
+.ckbox {
+    position: relative;
+}
+
+.ckbox input[type="checkbox"] {
+    opacity: 0;
+}
+
+.ckbox label {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ckbox label:before {
+    content: '';
+    top: 1px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    display: block;
+    position: absolute;
+    border-radius: 2px;
+    border: 1px solid #bbb;
+    background-color: #fff;
+}
+
+.ckbox input[type="checkbox"]:checked + label:before {
+    border-color: #2BBCDE;
+    background-color: #2BBCDE;
+}
+
+.ckbox input[type="checkbox"]:checked + label:after {
+    top: 3px;
+    left: 3.5px;
+    content: '\e013';
+    color: #fff;
+    font-size: 11px;
+    font-family: 'Glyphicons Halflings';
+    position: absolute;
+}
+
+.table-filter .star {
+    color: #ccc;
+    text-align: center;
+    display: block;
+}
+
+.table-filter .star.star-checked {
+    color: #F0AD4E;
+}
+
+.table-filter .star:hover {
+    color: #ccc;
+}
+
+.table-filter .star.star-checked:hover {
+    color: #F0AD4E;
+}
+
+.table-filter .media-photo {
+    width: 35px;
+}
+
+.table-filter .media-body {
+    display: block;
+    /* Had to use this style to force the div to expand (wasn't necessary with my bootstrap version 3.3.6) */
+}
+
+.table-filter .media-meta {
+    font-size: 11px;
+    color: #999;
+}
+
+.table-filter .media .title {
+    color: #2BBCDE;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    margin: 0;
+}
+
+.table-filter .media .title span {
+    font-size: .8em;
+    margin-right: 20px;
+}
+
+.table-filter .media .title span.pagado {
+    color: #5cb85c;
+}
+
+.table-filter .media .title span.pendiente {
+    color: #f0ad4e;
+}
+
+.table-filter .media .title span.cancelado {
+    color: #d9534f;
+}
+
+.table-filter .media .summary {
+    font-size: 14px;
+}
+
+.filtros span {
+    line-height: 30px;
+}
+
+.page-bar {
+    background: transparent;
+}
+
+.c3 svg {
+    min-height: 400px;
+}
+
+.c3{
+    margin-bottom: 40px;
+}
+
+.modal-body table{
+    background-color: transparent;
+}
+
+table .fa-caret-down{
+    float: right;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+@media (min-width: 992px){
+    .page-sidebar-fixed .page-sidebar.bottom-sidebar {
+        position: fixed !important;
+        margin-left: 0;
+        bottom: 0px !important;
+        top: inherit !important;
+    }
+}
+
+.page-404-3 {
+    background: #0E1A35 !important;
+}
+
+.agencyname {
+    color: #7B7B7B;
+    top: 5px;
+    position: relative;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.modal .form-control {
+    background-color: #0E1A35;
+    color: #FFF;
+}
+
+.modal .radio-inline {
+    position: relative;
+    display: inline-block;
+    padding-left: 0px;
+    margin-bottom: 0;
+    font-weight: 200;
+    cursor: pointer;
+    float: left;
+}
+
+.img-circle {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}

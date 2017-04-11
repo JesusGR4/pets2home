@@ -1,0 +1,42 @@
+<!-- Film Card -->
+<article class="yf-card">
+  <header class="yf-card__thumb">
+    <a href="#"><img src="http://www.youfeelm.com/wp-content/uploads/que-bello-es-vivir-poster.jpg" ></a>
+
+  </header>
+  <div class="yf-card__body">
+    <div class="yf-card__category"><a href="javascript:;" *ngIf="movie.premiere">Novedad</a></div>
+    <div class="yf-card__title"><a href="javascript:;" [routerLink]="['/film', movie.id]">{{movie.title}}</a></div>
+    <p class="yf-card__description">{{movie.description}}</p>
+  </div>
+  <footer class="yf-card__footer">
+    <i class="icon-57"></i> 116 min.
+  </footer>
+</article>
+<!--
+<div id="filmCard" class="card-2 card-3 ultraCard">
+    <div class="wrapper"
+         style="background: url('http://www.youfeelm.com/wp-content/uploads/que-bello-es-vivir-poster.jpg') center/cover no-repeat;">
+        <div class="header">
+
+            <div class="ribbon">
+                <div *ngIf="movie.premiere" class="ribbon-campaign">Novedad</div>
+            </div>
+
+        </div>
+
+        <div class="data">
+            <div class="content">
+                <h1 class="title"><a href="javascript:;" [routerLink]="['/film', movie.id]">{{movie.title}}</a>
+                </h1>
+
+                <p class="text">{{movie.description}}</p>
+
+
+                <a href="javascript:;" class="button" [routerLink]="['/film', movie.id]"><span>Ver más</span> <i class="fa fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<!-- END Film Card -->
