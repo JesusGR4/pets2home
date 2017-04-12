@@ -41,7 +41,7 @@ import {Compassuite} from "./admin-panel/dashboard/compassuitePage/compassuite.c
 
 
 const appRoutes:Routes = [
-    {path: '', redirectTo: '/', pathMatch: 'full'},
+    {path: '', redirectTo: '/index', pathMatch: 'full'},
     {
         path: "", component: WebComponent, children: [
         {

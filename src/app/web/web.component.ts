@@ -6,6 +6,7 @@ import {UsersService} from "../services/users.service";
 import {CodesService} from "../services/codes.service";
 import {MessagesService} from "../services/messages.service";
 import {SessionsService} from "../services/sessions.service";
+import {TranslateService} from "ng2-translate";
 declare var FooterReveal: any;
 declare var $: any;
 declare var window: any;
@@ -23,12 +24,17 @@ export class WebComponent{
     constructor(
         private router: Router,
         public _sessionsServices: SessionsService,
-        public _messagesService: MessagesService
+        public _messagesService: MessagesService,
+        private translate: TranslateService
     ){
-
+      translate.addLangs(["sp", "en"]);
+      translate.setDefaultLang('sp');
+      let browserLang = translate.getBrowserLang();
+      translate.use(browserLang.match(/en|sp/) ? browserLang : 'en');
     }
     ngOnInit(){
         this.session = ApiConfigService.getSessionByLocalStorage();
+
     }
 
     ngAfterViewInit() {

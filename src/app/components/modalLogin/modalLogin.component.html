@@ -1,16 +1,7 @@
 <!-- modal login -->
-<div id="modal-login" class="white-popup-block mfp-hide col-lg-3 col-md-6 col-sm-7 col-xs-11 center-col bg-white text-center modal-popup-main">
+  <div id="modal-login" class="white-popup-block mfp-hide col-lg-3 col-md-6 col-sm-7 col-xs-11 center-col bg-white text-center modal-popup-main">
     <span class="slider-subtitle5 black-text">Login</span>
     <div class="row">
-        <div class="col-md-12">
-            <facebook-login-component (onLoginEvent) = "triggerOnLoginEvent($event, session)"></facebook-login-component>
-        </div>
-
-        <div class="col-md-12 signup-or-separator">
-            <span class="h6 signup-or-separator--text">o</span>
-            <hr>
-        </div>
-
         <div class="col-md-12">
             <form #modalLoginForm="ngForm" role="form" action="" novalidate>
                 <!-- input -->
@@ -37,55 +28,9 @@
             <p>¿Aún no estás registrado? <a href="#modal-register" class="modal-popup">Regístrate</a></p>
         </div>
     </div>
+  </div>
 
-    <div id="modal-register" class="white-popup-block mfp-hide col-lg-3 col-md-6 col-sm-7 col-xs-11 center-col bg-white text-center modal-popup-main">
-        <span class="slider-subtitle5 black-text">Registro</span>
-        <div class="row">
-            <div class="col-md-12">
-                <facebook-login-component></facebook-login-component>
-            </div>
 
-            <div class="col-md-12 signup-or-separator">
-                <span class="h6 signup-or-separator--text">o</span>
-                <hr>
-            </div>
-
-            <div class="col-md-12">
-                <form #registerForm="ngForm" role="form" action="" novalidate>
-                    <!-- input -->
-                    <input type="text" [(ngModel)]="user.email" #registerEmail="ngModel" name="email" placeholder="Email" required>
-                    <p [hidden]="registerEmail.valid || sendRegister == false" color="danger" padding-left>
-                        Es obligatorio introducir el email
-                    </p>
-                    <!-- end input -->
-                    <!-- input -->
-                    <input type="text" [(ngModel)]="user.name" #registerName="ngModel" name="name" placeholder="Nombre" required>
-                    <p [hidden]="registerName.valid || sendRegister == false" color="danger" padding-left>
-                        Es obligatorio introducir el nombre
-                    </p>
-                    <!-- end input -->
-                    <!-- input -->
-                    <input type="text" [(ngModel)]="user.surnames" #registerSurnames="ngModel" name="surnames" placeholder="Apellidos" required>
-                    <p [hidden]="registerSurnames.valid || sendRegister == false" color="danger" padding-left>
-                        Es obligatorio introducir los apellidos
-                    </p>
-                    <!-- end input -->
-                    <!-- input  -->
-                    <input type="password" [(ngModel)]="user.password" #registerPassword="ngModel" name="password" placeholder="contraseña" required>
-                    <p [hidden]="registerPassword.valid || sendRegister == false" color="danger" padding-left>
-                        Es obligatorio introducir el password
-                    </p>
-                    <!-- end input -->
-                </form>
-            </div>
-            <div class="col-md-12">
-                <p>¿Tienes una cuenta creada? <a href="#modal-login" class="modal-popup">Login</a></p>
-            </div>
-        </div>
-
-        <button type="submit" [disabled]="!registerForm.valid" (click)="onRegister(registerForm)" class="highlight-button btn btn-medium button popup-modal-dismiss no-margin">Registro</button>
-    </div>
-    <!-- end modal Register -->
     <!-- modal forgot -->
     <div id="modal-forgot" class="white-popup-block mfp-hide col-lg-3 col-md-6 col-sm-7 col-xs-11 center-col bg-white text-center modal-popup-main">
         <span class="slider-subtitle5 black-text">Recuperar contraseña</span>
@@ -105,9 +50,5 @@
             </div>
         </div>
     </div>
-    <!-- end modal forgot -->
-    <!-- END MODALS -
 
-
-</div>
 <!-- end modal login -->

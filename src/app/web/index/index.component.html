@@ -15,14 +15,14 @@
                data-hoffset="0" data-y="center" data-voffset="-50" data-speed="600" data-start="800"
                data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0.01"
                data-endelementdelay="0.1" data-endspeed="500" data-endeasing="Power4.easeIn"
-               style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">Lorem Ipsum
+               style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">{{ 'SLIDE.LAYER1' | translate }}
           </div>
           <!-- layers 2 -->
           <div class="tp-caption light_heavy_70_shadowed lfb ltt tp-resizeme" data-x="center" data-hoffset="0"
                data-y="center" data-voffset="0" data-speed="600" data-start="900" data-easing="Power4.easeOut"
                data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.1"
                data-endspeed="500" data-endeasing="Power4.easeIn"
-               style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">Dolor sit amet
+               style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">{{ 'SLIDE.LAYER1' | translate }}
           </div>
           <!-- layers 3 -->
           <div class="tp-caption customin tp-resizeme rs-parallaxlevel-0" data-x="center" data-hoffset="0"
@@ -31,7 +31,7 @@
                data-speed="500" data-start="1200" data-easing="Power3.easeInOut" data-splitin="none"
                data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-linktoslide="next"
                style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">
-            <button class='btn btn-primary'>Hazlo posible</button>
+            <button class='btn btn-primary'>{{ 'SLIDE.LAYER2' | translate }}</button>
           </div>
         </li>
 
@@ -48,14 +48,14 @@
                data-hoffset="0" data-y="center" data-voffset="-50" data-speed="600" data-start="800"
                data-easing="Power4.easeOut" data-splitin="none" data-splitout="none" data-elementdelay="0.01"
                data-endelementdelay="0.1" data-endspeed="500" data-endeasing="Power4.easeIn"
-               style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">Lorem Ipsum
+               style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">¿Eres una casa de acogida?
           </div>
           <!-- layers 2 -->
           <div class="tp-caption light_heavy_70_shadowed lfb ltt tp-resizeme" data-x="center" data-hoffset="0"
                data-y="center" data-voffset="0" data-speed="600" data-start="900" data-easing="Power4.easeOut"
                data-splitin="none" data-splitout="none" data-elementdelay="0.01" data-endelementdelay="0.1"
                data-endspeed="500" data-endeasing="Power4.easeIn"
-               style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">Dolor sit amet
+               style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">¿Quieres aparecer aquí?
           </div>
           <!-- layers 3 -->
           <div class="tp-caption customin tp-resizeme rs-parallaxlevel-0" data-x="center" data-hoffset="0"
@@ -64,7 +64,7 @@
                data-speed="500" data-start="1200" data-easing="Power3.easeInOut" data-splitin="none"
                data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-linktoslide="next"
                style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">
-            <button class='btn btn-primary'>Hazlo posible</button>
+            <button class='btn btn-primary'>¡Date de alta!</button>
           </div>
         </li>
       </ul>
@@ -81,11 +81,12 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 title no-padding">
-            <span class="pull-left">Próximos Eventos</span>
+            <span class="pull-left">Elige la provincia de búsqueda</span>
             <a href="javascript:;" class='btn btn-primary pull-right'>Ver todos</a>
           </div>
         </div>
         <div class="row">
+          <div class="col-md-12" id="map">
           <div id="film-slider" class="owl-carousel owl-theme dark-pagination">
             <div class="item col-md-12">
               <eventCard></eventCard>
@@ -123,3 +124,4 @@
     </div>
   </div>
 </div>
+

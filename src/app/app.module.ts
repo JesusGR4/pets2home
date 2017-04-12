@@ -76,6 +76,7 @@ import {LogsService} from "./services/logs.service";
 import {ImageUploadModule} from "angular2-image-upload";
 import {Compassuite} from "./admin-panel/dashboard/compassuitePage/compassuite.component";
 import {CompassuiteService} from "./services/compassuite.service";
+import {TranslateModule} from "ng2-translate";
 
 
 
@@ -139,7 +140,8 @@ import {CompassuiteService} from "./services/compassuite.service";
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyArURQV4cyvQ9gITfu6Ix_lJM71e2Xw4LQ'
         }),
-        ImageUploadModule.forRoot()
+        ImageUploadModule.forRoot(),
+        TranslateModule.forRoot()
     ],
     providers: [
         appRoutingProviders,
