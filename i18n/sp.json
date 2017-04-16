@@ -4,5 +4,28 @@
     "LAYER2": "Cogelos",
     "LAYER3": "textor3",
     "LAYER4": "texto4"
+  },
+  "REGISTER":{
+    "TITLE": "Registro",
+    "NAME": "Nombre",
+    "SURNAME": "Apellidos",
+    "PHONE": "Teléfono",
+    "PROVINCE": "Provincia",
+    "CITY": "Ciudad",
+    "EMAIL": "Correo electrónico",
+    "PASSWORD": "Contraseña",
+    "CONFIRM_PASSWORD": "Confirmación de contraseña",
+    "TERMS": "Si te registras en nuestro sistema, das por entendido que has leído y aceptado nuestros términos y condiciones de uso",
+    "PERSONAL": "Datos personales",
+    "UBICATION": "Ubicación",
+    "USER": "Datos de usuario",
+    "NAME_ERROR": "El nombre es erróneo",
+    "SURNAME_ERROR": "Los apellidos son erróneos",
+    "PHONE_ERROR": "El teléfono es erróneo",
+    "PROVINCE_ERROR": "La provincia errónea",
+    "CITY_ERROR": "La ciudad es errónea",
+    "EMAIL_ERROR": "El correo electrónico es erróneo",
+    "PASSWORD_ERROR": "La contraseña es errónea",
+    "CONFIRM_PASSWORD_ERROR": "Las contraseñas no coinciden"
   }
 }

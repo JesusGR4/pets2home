@@ -28,15 +28,21 @@ export class WebComponent{
         private translate: TranslateService
     ){
       translate.addLangs(["sp", "en"]);
-      translate.setDefaultLang('sp');
-      let browserLang = translate.getBrowserLang();
-      translate.use(browserLang.match(/en|sp/) ? browserLang : 'en');
+      if(localStorage.getItem(ApiConfigService.LANGUAGE)==null){
+        translate.use('sp');
+      }else{
+        translate.use(localStorage.getItem(ApiConfigService.LANGUAGE));
+      }
+
     }
     ngOnInit(){
         this.session = ApiConfigService.getSessionByLocalStorage();
 
     }
-
+    setLanguage(language){
+      this.translate.use(language);
+      localStorage.setItem(ApiConfigService.LANGUAGE, language);
+    }
     ngAfterViewInit() {
         FooterReveal($,window);
     }

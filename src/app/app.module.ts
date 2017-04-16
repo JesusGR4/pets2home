@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID} from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule, FormBuilder} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {Ng2PaginationModule} from 'ng2-pagination';
 import { MyDatePickerModule } from 'mydatepicker';
@@ -77,6 +77,9 @@ import {ImageUploadModule} from "angular2-image-upload";
 import {Compassuite} from "./admin-panel/dashboard/compassuitePage/compassuite.component";
 import {CompassuiteService} from "./services/compassuite.service";
 import {TranslateModule} from "ng2-translate";
+import {RegisterPageComponent} from "./web/register/register.component";
+import {ParticularService} from "./services/particular.service";
+
 
 
 
@@ -90,6 +93,7 @@ import {TranslateModule} from "ng2-translate";
         ExampleTableComponent,
         ExamplePageComponent,
         LoginPageComponent,
+        RegisterPageComponent,
         DashboardComponent,
         UserManagement,
         ListUsers,
@@ -145,6 +149,8 @@ import {TranslateModule} from "ng2-translate";
     ],
     providers: [
         appRoutingProviders,
+        FormBuilder,
+        ReactiveFormsModule,
         SessionsService,
         MessagesService,
         CodesService,
@@ -173,6 +179,7 @@ import {TranslateModule} from "ng2-translate";
         CustomersService,
         LogsService,
         CompassuiteService,
+        ParticularService,
         { provide: LOCALE_ID, useValue: "es-ES" }
     ],
     bootstrap: [AppComponent]

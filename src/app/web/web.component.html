@@ -22,25 +22,31 @@
                     <ul class="nav navbar-nav navbar-right panel-group">
                         <!-- menu item -->
                         <li>
-                            <a href="javascript:;" routerLink="/index" >Home</a>
+                          <a><img src="../../assets/img/spain.png" width="20" (click)="setLanguage('sp')"></a>
                         </li>
+                        <li>
+                          <a><img src="../../assets/img/United-Kingdom.png" width="20" (click)="setLanguage('en')"></a>
+                        </li>
+
+                        <li>
+                            <a routerLink="/index" >Home</a>
+                        </li>
+                        <!-- menu item -->
+
+                        <!--<li *ngIf="!session.id">-->
+                            <!--<a class="modal-popup button-login" href="#modal-login">Login | registro</a>-->
+                        <!--</li>-->
                         <!-- menu item -->
                         <li>
-                            <a href="javascript:;" routerLink="/filmCatalog">Catálogo</a>
+                          <a routerLink="/register">¡Regístrate!</a>
                         </li>
                         <!-- menu item -->
-                        <li>
-                            <a href="javascript:;" routerLink="/eventCatalog">Eventos</a>
-                        </li>
-                        <!-- menu item -->
-                        <li>
-                            <a href="javascript:;" routerLink="/singleCinema">Cines</a>
-                        </li>
-                        <!-- menu item -->
-                        <li *ngIf="!session.id">
-                            <a class="modal-popup button-login" href="#modal-login">Login | registro</a>
-                        </li>
-                        <!-- menu item -->
+
+                      <!-- menu item -->
+                      <li>
+                        <a routerLink="/login">¡Entra!</a>
+                      </li>
+                      <!-- menu item -->
                         <li *ngIf="session.id" class="dropdown panel simple-dropdown top-login">
 
 
@@ -76,77 +82,77 @@
 
 <!-- footer -->
 <footer id="footer">
-    <div class="container footer-middle">
-        <div class="row">
-            <div class="col-md-3 col-sm-3 footer-link1 xs-display-none">
-                <!-- headline -->
-                <h5>Mi Entrada</h5>
-                <!-- end headline -->
-                <a href="javascript:;" class="highlight-button-dark btn btn-medium button xs-margin-bottom-five">Ver</a>
-            </div>
-            <div class="col-md-2 col-sm-3 col-xs-4 footer-link2 col-md-offset-3">
-                <!-- headline -->
-                <h5>Conócenos</h5>
-                <!-- end headline -->
-                <!-- link -->
-                <ul>
-                    <li><a href="javascript:;">Qué es la #Cinecracia</a></li>
-                    <li><a href="javascript:;">Cómo funciona</a></li>
-                    <li><a href="javascript:;">FAQ´s</a></li>
-                    <li><a href="javascript:;">Sobre Youfeelm</a></li>
-                    <li><a href="javascript:;">Prensa</a></li>
-                </ul>
-                <!-- end link -->
-            </div>
-            <div class="col-md-2 col-sm-3 col-xs-4 footer-link3">
-                <!-- headline -->
-                <h5>Proyoufeelm</h5>
-                <!-- end headline -->
-                <!-- link -->
-                <ul>
-                    <li><a href="javascript:;">Creadores</a></li>
-                    <li><a href="javascript:;">Añade Película</a></li>
-                    <li><a href="javascript:;">Promotores</a></li>
-                    <li><a href="javascript:;">exhibidores</a></li>
-                </ul>
-                <!-- end link -->
-            </div>
-            <div class="col-md-2 col-sm-3 col-xs-4  footer-link4">
-                <!-- headline -->
-                <h5>Legal</h5>
-                <!-- end headline -->
-                <!-- link -->
-                <ul>
-                    <li><a href="javascript:;">Contacto</a></li>
-                    <li><a href="javascript:;">Aviso Legal</a></li>
-                    <li><a href="javascript:;">Condiciones de uso</a></li>
-                </ul>
-                <!-- end link -->
-            </div>
-        </div>
-        <div class="wide-separator-line bg-mid-gray no-margin-lr margin-three no-margin-bottom"></div>
-        <div class="row margin-four no-margin-bottom">
-            <div class="col-md-6 col-sm-12 sm-text-center sm-margin-bottom-four">
-                <!-- link -->
-                <ul class="list-inline footer-link text-uppercase">
-                    <li><a class="popup-with-move-anim no-margin-bottom" href="#proposeMovie">Proponer Película</a></li>
-                </ul>
-                <!-- end link -->
-            </div>
-            <div class="col-md-6 col-sm-12 footer-social text-right sm-text-center">
-                <!-- social media link -->
-                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
-                <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
-                <a target="_blank" href="#"><i class="fa fa-tumblr"></i></a>
-                <a target="_blank" href="#"><i class="fa fa-instagram"></i></a>
-                <a target="_blank" href="#"><i class="fa fa-youtube"></i></a>
-                <a target="_blank" href="#"><i class="fa fa-vimeo"></i></a>
-                <!-- end social media link -->
-            </div>
-        </div>
-    </div>
+    <!--<div class="container footer-middle">-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-3 col-sm-3 footer-link1 xs-display-none">-->
+                <!--&lt;!&ndash; headline &ndash;&gt;-->
+                <!--<h5>Mi Entrada</h5>-->
+                <!--&lt;!&ndash; end headline &ndash;&gt;-->
+                <!--<a href="javascript:;" class="highlight-button-dark btn btn-medium button xs-margin-bottom-five">Ver</a>-->
+            <!--</div>-->
+            <!--<div class="col-md-2 col-sm-3 col-xs-4 footer-link2 col-md-offset-3">-->
+                <!--&lt;!&ndash; headline &ndash;&gt;-->
+                <!--<h5>Conócenos</h5>-->
+                <!--&lt;!&ndash; end headline &ndash;&gt;-->
+                <!--&lt;!&ndash; link &ndash;&gt;-->
+                <!--<ul>-->
+                    <!--<li><a href="javascript:;">Qué es la #Cinecracia</a></li>-->
+                    <!--<li><a href="javascript:;">Cómo funciona</a></li>-->
+                    <!--<li><a href="javascript:;">FAQ´s</a></li>-->
+                    <!--<li><a href="javascript:;">Sobre Youfeelm</a></li>-->
+                    <!--<li><a href="javascript:;">Prensa</a></li>-->
+                <!--</ul>-->
+                <!--&lt;!&ndash; end link &ndash;&gt;-->
+            <!--</div>-->
+            <!--<div class="col-md-2 col-sm-3 col-xs-4 footer-link3">-->
+                <!--&lt;!&ndash; headline &ndash;&gt;-->
+                <!--<h5>Proyoufeelm</h5>-->
+                <!--&lt;!&ndash; end headline &ndash;&gt;-->
+                <!--&lt;!&ndash; link &ndash;&gt;-->
+                <!--<ul>-->
+                    <!--<li><a href="javascript:;">Creadores</a></li>-->
+                    <!--<li><a href="javascript:;">Añade Película</a></li>-->
+                    <!--<li><a href="javascript:;">Promotores</a></li>-->
+                    <!--<li><a href="javascript:;">exhibidores</a></li>-->
+                <!--</ul>-->
+                <!--&lt;!&ndash; end link &ndash;&gt;-->
+            <!--</div>-->
+            <!--<div class="col-md-2 col-sm-3 col-xs-4  footer-link4">-->
+                <!--&lt;!&ndash; headline &ndash;&gt;-->
+                <!--<h5>Legal</h5>-->
+                <!--&lt;!&ndash; end headline &ndash;&gt;-->
+                <!--&lt;!&ndash; link &ndash;&gt;-->
+                <!--<ul>-->
+                    <!--<li><a href="javascript:;">Contacto</a></li>-->
+                    <!--<li><a href="javascript:;">Aviso Legal</a></li>-->
+                    <!--<li><a href="javascript:;">Condiciones de uso</a></li>-->
+                <!--</ul>-->
+                <!--&lt;!&ndash; end link &ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="wide-separator-line bg-mid-gray no-margin-lr margin-three no-margin-bottom"></div>-->
+        <!--<div class="row margin-four no-margin-bottom">-->
+            <!--<div class="col-md-6 col-sm-12 sm-text-center sm-margin-bottom-four">-->
+                <!--&lt;!&ndash; link &ndash;&gt;-->
+                <!--<ul class="list-inline footer-link text-uppercase">-->
+                    <!--<li><a class="popup-with-move-anim no-margin-bottom" href="#proposeMovie">Proponer Película</a></li>-->
+                <!--</ul>-->
+                <!--&lt;!&ndash; end link &ndash;&gt;-->
+            <!--</div>-->
+            <!--<div class="col-md-6 col-sm-12 footer-social text-right sm-text-center">-->
+                <!--&lt;!&ndash; social media link &ndash;&gt;-->
+                <!--<a target="_blank" href="#"><i class="fa fa-facebook"></i></a>-->
+                <!--<a target="_blank" href="#"><i class="fa fa-twitter"></i></a>-->
+                <!--<a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>-->
+                <!--<a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>-->
+                <!--<a target="_blank" href="#"><i class="fa fa-tumblr"></i></a>-->
+                <!--<a target="_blank" href="#"><i class="fa fa-instagram"></i></a>-->
+                <!--<a target="_blank" href="#"><i class="fa fa-youtube"></i></a>-->
+                <!--<a target="_blank" href="#"><i class="fa fa-vimeo"></i></a>-->
+                <!--&lt;!&ndash; end social media link &ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
     <div class="container-fluid bg-yf-blue footer-bottom">
         <div class="container">
             <div class="row margin-three">
@@ -163,9 +169,7 @@
             </div>
         </div>
     </div>
-    <!-- scroll to top -->
-    <a href="../../assets/web/web/javascript:;" class="scrollToTop"><i class="fa fa-angle-up"></i></a>
-    <!-- scroll to top End... -->
+
 </footer>
 
 <!-- MODALS -->

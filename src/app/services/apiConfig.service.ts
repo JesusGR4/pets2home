@@ -1,9 +1,10 @@
 import {Injectable} from "@angular/core";
 import {Session} from "../models/session";
+import {TranslateService} from "ng2-translate";
 
 @Injectable()
 export class ApiConfigService{
-  public static HOST = "http://localhost/youfeelmws/public/api/";
+  public static HOST = "http://localhost/pets2homebackend/public/api/";
   public static ID_FIELD = "Youfeelm-id";
   // Si se cambia el token, cambiar tambi�n en drozone.js -> Dropzone.prototype._finished
   public static TOKEN_FIELD = "Youfeelm-token";
@@ -16,10 +17,12 @@ export class ApiConfigService{
   public static EMAIL_FIELD = "Youfeelm-email";
   public static CUSTOMER_PROVINCE = "Youfeelm-province";
   public static CUSTOMER_CITY = "Youfeelm-city";
+  public static LANGUAGE = "LANGUAGE-FIELD";
 
+  constructor(){
 
-  public constructor(
-  ){}
+  }
+
 
   public static setSession(data, token = null){
     if(token != null){
@@ -55,7 +58,6 @@ export class ApiConfigService{
         session.province_id = localStorage.getItem(ApiConfigService.CUSTOMER_PROVINCE);
         session.city_id = localStorage.getItem(ApiConfigService.CUSTOMER_CITY);
       }
-
     }
     return session;
   }

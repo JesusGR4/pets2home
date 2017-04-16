@@ -38,6 +38,8 @@ import {ProgrammerValidatedEventsManagement} from "./admin-panel/dashboard/progr
 import {ProviderFilmManagement} from "./admin-panel/dashboard/providerFilmManagementPage/providerFilmManagement.component";
 import {ProgammerFilmManagement} from "./admin-panel/dashboard/programmerFilmManagementPage/programmerFilmManagement.component";
 import {Compassuite} from "./admin-panel/dashboard/compassuitePage/compassuite.component";
+import {RegisterPageComponent} from "./web/register/register.component";
+
 
 
 const appRoutes:Routes = [
@@ -48,10 +50,14 @@ const appRoutes:Routes = [
             path: 'index',
             component: IndexComponent,
         },
-        {
-            path: 'myProfile',
-            component: MyProfileComponent,
-        },
+      {
+        path: 'myProfile',
+        component: MyProfileComponent,
+      },
+      {
+        path: 'register',
+        component: RegisterPageComponent,
+      },
         {
             path: 'event/:event_id',
             component: SingleEventComponent,
@@ -99,6 +105,7 @@ const appRoutes:Routes = [
 
     ]
     },
+
     {
         path: "admin-panel", component: AdminPanelComponent, children: [
         {

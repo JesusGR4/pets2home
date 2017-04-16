@@ -4,5 +4,28 @@
     "LAYER2": "Get it",
     "LAYER3": "Layer3",
     "LAYER4": "Layer4"
+  },
+  "REGISTER":{
+    "TITLE": "Register",
+    "NAME": "Name",
+    "SURNAME": "Surname",
+    "PHONE": "Phone",
+    "PROVINCE": "Province",
+    "CITY": "City",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm password",
+    "TERMS": "If you register in our system, you agree with our terms and use conditions",
+    "PERSONAL": "Personal data",
+    "UBICATION": "Location",
+    "USER": "User data",
+    "NAME_ERROR": "Wrong name",
+    "SURNAME_ERROR": "Wrong surname",
+    "PHONE_ERROR": "Wrong phone",
+    "PROVINCE_ERROR": "Wrong province",
+    "CITY_ERROR": "Wrong city",
+    "EMAIL_ERROR": "Wrong e-mail",
+    "PASSWORD_ERROR": "Wrong password",
+    "CONFIRM_PASSWORD_ERROR": "Passwords don't match"
   }
 }

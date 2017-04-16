@@ -1,0 +1,131 @@
+<section id="register">
+  <div class="container">
+    <div class="row">
+      <!-- section title -->
+      <div class="col-md-12 text-center">
+        <h3 class="section-title no-padding">{{ 'REGISTER.TITLE' | translate }}</h3>
+      </div>
+      <!-- end section title -->
+    </div>
+    <div class="row margin-ten no-margin-bottom">
+
+      <div class="col-md-9 col-sm-12 sm-margin-bottom-ten">
+        <div class="col-md-12 col-sm-12 no-padding">
+          <form #register="ngForm" role="form" action="" novalidate autocomplete="off">
+            <h5>{{ 'REGISTER.PERSONAL' | translate }}</h5>
+            <div class="row clearfix">
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{ 'REGISTER.NAME' | translate }}</label>
+                  <input id="name" type="text" [(ngModel)]="particular.name" #name="ngModel" class="form-control" name="name" required
+                         aria-required="true" value="{{particular.name}}">
+                  <p hidden id="name-error" class="alert alert-danger">
+                    {{ 'REGISTER.NAME_ERROR' | translate }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{ 'REGISTER.SURNAME' | translate }}</label>
+                  <input id="surname"type="text" [(ngModel)]="particular.surname" #surname="ngModel" class="form-control" name="surname" required
+                         aria-required="true" value="{{particular.surname}}">
+                  <p hidden id="surname-error" class="alert alert-danger" padding-left>
+                    {{ 'REGISTER.SURNAME_ERROR' | translate }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{ 'REGISTER.PHONE' | translate }}</label>
+                  <input id="phone" type="text" [(ngModel)]="particular.phone" #phone="ngModel" class="form-control" name="phone" required
+                         aria-required="true" value="{{particular.phone}}">
+                  <p hidden id="phone-error" class="alert alert-danger" padding-left>
+                    {{ 'REGISTER.PHONE_ERROR' | translate }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <h5>{{ 'REGISTER.UBICATION' | translate }}</h5>
+            <div class="row clearfix">
+            <div class="col-md-4">
+              <div class="form-group form-group-default">
+                <label>{{ 'REGISTER.PROVINCE' | translate }}</label>
+                <ng-select
+                [allowClear]="true"
+                [options]="provinces"
+                [(ngModel)]="particular.province"
+                id="province"
+                #province="ngModel"
+                name="province">
+                </ng-select>
+                <p hidden id="province-error" class="alert alert-danger" padding-left>
+                  {{ 'REGISTER.PROVINCE_ERROR' | translate }}
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group form-group-default" aria-required="true">
+                <label>{{ 'REGISTER.CITY' | translate }}</label>
+                <input id="city" type="text" [(ngModel)]="particular.city" #city="ngModel" class="form-control" name="city" required
+                       aria-required="true" value="{{particular.city}}">
+                <p hidden id="city-error" class="alert alert-danger" padding-left>
+                  {{ 'REGISTER.CITY_ERROR' | translate }}
+                </p>
+              </div>
+            </div>
+            </div>
+            <h5>{{ 'REGISTER.USER' | translate }}</h5>
+
+            <div class="clearfix">
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{ 'REGISTER.EMAIL' | translate }}</label>
+                  <input id="email" type="text" [(ngModel)]="particular.email" #email="ngModel" class="form-control" name="email" required
+                         aria-required="true" value="{{particular.email}}">
+                  <p hidden id="email-error" class="alert alert-danger" padding-left>
+                    {{ 'REGISTER.EMAIL_ERROR' | translate }}
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{ 'REGISTER.PASSWORD' | translate }}</label>
+                  <input id="password" type="password" [(ngModel)]="particular.password" #password="ngModel" class="form-control" name="password" required
+                         aria-required="true" value="{{particular.password}}">
+                  <p hidden id="password-error" class="alert alert-danger" padding-left>
+                    {{ 'REGISTER.PASSWORD_ERROR' | translate }}
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{ 'REGISTER.CONFIRM_PASSWORD' | translate }}</label>
+                  <input id="confirm" type="password" [(ngModel)]="particular.confirm_password" #confirm_password="ngModel" class="form-control" name="confirm_password" required
+                         aria-required="true" value="{{particular.confirm_password}}">
+                  <p hidden id="confirm-error" class="alert alert-danger" padding-left>
+                    {{ 'REGISTER.CONFIRM_PASSWORD_ERROR' | translate }}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix">
+              <div class="col-md-12">
+                <div class="form-group form-group-default" aria-required="true">
+                  <p class=" font-weight-100">{{ 'REGISTER.TERMS' | translate }}</p>
+                </div>
+              </div>
+            </div>
+          </form>
+          <hr>
+          <button (click)="registerFunction(register)" class="highlight-button-dark btn btn-medium button">{{ 'REGISTER.TITLE' | translate }}</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
