@@ -1,4 +1,4 @@
-import { Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit, Output, AfterViewInit} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import {Session} from "../../models/session";
 import {Movie} from "../../models/movie";
@@ -7,6 +7,8 @@ import {MessagesService} from "../../services/messages.service";
 import {MoviesService} from "../../services/movies.service";
 import {CodesService} from "../../services/codes.service";
 import {EventsService} from "../../services/events.service";
+import {Shelter} from "../../models/shelter.js";
+import {ShelterService} from "../../services/shelter.service";
 declare var Main_carousel: any;
 declare var Slider_index: any;
 declare var $: any;
@@ -17,16 +19,17 @@ declare var SpainMap: any;
     selector: "index",
     templateUrl: "./index.component.html"
 })
-export class IndexComponent{
+export class IndexComponent implements AfterViewInit{
     @Output()
     public session: Session;
 
     public movies : Movie[] = [];
     public events : Event[] = [];
-
+    public shelters: Shelter[] = [];
     constructor(private _messagesService: MessagesService,
                 private _moviesService: MoviesService,
-                private _eventsService: EventsService) {
+                private _eventsService: EventsService,
+                private _shelterService: ShelterService) {
 
     }
 
@@ -67,7 +70,6 @@ export class IndexComponent{
             },
             error => {
                 let errorMessage = <any>error;
-
                 if(errorMessage !== null){
                     this._messagesService.showServerErrorMessage(errorMessage);
                 }
@@ -82,6 +84,8 @@ export class IndexComponent{
     }
 
     ngOnInit(){
+
+
       new SpainMap({
         id: 'map', //(Requerido) Elemento HTML en el que se renderizará el mapa
         width: 700, //(Requerido) Ancho del mapa
@@ -93,17 +97,19 @@ export class IndexComponent{
         animationDuration: 200, // Duración de la animación de salida
         onClick: function(province, mouseevent) {
           // Método que se ejecutará al hacer click sobre una provincia
-
-        },
-        onMouseOver: function(province, mouseevent) {
-          // Método que se ejecutará al pasar el ratón sobre una provincia
-        },
-        onMouseOut: function(province, mouseevent) {
-          // Método que se ejecutará al salir de una provincia
-        }
+          // this._shelterService.getSheltersByProvince(province).subscribe(
+          //   res =>{
+          //     let json = res.json();
+          //     console.log(json);
+          //   }
+          // );
+          this.hola(province.name);
+        }.bind(this)
       });
     }
-
+    hola(province){
+      console.log(province);
+    }
     ngAfterViewInit() {
       Slider_index($);
       this.session = ApiConfigService.getSessionByLocalStorage();

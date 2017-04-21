@@ -82,11 +82,11 @@
         <div class="row">
           <div class="col-md-12 title no-padding">
             <span class="pull-left">Elige la provincia de búsqueda</span>
-            <a href="javascript:;" class='btn btn-primary pull-right'>Ver todos</a>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12" id="map">
+
+            <div class="col-md-12" id="map" style="text-align: center">
           <div id="film-slider" class="owl-carousel owl-theme dark-pagination">
             <div class="item col-md-12">
               <eventCard></eventCard>
@@ -111,14 +111,14 @@
     <div class="section section-basic bg-gray">
       <div class="container">
         <div class="col-md-12 title no-padding">
-          <span class="pull-left">Películas</span>
+          <span class="pull-left">Casas de acogida</span>
           <a href="javascript:;" class='btn btn-primary pull-right'>Ver todos</a>
         </div>
 
         <div class="row">
-          <div *ngFor="let m of movies" class="col-md-3">
-            <filmCard [movie]="m"></filmCard>
-          </div>
+          <!--<div *ngFor="let s of shelters" class="col-md-3">-->
+            <!--<filmCard [shelter]="s"></filmCard>-->
+          <!--</div>-->
         </div>
       </div>
     </div>

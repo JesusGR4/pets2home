@@ -11,9 +11,7 @@ export class ParticularService{
   }
 
   register(particular){
-    var params = {
-      'particular': particular,
-    }
+
 
     let headers = new Headers({
       'Content-Type': 'application/json',

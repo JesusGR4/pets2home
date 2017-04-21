@@ -79,6 +79,7 @@ import {CompassuiteService} from "./services/compassuite.service";
 import {TranslateModule} from "ng2-translate";
 import {RegisterPageComponent} from "./web/register/register.component";
 import {ParticularService} from "./services/particular.service";
+import {ShelterService} from "./services/shelter.service";
 
 
 
@@ -180,6 +181,7 @@ import {ParticularService} from "./services/particular.service";
         LogsService,
         CompassuiteService,
         ParticularService,
+        ShelterService,
         { provide: LOCALE_ID, useValue: "es-ES" }
     ],
     bootstrap: [AppComponent]
