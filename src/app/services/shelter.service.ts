@@ -12,7 +12,7 @@ export class ShelterService{
 
   getSheltersByProvince(province){
     var parameters = {
-      'province' : province,
+      'province' : province.name,
     };
 
     let headers = new Headers({

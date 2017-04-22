@@ -10,7 +10,7 @@ import {TranslateService} from "ng2-translate";
 declare var FooterReveal: any;
 declare var $: any;
 declare var window: any;
-
+declare var SpainMap: any;
 
 @Component({
     selector: "web",
