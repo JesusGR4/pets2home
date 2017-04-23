@@ -4,7 +4,7 @@ import {TranslateService} from "ng2-translate";
 
 @Injectable()
 export class ApiConfigService{
-  public static HOST = "http://localhost/pets2homebackend/public/api/";
+  public static HOST = "http://localhost/petstohomews/public/api/";
   public static ID_FIELD = "Youfeelm-id";
   // Si se cambia el token, cambiar tambi�n en drozone.js -> Dropzone.prototype._finished
   public static TOKEN_FIELD = "Youfeelm-token";
