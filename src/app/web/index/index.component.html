@@ -70,55 +70,32 @@
       </ul>
       <div class="tp-bannertimer"></div>
     </div>
-
-
   </div>
 
 
   <div class="main main-raised">
-
     <div class="section section-basic">
       <div class="container">
-        <div class="row">
           <div class="col-md-12 title no-padding">
             <span class="pull-left">Elige la provincia de búsqueda</span>
           </div>
-        </div>
-        <div class="row">
 
-            <div class="col-md-12" id="map" style="text-align: center">
-          <div id="film-slider" class="owl-carousel owl-theme dark-pagination">
-            <div class="item col-md-12">
-              <eventCard></eventCard>
-            </div>
-            <div class="item col-md-12">
-              <eventCard></eventCard>
-            </div>
-            <div class="item col-md-12">
-              <eventCard></eventCard>
-            </div>
-            <div class="item col-md-12">
-              <eventCard></eventCard>
-            </div>
-            <div class="item col-md-12">
-              <eventCard></eventCard>
-            </div>
-          </div>
+        <div class="row">
+            <div class="col-md-12" id="map" style="text-align: center"></div>
         </div>
       </div>
     </div>
 
-    <div class="section section-basic bg-gray">
+    <div *ngIf="shelters.length!=0" class="section section-basic bg-gray">
       <div class="container">
         <div class="col-md-12 title no-padding">
           <span class="pull-left">Casas de acogida</span>
-          <a href="javascript:;" class='btn btn-primary pull-right'>Ver todos</a>
+          <a href="javascript:;" [routerLink]="['/shelters', search]" class='btn btn-primary pull-right'>Ver todos</a>
         </div>
-
         <div class="row">
-          <!--<div *ngFor="let s of shelters" class="col-md-3">-->
-            <!--<filmCard [shelter]="s"></filmCard>-->
-          <!--</div>-->
+          <div *ngFor="let s of shelters" class="col-md-3">
+            <shelterCard [shelter]="s"></shelterCard>
+          </div>
         </div>
       </div>
     </div>

@@ -80,6 +80,8 @@ import {TranslateModule} from "ng2-translate";
 import {RegisterPageComponent} from "./web/register/register.component";
 import {ParticularService} from "./services/particular.service";
 import {ShelterService} from "./services/shelter.service";
+import {ShelterCardComponent} from "./web/commonComponents/shelterCard.component";
+import {ShelterCatalog} from "./web/shelterCatalog/shelterCatalog.component";
 
 
 
@@ -111,6 +113,8 @@ import {ShelterService} from "./services/shelter.service";
         FilmCatalog,
         EventCatalog,
         SingleCinema,
+        ShelterCardComponent,
+        ShelterCatalog,
         CheckoutComponent,
         EventCardComponent,
         FilmCardComponent,

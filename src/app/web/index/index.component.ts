@@ -26,6 +26,7 @@ export class IndexComponent implements AfterViewInit{
     public movies : Movie[] = [];
     public events : Event[] = [];
     public shelters: Shelter[] = [];
+    public search: string;
     constructor(private _messagesService: MessagesService,
                 private _moviesService: MoviesService,
                 private _eventsService: EventsService,
@@ -85,7 +86,6 @@ export class IndexComponent implements AfterViewInit{
 
     ngOnInit(){
 
-
       new SpainMap({
         id: 'map', //(Requerido) Elemento HTML en el que se renderizará el mapa
         width: 700, //(Requerido) Ancho del mapa
@@ -97,18 +97,29 @@ export class IndexComponent implements AfterViewInit{
         animationDuration: 200, // Duración de la animación de salida
         onClick: function(province, mouseevent) {
           // Método que se ejecutará al hacer click sobre una provincia
-          // this._shelterService.getSheltersByProvince(province).subscribe(
-          //   res =>{
-          //     let json = res.json();
-          //     console.log(json);
-          //   }
-          // );
-          this.hola(province.name);
+          this.sheltersToCards(province.name);
         }.bind(this)
       });
     }
-    hola(province){
-      console.log(province);
+    sheltersToCards(province){
+      this.shelters = [];
+      this.search = province;
+      this._shelterService.getSheltersByProvince(province).subscribe(
+        res =>{
+
+          let json = res.json();
+          var shelters = json.shelters;
+          for(var i = 0; i<4; i++){
+            var shelter = new Shelter();
+            console.log(shelters[i]);
+            shelter.name = shelters[i].name;
+            shelter.shelter_id = shelters[i].shelter_id;
+            shelter.description = shelters[i].description;
+            this.shelters.push(shelter);
+          }
+
+        }
+      );
     }
     ngAfterViewInit() {
       Slider_index($);

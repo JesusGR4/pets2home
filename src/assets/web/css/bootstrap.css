@@ -761,7 +761,7 @@ pre code {
     overflow-y: scroll;
 }
 .container {
-    padding-right: 15px;
+    padding-right: 30px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
@@ -2941,7 +2941,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li > a {
     line-height: 1.42857143;
     border-radius:0;
-    float:left;   
+    float:left;
     text-transform:uppercase;
     margin:15px 32px;
     outline:none;

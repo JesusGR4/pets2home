@@ -39,6 +39,7 @@ import {ProviderFilmManagement} from "./admin-panel/dashboard/providerFilmManage
 import {ProgammerFilmManagement} from "./admin-panel/dashboard/programmerFilmManagementPage/programmerFilmManagement.component";
 import {Compassuite} from "./admin-panel/dashboard/compassuitePage/compassuite.component";
 import {RegisterPageComponent} from "./web/register/register.component";
+import {ShelterCatalog} from "./web/shelterCatalog/shelterCatalog.component";
 
 
 
@@ -66,10 +67,15 @@ const appRoutes:Routes = [
             path: 'film/:movie_id',
             component: SingleFilmComponent,
         },
-        {
-            path: 'checkout',
-            component: CheckoutComponent,
-        },
+      {
+        path: 'checkout',
+        component: CheckoutComponent,
+      },
+      {
+        path: 'shelters/:province',
+        component: ShelterCatalog,
+      },
+
         {
             path: 'filmCatalog',
             component: FilmCatalog,
