@@ -24,4 +24,19 @@ export class ShelterService{
       {headers: headers}
     )
   }
+  getSheltersByProvincePaginate(province, currentPage){
+    var parameters = {
+      'province' : province,
+      'currentPage' : currentPage,
+    };
+
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+
+    });
+    return this._http.post(ApiConfigService.HOST + "getSheltersByProvincePaginate",
+      parameters,
+      {headers: headers}
+    )
+  }
 }

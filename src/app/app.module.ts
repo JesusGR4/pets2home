@@ -70,7 +70,6 @@ import {LanguagesService} from "./services/languages.service";
 import {QualificationsService} from "./services/qualifications.service";
 import {MoviesService} from "./services/movies.service";
 import {EventsService} from "./services/events.service";
-import {AgmCoreModule} from "angular2-google-maps/core";
 import {CustomersService} from "./services/customers.service";
 import {LogsService} from "./services/logs.service";
 import {ImageUploadModule} from "angular2-image-upload";
@@ -82,6 +81,8 @@ import {ParticularService} from "./services/particular.service";
 import {ShelterService} from "./services/shelter.service";
 import {ShelterCardComponent} from "./web/commonComponents/shelterCard.component";
 import {ShelterCatalog} from "./web/shelterCatalog/shelterCatalog.component";
+import {SingleShelterComponent} from "./web/singleShelter/singleShelter.component";
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 
 
@@ -122,6 +123,7 @@ import {ShelterCatalog} from "./web/shelterCatalog/shelterCatalog.component";
         TermsComponent,
         CinemaList,
         NoPermissionsComponent,
+        SingleShelterComponent,
         CinemaManagement,
         FilmManagement,
         EventsManagement,
@@ -147,7 +149,7 @@ import {ShelterCatalog} from "./web/shelterCatalog/shelterCatalog.component";
         MyDatePickerModule,
         routing,
         AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyArURQV4cyvQ9gITfu6Ix_lJM71e2Xw4LQ'
+          apiKey: 'AIzaSyDJ0goX5RY-V3pvt4jEYlu_DH2ewKfU4s8'
         }),
         ImageUploadModule.forRoot(),
         TranslateModule.forRoot()

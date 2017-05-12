@@ -40,6 +40,7 @@ import {ProgammerFilmManagement} from "./admin-panel/dashboard/programmerFilmMan
 import {Compassuite} from "./admin-panel/dashboard/compassuitePage/compassuite.component";
 import {RegisterPageComponent} from "./web/register/register.component";
 import {ShelterCatalog} from "./web/shelterCatalog/shelterCatalog.component";
+import {SingleShelterComponent} from "./web/singleShelter/singleShelter.component";
 
 
 
@@ -74,6 +75,10 @@ const appRoutes:Routes = [
       {
         path: 'shelters/:province',
         component: ShelterCatalog,
+      },
+      {
+        path: 'shelter/:shelter_id',
+        component: SingleShelterComponent,
       },
 
         {

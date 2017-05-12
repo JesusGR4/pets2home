@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.sebm-google-map-container {
+  height: 300px;
+}
+
+
+#map{
+  position: relative !important;
+  height: 100% !important;
+  width: 100% !important
+}

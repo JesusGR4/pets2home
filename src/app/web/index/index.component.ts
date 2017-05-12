@@ -100,6 +100,7 @@ export class IndexComponent implements AfterViewInit{
           this.sheltersToCards(province.name);
         }.bind(this)
       });
+      $('#map').children().first().attr('width','100%');
     }
     sheltersToCards(province){
       this.shelters = [];
