@@ -100,6 +100,7 @@ export class IndexComponent implements AfterViewInit{
         }.bind(this)
       });
       $('#map').children().first().attr('width','100%');
+
     }
     sheltersToCards(province){
       this.shelters = [];
@@ -115,6 +116,7 @@ export class IndexComponent implements AfterViewInit{
             shelter.shelter_id = shelters[i].shelter_id;
             shelter.description = shelters[i].description;
             this.shelters.push(shelter);
+
           }
 
         }
@@ -127,7 +129,9 @@ export class IndexComponent implements AfterViewInit{
       [].forEach.call(document.querySelectorAll('.tp-arr-titleholder'), function (el) {
         el.style.visibility = 'hidden';
       });
-
+      $('html,body').animate({
+          scrollTop: $("#indice").offset().top},
+        'slow');
     }
 
 }

@@ -34,13 +34,16 @@ export class SingleShelterComponent{
         });
       this.getShelterDetails();
       PopUp($, window);
+
     }
 
     ngAfterViewInit(){
       this.sub = this.route.params.subscribe(params => {
         this.id = +params['shelter_id'];
       });
-
+      // $('html,body').animate({
+      //     scrollTop: $("#singleShelter").offset().top},
+      //   'slow');
     }
 
     getShelterDetails(){

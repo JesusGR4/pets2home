@@ -61,9 +61,19 @@ export class ShelterCatalog{
         });
 
       this.sheltersToCards()
-
+      $('html,body').animate({
+          scrollTop: $("#shelterCatalog").offset().top},
+        'slow');
     }
 
+    ngAfterViewInit(){
+      $('html,body').animate({
+          scrollTop: $("#shelterCatalog").offset().top},
+        'slow');
+      this.sub = this.route.params.subscribe(params => {
+        this.province = params['province'];
+      });
+    }
     sheltersToCards(){
     this._shelterService.getSheltersByProvincePaginate(this.province, this.currentPage).subscribe(
       res =>{
