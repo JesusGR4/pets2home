@@ -19,7 +19,7 @@ import {Qualification} from "../../models/qualification";
 import {Shelter} from "../../models/shelter.js";
 import {ShelterService} from "../../services/shelter.service";
 
-declare var FooterReveal2: any;
+
 declare var $: any;
 declare var window: any;
 
@@ -60,7 +60,8 @@ export class ShelterCatalog{
             this.province = params['province'];
         });
 
-      this.sheltersToCards();
+      this.sheltersToCards()
+
     }
 
     sheltersToCards(){
@@ -69,7 +70,7 @@ export class ShelterCatalog{
         let json = res.json();
         var shelters = json.shelters;
         this.totalItems = shelters.length;
-        for(var i = 0; i<8; i++){
+        for(var i = 0; i<this.totalItems; i++){
           var shelter = new Shelter();
           shelter.name = shelters[i].name;
           shelter.shelter_id = shelters[i].shelter_id;
@@ -82,16 +83,11 @@ export class ShelterCatalog{
 
 
     more(){
-      //TODO: Si el número de items de esa página es diferente al número máximo de elementos por página, quitar
         this.currentPage = this.currentPage + 1;
         this.sheltersToCards();
     }
 
-    ngAfterViewInit() {
-        FooterReveal2($,window);
-        this.session = ApiConfigService.getSessionByLocalStorage();
 
-    }
 
     private handlerError(code, message){
         if(code == CodesService.INVALID_TOKEN){

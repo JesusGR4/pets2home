@@ -1,13 +1,13 @@
 export class Shelter{
   public shelter_id;
-  public user_id
+  public user_id;
   public name;
   public phone;
   public email;
   public province;
   public city;
   public password;
-  public altitude;
+  public longitude;
   public latitude;
   public address;
   public description;
@@ -24,7 +24,7 @@ export class Shelter{
     this.province="";
     this.city="";
     this.password="";
-    this.altitude="";
+    this.longitude="";
     this.latitude="";
     this.address="";
     this.description="";

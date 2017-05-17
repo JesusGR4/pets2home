@@ -22,7 +22,6 @@ declare var SpainMap: any;
 export class IndexComponent implements AfterViewInit{
     @Output()
     public session: Session;
-
     public movies : Movie[] = [];
     public events : Event[] = [];
     public shelters: Shelter[] = [];
@@ -107,7 +106,6 @@ export class IndexComponent implements AfterViewInit{
       this.search = province;
       this._shelterService.getSheltersByProvince(province).subscribe(
         res =>{
-
           let json = res.json();
           var shelters = json.shelters;
           for(var i = 0; i<4; i++){
@@ -122,6 +120,7 @@ export class IndexComponent implements AfterViewInit{
         }
       );
     }
+
     ngAfterViewInit() {
       Slider_index($);
       this.session = ApiConfigService.getSessionByLocalStorage();

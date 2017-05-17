@@ -4230,6 +4230,9 @@ h2.title {
   height: 380px;
   background-position: top center;
 }
+.mapsSingleShelter {
+  height: 200px;
+}
 
 .cinemaList .header {
   height: 580px;

@@ -6,7 +6,7 @@
   <div class="main main-raised">
     <div class="container margin-content">
       <div class="text-center">
-        <h3 class="section-title no-padding">Casas de acogida en {{province}}</h3>
+        <h3 class="section-title no-padding">{{ 'SHELTER-CATALOG.SHELTERS' | translate }} {{province}}</h3>
       </div>
         <div *ngFor="let s of shelters" class="col-md-3 col-sm-6 col-xs-12  margin-bottom-three wow fadeInUp animated">
           <shelterCard [shelter]="s"></shelterCard>

@@ -116,7 +116,6 @@ const appRoutes:Routes = [
 
     ]
     },
-
     {
         path: "admin-panel", component: AdminPanelComponent, children: [
         {

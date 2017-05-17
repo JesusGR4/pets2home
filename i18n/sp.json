@@ -27,5 +27,21 @@
     "EMAIL_ERROR": "El correo electrónico es erróneo",
     "PASSWORD_ERROR": "La contraseña es errónea",
     "CONFIRM_PASSWORD_ERROR": "Las contraseñas no coinciden"
+  },
+  "SINGLE-SHELTER":{
+    "SHARE": "¡Comparte!",
+    "CONTACT": "Contacta",
+    "SCHEDULE":"Horario",
+    "PHONE":"Teléfono",
+    "EMAIL": "Correo",
+    "CITY": "Ciudad",
+    "WHERE": "Donde estamos",
+    "ADDRESS": "Dirección",
+    "ANIMALS": "Nuestros animales",
+    "WATCH": "Ver todos",
+    "FIND": "¡Encuéntranos!"
+  },
+  "SHELTER-CATALOG":{
+    "SHELTERS": "Casas de acogida en:"
   }
 }

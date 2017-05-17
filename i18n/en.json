@@ -27,5 +27,21 @@
     "EMAIL_ERROR": "Wrong e-mail",
     "PASSWORD_ERROR": "Wrong password",
     "CONFIRM_PASSWORD_ERROR": "Passwords don't match"
+  },
+  "SINGLE-SHELTER":{
+    "SHARE": "Share!",
+    "CONTACT": "Contact",
+    "SCHEDULE":"Schedule",
+    "PHONE":"Phone",
+    "EMAIL": "Email",
+    "CITY": "City",
+    "WHERE": "Where we are",
+    "ADDRESS": "Address",
+    "ANIMALS": "Our animals",
+    "WATCH": "See all",
+    "FIND": "Find us!"
+  },
+  "SHELTER-CATALOG":{
+    "SHELTERS": "Shelters at:"
   }
 }

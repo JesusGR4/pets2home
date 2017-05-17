@@ -39,4 +39,18 @@ export class ShelterService{
       {headers: headers}
     )
   }
+  getShelterById(id){
+    var parameters = {
+      'shelter_id' : id,
+    };
+
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+    });
+
+    return this._http.post(ApiConfigService.HOST + "getShelterById",
+      parameters,
+      {headers: headers}
+      )
+  }
 }

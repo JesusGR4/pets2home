@@ -7,7 +7,7 @@ import {CodesService} from "../services/codes.service";
 import {MessagesService} from "../services/messages.service";
 import {SessionsService} from "../services/sessions.service";
 import {TranslateService} from "ng2-translate";
-declare var FooterReveal: any;
+declare var FooterReveal2: any;
 declare var $: any;
 declare var window: any;
 declare var SpainMap: any;
@@ -43,11 +43,10 @@ export class WebComponent{
       this.translate.use(language);
       localStorage.setItem(ApiConfigService.LANGUAGE, language);
     }
-    ngAfterViewInit() {
-        FooterReveal($,window);
-    }
+
 
     onLogin($event){
+
         this.session = ApiConfigService.getSessionByLocalStorage();
     }
 
