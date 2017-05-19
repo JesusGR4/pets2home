@@ -1049,6 +1049,10 @@ input[type='checkbox']:checked.toggle:after {
   bottom: 10px;
   color: #888;
 }
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
 
 /* --------------------------------
 

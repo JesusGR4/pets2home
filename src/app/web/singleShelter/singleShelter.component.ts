@@ -41,9 +41,9 @@ export class SingleShelterComponent{
       this.sub = this.route.params.subscribe(params => {
         this.id = +params['shelter_id'];
       });
-      // $('html,body').animate({
-      //     scrollTop: $("#singleShelter").offset().top},
-      //   'slow');
+      $('html,body').animate({
+          scrollTop: $("#singleShelter").offset().top},
+        'slow');
     }
 
     getShelterDetails(){
@@ -60,7 +60,6 @@ export class SingleShelterComponent{
         },
         error => {
           let errorMessage = <any>error;
-
           if(errorMessage !== null){
             this._messagesService.showServerErrorMessage(errorMessage);
           }

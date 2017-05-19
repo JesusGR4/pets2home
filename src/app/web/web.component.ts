@@ -45,11 +45,6 @@ export class WebComponent{
     }
 
 
-    onLogin($event){
-
-        this.session = ApiConfigService.getSessionByLocalStorage();
-    }
-
     private handlerError(code){
         let message = "";
         if(code == CodesService.INVALID_TOKEN){

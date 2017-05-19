@@ -83,6 +83,7 @@ import {ShelterCardComponent} from "./web/commonComponents/shelterCard.component
 import {ShelterCatalog} from "./web/shelterCatalog/shelterCatalog.component";
 import {SingleShelterComponent} from "./web/singleShelter/singleShelter.component";
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import {LoginComponent} from "./web/login/login.component";
 
 
 
@@ -97,6 +98,7 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
         ExampleTableComponent,
         ExamplePageComponent,
         LoginPageComponent,
+        LoginComponent,
         RegisterPageComponent,
         DashboardComponent,
         UserManagement,

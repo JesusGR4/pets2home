@@ -41,6 +41,7 @@ import {Compassuite} from "./admin-panel/dashboard/compassuitePage/compassuite.c
 import {RegisterPageComponent} from "./web/register/register.component";
 import {ShelterCatalog} from "./web/shelterCatalog/shelterCatalog.component";
 import {SingleShelterComponent} from "./web/singleShelter/singleShelter.component";
+import {LoginComponent} from "./web/login/login.component";
 
 
 
@@ -97,10 +98,14 @@ const appRoutes:Routes = [
             path: 'faqs',
             component: FaqsComponent,
         },
-        {
-            path: 'terms',
-            component: TermsComponent,
-        },
+      {
+        path: 'terms',
+        component: TermsComponent,
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
         {
             path: 'cinemaList',
             component: CinemaList,

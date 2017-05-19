@@ -1,0 +1,82 @@
+
+<div class="singleCinemaPage" id="login">
+  <div class="header header-filter parallax-fix" id="slider"
+       style="background-image: url('../../assets/img/theaters/login.jpg'); background-size:cover">
+  </div>
+  <div class="main main-raised">
+    <div class="dashboard-content">
+      <div class="container text-center">
+
+        <div class="row ">
+
+            <!-- START Login Form -->
+            <form #loginForm="ngForm" role="form" action="" novalidate>
+              <!-- START Form Control-->
+              <div class="row">
+                <div class="row">
+                  <div class="col-md-4 col-centered" >
+                    <div aria-required="true">
+                      <label>Email</label>
+                      <div class="controls form-group form-group-default">
+                        <input type="text" [(ngModel)]="session.email" #email="ngModel" name="email" placeholder="email" class="form-control" required>
+                        <p [hidden]="email.valid || send == false" color="danger" padding-left>
+                          Es obligatorio introducir el email
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <!-- END Form Control-->
+              <!-- START Form Control-->
+
+
+                  <div class="row">
+                    <div class="col-md-4 col-centered">
+                      <div aria-required="true">
+                        <label>Password</label>
+                        <div class="controls form-group form-group-default">
+                          <input type="password" [(ngModel)]="session.password" #password="ngModel" class="form-control" name="password" placeholder="contraseña" required>
+                          <p [hidden]="password.valid || send == false" color="danger" padding-left>
+                            Es obligatorio introducir la contraseña
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <button class="btn btn-primary btn-cons m-t-10" type="submit" (click)="onLogin(loginForm)">Sign in</button>
+            </form>
+            <!-- END Form Control-->
+            <!-- START Form Control-->
+            <div class="row m-t-30">
+              <div class="col-md-4 col-centered">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse"
+                   aria-expanded="false" aria-controls="collapseTwo">
+                  ¿Has olvidado tu contraseña?
+                </a>
+
+                <div id="collapse" class="collapse m-t-30" role="tabpanel" aria-labelledby="headingTwo"
+                     aria-expanded="false" >
+
+                  <form id="form-forgot">
+                    <div class="form-group form-group-default">
+                      <label>Introduzca su email</label>
+
+                      <div class="controls">
+                        <input type="text" name="forgot" placeholder="email" class="form-control"
+                               required>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary btn-cons m-t-10" type="submit">Recuperar contraseña</button>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
