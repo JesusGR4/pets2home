@@ -5,18 +5,18 @@ import {TranslateService} from "ng2-translate";
 @Injectable()
 export class ApiConfigService{
   public static HOST = "http://localhost/petstohomews/public/api/";
-  public static ID_FIELD = "Youfeelm-id";
+  public static ID_FIELD = "petstohome-id";
   // Si se cambia el token, cambiar tambi�n en drozone.js -> Dropzone.prototype._finished
-  public static TOKEN_FIELD = "Youfeelm-token";
-  public static NAME_FIELD = "Youfeelm-name";
-  public static SURNAMES_FIELD = "Youfeelm-surnames";
-  public static PHOTO_FIELD = "Youfeelm-photo";
-  public static ROL_FIELD = "Youfeelm-rol";
-  public static ADMIN_FIELD = "Youfeelm-admin";
-  public static USERNAME_FIELD = "Youfeelm-username";
-  public static EMAIL_FIELD = "Youfeelm-email";
-  public static CUSTOMER_PROVINCE = "Youfeelm-province";
-  public static CUSTOMER_CITY = "Youfeelm-city";
+  public static TOKEN_FIELD = "petstohome-token";
+  public static NAME_FIELD = "petstohome-name";
+  public static SURNAMES_FIELD = "petstohome-surnames";
+  public static PHOTO_FIELD = "petstohome-photo";
+  public static ROL_FIELD = "petstohome-rol";
+  public static ADMIN_FIELD = "petstohome-admin";
+  public static USERNAME_FIELD = "petstohome-username";
+  public static EMAIL_FIELD = "petstohome-email";
+  public static CUSTOMER_PROVINCE = "petstohome-province";
+  public static CUSTOMER_CITY = "petstohome-city";
   public static LANGUAGE = "LANGUAGE-FIELD";
 
   constructor(){
@@ -43,6 +43,8 @@ export class ApiConfigService{
   }
   public static getSessionByLocalStorage(){
     let session = new Session();
+    console.log(localStorage.getItem(ApiConfigService.TOKEN_FIELD));
+    console.log(localStorage.getItem(ApiConfigService.NAME_FIELD));
     if(localStorage.getItem(ApiConfigService.TOKEN_FIELD) != null && localStorage.getItem(ApiConfigService.NAME_FIELD) != null
         && localStorage.getItem(ApiConfigService.TOKEN_FIELD) != null ){
       session.id = localStorage.getItem(ApiConfigService.ID_FIELD);

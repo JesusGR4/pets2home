@@ -21,24 +21,45 @@ export class SessionsService{
   ){}
 
   login(form, type){
-      var params = {
-          'email': form.email,
-          'password' : form.password,
-          'type' : type,
-      };
+    var params = {
+      'email': form.email,
+      'password' : form.password,
+      'type' : type,
+    };
 
-      let headers = new Headers({
-          'Content-Type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest'
-      });
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest'
+    });
     return this._http.post(
-        ApiConfigService.HOST+'login',
-        params ,
-        {
-          headers: headers
-        }
+      ApiConfigService.HOST+'login',
+      params ,
+      {
+        headers: headers
+      }
     )
   }
+
+
+  resetPassword(form){
+    console.log(form.email);
+    var params = {
+      'email': form.email,
+    };
+
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest'
+    });
+    return this._http.post(
+      ApiConfigService.HOST+'forgotPassword',
+      params ,
+      {
+        headers: headers
+      }
+    )
+  }
+
 
   logout() {
     let headers = new Headers({
