@@ -60,6 +60,26 @@ export class SessionsService{
     )
   }
 
+  resetForm(form){
+    var params = {
+      'email' : form.email,
+      'token' : form.token,
+      'password' : form.password,
+      'password_confirmation' : form.password_confirmation,
+    };
+
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest'
+    });
+    return this._http.post(
+      ApiConfigService.HOST+'reset',
+      params ,
+      {
+        headers: headers
+      }
+    )
+  }
 
   logout() {
     let headers = new Headers({

@@ -18,6 +18,7 @@ declare var window: any;
 })
 export class DashboardComponent{
     public session: Session = null;
+    public id: number = 1;
     constructor(
         private router: Router,
         private _sessionsService: SessionsService,
@@ -33,12 +34,11 @@ export class DashboardComponent{
 
     ngOnInit(){
         this.session = ApiConfigService.getSessionByLocalStorage();
-        if(this.session.name == null || this.session.profile == 1){
-            this.router.navigate(['/admin-panel/loginPage']);
-        }
+
     }
 
     ngAfterViewInit() {
+        this.id = 1;
         MyJS($,window);
     }
 

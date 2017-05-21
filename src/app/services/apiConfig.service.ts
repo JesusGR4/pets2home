@@ -5,6 +5,7 @@ import {TranslateService} from "ng2-translate";
 @Injectable()
 export class ApiConfigService{
   public static HOST = "http://localhost/petstohomews/public/api/";
+
   public static ID_FIELD = "petstohome-id";
   // Si se cambia el token, cambiar tambi�n en drozone.js -> Dropzone.prototype._finished
   public static TOKEN_FIELD = "petstohome-token";
@@ -31,7 +32,7 @@ export class ApiConfigService{
     localStorage.setItem(ApiConfigService.NAME_FIELD, data.name);
     localStorage.setItem(ApiConfigService.SURNAMES_FIELD, data.surnames);
     localStorage.setItem(ApiConfigService.PHOTO_FIELD, data.profile_img_url);
-    localStorage.setItem(ApiConfigService.ROL_FIELD, data.profile_id);
+    localStorage.setItem(ApiConfigService.ROL_FIELD, data.role_id);
     localStorage.setItem(ApiConfigService.ADMIN_FIELD, data.admin);
     localStorage.setItem(ApiConfigService.ID_FIELD, data.id);
     localStorage.setItem(ApiConfigService.EMAIL_FIELD, data.email);

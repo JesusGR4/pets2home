@@ -42,6 +42,7 @@ import {RegisterPageComponent} from "./web/register/register.component";
 import {ShelterCatalog} from "./web/shelterCatalog/shelterCatalog.component";
 import {SingleShelterComponent} from "./web/singleShelter/singleShelter.component";
 import {LoginComponent} from "./web/login/login.component";
+import {ResetComponent} from "./web/resetPassword/reset.component";
 
 
 
@@ -105,6 +106,10 @@ const appRoutes:Routes = [
       {
         path: 'login',
         component: LoginComponent,
+      },
+      {
+        path: 'restart-password/:token',
+        component: ResetComponent,
       },
         {
             path: 'cinemaList',

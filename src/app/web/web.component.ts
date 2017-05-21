@@ -37,6 +37,9 @@ export class WebComponent{
     }
     ngOnInit(){
         this.session = ApiConfigService.getSessionByLocalStorage();
+        if(this.session.profile ==1){
+          window.location.href = '/admin-panel/dashboard';
+        }
 
     }
     setLanguage(language){

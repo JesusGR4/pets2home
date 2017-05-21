@@ -1,0 +1,73 @@
+
+<div class="singleCinemaPage" id="login">
+  <div class="header header-filter parallax-fix" id="slider"
+       style="background-image: url('../../assets/img/theaters/login.jpg'); background-size:cover">
+  </div>
+  <div class="main main-raised">
+    <div class="dashboard-content">
+      <div class="container text-center">
+        <div class="col-md-12 text-center">
+          <h3 class="section-title no-padding">CAMBIAR CONTRASEÑA</h3>
+        </div>
+        <div class="row margin-top-section">
+
+            <!-- START Login Form -->
+            <form #resetForm="ngForm" role="form" action="" novalidate>
+              <!-- START Form Control-->
+              <div class="row">
+                <div class="row">
+                  <div class="col-md-4 col-centered" >
+                    <div aria-required="true">
+                      <label>Email</label>
+                      <div class="form-group form-group-default">
+                        <input type="text" [(ngModel)]="reset.email" #email="ngModel" name="email" placeholder="email" class="form-control" required>
+                        <p [hidden]="email.valid || send == false" color="danger" padding-left>
+                          Es obligatorio introducir el email
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <!-- END Form Control-->
+              <!-- START Form Control-->
+
+
+                <div class="row">
+                  <div class="col-md-4 col-centered">
+                    <div aria-required="true">
+                      <label>Password</label>
+                      <div class="form-group form-group-default">
+                        <input type="password" [(ngModel)]="reset.password" #password="ngModel" class="form-control" name="password" placeholder="contraseña" required>
+                        <p [hidden]="password.valid || send == false" color="danger" padding-left>
+                          Es obligatorio introducir la contraseña
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4 col-centered">
+                    <div aria-required="true">
+                      <label>Confirmar contraseña</label>
+                      <div class="form-group form-group-default">
+                        <input type="password" [(ngModel)]="reset.password_confirmation" #confirmPassword="ngModel" class="form-control" name="confirmPassword" placeholder="Repetir contraseña" required>
+                        <p [hidden]="confirmPassword.valid || send == false" color="danger" padding-left>
+                          Es obligatorio introducir la contraseña
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+              <button class="btn btn-primary btn-cons m-t-10" type="submit" (click)="resetPass(resetForm)">Sign in</button>
+            </form>
+            <!-- END Form Control-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
