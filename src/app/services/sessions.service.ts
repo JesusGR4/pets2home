@@ -87,7 +87,7 @@ export class SessionsService{
         'Authorization': "Bearer "+localStorage.getItem(ApiConfigService.TOKEN_FIELD)});
 
     localStorage.clear();
-    return this._http.get(ApiConfigService.HOST+"user/logout",{headers: headers});
+    return this._http.get(ApiConfigService.HOST+"logout",{headers: headers});
   }
 
   loginOrRegistration(user, type){
