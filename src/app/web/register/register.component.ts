@@ -34,7 +34,7 @@ export class RegisterPageComponent{
         this._particularService.register(this.particular).subscribe(
           res => {
             let json = res.json();
-            let code = json.code();
+            let code = json.code;
             if(code == CodesService.OK_CODE){
               window.alert('registro realizado');
             }

@@ -12,7 +12,6 @@ export class Shelter{
   public address;
   public description;
   public schedule;
-  public end_date;
   public numberOfPets;
   public img_url;
   constructor() {
@@ -29,7 +28,6 @@ export class Shelter{
     this.address="";
     this.description="";
     this.schedule="";
-    this.end_date="";
     this.numberOfPets=0;
     this.img_url="";
   }

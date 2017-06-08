@@ -30,6 +30,7 @@ export class WebComponent{
       translate.addLangs(["sp", "en"]);
       if(localStorage.getItem(ApiConfigService.LANGUAGE)==null){
         translate.use('sp');
+        localStorage.setItem(ApiConfigService.LANGUAGE, 'sp');
       }else{
         translate.use(localStorage.getItem(ApiConfigService.LANGUAGE));
       }

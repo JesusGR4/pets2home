@@ -21,90 +21,90 @@
                 </a>
                 <span class="icon-thumbnail"><i class="fa fa-home"></i></span>
             </li>
-            <li *ngIf="session.admin === 1">
+            <li >
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/userManagement">
                     <span class="title">Usuarios</span>
                 </a>
                 <span class="icon-thumbnail"><i class="fa fa-users"></i></span>
             </li>
-            <li *ngIf="session.admin === 1">
+            <li >
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/cinemaManagement">
                     <span class="title">Cines</span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-video"></i></span>
             </li>
-            <li *ngIf="session.admin === 1">
+            <li >
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/filmManagement">
                     <span class="title">Películas</span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-image"></i></span>
             </li>
             <!-- Películas para providers -->
-            <li *ngIf="session.profile === 2">
+            <li>
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/providerFilmManagement">
                     <span class="title">Películas</span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-image"></i></span>
             </li>
             <!-- Películas para programmers -->
-            <li *ngIf="session.profile === 4">
+            <li>
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/programmerFilmManagement">
                     <span class="title">Películas</span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-image"></i></span>
             </li>
-            <li *ngIf="session.admin === 1">
+            <li>
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/eventsManagement">
                     <span class="title">Eventos</span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-calender"></i></span>
             </li>
-            <li *ngIf="session.admin === 1">
+            <li>
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/pendingsEventsManagement">
                     <span class="title">Eventos Pendientes</span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-calender"></i></span>
             </li>
             <!-- Eventos para providers -->
-            <li *ngIf="session.profile === 2">
+            <li>
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/providerEventsManagement">
                     <span class="title">Eventos</span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-calender"></i></span>
             </li>
             <!-- Eventos para cinemas admins -->
-            <li *ngIf="session.profile === 3">
+            <li>
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/cinemasAdminEventsManagement">
                     <span class="title">Eventos</span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-calender"></i></span>
             </li>
             <!-- Eventos para programmers -->
-            <li *ngIf="session.profile === 4">
+            <li>
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/programmerEventsManagement">
                     <span class="title">Eventos</span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-calender"></i></span>
             </li>
-            <li *ngIf="session.profile === 4">
+            <li>
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/programmerValidatedEventsManagement">
                     <span class="title">Eventos validados</span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-calender"></i></span>
             </li>
-            <li *ngIf="session.admin === 1">
+            <li>
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/settings">
                     <span class="title">Configuración</span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-settings_small"></i></span>
             </li>
-            <li *ngIf="session.profile === 2 || session.profile === 3 || session.profile === 4">
+            <li>
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/myEvents">
                     <span class="title">Mis Eventos</span>
                 </a>
                 <span class="icon-thumbnail"><i class="pg-note"></i></span>
             </li>
-            <li *ngIf="session.admin === 1">
+            <li>
                 <a href="javascript:;"><span class="title">CRM</span>
                     <span class="arrow"></span></a>
                 <span class="icon-thumbnail"><i class="pg-folder"></i></span>
@@ -115,7 +115,7 @@
                     </li>
                 </ul>
             </li>
-            <li *ngIf="session.admin === 1">
+            <li >
                 <a href="javascript:;" routerLink="/admin-panel/dashboard/compassuite">
                     <span class="title">Compassuite</span>
                 </a>

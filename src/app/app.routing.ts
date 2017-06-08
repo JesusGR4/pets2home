@@ -43,6 +43,7 @@ import {ShelterCatalog} from "./web/shelterCatalog/shelterCatalog.component";
 import {SingleShelterComponent} from "./web/singleShelter/singleShelter.component";
 import {LoginComponent} from "./web/login/login.component";
 import {ResetComponent} from "./web/resetPassword/reset.component";
+import {CreateShelterComponent} from "./web/createShelter/createShelter.component";
 
 
 
@@ -61,6 +62,10 @@ const appRoutes:Routes = [
       {
         path: 'register',
         component: RegisterPageComponent,
+      },
+      {
+        path: 'createShelter',
+        component: CreateShelterComponent,
       },
         {
             path: 'event/:event_id',
@@ -127,7 +132,7 @@ const appRoutes:Routes = [
     ]
     },
     {
-        path: "admin-panel", component: AdminPanelComponent, children: [
+        path: "admin-panel", component: DashboardComponent, children: [
         {
             path: 'examplePage',
             component: ExamplePageComponent,
@@ -138,7 +143,7 @@ const appRoutes:Routes = [
         },
         {
             path: 'dashboard',
-            component: DashboardComponent, children: [
+            component: AdminPanelComponent, children: [
             {
                 path: 'userManagement',
                 component: UserManagement,

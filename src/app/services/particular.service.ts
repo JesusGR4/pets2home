@@ -15,6 +15,7 @@ export class ParticularService{
 
     let headers = new Headers({
       'Content-Type': 'application/json',
+      'Content-Language': localStorage.getItem(ApiConfigService.LANGUAGE),
       'X-Requested-With': 'XMLHttpRequest'
     });
 

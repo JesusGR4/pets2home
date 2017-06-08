@@ -81,18 +81,13 @@ export class CinemaManagement{
     }
 
     ngOnInit() {
-        this.session = ApiConfigService.getSessionByLocalStorage();
-        if(this.session.name == null){
-            this.router.navigate(['/admin-panel/loginPage']);
-        }else if(this.session.profile != 100){
-            this.router.navigate(['/admin-panel/dashboard/noPermissions']);
-        }else{
+
             this.getCinemaCompanyList();
             this.getCinemaList(null);
             this.getCityList(null);
             this.getProvinceList();
             this.getFormatList();
-        }
+
     }
 
     getCinemaCompanyList() : void{

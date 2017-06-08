@@ -1,0 +1,143 @@
+<section id="createShelter">
+  <div class="container">
+    <div class="row">
+      <!-- section title -->
+      <div class="col-md-12 text-center">
+        <h3 class="section-title no-padding">Solicitud acceso a la plataforma</h3>
+      </div>
+      <!-- end section title -->
+    </div>
+    <div class="row margin-ten no-margin-bottom">
+
+      <div class="col-md-12 col-sm-12 sm-margin-bottom-ten">
+        <div class="col-md-12 col-sm-12 no-padding">
+          <form #create="ngForm" role="form" action="" novalidate autocomplete="off">
+            <h5>Datos de la casa de acogida</h5>
+            <div class="row clearfix">
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>Nombre</label>
+                  <textarea id="name" type="text" [(ngModel)]="shelter.name" #name="ngModel" class="form-control" name="name" required
+                         aria-required="true" value="{{shelter.name}}"></textarea>
+                  <p hidden id="name-error" class="alert alert-danger">
+                    {{ 'REGISTER.NAME_ERROR' | translate }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-5">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>Descripción</label>
+                  <textarea id="description" type="text" [(ngModel)]="shelter.description" #description="ngModel" class="form-control" name="description" required
+                         aria-required="true" value="{{shelter.description}}"></textarea>
+                  <p hidden id="description-error" class="alert alert-danger">
+                    La descripción es obligatoria
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>Horario</label>
+                  <textarea id="schedule" type="text" [(ngModel)]="shelter.schedule" #schedule="ngModel" class="form-control" name="description" required
+                            aria-required="true" value="{{shelter.schedule}}"></textarea>
+                  <p hidden id="schedule-error" class="alert alert-danger">
+                    El horario es obligatorio
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row clearfix">
+              <div class="col-md-3">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>Teléfono</label>
+                  <input id="phone" type="text" [(ngModel)]="shelter.phone" #phone="ngModel" class="form-control" name="phone" required
+                            aria-required="true" value="{{shelter.phone}}">
+                  <p hidden id="phone-error" class="alert alert-danger">
+                    El teléfono es obligatorio
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>E-mail</label>
+                  <input id="email" type="text" [(ngModel)]="shelter.email" #email="ngModel" class="form-control" name="email" required
+                         aria-required="true" value="{{shelter.email}}">
+                  <p hidden id="email-error" class="alert alert-danger">
+                    El teléfono es obligatorio
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <h5>Ubicación de la casa de acogida</h5>
+
+            <div class="row clearfix">
+              <div class="col-md-4">
+                <div class="form-group form-group-default">
+                  <label>Provincia</label>
+                  <ng-select
+                    [allowClear]="true"
+                    [options]="provinces"
+                    [(ngModel)]="shelter.province"
+                    id="province"
+                    #province="ngModel"
+                    name="province">
+                  </ng-select>
+                  <p hidden id="province-error" class="alert alert-danger" padding-left>
+                    La provincia es obligatoria
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>Ciudad</label>
+                  <input id="city" type="text" [(ngModel)]="shelter.city" #city="ngModel" class="form-control" name="city" required
+                         aria-required="true" value="{{shelter.city}}">
+                  <p hidden id="city-error" class="alert alert-danger" padding-left>
+                    La ciudad es obligatoria
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>Dirección</label>
+                  <input id="address" type="text" [(ngModel)]="shelter.address" #address="ngModel" class="form-control" name="address" required
+                         aria-required="true" value="{{shelter.address}}">
+                  <p hidden id="address-error" class="alert alert-danger" padding-left>
+                    La dirección es obligatoria
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row clearfix">
+              <p class="font-weight-100">Por favor, pinche sobre el mapa en la ubicación de su casa de acogida</p>
+              <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+              <div class="col-md-12" id="slider" style="height:400px">
+                <sebm-google-map [latitude]="latitude" [longitude]="longitude" style="width:100%;height: 100%" (mapClick)="mapClicked($event)">
+                  <sebm-google-map-marker [latitude]="marker.lat" [longitude]="marker.lon"></sebm-google-map-marker>
+                </sebm-google-map>
+              </div>
+            </div>
+            <div class="row clearfix">
+              <div class="col-md-12">
+                <div class="form-group form-group-default" aria-required="true">
+                  <p class="font-weight-100">{{ 'REGISTER.TERMS' | translate }}</p>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <button (click)="registerFunction(register)" class="btn-primary btn btn-medium button">{{ 'REGISTER.TITLE' | translate }}</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

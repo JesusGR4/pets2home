@@ -85,6 +85,7 @@ import {SingleShelterComponent} from "./web/singleShelter/singleShelter.componen
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import {LoginComponent} from "./web/login/login.component";
 import {ResetComponent} from "./web/resetPassword/reset.component";
+import {CreateShelterComponent} from "./web/createShelter/createShelter.component";
 
 
 
@@ -142,6 +143,7 @@ import {ResetComponent} from "./web/resetPassword/reset.component";
         ProviderFilmManagement,
         ProgammerFilmManagement,
         Compassuite,
+        CreateShelterComponent,
     ],
     imports: [
         BrowserModule,
@@ -153,7 +155,8 @@ import {ResetComponent} from "./web/resetPassword/reset.component";
         MyDatePickerModule,
         routing,
         AgmCoreModule.forRoot({
-          apiKey: 'AIzaSyDJ0goX5RY-V3pvt4jEYlu_DH2ewKfU4s8'
+          apiKey: 'AIzaSyDJ0goX5RY-V3pvt4jEYlu_DH2ewKfU4s8',
+          libraries: ["places"]
         }),
         ImageUploadModule.forRoot(),
         TranslateModule.forRoot()
