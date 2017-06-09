@@ -35,7 +35,7 @@
     "mydatepicker": "^1.7.7",
     "ng2-bootstrap": "^1.1.13",
     "ng2-datetime": "^1.2.1",
-    "ng2-file-upload": "^1.2.0",
+    "ng2-file-upload": "^1.2.1",
     "ng2-pagination": "^2.0.0",
     "ng2-translate": "^5.0.0",
     "rxjs": "^5.0.1",

@@ -9,12 +9,14 @@ import {Marker} from "../../models/marker";
 import {MapsAPILoader} from "angular2-google-maps/core";
 import {FormControl} from "@angular/forms";
 import {} from "@types/googlemaps"
+import {ShelterService} from "../../services/shelter.service";
 declare var $: any;
 declare var window: any;
 declare var google: any;
 @Component({
   selector: "createShelter",
-  templateUrl: "./createShelter.component.html"
+  templateUrl: "./createShelter.component.html",
+  providers: [ShelterService]
 })
 export class CreateShelterComponent implements OnInit{
 
@@ -23,6 +25,7 @@ export class CreateShelterComponent implements OnInit{
   public marker: Marker = new Marker();
   public valid: boolean;
   public sent: boolean = false;
+  public filesToUpload: Array<File>;
   public provinces: Array<string>;
   public search: {search?: string} = {};
   public latitude = 37.34959;
@@ -31,7 +34,7 @@ export class CreateShelterComponent implements OnInit{
   public searchControl: FormControl;
   @ViewChild("search")
   public searchElementRef: ElementRef;
-  constructor(private _particularService: ParticularService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone){
+  constructor(private _particularService: ParticularService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _shelterService: ShelterService){
 
   }
   ngOnInit(){
@@ -63,25 +66,25 @@ export class CreateShelterComponent implements OnInit{
     });
   }
 
+  fileChangeEvent(fileInput: any){
+    this.filesToUpload = <Array<File>> fileInput.target.files;
+    console.log(this.filesToUpload)
+  }
 
-  registerFunction(form){
-    this.sent = true;
-    if(this.valid == true){
-      console.log(this.particular);
-        this._particularService.register(this.particular).subscribe(
-          res => {
-            let json = res.json();
-            let code = json.code;
-            if(code == CodesService.OK_CODE){
-              window.alert('registro realizado');
-            }
-          },
-          error => {
 
-          }
-        );
+  createShelter(){
+    this._shelterService.createShelter(this.shelter).subscribe(
+      res => {
+        let json = res.json();
+        let code = json.code;
+        if(code == CodesService.OK_CODE){
+          window.alert('registro realizado');
+        }
+      },
+      error => {
 
-    }
+      }
+    );
   }
 
   private transformForSelect(datas: Array<any>){

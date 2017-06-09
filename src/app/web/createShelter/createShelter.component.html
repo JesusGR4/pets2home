@@ -105,6 +105,7 @@
               <div class="col-md-4">
                 <div class="form-group form-group-default" aria-required="true">
                   <label>Dirección</label>
+
                   <input id="address" type="text" [(ngModel)]="shelter.address" #address="ngModel" class="form-control" name="address" required
                          aria-required="true" value="{{shelter.address}}">
                   <p hidden id="address-error" class="alert alert-danger" padding-left>
@@ -116,12 +117,19 @@
 
             <div class="row clearfix">
               <p class="font-weight-100">Por favor, pinche sobre el mapa en la ubicación de su casa de acogida</p>
-              <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+              <div class="form-group form-group-default">
+                <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+              </div>
               <div class="col-md-12" id="slider" style="height:400px">
                 <sebm-google-map [latitude]="latitude" [longitude]="longitude" style="width:100%;height: 100%" (mapClick)="mapClicked($event)">
                   <sebm-google-map-marker [latitude]="marker.lat" [longitude]="marker.lon"></sebm-google-map-marker>
                 </sebm-google-map>
               </div>
+            </div>
+
+            <h5>¡Sube imágenes de la casa!</h5>
+            <div class="row clearfix">
+              <input #fileInput id="image" name="image" class="form-control" type="file" multiple (change)="fileChangeEvent($event)">
             </div>
             <div class="row clearfix">
               <div class="col-md-12">
@@ -132,7 +140,7 @@
             </div>
           </form>
 
-          <button (click)="registerFunction(register)" class="btn-primary btn btn-medium button">{{ 'REGISTER.TITLE' | translate }}</button>
+          <button (click)="createShelter()" class="btn-primary btn btn-medium button">{{ 'REGISTER.TITLE' | translate }}</button>
 
         </div>
       </div>
