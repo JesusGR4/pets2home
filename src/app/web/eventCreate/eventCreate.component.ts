@@ -62,23 +62,6 @@ export class EventCreateComponent{
     private eventDate : Date;
 
 
-    private myDatePickerOptions: IMyOptions = {
-        todayBtnTxt: 'Hoy',
-        showTodayBtn: false,
-        showClearDateBtn: false,
-        showSelectorArrow: false,
-        inputAutoFill: true,
-        dateFormat: 'dd-mm-yyyy',
-        firstDayOfWeek: 'mo',
-        sunHighlight: false,
-        height: '34px',
-        width: '260px',
-        inline: false,
-        disableSince: {year: this.DATE_MAX.getFullYear(), month: (this.DATE_MAX.getMonth()+1)%12, day: this.DATE_MAX.getDate()},
-        disableUntil: {year: this.DATE_MIN.getFullYear(), month: (this.DATE_MIN.getMonth()+1)%12, day: this.DATE_MIN.getDate()},
-        selectionTxtFontSize: '16px'
-    };
-
     constructor(
         private router: Router,
         private _moviesService: MoviesService,

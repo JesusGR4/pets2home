@@ -65,9 +65,10 @@ export class ShelterService{
     let formData = new FormData();
     if (fileCount > 0) { // a file was selected
       for (let i = 0; i < fileCount; i++) {
-        formData.append('file'+i, inputEl.files.item(i),'file');
+        formData.append('file'+i, inputEl.files.item(i));
       }
       formData.append('length', fileCount);
+
       formData.append('name', shelter.name);
       formData.append('phone', shelter.phone);
       formData.append('email', shelter.email);
@@ -77,6 +78,7 @@ export class ShelterService{
       formData.append('latitude', shelter.latitude);
       formData.append('description', shelter.description);
       formData.append('schedule', shelter.schedule);
+      formData.append('address', shelter.address);
       return this._http.post(ApiConfigService.HOST+'createShelter', formData, {headers:headers});
     }else{
       console.log('mala mujer');

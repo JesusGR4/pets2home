@@ -19,7 +19,7 @@
                   <label>{{ 'REGISTER.NAME' | translate }}</label>
                   <input id="name" type="text" [(ngModel)]="particular.name" #name="ngModel" class="form-control" name="name" required
                          aria-required="true" value="{{particular.name}}">
-                  <p hidden id="name-error" class="alert alert-danger">
+                  <p hidden id="name-error" class="alert-danger">
                     {{ 'REGISTER.NAME_ERROR' | translate }}
                   </p>
                 </div>
@@ -30,7 +30,7 @@
                   <label>{{ 'REGISTER.SURNAME' | translate }}</label>
                   <input id="surname"type="text" [(ngModel)]="particular.surname" #surname="ngModel" class="form-control" name="surname" required
                          aria-required="true" value="{{particular.surname}}">
-                  <p hidden id="surname-error" class="alert alert-danger" padding-left>
+                  <p hidden id="surname-error" class="alert-danger" padding-left>
                     {{ 'REGISTER.SURNAME_ERROR' | translate }}
                   </p>
                 </div>
@@ -41,7 +41,7 @@
                   <label>{{ 'REGISTER.PHONE' | translate }}</label>
                   <input id="phone" type="text" [(ngModel)]="particular.phone" #phone="ngModel" class="form-control" name="phone" required
                          aria-required="true" value="{{particular.phone}}">
-                  <p hidden id="phone-error" class="alert alert-danger" padding-left>
+                  <p hidden id="phone-error" class="alert-danger" padding-left>
                     {{ 'REGISTER.PHONE_ERROR' | translate }}
                   </p>
                 </div>
@@ -60,7 +60,7 @@
                 #province="ngModel"
                 name="province">
                 </ng-select>
-                <p hidden id="province-error" class="alert alert-danger" padding-left>
+                <p hidden id="province-error" class="alert-danger" padding-left>
                   {{ 'REGISTER.PROVINCE_ERROR' | translate }}
                 </p>
               </div>
@@ -70,7 +70,7 @@
                 <label>{{ 'REGISTER.CITY' | translate }}</label>
                 <input id="city" type="text" [(ngModel)]="particular.city" #city="ngModel" class="form-control" name="city" required
                        aria-required="true" value="{{particular.city}}">
-                <p hidden id="city-error" class="alert alert-danger" padding-left>
+                <p hidden id="city-error" class="alert-danger" padding-left>
                   {{ 'REGISTER.CITY_ERROR' | translate }}
                 </p>
               </div>
@@ -84,7 +84,7 @@
                   <label>{{ 'REGISTER.EMAIL' | translate }}</label>
                   <input id="email" type="text" [(ngModel)]="particular.email" #email="ngModel" class="form-control" name="email" required
                          aria-required="true" value="{{particular.email}}">
-                  <p hidden id="email-error" class="alert alert-danger" padding-left>
+                  <p hidden id="email-error" class="alert-danger" padding-left>
                     {{ 'REGISTER.EMAIL_ERROR' | translate }}
                   </p>
                 </div>
@@ -94,7 +94,7 @@
                   <label>{{ 'REGISTER.PASSWORD' | translate }}</label>
                   <input id="password" type="password" [(ngModel)]="particular.password" #password="ngModel" class="form-control" name="password" required
                          aria-required="true" value="{{particular.password}}">
-                  <p hidden id="password-error" class="alert alert-danger" padding-left>
+                  <p hidden id="password-error" class="alert-danger" padding-left>
                     {{ 'REGISTER.PASSWORD_ERROR' | translate }}
                   </p>
                 </div>
@@ -104,7 +104,7 @@
                   <label>{{ 'REGISTER.CONFIRM_PASSWORD' | translate }}</label>
                   <input id="confirm" type="password" [(ngModel)]="particular.confirm_password" #confirm_password="ngModel" class="form-control" name="confirm_password" required
                          aria-required="true" value="{{particular.confirm_password}}">
-                  <p hidden id="confirm-error" class="alert alert-danger" padding-left>
+                  <p hidden id="confirm-error" class="alert-danger" padding-left>
                     {{ 'REGISTER.CONFIRM_PASSWORD_ERROR' | translate }}
                   </p>
                 </div>

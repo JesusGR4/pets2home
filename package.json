@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^4.2.3",
     "@angular/common": "^2.3.1",
     "@angular/compiler": "^2.3.1",
     "@angular/core": "^2.3.1",
@@ -25,6 +26,7 @@
     "angular2-google-maps": "^0.17.0",
     "angular2-image-upload": "^0.3.2",
     "angular2-jwt": "0.1.4",
+    "angular2-notifications": "^0.7.4",
     "angular2-select": "^1.0.0-beta.2",
     "bootstrap": "^3.3.7",
     "bootstrap-datepicker": "^1.6.4",
@@ -34,6 +36,7 @@
     "jquery": "^3.1.1",
     "mydatepicker": "^1.7.7",
     "ng2-bootstrap": "^1.1.13",
+    "ng2-bs3-modal": "^0.10.4",
     "ng2-datetime": "^1.2.1",
     "ng2-file-upload": "^1.2.1",
     "ng2-pagination": "^2.0.0",

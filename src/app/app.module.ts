@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID} from '@angular/core';
 import {FormsModule, ReactiveFormsModule, FormBuilder} from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {HttpModule, Http} from '@angular/http';
 import {Ng2PaginationModule} from 'ng2-pagination';
 import { MyDatePickerModule } from 'mydatepicker';
 import {SelectModule} from 'angular2-select';
@@ -75,7 +75,7 @@ import {LogsService} from "./services/logs.service";
 import {ImageUploadModule} from "angular2-image-upload";
 import {Compassuite} from "./admin-panel/dashboard/compassuitePage/compassuite.component";
 import {CompassuiteService} from "./services/compassuite.service";
-import {TranslateModule} from "ng2-translate";
+import {TranslateModule, TranslateLoader, TranslateStaticLoader} from "ng2-translate";
 import {RegisterPageComponent} from "./web/register/register.component";
 import {ParticularService} from "./services/particular.service";
 import {ShelterService} from "./services/shelter.service";
@@ -86,6 +86,8 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 import {LoginComponent} from "./web/login/login.component";
 import {ResetComponent} from "./web/resetPassword/reset.component";
 import {CreateShelterComponent} from "./web/createShelter/createShelter.component";
+import {Ng2Bs3ModalModule} from "ng2-bs3-modal/ng2-bs3-modal";
+import {SimpleNotificationsModule} from "angular2-notifications/dist";
 
 
 
@@ -147,6 +149,8 @@ import {CreateShelterComponent} from "./web/createShelter/createShelter.componen
     ],
     imports: [
         BrowserModule,
+        SimpleNotificationsModule.forRoot(),
+
         FormsModule,
         HttpModule,
         Ng2PaginationModule,
@@ -154,12 +158,17 @@ import {CreateShelterComponent} from "./web/createShelter/createShelter.componen
         SelectModule,
         MyDatePickerModule,
         routing,
+        Ng2Bs3ModalModule,
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDJ0goX5RY-V3pvt4jEYlu_DH2ewKfU4s8',
           libraries: ["places"]
         }),
         ImageUploadModule.forRoot(),
-        TranslateModule.forRoot()
+        TranslateModule.forRoot({
+          provide: TranslateLoader,
+          useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/i18n', '.json'),
+          deps: [Http]
+        })
     ],
     providers: [
         appRoutingProviders,

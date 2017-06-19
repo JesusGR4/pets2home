@@ -148,4 +148,17 @@
   </div>
 </section>
 
+<modal #modal>
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">Error de servidor</h4>
+  </modal-header>
+  <modal-body>
+    {{errorMessages}}
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-primary" (click)="modal.close()">Ok</button>
+  </modal-footer>
+</modal>
+
+<simple-notifications [options]="options"></simple-notifications>
 
