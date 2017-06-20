@@ -11,7 +11,6 @@ import {FormControl} from "@angular/forms";
 import {} from "@types/googlemaps"
 import {ShelterService} from "../../services/shelter.service";
 import {ModalComponent} from "ng2-bs3-modal/components/modal";
-import {NotificationsService} from "angular2-notifications/dist";
 
 declare var $: any;
 declare var window: any;
@@ -40,7 +39,7 @@ export class CreateShelterComponent implements OnInit{
   public searchElementRef: ElementRef;
   @ViewChild('modal')
   public modal: ModalComponent;
-  constructor(private _notificationService:NotificationsService,  private _particularService: ParticularService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _shelterService: ShelterService){
+  constructor(  private _particularService: ParticularService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _shelterService: ShelterService){
 
   }
   ngOnInit(){
@@ -84,17 +83,7 @@ export class CreateShelterComponent implements OnInit{
         let code = json.code;
         if(code == CodesService.OK_CODE){
           this.errorMessages = json.message;
-          this._notificationService.success(
-            'Some Title',
-            'Some Content',
-            {
-              timeOut: 5000,
-              showProgressBar: true,
-              pauseOnHover: false,
-              clickToClose: true,
-              maxLength: 10
-            }
-          )
+
         }else{
           this.errorMessages = json.message;
           this.modal.open();

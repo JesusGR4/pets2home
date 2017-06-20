@@ -87,11 +87,6 @@ import {LoginComponent} from "./web/login/login.component";
 import {ResetComponent} from "./web/resetPassword/reset.component";
 import {CreateShelterComponent} from "./web/createShelter/createShelter.component";
 import {Ng2Bs3ModalModule} from "ng2-bs3-modal/ng2-bs3-modal";
-import {SimpleNotificationsModule} from "angular2-notifications/dist";
-
-
-
-
 
 
 @NgModule({
@@ -149,8 +144,6 @@ import {SimpleNotificationsModule} from "angular2-notifications/dist";
     ],
     imports: [
         BrowserModule,
-        SimpleNotificationsModule.forRoot(),
-
         FormsModule,
         HttpModule,
         Ng2PaginationModule,
