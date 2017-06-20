@@ -87,7 +87,7 @@ import {LoginComponent} from "./web/login/login.component";
 import {ResetComponent} from "./web/resetPassword/reset.component";
 import {CreateShelterComponent} from "./web/createShelter/createShelter.component";
 import {Ng2Bs3ModalModule} from "ng2-bs3-modal/ng2-bs3-modal";
-
+import {ToastyModule} from 'ng2-toasty';
 
 @NgModule({
     declarations: [
@@ -152,6 +152,7 @@ import {Ng2Bs3ModalModule} from "ng2-bs3-modal/ng2-bs3-modal";
         MyDatePickerModule,
         routing,
         Ng2Bs3ModalModule,
+        ToastyModule.forRoot(),
         AgmCoreModule.forRoot({
           apiKey: 'AIzaSyDJ0goX5RY-V3pvt4jEYlu_DH2ewKfU4s8',
           libraries: ["places"]

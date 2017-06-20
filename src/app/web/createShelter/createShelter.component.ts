@@ -11,6 +11,7 @@ import {FormControl} from "@angular/forms";
 import {} from "@types/googlemaps"
 import {ShelterService} from "../../services/shelter.service";
 import {ModalComponent} from "ng2-bs3-modal/components/modal";
+import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
 
 declare var $: any;
 declare var window: any;
@@ -39,12 +40,27 @@ export class CreateShelterComponent implements OnInit{
   public searchElementRef: ElementRef;
   @ViewChild('modal')
   public modal: ModalComponent;
-  constructor(  private _particularService: ParticularService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _shelterService: ShelterService){
+
+  public toastOptions:ToastOptions = {
+  title: "My title",
+  msg: "The message",
+  showClose: true,
+
+  timeout: 50000000,
+  theme: 'material',
+  onAdd: (toast:ToastData) => {
+    console.log('Toast ' + toast.id + ' has been added!');
+  },
+  onRemove: function(toast:ToastData) {
+    console.log('Toast ' + toast.id + ' has been removed!');
+  }
+};
+  constructor(private toastyService:ToastyService,  private _particularService: ParticularService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _shelterService: ShelterService){
 
   }
   ngOnInit(){
     this.searchControl = new FormControl();
-
+    this.toastyService.success(this.toastOptions);
     this.provinces = this.transformForSelect(["Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real", "Córdoba", "Cuenca", "Gerona", "Granada", "Guadalajara", "Guipúzcoa", "Huelva", "Huesca", "Islas Baleares", "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid", "Málaga", "Murcia", "Navarra", "Orense", "Palencia", "Pontevedra", "Salamanca", "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza"]);
     $('html,body').animate({
         scrollTop: $("#createShelter").offset().top},
