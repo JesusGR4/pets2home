@@ -43,5 +43,8 @@
   },
   "SHELTER-CATALOG":{
     "SHELTERS": "Casas de acogida en:"
+  },
+  "REQUEST":{
+    "SUCCESS":"¡Realizado!"
   }
 }

@@ -43,5 +43,8 @@
   },
   "SHELTER-CATALOG":{
     "SHELTERS": "Shelters at:"
+  },
+  "REQUEST":{
+    "SUCCESS":"Success!"
   }
 }

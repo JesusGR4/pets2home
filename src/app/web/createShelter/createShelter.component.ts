@@ -12,6 +12,8 @@ import {} from "@types/googlemaps"
 import {ShelterService} from "../../services/shelter.service";
 import {ModalComponent} from "ng2-bs3-modal/components/modal";
 import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
+import {TranslateService} from "ng2-translate";
+import {Router} from "@angular/router";
 
 declare var $: any;
 declare var window: any;
@@ -40,27 +42,12 @@ export class CreateShelterComponent implements OnInit{
   public searchElementRef: ElementRef;
   @ViewChild('modal')
   public modal: ModalComponent;
-
-  public toastOptions:ToastOptions = {
-  title: "My title",
-  msg: "The message",
-  showClose: true,
-
-  timeout: 50000000,
-  theme: 'material',
-  onAdd: (toast:ToastData) => {
-    console.log('Toast ' + toast.id + ' has been added!');
-  },
-  onRemove: function(toast:ToastData) {
-    console.log('Toast ' + toast.id + ' has been removed!');
-  }
-};
-  constructor(private toastyService:ToastyService,  private _particularService: ParticularService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _shelterService: ShelterService){
+  public translation: string;
+  constructor(private router: Router,private translateService:TranslateService,private toastyService:ToastyService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _shelterService: ShelterService){
 
   }
   ngOnInit(){
     this.searchControl = new FormControl();
-    this.toastyService.success(this.toastOptions);
     this.provinces = this.transformForSelect(["Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real", "Córdoba", "Cuenca", "Gerona", "Granada", "Guadalajara", "Guipúzcoa", "Huelva", "Huesca", "Islas Baleares", "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid", "Málaga", "Murcia", "Navarra", "Orense", "Palencia", "Pontevedra", "Salamanca", "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza"]);
     $('html,body').animate({
         scrollTop: $("#createShelter").offset().top},
@@ -73,16 +60,14 @@ export class CreateShelterComponent implements OnInit{
         this.ngZone.run(() => {
           //get the place result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-
           //verify result
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
-
           //set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
-          this.zoom = 12;
+          this.zoom = 20;
         });
       });
     });
@@ -91,15 +76,29 @@ export class CreateShelterComponent implements OnInit{
   fileChangeEvent(fileInput: any){
     this.filesToUpload = <Array<File>> fileInput.target.files;
   }
-
   createShelter(){
     this._shelterService.createShelter(this.shelter).subscribe(
       res => {
         let json = res.json();
         let code = json.code;
+        let rout = this.router;
         if(code == CodesService.OK_CODE){
-          this.errorMessages = json.message;
-
+          this.translateService.get('REQUEST.SUCCESS').subscribe(
+            data => {
+              this.translation = data;
+            }
+          );
+          var toastOptions:ToastOptions = {
+            title: this.translation,
+            msg: json.message,
+            showClose: true,
+            timeout: 7500,
+            theme: 'material',
+            onRemove: function(toast: ToastData){
+              rout.navigateByUrl('/index');
+            }
+          };
+          this.toastyService.success(toastOptions);
         }else{
           this.errorMessages = json.message;
           this.modal.open();
