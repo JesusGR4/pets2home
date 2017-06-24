@@ -16,6 +16,7 @@ export class ShelterService{
     };
 
     let headers = new Headers({
+      'Content-Language': localStorage.getItem(ApiConfigService.LANGUAGE),
       'Content-Type': 'application/json',
 
     });
@@ -31,6 +32,7 @@ export class ShelterService{
     };
 
     let headers = new Headers({
+      'Content-Language': localStorage.getItem(ApiConfigService.LANGUAGE),
       'Content-Type': 'application/json',
 
     });
@@ -45,6 +47,7 @@ export class ShelterService{
     };
 
     let headers = new Headers({
+      'Content-Language': localStorage.getItem(ApiConfigService.LANGUAGE),
       'Content-Type': 'application/json',
     });
 

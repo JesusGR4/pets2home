@@ -48,7 +48,7 @@ export class DashboardComponent{
                 let json = res.json();
                 let code = json.code;
                 if(code == CodesService.OK_CODE) {
-                    this.router.navigate(['/admin-panel/loginPage']);
+                    this.router.navigate(['/index']);
                 }else{
                     this.handlerError(code);
                 }

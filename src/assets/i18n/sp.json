@@ -46,5 +46,44 @@
   },
   "REQUEST":{
     "SUCCESS":"¡Realizado!"
+  },
+  "RESET":{
+    "TITLE":"CAMBIAR CONTRASEÑA",
+    "EMAIL":"Correo electrónico",
+    "EMAIL-ERROR":"El correo electrónico es obligatorio",
+    "PASSWORD": "Contraseña",
+    "PASSWORD-ERROR": "La contraseña es obligatoria",
+    "CONFIRM-PASSWORD": "Confirmar contraseña",
+    "CONFIRM-PASSWORD-ERROR": "Las contraseñas no coinciden"
+  },"LOGIN":{
+  "LOGIN":"INICIAR SESIÓN",
+  "EMAIL":"Correo electrónico",
+  "EMAIL-ERROR":"El correo electrónico es obligatorio",
+  "PASSWORD":"Contraseña",
+  "PASSWORD-ERROR": "La contraseña es obligatoria",
+  "SIGN":"Entra",
+  "FORGET":"¿Olvidaste la contraseña",
+  "INTRODUCE":"Introduce tu correo",
+  "RECOVER":"Recuperar contraseña",
+  "SUCCESS":"¡Login realizado!"
+}, "INDEX":{
+  "CHOOSE":"Elige tu provincia",
+  "SEE":"Ver todos",
+  "SHELTERS":"Casas de acogida"
+},"WEB":{
+  "HOME":"Inicio",
+  "REGISTER":"¡Regístrate!",
+  "LOG-IN":"¡Entra!",
+  "KNOW":"Conócenos",
+  "FAQ":"FAQ",
+  "ABOUT":"Sobre Pets2Home",
+  "CONTACT":"Contacto",
+  "LE":"Legal",
+  "LEGAL":"Aviso legal",
+  "USE":"Condiciones de uso"
+},
+  "SERVER":{
+    "ERROR":"Error de servidor"
   }
+
 }

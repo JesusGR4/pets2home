@@ -7,7 +7,7 @@
     <div class="dashboard-content">
       <div class="container text-center">
         <div class="col-md-12 text-center">
-          <h3 class="section-title no-padding">INICIAR SESIÓN</h3>
+          <h3 class="section-title no-padding">{{'LOGIN.LOGIN' | translate}}</h3>
         </div>
         <div class="row margin-top-section">
 
@@ -18,12 +18,14 @@
                 <div class="row">
                   <div class="col-md-4 col-centered" >
                     <div aria-required="true">
-                      <label>Email</label>
+                      <label>{{'LOGIN.EMAIL' | translate}}</label>
                       <div class="form-group form-group-default">
-                        <input type="text" [(ngModel)]="session.email" #email="ngModel" name="email" placeholder="email" class="form-control" required>
-                        <p [hidden]="email.valid || send == false" color="danger" padding-left>
-                          Es obligatorio introducir el email
-                        </p>
+                        <input type="text" [(ngModel)]="session.email" #email="ngModel" name="email" placeholder="{{'LOGIN.EMAIL' | translate}}" class="form-control" required>
+                        <div [hidden]="email.valid || send == false" class="alert alert-danger">
+                          <p  padding-left>
+                            {{'LOGIN.EMAIL-ERROR' | translate}}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -36,19 +38,21 @@
                   <div class="row">
                     <div class="col-md-4 col-centered">
                       <div aria-required="true">
-                        <label>Password</label>
+                        <label>{{'LOGIN.PASSWORD' | translate}}</label>
                         <div class="form-group form-group-default">
-                          <input type="password" [(ngModel)]="session.password" #password="ngModel" class="form-control" name="password" placeholder="contraseña" required>
-                          <p [hidden]="password.valid || send == false" color="danger" padding-left>
-                            Es obligatorio introducir la contraseña
-                          </p>
+                          <input type="password" [(ngModel)]="session.password" #password="ngModel" class="form-control" name="password" placeholder="{{'LOGIN.PASSWORD' | translate}}" required>
+                          <div [hidden]="password.valid || send == false" class="alert alert-danger">
+                            <p  padding-left>
+                              {{'LOGIN.PASSWORD-ERROR' | translate}}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-              <button class="btn btn-primary btn-cons m-t-10" type="submit" (click)="onLogin(loginForm)">Sign in</button>
+              <button class="btn btn-primary btn-cons m-t-10" type="submit" (click)="onLogin(loginForm)">{{'LOGIN.SIGN' | translate}}</button>
             </form>
             <!-- END Form Control-->
             <!-- START Form Control-->
@@ -56,7 +60,7 @@
               <div class="col-md-4 col-centered">
                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse"
                    aria-expanded="false" aria-controls="collapseTwo">
-                  ¿Has olvidado tu contraseña?
+                  {{'LOGIN.FORGET' | translate}}
                 </a>
 
                 <div id="collapse" class="collapse m-t-30" role="tabpanel" aria-labelledby="headingTwo"
@@ -64,13 +68,13 @@
 
                   <form #rememberForm="ngForm" role="form" action="" novalidate>
                     <div class="form-group form-group-default">
-                      <label>Introduzca su email</label>
+                      <label>{{'LOGIN.INTRODUCE' | translate}}</label>
 
                       <div class="controls">
-                        <input type="text" [(ngModel)]="remember.email" #emailForgot="ngModel" name="emailForgot" placeholder="email" class="form-control" required>
+                        <input type="text" [(ngModel)]="remember.email" #emailForgot="ngModel" name="emailForgot" placeholder="{{'LOGIN.EMAIL' | translate}}" class="form-control" required>
                       </div>
                     </div>
-                    <button class="btn btn-primary btn-cons m-t-10" type="submit" (click)="rememberPassword(remember)">Recuperar contraseña</button>
+                    <button class="btn btn-primary btn-cons m-t-10" type="submit" (click)="rememberPassword(remember)">{{'LOGIN.RECOVER' | translate}}</button>
                   </form>
 
                 </div>
@@ -81,3 +85,16 @@
     </div>
   </div>
 </div>
+
+
+<modal #modal>
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">{{'SERVER.ERROR' | translate}}</h4>
+  </modal-header>
+  <modal-body>
+    {{errorMessages}}
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-primary" (click)="modal.close()">Ok</button>
+  </modal-footer>
+</modal>

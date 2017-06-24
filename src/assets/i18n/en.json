@@ -46,5 +46,43 @@
   },
   "REQUEST":{
     "SUCCESS":"Success!"
+  },
+  "RESET":{
+    "TITLE":"CHANGE PASSWORD",
+    "EMAIL":"Email",
+    "EMAIL-ERROR":"Email es obligatorio",
+    "PASSWORD": "Password",
+    "PASSWORD-ERROR": "Password is mandatory",
+    "CONFIRM-PASSWORD": "Confirm password",
+    "CONFIRM-PASSWORD-ERROR": "Passwords don't match"
+  },"LOGIN":{
+  "LOGIN":"LOGIN",
+  "EMAIL":"Email",
+  "EMAIL-ERROR":"Email is mandatory",
+  "PASSWORD":"Password",
+  "PASSWORD-ERROR": "Password is mandatory",
+  "SIGN":"Sign in",
+  "FORGET":"Did you forget your password?",
+  "INTRODUCE":"Introduce your email",
+  "RECOVER":"Recover password",
+  "SUCCESS":"Successful login!"
+}, "INDEX":{
+  "CHOOSE":"Choose your province",
+  "SEE":"See all",
+  "SHELTERS":"Shelters"
+},"WEB":{
+  "HOME":"Home",
+  "REGISTER":"Register!",
+  "LOG-IN":"Log in!",
+  "KNOW":"Know us",
+  "FAQ":"FAQ",
+  "ABOUT":"About Pets2Home",
+  "CONTACT":"Contact",
+  "LE":"Legal",
+  "LEGAL":"Legal warning",
+  "USE":"Use conditions"
+},
+  "SERVER":{
+    "ERROR":"Server error"
   }
 }

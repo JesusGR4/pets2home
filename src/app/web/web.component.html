@@ -28,7 +28,7 @@
                         </li>
 
                         <li>
-                            <a routerLink="/index" >Home</a>
+                            <a routerLink="/index" >{{'WEB.HOME' | translate}}</a>
                         </li>
                         <!-- menu item -->
 
@@ -37,35 +37,14 @@
                         <!--</li>-->
                         <!-- menu item -->
                         <li>
-                          <a routerLink="/register">¡Regístrate!</a>
+                          <a routerLink="/register">{{'WEB.REGISTER' | translate}}</a>
                         </li>
                         <!-- menu item -->
 
                       <!-- menu item -->
                       <li>
-                        <a routerLink="/login">¡Entra!</a>
+                        <a routerLink="/login">{{'WEB.LOG-IN' | translate}}</a>
                       </li>
-                      <!-- menu item -->
-                        <li *ngIf="session.id" class="dropdown panel simple-dropdown top-login">
-
-
-                            <a href="#collapse" class="dropdown-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-hover="dropdown">
-                                <img src="../../assets/img/profiles/avatar.jpg">
-                            </a>
-
-                            <!-- sub menu single -->
-                            <!-- sub menu item  -->
-                            <ul id="collapse" class="dropdown-menu panel-collapse collapse" role="menu">
-                                <li><a href="javascript:;">What´s new!</a></li>
-                                <li><a href="javascript:;">Mis eventos</a></li>
-                                <li class="separator"><hr></li>
-                                <li><a routerLink="/myProfile">Mi perfil</a></li>
-                                <li><a class="modal-popup" (click)="onLogout()">Logout</a></li>
-                            </ul>
-                            <!-- end sub menu item  -->
-                            <!-- end sub menu single -->
-                        </li>
-
                     </ul>
                 </div>
             </div>
@@ -85,25 +64,25 @@
     <div class="row">
       <div class="col-md-3 col-sm-3 footer-link1 xs-display-none">
         <!-- headline -->
-        <h5>Conócenos</h5>
+        <h5>{{'WEB.KNOW' | translate}}</h5>
         <!-- end headline -->
         <!-- link -->
         <ul>
-          <li><a href="javascript:;">FAQ´s</a></li>
-          <li><a href="javascript:;">Sobre pets2home</a></li>
+          <li><a href="javascript:;">{{'WEB.FAQ' | translate}}</a></li>
+          <li><a href="javascript:;">{{'WEB.ABOUT' | translate}}</a></li>
         </ul>
         <!-- end link -->
       </div>
 
       <div class="col-md-2 col-sm-3 col-xs-4 footer-link4">
         <!-- headline -->
-        <h5>Legal</h5>
+        <h5>{{'WEB.LE' | translate}}</h5>
         <!-- end headline -->
         <!-- link -->
         <ul>
-          <li><a href="javascript:;">Contacto</a></li>
-          <li><a href="javascript:;">Aviso Legal</a></li>
-          <li><a href="javascript:;">Condiciones de uso</a></li>
+          <li><a href="javascript:;">{{'WEB.CONTACT' | translate}}</a></li>
+          <li><a href="javascript:;">{{'WEB.LEGAL' | translate}}</a></li>
+          <li><a href="javascript:;">{{'WEB.USE' | translate}}</a></li>
         </ul>
         <!-- end link -->
       </div>
@@ -117,7 +96,7 @@
       <!-- copyright -->
       <div
         class="col-md-6 col-sm-6 col-xs-12 copyright text-left letter-spacing-1 xs-text-center xs-margin-bottom-one">
-        &copy; 2017 pets2home
+        &copy; 2017 Pets2Home
       </div>
       <!-- end copyright -->
       <!-- social media link -->
