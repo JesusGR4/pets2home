@@ -43,7 +43,7 @@ export class CreateShelterComponent implements OnInit{
   @ViewChild('modal')
   public modal: ModalComponent;
   public translation: string;
-  constructor(private router: Router,private translateService:TranslateService,private toastyService:ToastyService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _shelterService: ShelterService){
+  constructor(private router: Router,private translateService:TranslateService,private toastyService:ToastyService, private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private _shelterService: ShelterService, private el: ElementRef){
 
   }
   ngOnInit(){
@@ -77,39 +77,42 @@ export class CreateShelterComponent implements OnInit{
     this.filesToUpload = <Array<File>> fileInput.target.files;
   }
   createShelter(){
-    this._shelterService.createShelter(this.shelter).subscribe(
-      res => {
-        let json = res.json();
-        let code = json.code;
-        let rout = this.router;
-        if(code == CodesService.OK_CODE){
-          this.translateService.get('REQUEST.SUCCESS').subscribe(
-            data => {
-              this.translation = data;
-            }
-          );
-          var toastOptions:ToastOptions = {
-            title: this.translation,
-            msg: json.message,
-            showClose: true,
-            timeout: 7500,
-            theme: 'material',
-            onRemove: function(toast: ToastData){
-              rout.navigateByUrl('/index');
-            }
-          };
-          this.toastyService.success(toastOptions);
-        }else{
+    this.validateForm();
+    if(this.valid == true){
+      this._shelterService.createShelter(this.shelter).subscribe(
+        res => {
+          let json = res.json();
+          let code = json.code;
+          let rout = this.router;
+          if(code == CodesService.OK_CODE){
+            this.translateService.get('REQUEST.SUCCESS').subscribe(
+              data => {
+                this.translation = data;
+              }
+            );
+            var toastOptions:ToastOptions = {
+              title: this.translation,
+              msg: json.message,
+              showClose: true,
+              timeout: 7500,
+              theme: 'material',
+              onRemove: function(toast: ToastData){
+                rout.navigateByUrl('/index');
+              }
+            };
+            this.toastyService.success(toastOptions);
+          }else{
+            this.errorMessages = json.message;
+            this.modal.open();
+          }
+        },
+        error => {
+          let json = error.json();
           this.errorMessages = json.message;
           this.modal.open();
         }
-      },
-      error => {
-        let json = error.json();
-        this.errorMessages = json.message;
-        this.modal.open();
-      }
-    );
+      );
+    }
   }
   private transformForSelect(datas: Array<any>){
     let result = [];
@@ -126,6 +129,86 @@ export class CreateShelterComponent implements OnInit{
     this.shelter.longitude = $event.coords.lng;
   }
 
+  private validateForm(){
+    var phoneReg = new RegExp("^[9|6|7][0-9]{8}$");
+    var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+    this.valid = true;
+    let inputEl: HTMLInputElement = this.el.nativeElement.querySelector('[type="file"]');
+
+    if($('#name').val()==""){
+      $('#name-error').show();
+      this.valid = false;
+    }
+    else{
+      $('#name-error').hide();
+
+    }
+    if($('#surname').val()==""){
+      $('#surname-error').show();
+      this.valid = false;
+    }
+    else{
+      $('#surname-error').hide();
+    }
+    if(!phoneReg.test($('#phone').val())){
+      $('#phone-error').show();
+      this.valid = false;
+    }else{
+      $('#phone-error').hide();
+    }
+    if(this.particular.province==null || this.particular.province==""){
+      $('#province-error').show();
+      this.valid = false;
+    }
+    else{
+      $('#province-error').hide();
+    }
+    if($('#city').val()==""){
+      $('#city-error').show();
+      this.valid = false;
+    }
+    else{
+      $('#city-error').hide();
+    }
+    if(!pattern.test($('#email').val())){
+      $('#email-error').show();
+      this.valid = false;
+    }else{
+      $('#email-error').hide();
+    }
+    if(this.shelter.latitude== "" || this.shelter.longitude==""){
+      $('#location-error').show();
+      this.valid = false;
+    }else{
+      $('#location-error').hide();
+    }
+    if($('#address').val()==""){
+      $('#address-error').show();
+      this.valid = false;
+    }else{
+      $('#address-error').hide();
+    }
+    if($('#description').val()==""){
+      $('#description-error').show();
+      this.valid = false;
+    }else{
+      $('#description-error').hide();
+    }
+    if($('#schedule').val()==""){
+      $('#schedule-error').show();
+      this.valid = false;
+    }else{
+      $('#schedule-error').hide();
+    }
+    console.log(inputEl);
+    if(inputEl == null){
+      $('#input-error').show();
+      this.valid = false;
+    }else{
+      $('#input-error').show();
+      this.valid = false;
+    }
+  }
 }
 
 

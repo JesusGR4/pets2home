@@ -84,5 +84,33 @@
 },
   "SERVER":{
     "ERROR":"Server error"
+  },
+
+  "CREATE-SHELTER":{
+    "TITLE": "Request access to the platform",
+    "DATA": "Data of the shelter",
+    "NAME": "Name",
+    "NAME_ERROR": "Name is mandatory",
+    "DESCRIPTION": "Description",
+    "DESCRIPTION_ERROR":"Description is mandatory",
+    "SCHEDULE":"Schedule",
+    "SCHEDULE_ERROR":"Schedule is mandatory",
+    "PHONE":"Phone",
+    "PHONE_ERROR": "Phone is wrong",
+    "EMAIL":"Email",
+    "EMAIL_ERROR":"Wrong email",
+    "UBICATION":"Location of the shelter",
+    "PROVINCE":"Province",
+    "PROVINCE_ERROR":"Province is mandatory",
+    "CITY": "City",
+    "CITY_ERROR":"City is mandatory",
+    "ADDRESS":"Address",
+    "ADDRESS_ERROR":"Address is mandatory",
+    "PLEASE": "Please click on the map in the location of your shelter",
+    "UPLOAD": "Upload the images of the house!",
+    "SEND":"Send",
+    "LOCATION":"Please! Choose some location",
+    "INPUT_ERROR":"You must choose a image at least",
+    "SEARCH":"Search for location"
   }
 }

@@ -84,6 +84,33 @@
 },
   "SERVER":{
     "ERROR":"Error de servidor"
+  },
+  "CREATE-SHELTER":{
+    "TITLE": "Solicitud acceso a la plataforma",
+    "DATA": "Datos de la casa de acogida",
+    "NAME": "Nombre",
+    "NAME_ERROR": "El nombre es obligatorio",
+    "DESCRIPTION": "Descripción",
+    "DESCRIPTION_ERROR":"La descripción es obligatoria",
+    "SCHEDULE":"Horario",
+    "SCHEDULE_ERROR":"El horario es obligatorio",
+    "PHONE":"Teléfono",
+    "PHONE_ERROR": "El teléfono es erróneo",
+    "EMAIL":"Correo electrónico",
+    "EMAIL_ERROR":"El correo electrónico no es correcto",
+    "UBICATION":"Ubicación de la casa de acogida",
+    "PROVINCE":"Provincia",
+    "PROVINCE_ERROR":"La provincia es errónea",
+    "CITY": "Ciudad",
+    "CITY_ERROR":"La ciudad es obligatoria",
+    "ADDRESS":"Dirección",
+    "ADDRESS_ERROR":"La dirección es obligatoria",
+    "PLEASE": "Por favor, pinche sobre el mapa en la ubicación de su casa de acogida",
+    "UPLOAD": "¡Sube las imágenes de la casa!",
+    "SEND":"Enviar",
+    "LOCATION":"¡Por favor! Selecciona unas coordenadas",
+    "INPUT_ERROR":"Debes elegir al menos una imagen",
+    "SEARCH":"Busca una ubicación"
   }
 
 }
