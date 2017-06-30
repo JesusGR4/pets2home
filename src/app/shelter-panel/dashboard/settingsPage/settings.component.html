@@ -1,0 +1,487 @@
+<!-- START PANEL -->
+<div class="padding-30 sm-no-padding xs-no-padding">
+<div class="panel panel-default">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs nav-tabs-primary nav-tabs-fillup">
+        <li class="active">
+            <a data-toggle="tab" href="#tags"><span>Tags</span></a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#directors"><span>Directores</span></a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#actors"><span>Actores</span></a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#interests"><span>Intereses</span></a>
+        </li>
+    </ul>
+    <!-- END Nav tabs -->
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <!-- Tab Tags -->
+        <div class="tab-pane slide-left active" id="tags">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-transparent">
+                        <div class="panel-heading">
+                            <div class="panel-title">Gestión de tags
+
+                            </div>
+                            <div class="tools pull-right">
+                                <button type="button" (click)="createTagModal()"
+                                        class="btn btn-primary btn-cons btn-animated from-top pg pg-arrow_down">
+                                    <span>Añadir nueva Tag</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th width="5%">ID</th>
+                                        <th width="80%">Nombre</th>
+                                        <th width="15%">Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let t of tags | paginate: { itemsPerPage: 8, currentPage: p, id: 'p' }">
+                                        <td class="v-align-middle">
+                                            <p>{{t.id}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p>{{t.name}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <div class="btn-group btn-group-sm sm-m-t-10">
+                                                <button type="button" class="btn btn-default" title="Editar"
+                                                (click)="editTagModal(t)"><i class="fa fa-pencil"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-default" title="Eliminar"
+                                                        (click)="deleteTagModal(t)">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <pagination-controls (pageChange)="p = $event" id="p"></pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Tab Tags -->
+        <!-- Tab Directors -->
+        <div class="tab-pane slide-left" id="directors">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-transparent">
+                        <div class="panel-heading">
+                            <div class="panel-title">Gestión de directores
+
+                            </div>
+                            <div class="tools pull-right">
+                                <button type="button"
+                                        class="btn btn-primary btn-cons btn-animated from-top pg pg-arrow_down"
+                                        (click)="createDirectorModal()">
+                                    <span>Añadir nuevo director</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th width="5%">ID</th>
+                                        <th width="30%">Nombre</th>
+                                        <th width="50%">Apellidos</th>
+                                        <th width="15%">Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let d of directors | paginate: { itemsPerPage: 8, currentPage: d, id: 'd' }">
+                                        <td class="v-align-middle">
+                                            <p>{{d.id}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p>{{d.name}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p>{{d.surnames}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <div class="btn-group btn-group-sm sm-m-t-10">
+                                                <button type="button" class="btn btn-default" title="Editar"
+                                                        (click)="editDirectorModal(d)"><i class="fa fa-pencil"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-default" title="Eliminar"
+                                                        (click)="deleteDirectorModal(d)"><i class="fa fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <pagination-controls (pageChange)="d = $event" id="d"></pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Tab Directors -->
+        <!-- Tab Actors -->
+        <div class="tab-pane slide-left" id="actors">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-transparent">
+                        <div class="panel-heading">
+                            <div class="panel-title">Gestión de actores
+
+                            </div>
+                            <div class="tools pull-right">
+                                <button type="button"
+                                        class="btn btn-primary btn-cons btn-animated from-top pg pg-arrow_down"
+                                        (click)="createActorModal()">
+                                    <span>Añadir nuevo Actor</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th width="5%">ID</th>
+                                        <th width="30%">Nombre</th>
+                                        <th width="50%">Apellidos</th>
+                                        <th width="15%">Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let a of actors | paginate: { itemsPerPage: 8, currentPage: a, id: 'a' }">
+                                        <td class="v-align-middle">
+                                            <p>{{a.id}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p>{{a.name}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p>{{a.surnames}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <div class="btn-group btn-group-sm sm-m-t-10">
+                                                <button type="button" class="btn btn-default" title="Editar"
+                                                        (click)="editActorModal(a)"><i class="fa fa-pencil"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-default" title="Eliminar"
+                                                        (click)="deleteActorModal(a)"><i class="fa fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <pagination-controls (pageChange)="a = $event" id="a"></pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Tab Actors -->
+        <!-- Tab Interests -->
+        <div class="tab-pane slide-left" id="interests">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-transparent">
+                        <div class="panel-heading">
+                            <div class="panel-title">Gestión de intereses
+
+                            </div>
+                            <div class="tools pull-right">
+                                <button type="button"
+                                        class="btn btn-primary btn-cons btn-animated from-top pg pg-arrow_down"
+                                        (click)="createInterestModal()">
+                                    <span>Añadir nuevo interés</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th width="5%">ID</th>
+                                        <th width="80%">Nombre</th>
+                                        <th width="15%">Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let i of interests | paginate: { itemsPerPage: 8, currentPage: i, id: 'i' }">
+                                        <td class="v-align-middle">
+                                            <p>{{i.id}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p>{{i.name}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <div class="btn-group btn-group-sm sm-m-t-10">
+                                                <button type="button" class="btn btn-default" title="Editar"
+                                                        (click)="editInterestModal(i)"><i class="fa fa-pencil"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-default" title="Eliminar"
+                                                        (click)="deleteInterestModal(i)"><i class="fa fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <pagination-controls (pageChange)="i = $event" id="i"></pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Tab Interests -->
+    </div>
+    <!-- END Tab panes -->
+</div>
+    </div>
+<!-- END PANEL -->
+
+
+<!-- Modal New/Edit Tags -->
+<div class="modal fade slide-up disable-scroll" id="newTag" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-t-20">
+                    <form id="form-tag" #formTag="ngForm"  role="form" autocomplete="off" novalidate="novalidate">
+
+                        <div class="form-group form-group-default">
+                            <label>Nombre Categoría</label>
+                            <input type="text" [(ngModel)]="tagAux.name" class="form-control" value="{{tagAux.name}}" required
+                            name="name">
+                        </div>
+                    </form>
+
+                    <button *ngIf="tagMode === 'new'" type="button" class="btn btn-primary btn-cons"
+                            [disabled] = "!formTag.valid" (click)="saveTag()">Guardar</button>
+                    <button *ngIf="tagMode === 'edit'" type="button" class="btn btn-primary btn-cons"
+                            [disabled] = "!formTag.valid" (click)="updateTag()">Guardar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- END Modal New/Edit Tags -->
+
+<!-- Modal New/Edit Directors -->
+<div class="modal fade slide-up disable-scroll" id="newDirector" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-t-20">
+                    <form id="form-director" #formDirector="ngForm"  role="form" autocomplete="off" novalidate="novalidate">
+
+                        <div class="form-group form-group-default">
+                            <label>Nombre</label>
+                            <input type="text" [(ngModel)]="directorAux.name" class="form-control" value="{{directorAux.name}}" required
+                                   name="name">
+                        </div>
+
+                        <div class="form-group form-group-default">
+                            <label>Apellidos</label>
+                            <input type="text" [(ngModel)]="directorAux.surnames" class="form-control" value="{{directorAux.surnames}}" required
+                                   name="surnames">
+                        </div>
+                    </form>
+
+
+                    <button *ngIf="directorMode === 'new'" type="button" class="btn btn-primary btn-cons"
+                            [disabled] = "!formDirector.valid" (click)="saveDirector()">Guardar</button>
+                    <button *ngIf="directorMode === 'edit'" type="button" class="btn btn-primary btn-cons"
+                            [disabled] = "!formDirector.valid" (click)="updateDirector()">Guardar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- END Modal New/Edit Directors -->
+
+<!-- Modal New/Edit Actors -->
+<div class="modal fade slide-up disable-scroll" id="newActor" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-t-20">
+                    <form id="form-actor" #formActor="ngForm"  role="form" autocomplete="off" novalidate="novalidate">
+
+                        <div class="form-group form-group-default">
+                            <label>Nombre</label>
+                            <input type="text" [(ngModel)]="actorAux.name" class="form-control" value="{{actorAux.name}}" required
+                                   name="name">
+                        </div>
+
+                        <div class="form-group form-group-default">
+                            <label>Apellidos</label>
+                            <input type="text" [(ngModel)]="actorAux.surnames" class="form-control" value="{{actorAux.surnames}}" required
+                                   name="surnames">
+                        </div>
+                    </form>
+
+                    <button *ngIf="actorMode === 'new'" type="button" class="btn btn-primary btn-cons"
+                            [disabled] = "!formActor.valid" (click)="saveActor()">Guardar</button>
+                    <button *ngIf="actorMode === 'edit'" type="button" class="btn btn-primary btn-cons"
+                            [disabled] = "!formActor.valid" (click)="updateActor()">Guardar</button>                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- END Modal New/Edit Actors -->
+
+<!-- Modal New/Edit Interests -->
+<div class="modal fade slide-up disable-scroll" id="newInterest" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-t-20">
+                    <form id="form-interest" #formInterest="ngForm"  role="form" autocomplete="off" novalidate="novalidate">
+
+                        <div class="form-group form-group-default">
+                            <label>Nombre Interés</label>
+                            <input type="text" [(ngModel)]="interestAux.name" class="form-control" value="{{interestAux.name}}" required
+                                   name="name">
+                        </div>
+                    </form>
+
+                    <button *ngIf="interestMode === 'new'" type="button" class="btn btn-primary btn-cons"
+                            [disabled] = "!formInterest.valid" (click)="saveInterest()">Guardar</button>
+                    <button *ngIf="interestMode === 'edit'" type="button" class="btn btn-primary btn-cons"
+                            [disabled] = "!formInterest.valid" (click)="updateInterest()">Guardar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- END Modal New/Edit Interests -->
+
+<!-- Modal confirm delete Tag -->
+<div class="modal fade slide-up disable-scroll" id="deleteTag" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-t-20">
+                    <p>¿Seguro que quieres eliminar la tag "{{tag.name}}"?</p>
+                    <!-- dialog buttons -->
+
+                    <button type="button" class="btn btn-default btn-cons m-t-45" data-dismiss="modal">Cancelar</button>
+                    <button type="button" (click)="deleteTag(tag)" class="btn btn-primary m-t-45">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal confirm delete Director -->
+<div class="modal fade slide-up disable-scroll" id="deleteDirector" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-t-20">
+                    <p>¿Seguro que quieres eliminar el director "{{director.name}} {{director.surnames}}"?</p>
+                    <!-- dialog buttons -->
+
+                    <button type="button" class="btn btn-default btn-cons m-t-45" data-dismiss="modal">Cancelar</button>
+                    <button type="button" (click)="deleteDirector(director)" class="btn btn-primary m-t-45">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal confirm delete Actor -->
+<div class="modal fade slide-up disable-scroll" id="deleteActor" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-t-20">
+                    <p>¿Seguro que quieres eliminar el actor "{{actor.name}} {{actor.surnames}}"?</p>
+                    <!-- dialog buttons -->
+
+                    <button type="button" class="btn btn-default btn-cons m-t-45" data-dismiss="modal">Cancelar</button>
+                    <button type="button" (click)="deleteActor(actor)" class="btn btn-primary m-t-45">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal confirm delete Actor -->
+<div class="modal fade slide-up disable-scroll" id="deleteInterest" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-t-20">
+                    <p>¿Seguro que quieres eliminar el interés "{{interest.name}}"?</p>
+                    <!-- dialog buttons -->
+
+                    <button type="button" class="btn btn-default btn-cons m-t-45" data-dismiss="modal">Cancelar</button>
+                    <button type="button" (click)="deleteInterest(interest)" class="btn btn-primary m-t-45">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

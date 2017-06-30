@@ -1,0 +1,80 @@
+<div class="login-wrapper">
+    <!-- START Login Background Pic Wrapper-->
+    <div class="bg-pic">
+        <!-- START Background Pic-->
+        <img src="../../assets/img/catAndDog.jpg"
+             data-src="../../assets/img/catAndDog.jpg"
+             data-src-retina="../../assets/img/catAndDog.jpg" alt=""
+             class="lazy">
+        <!-- END Background Pic-->
+    </div>
+    <!-- END Login Background Pic Wrapper-->
+    <!-- START Login Right Container-->
+    <div class="login-container bg-white">
+        <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
+            <img src="../../assets/img/logo-light.png" alt="logo" data-src="../../assets/img/logo-light.png"
+                 data-src-retina="../../assets/img/logo-light.png" width="130">
+
+            <!-- START Login Form -->
+            <form #loginForm="ngForm" role="form" action="" novalidate>
+                <!-- START Form Control-->
+                <div class="form-group form-group-default">
+                    <label>Login</label>
+
+                    <div class="controls">
+                        <input type="text" [(ngModel)]="session.email" #email="ngModel" name="email" placeholder="email" class="form-control" required>
+                        <p [hidden]="email.valid || send == false" color="danger" padding-left>
+                            Es obligatorio introducir el email
+                        </p>
+                    </div>
+                </div>
+                <!-- END Form Control-->
+                <!-- START Form Control-->
+                <div class="form-group form-group-default">
+                    <label>Password</label>
+
+                    <div class="controls">
+                        <input type="password" [(ngModel)]="session.password" #password="ngModel" class="form-control" name="password" placeholder="contraseña" required>
+                        <p [hidden]="password.valid || send == false" color="danger" padding-left>
+                            Es obligatorio introducir la contraseña
+                        </p>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-cons m-t-10" type="submit" (click)="onLogin(loginForm)">Sign in</button>
+            </form>
+            <!-- END Form Control-->
+            <!-- START Form Control-->
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse"
+                       aria-expanded="false" aria-controls="collapseTwo">
+                        ¿Has olvidado tu contraseña?
+                    </a>
+
+                    <div id="collapse" class="collapse m-t-30" role="tabpanel" aria-labelledby="headingTwo"
+                         aria-expanded="false" style="height: 0px;">
+
+                        <form id="form-forgot">
+                            <div class="form-group form-group-default">
+                                <label>Introduzca su email</label>
+
+                                <div class="controls">
+                                    <input type="text" name="forgot" placeholder="email" class="form-control"
+                                           required>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-cons m-t-10" type="submit">Recuperar contraseña</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <!-- END Form Control-->
+
+
+            <!--END Login Form-->
+        </div>
+    </div>
+    <!-- END Login Right Container-->
+</div>

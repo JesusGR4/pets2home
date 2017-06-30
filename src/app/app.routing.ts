@@ -44,6 +44,8 @@ import {SingleShelterComponent} from "./web/singleShelter/singleShelter.componen
 import {LoginComponent} from "./web/login/login.component";
 import {ResetComponent} from "./web/resetPassword/reset.component";
 import {CreateShelterComponent} from "./web/createShelter/createShelter.component";
+import {DashboardShelterComponent} from "./shelter-panel/dashboard/dashboard.component";
+import {PendingSheltersManagement} from "./admin-panel/dashboard/getPendingShelters/pendingShelters.component";
 
 
 
@@ -130,105 +132,37 @@ const appRoutes:Routes = [
         },
 
     ]
+    },{
+    path: "shelter-panel", component: DashboardShelterComponent, children: [
+      {
+        path: 'examplePage',
+        component: ExamplePageComponent,
+      },
+
+    ]
     },
     {
         path: "admin-panel", component: DashboardComponent, children: [
-        {
-            path: 'examplePage',
-            component: ExamplePageComponent,
-        },
-        {
-            path: 'loginPage',
-            component: LoginPageComponent,
-        },
+
         {
             path: 'dashboard',
             component: AdminPanelComponent, children: [
-            {
-                path: 'userManagement',
-                component: UserManagement,
-            },
-            {
-                path: 'profileManagement',
-                component: ProfileManagement,
-            },
+
             {
                 path: 'noPermissions',
                 component: NoPermissionsComponent,
             },
             {
-                path: 'cinemaManagement',
-                component: CinemaManagement,
-            },
-            {
-                path: 'filmManagement',
-                component: FilmManagement,
-            },
-            {
-                path: 'providerFilmManagement',
-                component: ProviderFilmManagement,
-            },
-            {
-                path: 'providerEventsManagement',
-                component: ProviderEventsManagement,
-            },
-            {
-                path: 'programmerFilmManagement',
-                component: ProgammerFilmManagement,
-            },
-            {
-                path: 'eventsManagement',
-                component: EventsManagement,
-            },
-            {
-                path: 'pendingsEventsManagement',
-                component: PendingEventsManagement,
-            },
-            {
-                path: 'cinemasAdminEventsManagement',
-                component: CinemasAdminEventsManagement,
-            },
-            {
-                path: 'programmerEventsManagement',
-                component: ProgrammerEventsManagement,
-            },
-            {
-                path: 'programmerEventsManagement',
-                component: ProgrammerEventsManagement,
-            },
-            {
-                path: 'programmerValidatedEventsManagement',
-                component: ProgrammerValidatedEventsManagement,
-            },
-            {
-                path: 'settings',
-                component: Settings,
-            },
-            {
-                path: 'myEvents',
-                component: MyEvents,
-            },
-            {
-                path: 'listUsers',
-                component: ListUsers,
-            },
-            {
-              path: 'customerTimeline/:customer_id',
-              component: UsersTimeline,
-            },
-            {
-                path: 'surveys',
-                component: Surveys,
-            },
-            {
-                path: 'compassuite',
-                component: Compassuite,
-            },
+                path: 'getPendingShelters',
+                component: PendingSheltersManagement,
+            }
 
         ]
         },
+
     ]
     },
+
 
 
 ];

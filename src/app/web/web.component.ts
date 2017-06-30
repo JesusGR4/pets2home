@@ -44,6 +44,7 @@ export class WebComponent{
         }
 
     }
+
     setLanguage(language){
       this.translate.use(language);
       localStorage.setItem(ApiConfigService.LANGUAGE, language);

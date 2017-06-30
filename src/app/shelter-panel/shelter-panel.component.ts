@@ -3,11 +3,12 @@ import {Session} from "../models/session";
 
 
 @Component({
-    selector: "admin",
-    templateUrl: "./admin-panel.component.html",
+    selector: "shelter",
+    templateUrl: "./shelter-panel.component.html",
 
 })
-export class AdminPanelComponent{
+export class ShelterPanelComponent{
+
     constructor(
     ){
 

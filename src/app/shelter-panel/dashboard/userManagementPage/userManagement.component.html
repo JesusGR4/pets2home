@@ -1,0 +1,225 @@
+<!-- START PANEL -->
+<div class="padding-30 sm-no-padding xs-no-padding">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title">Gestión de Usuarios
+                <button type="button" class="btn btn-primary btn-cons btn-animated from-top pg pg-arrow_down"
+                        data-toggle="modal"
+                        data-target="#editProfile" (click)="clearFormUser(user)">
+                    <span>Añadir nuevo</span>
+                </button>
+            </div>
+            <div class="tools pull-right">
+                <div class="btn-group">
+                    <label class="btn btn-default" [ngClass]="{active: profileFilter.youfeelmer === true}">
+                        <input hidden type="checkbox" [(ngModel)]="profileFilter.youfeelmer"
+                               (change)="getUserList()"> Youfeelmer
+                    </label>
+                    <label class="btn btn-default" [ngClass]="{active: profileFilter.provider === true}">
+                        <input hidden type="checkbox" [(ngModel)]="profileFilter.provider"
+                               (change)="getUserList()"> Proveedor
+                    </label>
+                    <label class="btn btn-default" [ngClass]="{active: profileFilter.programmer === true}">
+                        <input hidden type="checkbox" [(ngModel)]="profileFilter.programmer"
+                               (change)="getUserList()"> Programador
+                    </label>
+                    <label class="btn btn-default" [ngClass]="{active: profileFilter.adminCinema === true}">
+                        <input hidden type="checkbox" [(ngModel)]="profileFilter.adminCinema"
+                               (change)="getUserList()"> Encargado
+                    </label>
+                    <label class="btn btn-default" [ngClass]="{active: profileFilter.promoter === true}">
+                        <input hidden type="checkbox" [(ngModel)]="profileFilter.promoter"
+                               (change)="getUserList()"> Promotor
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Rol</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Ciudad</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr *ngFor="let user of users | paginate: { itemsPerPage: 8, currentPage: p }">
+                        <td class="v-align-middle">
+                            <p>{{user.username}}</p>
+                        </td>
+                        <td class="v-align-middle">
+                            <span *ngIf="user.profile_id === 1" class="label label-youfeelmer">Youfeelmer</span>
+                            <span *ngIf="user.profile_id === 2" class="label label-provider">Proveedor</span>
+                            <span *ngIf="user.profile_id === 3" class="label label-manager">Encargado</span>
+                            <span *ngIf="user.profile_id === 4" class="label label-programmer">Programador</span>
+                            <span *ngIf="user.profile_id === 5" class="label label-promoter">Promotor</span>
+                        </td>
+                        <td class="v-align-middle">
+                            <p>{{user.name}}</p>
+                        </td>
+                        <td class="v-align-middle">
+                            <p>{{user.surnames}}</p>
+                        </td>
+                        <td class="v-align-middle">
+                            <p>{{user.email}}</p>
+                        </td>
+                        <td class="v-align-middle">
+                            <p>{{user.phone}}</p>
+                        </td>
+                        <td class="v-align-middle">
+                            <p> - </p>
+                        </td>
+                        <td class="v-align-middle">
+                            <div class="btn-group btn-group-sm sm-m-t-10">
+                                <button type="button" class="btn btn-default" title="Editar" data-toggle="modal"
+                                        data-target="#editProfile" (click)="changeFormUser(user)"><i
+                                        class="fa fa-pencil"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PANEL -->
+
+<!-- Modal Asignar Rol -->
+<div class="modal fade slide-up disable-scroll" id="editProfile" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                            class="pg-close fs-14"></i>
+                    </button>
+                </div>
+
+                <div class="modal-body m-t-20">
+
+                    <form #userForm="ngForm" role="form" autocomplete="off" novalidate="novalidate">
+                        <div class="row clearfix">
+                            <div class="col-sm-4">
+                                <div class="form-group form-group-default" aria-required="true">
+                                    <label>Usuario</label>
+                                    <input type="text" [(ngModel)]="user.username" class="form-control" name="usuario"
+                                           required
+                                           aria-required="" value="{{user.username}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group form-group-default">
+                                    <label>Nombre</label>
+                                    <input type="text" [(ngModel)]="user.name" class="form-control" name="nombre"
+                                           required
+                                           aria-required="" value="{{user.name}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group form-group-default">
+                                    <label>Apellidos</label>
+                                    <input type="text" [(ngModel)]="user.surnames" class="form-control" name="apellidos"
+                                           required
+                                           aria-required="" value="{{user.surnames}}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row clearfix">
+                            <div class="col-sm-5">
+                                <div class="form-group form-group-default" aria-required="true">
+                                    <label>Email</label>
+                                    <input type="email" [(ngModel)]="user.email" class="form-control" name="email"
+                                           required
+                                           aria-required="" value="{{user.email}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-group-default">
+                                    <label>Teléfono</label>
+                                    <input type="text" [(ngModel)]="user.phone" class="form-control" name="telefono"
+                                           aria-required="" value="{{user.phone}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-2" *ngIf="user.profile_id == 1">
+                                <div class="form-group form-group-default">
+                                  <label>Provincia</label>
+                                  <ng-select
+                                    [allowClear]="true"
+                                    [options]="provinces"
+                                    [(ngModel)]="province_id"
+                                    (selected)="getCitiesByProvince($event)"
+                                    placeholder="Provincia"
+                                    name="province">
+                                  </ng-select>
+                                </div>
+                            </div>
+                            <div class="col-sm-2" *ngIf="user.profile_id == 1">
+                              <div class="form-group form-group-default">
+                                <label>Ciudad</label>
+                                <ng-select
+                                  [allowClear]="true"
+                                  [options]="provinceCities"
+                                  [(ngModel)]="city_id"
+                                  placeholder="Ciudad"
+                                  name="city">
+                                </ng-select>
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </form>
+
+                    <div class="text-left m-t-20 m-b-35">
+                        <label>Asigna su Rol</label>
+                        <div class="radio radio-primary">
+                            <input type="radio" value="1" id="customer" name="profile"
+                                   (change)="addProfile('customer')">
+                            <label for="customer">Youfeelmer</label>
+
+                            <input type="radio" value="2" id="provider" name="profile"
+                                   (change)="addProfile('provider')">
+                            <label for="provider">Proveedor de contenidos</label>
+
+                            <input type="radio" value="3" id="programmer" name="profile"
+                                   (change)="addProfile('programmer')">
+                            <label for="programmer">Programador</label>
+
+                            <input type="radio" value="4" id="cinemasAdmin" name="profile"
+                                   (change)="addProfile('cinemasAdmin')">
+                            <label for="cinemasAdmin">Encargado de sala</label>
+
+                            <input type="radio" value="5" id="promoter" name="profile"
+                                   (change)="addProfile('promoter')">
+                            <label for="promoter">Promotor</label>
+                        </div>
+                    </div>
+                    <button *ngIf="mode === 'new'" [disabled]="!userForm.valid" type="button"
+                            class="btn btn-primary btn-cons"
+                            (click)="createUser()">Crear
+                    </button>
+                    <button *ngIf="mode === 'update'" [disabled]="!userForm.valid" type="button"
+                            class="btn btn-primary btn-cons"
+                            (click)="updateUser()">Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- END Modal Asignar Rol -->

@@ -111,6 +111,11 @@
     "LOCATION":"¡Por favor! Selecciona unas coordenadas",
     "INPUT_ERROR":"Debes elegir al menos una imagen",
     "SEARCH":"Busca una ubicación"
-  }
+  },
+  "REMEMBER":{
+    "SUCCESS":"Email enviado"
+  },"ADMIN-DASHBOARD":{
+  "PENDING":"Pendientes"
+}
 
 }

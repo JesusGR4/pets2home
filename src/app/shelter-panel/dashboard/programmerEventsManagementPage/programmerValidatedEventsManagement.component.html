@@ -1,0 +1,109 @@
+<!-- START PANEL -->
+<div class="panel panel-default">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs nav-tabs-primary nav-tabs-fillup">
+        <li class="active">
+            <a data-toggle="tab" href="#validated"><span>Validados</span></a>
+        </li>
+    </ul>
+    <!-- END Nav tabs -->
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <!-- Tab Validated -->
+        <div class="slide-left active"  id="validated">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-transparent">
+                        <div class="panel-heading">
+                            <div class="panel-title">Eventos Validados
+
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="modal-title">Filtrar por: </p>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <div class="form-group form-group-default form-group-default-select2">
+                                                <ng-select
+                                                        [allowClear]="true"
+                                                        [options]="cinemas"
+                                                        [(ngModel)]="validatedCinemaSelected"
+                                                        name="cinemas"
+                                                        placeholder="Cine">
+                                                </ng-select>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-group form-group-default">
+                                                <button type="button"
+                                                        class="btn btn-primary btn-cons from-top"
+                                                        (click)="filterValidated()">
+                                                    <span>Filtrar</span>
+                                                </button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th width="5%">ID</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Película</th>
+                                        <th>Cine</th>
+                                        <th>Ciudad</th>
+                                        <th>Promotor</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let ev of validatedEvents">
+                                        <td class="v-align-middle">
+                                            <p>{{ev.id}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p class="event-date">{{ev.date}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p>{{ev.hour}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p>{{ev.movie_title}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p>{{ev.cinema_name}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p>{{ev.city_name}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p>{{ev.promoter_name+" "+ev.promoter_surnames}}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <div class="btn-group btn-group-sm sm-m-t-10">
+                                                <button *ngIf="ev.accepted_by_programmer === 0" (click)="acceptEvent(ev)" type="button" class="btn btn-default" title="Aceptar Evento"><i
+                                                        class="fa fa-check-square-o"></i>
+                                                </button>
+                                                <button *ngIf="ev.accepted_by_programmer === 1" type="button" class="btn btn-default" title="Aceptado"><i
+                                                        class="fa fa-check-square"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Tab Campaign -->
+    </div>
+    <!-- END Tab panes -->
+</div>

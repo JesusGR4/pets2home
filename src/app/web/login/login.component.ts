@@ -86,34 +86,36 @@ export class LoginComponent{
     rememberPassword(email){
 
       this._sessionsService.resetPassword(email).subscribe(
+          res => {
+            let json = res.json();
+            let code = json.code;
 
-        res => {
-          let json = res.json();
-          let code = json.code;
-          let data = json.data;
-          if(code == CodesService.OK_CODE) {
-            console.log('sent');
-          }else{
-            let message = json.message;
-            this.handlerError(code, message);
-          }
-        },
-        error => {
-          let errorMessage = <any>error;
+            if(code == CodesService.OK_CODE){
+              this.translateService.get('REMEMBER.SUCCESS').subscribe(
+                data => {
+                  this.translation = data;
+                }
+              );
+              var toastOptions:ToastOptions = {
+                title: this.translation,
+                msg: json.message,
+                showClose: true,
+                timeout: 3000,
+                theme: 'material',
 
-          if(errorMessage !== null){
-            this._messagesService.showErrorMessage(MessagesService.SERVER_ERROR_CODE_MESSAGE);
+              };
+              this.toastyService.success(toastOptions);
+            }else{
+              this.errorMessages = json.message;
+              this.modal.open();
+            }
+          },
+          error => {
+            let json = error.json();
+            this.errorMessages = json.message;
+            this.modal.open();
           }
-        }
       )
-    }
-    private handlerError(code, message){
-        if(code == CodesService.INVALID_TOKEN){
-            message = MessagesService.INVALID_TOKEN_MESSAGE;
-        }else if(code == CodesService.SERVER_ERROR_CODE){
-            message = MessagesService.SERVER_ERROR_CODE_MESSAGE;
-        }
-        this._messagesService.showErrorMessage(message);
     }
 
 }

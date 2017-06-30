@@ -112,5 +112,11 @@
     "LOCATION":"Please! Choose some location",
     "INPUT_ERROR":"You must choose a image at least",
     "SEARCH":"Search for location"
-  }
+  },
+  "REMEMBER":{
+  "SUCCESS":"Email sent successfully"
+},"ADMIN-DASHBOARD":{
+  "PENDING":"Pending"
+}
+
 }

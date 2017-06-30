@@ -88,6 +88,8 @@ import {ResetComponent} from "./web/resetPassword/reset.component";
 import {CreateShelterComponent} from "./web/createShelter/createShelter.component";
 import {Ng2Bs3ModalModule} from "ng2-bs3-modal/ng2-bs3-modal";
 import {ToastyModule} from 'ng2-toasty';
+import {DashboardShelterComponent} from "./shelter-panel/dashboard/dashboard.component";
+import {PendingSheltersManagement} from "./admin-panel/dashboard/getPendingShelters/pendingShelters.component";
 
 @NgModule({
     declarations: [
@@ -126,6 +128,7 @@ import {ToastyModule} from 'ng2-toasty';
         CinemaList,
         NoPermissionsComponent,
         SingleShelterComponent,
+        DashboardShelterComponent,
         CinemaManagement,
         FilmManagement,
         EventsManagement,
@@ -134,6 +137,7 @@ import {ToastyModule} from 'ng2-toasty';
         CinemasAdminEventsManagement,
         ProgrammerEventsManagement,
         ProviderEventsManagement,
+        PendingSheltersManagement,
         PendingEventsManagement,
         ProgrammerValidatedEventsManagement,
         Dashboard,

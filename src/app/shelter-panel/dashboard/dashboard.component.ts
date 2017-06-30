@@ -5,7 +5,6 @@ import {MessagesService} from "../../services/messages.service";
 import {CodesService} from "../../services/codes.service";
 import {Session} from "../../models/session";
 import {ApiConfigService} from "../../services/apiConfig.service";
-import {TranslateService} from "ng2-translate";
 
 declare var MyJS: any;
 declare var $: any;
@@ -17,14 +16,13 @@ declare var window: any;
     providers: [SessionsService]
 
 })
-export class DashboardComponent{
+export class DashboardShelterComponent{
     public session: Session = null;
     public id: number = 1;
     constructor(
         private router: Router,
         private _sessionsService: SessionsService,
-        private _messagesService: MessagesService,
-        private translate: TranslateService
+        private _messagesService: MessagesService
     ){
         _sessionsService.user$.subscribe(
           user => {
@@ -74,9 +72,5 @@ export class DashboardComponent{
         }
         this._messagesService.showErrorMessage(message);
     }
-  setLanguage(language){
-    this.translate.use(language);
-    localStorage.setItem(ApiConfigService.LANGUAGE, language);
-  }
 
 }
