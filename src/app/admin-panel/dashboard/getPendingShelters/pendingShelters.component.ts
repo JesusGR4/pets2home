@@ -20,6 +20,7 @@ import {User} from "../../../models/user";
 import {RoomsService} from "../../../services/rooms.service";
 import {UsersService} from "../../../services/users.service";
 import {ShelterService} from "../../../services/shelter.service";
+import {Shelter} from "../../../models/shelter.js";
 
 declare var TableJS:any;
 declare var $:any;
@@ -33,10 +34,12 @@ declare var Dropzone: any;
     providers:[ShelterService]
 
 })
-export class PendingSheltersManagement{
+export class PendingSheltersManagement implements OnInit{
 
 
-
+  public shelters: Shelter[] = [];
+  private totalItems:any;
+  private currentPage=1;
     constructor(private _shelterService: ShelterService
 
     ){
@@ -45,17 +48,35 @@ export class PendingSheltersManagement{
 
 
     ngOnInit() {
-
+      TableJS($,window);
       this.getPendingShelters();
-
     }
 
     getPendingShelters(){
-      this._shelterService.getPendingShelters().subscribe(
-        res =>{
-
+      this._shelterService.getPendingShelters(this.currentPage).subscribe(
+        res => {
+          let json = res.json();
+          var shelters = json.shelters;
+          this.totalItems = json.totalItems;
+          for (var i = 0; i < this.totalItems; i++) {
+            var shelter = new Shelter();
+            shelter.name = shelters[i].user_name;
+            shelter.created = shelters[i].created;
+            shelter.shelter_id = shelters[i].shelter_id;
+            shelter.user_id = shelters[i].user_id;
+            shelter.province = shelters[i].shelter_province;
+            shelter.city = shelters[i].shelter_city;
+            this.shelters.push(shelter);
+          }
         }
       );
     }
+  ngAfterViewInit() {
+    TableJS($,window);
+    console.log(this.totalItems);
+  }
 
+  listPaginatePending($event){
+    this.currentPage = $event;
+  }
 }

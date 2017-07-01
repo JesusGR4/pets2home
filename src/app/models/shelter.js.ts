@@ -14,6 +14,8 @@ export class Shelter{
   public schedule;
   public numberOfPets;
   public img_url;
+
+  public created;
   constructor() {
     this.shelter_id=0;
     this.user_id=0;
@@ -30,6 +32,8 @@ export class Shelter{
     this.schedule="";
     this.numberOfPets=0;
     this.img_url="";
+
+    this.created="";
   }
 
 }

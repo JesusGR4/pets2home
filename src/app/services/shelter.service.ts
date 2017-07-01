@@ -57,13 +57,16 @@ export class ShelterService{
       )
   }
 
-  getPendingShelters(){
+  getPendingShelters(currentPage){
     let headers = new Headers({
       'Content-Language': localStorage.getItem(ApiConfigService.LANGUAGE),
       'X-Requested-With': 'XMLHttpRequest',
       'Authorization': "Bearer "+localStorage.getItem(ApiConfigService.TOKEN_FIELD)
     });
-    return this._http.get(ApiConfigService.HOST+'admin/getPendingShelters', {headers:headers});
+    var parameters = {
+      'currentPage' : currentPage,
+    };
+    return this._http.post(ApiConfigService.HOST+'admin/getPendingShelters', parameters,{headers:headers});
   }
   createShelter(shelter){
     let headers = new Headers({
