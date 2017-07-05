@@ -15,7 +15,8 @@ declare var PopUp: any;
 
 @Component({
     selector: "singleShelter",
-    templateUrl: "./singleShelter.component.html"
+    templateUrl: "./singleShelter.component.html",
+    providers:[ShelterService]
 })
 
 export class SingleShelterComponent{

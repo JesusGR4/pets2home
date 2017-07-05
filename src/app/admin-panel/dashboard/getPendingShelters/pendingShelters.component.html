@@ -61,12 +61,13 @@
 
                                             <td class="v-align-middle">
                                                 <div class="btn-group btn-group-sm sm-m-t-10">
-                                                    <button type="button" class="btn btn-default" title="Editar"
-                                                            ><i
-                                                            class="fa fa-pencil tip"></i>
-                                                    </button>
+
+                                                  <button type="button" class="btn btn-default" title="Aceptar"
+                                                    (click)="acceptShelter(s.shelter_id)"><i
+                                                    class="fa fa-check-circle-o"></i>
+                                                  </button>
                                                     <button type="button"
-                                                            class="btn btn-default" title="Eliminar"><i
+                                                            class="btn btn-default" title="Rechazar" (click)="openModalShelter(s.shelter_id)"><i
                                                             class="fa fa-trash"></i>
                                                     </button>
                                                 </div>
@@ -88,4 +89,21 @@
     </div>
 </div>
 
+<modal #modal>
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">{{'ADMIN-DASHBOARD.MODAL' | translate}}</h4>
+  </modal-header>
+  <modal-body>
+    <form #rememberForm="ngForm" role="form" action="" novalidate>
+      <div class="form-group form-group-default">
+        <div class="controls">
+          <textarea type="text" [(ngModel)]="pending.reason" #reason="ngModel" name="reason"  class="form-control" required></textarea>
+        </div>
+      </div>
+    </form>
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-primary" (click)="closeModal()">Ok</button>
+  </modal-footer>
+</modal>
 

@@ -97,4 +97,28 @@ export class ShelterService{
       console.log('mala mujer');
     }
   }
+
+  acceptShelter(shelter_id){
+    let headers = new Headers({
+      'Content-Language': localStorage.getItem(ApiConfigService.LANGUAGE),
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': "Bearer "+localStorage.getItem(ApiConfigService.TOKEN_FIELD)
+    });
+    var parameters = {
+      'shelter_id' : shelter_id,
+    };
+    return this._http.post(ApiConfigService.HOST+'admin/acceptShelter', parameters,{headers:headers});
+  }
+  rejectShelter(pending){
+    let headers = new Headers({
+      'Content-Language': localStorage.getItem(ApiConfigService.LANGUAGE),
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': "Bearer "+localStorage.getItem(ApiConfigService.TOKEN_FIELD)
+    });
+    var parameters = {
+      'shelter_id' : pending.shelter_id,
+      'reason' : pending.reason
+    };
+    return this._http.post(ApiConfigService.HOST+'admin/rejectShelter', parameters,{headers:headers});
+  }
 }

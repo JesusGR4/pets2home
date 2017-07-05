@@ -156,13 +156,7 @@ export class CreateShelterComponent implements OnInit{
     }else{
       $('#phone-error').hide();
     }
-    if(this.particular.province==null || this.particular.province==""){
-      $('#province-error').show();
-      this.valid = false;
-    }
-    else{
-      $('#province-error').hide();
-    }
+
     if($('#city').val()==""){
       $('#city-error').show();
       this.valid = false;
@@ -200,13 +194,12 @@ export class CreateShelterComponent implements OnInit{
     }else{
       $('#schedule-error').hide();
     }
-    console.log(inputEl);
-    if(inputEl == null){
+    if(inputEl.files.length == 0){
       $('#input-error').show();
       this.valid = false;
     }else{
-      $('#input-error').show();
-      this.valid = false;
+      $('#input-error').hide();
+
     }
   }
 }

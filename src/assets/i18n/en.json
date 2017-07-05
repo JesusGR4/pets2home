@@ -116,7 +116,12 @@
   "REMEMBER":{
   "SUCCESS":"Email sent successfully"
 },"ADMIN-DASHBOARD":{
-  "PENDING":"Pending"
-}
+  "PENDING":"Pending",
+  "MODAL":"Write the reason you reject this shelter"
+},
+  "PENDING":{
+    "ACCEPT":"Shelter accepted",
+    "REJECT":"Shelter rejected"
+  }
 
 }

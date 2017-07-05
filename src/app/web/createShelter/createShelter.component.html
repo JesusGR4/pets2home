@@ -85,7 +85,9 @@
                     [(ngModel)]="shelter.province"
                     id="province"
                     #province="ngModel"
-                    name="province">
+                    name="province"
+                    value="shelter.province"
+                  >
                   </ng-select>
                   <p hidden id="province-error" class="alert alert-danger" padding-left>
                     {{'CREATE-SHELTER.PROVINCE_ERROR' | translate}}

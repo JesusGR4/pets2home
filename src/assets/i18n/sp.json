@@ -115,7 +115,12 @@
   "REMEMBER":{
     "SUCCESS":"Email enviado"
   },"ADMIN-DASHBOARD":{
-  "PENDING":"Pendientes"
-}
+  "PENDING":"Pendientes",
+  "MODAL":"Escribe la razón por la que rechazas esta casa de acogida"
+},
+  "PENDING":{
+    "ACCEPT":"Casa de acogida aceptada",
+    "REJECT":"Casa de acogida rechazada"
+  }
 
 }
