@@ -7,6 +7,7 @@ import {CodesService} from "../services/codes.service";
 import {MessagesService} from "../services/messages.service";
 import {SessionsService} from "../services/sessions.service";
 import {TranslateService} from "ng2-translate";
+import {ShelterService} from "../services/shelter.service";
 declare var FooterReveal2: any;
 declare var $: any;
 declare var window: any;
@@ -14,12 +15,12 @@ declare var SpainMap: any;
 
 @Component({
     selector: "web",
-    templateUrl: "./web.component.html"
+    templateUrl: "./web.component.html",
+  providers: [ShelterService]
 })
 export class WebComponent{
     @Output()
     public session: Session = null;
-
 
     constructor(
         private router: Router,
@@ -30,6 +31,7 @@ export class WebComponent{
       translate.addLangs(["sp", "en"]);
       if(localStorage.getItem(ApiConfigService.LANGUAGE)==null){
         translate.use('sp');
+        localStorage.setItem(ApiConfigService.LANGUAGE, 'sp');
       }else{
         translate.use(localStorage.getItem(ApiConfigService.LANGUAGE));
       }
@@ -42,6 +44,7 @@ export class WebComponent{
         }
 
     }
+
     setLanguage(language){
       this.translate.use(language);
       localStorage.setItem(ApiConfigService.LANGUAGE, language);

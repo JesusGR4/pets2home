@@ -39,7 +39,7 @@
 
           <!-- Sinopsis -->
           <div class="blog-details-text">
-            <p>{{shelter.description}} Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+            <p>{{shelter.description}} </p>
           </div>
           <!-- END Sinopsis -->
 
@@ -111,11 +111,12 @@
           <h4>{{ 'SINGLE-SHELTER.FIND' | translate }} </h4>
           <hr>
           <div class="header parallax-fix" id="slider">
-            <sebm-google-map [latitude]="37.34959" [longitude]="-5.84431" style="width:100%;height: 100%">
-              <sebm-google-map-marker [latitude]="37.34959" [longitude]="-5.84431"></sebm-google-map-marker>
+            <sebm-google-map [latitude]="shelter.latitude" [longitude]="shelter.longitude" style="width:100%;height: 100%">
+              <sebm-google-map-marker [latitude]="shelter.latitude" [longitude]="shelter.longitude"></sebm-google-map-marker>
             </sebm-google-map>
           </div>
         </div>
+
 
         <!-- end sidebar  -->
       </div>

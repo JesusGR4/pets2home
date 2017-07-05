@@ -1,0 +1,260 @@
+<!-- START SECONDARY SIDEBAR MENU-->
+<nav class="secondary-sidebar padding-30">
+
+    <p class="menu-title">INTERÉS</p>
+    <a class="label label-info">Fútbol</a>
+    <a class="label label-info">Coches</a>
+    <a class="label label-info">Fútbol</a>
+    <a class="label label-info">Coches</a>
+    <a class="label label-info">Fútbol</a>
+    <a class="label label-info">Coches</a>
+    <a class="label label-info">Fútbol</a>
+    <a class="label label-info">Coches</a>
+
+    <div class="m-b-30"></div>
+
+    <p class="menu-title">GÉNEROS</p>
+    <a class="label label-info">Comedia</a>
+    <a class="label label-info">Drama</a>
+</nav>
+<!-- END SECONDARY SIDEBAR MENU -->
+
+
+<div class="inner-content full-height">
+    <!-- START PANEL -->
+    <div class="padding-30 sm-no-padding xs-no-padding">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Lista de usuarios
+                </div>
+                <div class="tools pull-right">
+                    <div class="btn-group">
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+
+                <!-- Filters -->
+                <div id="userFilters" class="m-b-30">
+                    <p class="small no-padding">Filtro por campos</p>
+                    <div class="popover_parent"><a href="javascript:void(0);"
+                                                   class="btn btn-tag btn-tag-light btn-tag-rounded btn-xs">Nombre<span
+                            class="caret"></span></a>
+                        <div class="popover">
+                            <input type="text" placeholder="Nombre" class="form-control input-sm" [(ngModel)]="filter.name">
+                        </div>
+                    </div>
+                    <div class="popover_parent"><a href="javascript:void(0);"
+                                                   class="btn btn-tag btn-tag-light btn-tag-rounded btn-xs">Email<span
+                            class="caret"></span></a>
+                        <div class="popover">
+                            <input type="text" placeholder="Email" class="form-control input-sm" [(ngModel)]="filter.email">
+                        </div>
+                    </div>
+                    <div class="popover_parent">
+                        <ng-select
+                                [allowClear]="true"
+                                [options]="cities"
+                                [(ngModel)]="filter.city_id"
+                                name="cities"
+                                notFoundMsg="No hay usuarios en ninguna ciudad"
+                                placeholder="Ciudad">
+                        </ng-select>
+                    </div>
+                    <div class="popover_parent"><a href="javascript:void(0);"
+                                                   class="btn btn-tag btn-tag-light btn-tag-rounded btn-xs">Compras<span
+                            class="caret"></span></a>
+                        <div class="popover">
+                            <input type="text" placeholder="desde" class="form-control input-sm">
+                            <input type="text" placeholder="hasta" class="form-control input-sm">
+                        </div>
+                    </div>
+                    <div class="popover_parent"><a href="javascript:void(0);"
+                                                   class="btn btn-tag btn-tag-light btn-tag-rounded btn-xs">Puntos<span
+                            class="caret"></span></a>
+                        <div class="popover">
+                            <input type="text" placeholder="desde" class="form-control input-sm">
+                            <input type="text" placeholder="hasta" class="form-control input-sm">
+                        </div>
+                    </div>
+                    <div class="popover_parent"><a href="javascript:void(0);"
+                                                   class="btn btn-tag btn-tag-light btn-tag-rounded btn-xs">Nivel<span
+                            class="caret"></span></a>
+                        <div class="popover">
+                            <div class="checkbox ">
+                                <input type="checkbox" id="level0" value="level0" [(ngModel)]="level0">
+                                <label for="level0">Nivel 0</label>
+                            </div>
+                            <div class="checkbox ">
+                                <input type="checkbox" id="level1" value="level1" [(ngModel)]="level1">
+                                <label for="level1">Nivel 1</label>
+                            </div>
+                            <div class="checkbox ">
+                                <input type="checkbox" id="level2" value="level2" [(ngModel)]="level2">
+                                <label for="level2">Nivel 2</label>
+                            </div>
+                            <div class="checkbox ">
+                                <input type="checkbox" id="level3" value="level3" [(ngModel)]="level3">
+                                <label for="level3">Nivel 3</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-info" type="button" (click)="filterCustomers()">
+                        <span>Filtrar</span>
+                    </button>
+                </div>
+                <!-- END Filters -->
+                <!-- Filtering -->
+                <div id="currentFilter" class="m-b-30">
+                    <p class="small no-padding">Filtrando</p>
+
+                    <div class="label label-info" role="alert">
+                        <strong>Nombre: </strong>$nombre
+                        <i class="fa fa-close m-l-10" data-dismiss="alert"></i>
+                    </div>
+
+                </div>
+                <!-- END Filtering -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="btn-group dropdown-default pull-right"><a class="btn dropdown-toggle" data-toggle="dropdown"
+                                                                   href="javascript:;" aria-expanded="false">
+                            Acciones <span class="caret"></span> </a>
+                            <ul class="dropdown-menu ">
+                                <li><a data-toggle="modal"
+                                       data-target="#modalNotification">Notificación</a>
+                                </li>
+                                <li><a href="javascript:;" (click)="export()">Exportar</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>
+                                <div class="checkbox ">
+                                    <input type="checkbox" value="3" id="select" (change)="selectAll()">
+                                    <label for="select"></label>
+                                </div>
+                            </th>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Email</th>
+                            <th>Ciudad</th>
+                            <th>Puntos</th>
+                            <th>Registro</th>
+                            <th>Asistente</th>
+                            <th>Promotor</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr *ngFor="let customer of customers | paginate: { itemsPerPage: 8, totalItems: totalItems, currentPage: currentPage}">
+                            <td class="v-align-middle">
+                                <div class="checkbox ">
+                                    <input type="checkbox" id="checkbox-{{customer.id}}" [(ngModel)]="customer.selected">
+                                    <label for="checkbox-{{customer.id}}"></label>
+                                </div>
+                                <a href="javascript:;" class="button" [routerLink]="['/admin-panel/dashboard/customerTimeline', customer.customer_id]"><span>Time Line</span></a>
+
+                            </td>
+                            <td class="v-align-middle">
+                                <p>{{customer.name}}</p>
+                            </td>
+                            <td class="v-align-middle">
+                                <p>{{customer.surnames}}</p>
+                            </td>
+                            <td class="v-align-middle">
+                                <p>{{customer.email}}</p>
+                            </td>
+                            <td class="v-align-middle">
+                                <p>{{customer.city_name}}</p>
+                            </td>
+                            <td class="v-align-middle">
+                                <p>{{customer.score}}</p>
+                            </td>
+                            <td class="v-align-middle">
+                                <i *ngIf="customer.enabled" class="fa fa-check text-complete"></i>
+                                <i *ngIf="!customer.enabled"  class="fa fa-minus"></i>
+                            </td>
+                            <td class="v-align-middle">
+                                <i *ngIf="customer.active" class="fa fa-check text-complete"></i>
+                                <i *ngIf="!customer.active"  class="fa fa-minus"></i>
+                            </td>
+                            <td class="v-align-middle">
+                                <i *ngIf="customer.promoter" class="fa fa-check text-complete"></i>
+                                <i *ngIf="!customer.promoter"  class="fa fa-minus"></i>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                    <pagination-controls (pageChange)="listPaginate($event)"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PANEL -->
+</div>
+<!-- Modal notification -->
+<div class="modal fade slide-up disable-scroll" id="modalNotification" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content-wrapper">
+      <div class="modal-content">
+        <div class="modal-header clearfix text-left">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+            class="pg-close fs-14"></i>
+          </button>
+        </div>
+        <div class="modal-body m-t-20">
+          <form #notificationForm="ngForm" role="form" autocomplete="off" novalidate="novalidate">
+            <div class="row clearfix">
+              <div class="col-sm-12">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>Asunto</label>
+                  <input type="text" [(ngModel)]="email.subject" class="form-control" name="subject"
+                         required
+                         aria-required="">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>Contenido</label>
+                  <textarea [(ngModel)]="email.text" class="form-control" name="nombre"
+                         required
+                            aria-required=""></textarea>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>Plantilla</label>
+                  <div class="radio radio-primary">
+                    <input type="radio" value="1" id="yes" name="template" (click)="setSelectedTemplate(1)">
+                    <label for="yes">Si</label>
+
+                    <input type="radio" value="0" id="no" name="template" (click)="setSelectedTemplate(0)">
+                    <label for="no">No</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <button type="button" class="btn btn-default btn-cons m-t-45" data-dismiss="modal">Cancelar
+          </button>
+          <button type="button" class="btn btn-primary btn-cons m-t-45"
+                  data-dismiss="modal" [disabled]="!notificationForm.valid" (click)="sendEmail()">OK
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END Modal notification -->

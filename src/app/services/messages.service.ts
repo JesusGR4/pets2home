@@ -11,8 +11,6 @@ export class MessagesService{
     public static NO_PERMISSIONS_MESSAGE = "502";
     public static COULD_NOT_CREATE_TOKEN_MESSAGE = "550";
     public static BLACKLISTED_TOKEN_MESSAGE = "551";
-
-
     public static ADMIN_PROFILE_TEXT = "Administrador";
     public static CUSTOMER_PROFILE_TEXT = "Youfeelmer";
     public static PROVIDER_PROFILE_TEXT = "Proveedor de contenido";

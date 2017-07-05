@@ -43,5 +43,7 @@
   },
   "SHELTER-CATALOG":{
     "SHELTERS": "Shelters at:"
-  }
+  },"ADMIN-DASHBOARD":{
+  "PENDING":"Pending shelters"
+}
 }

@@ -1,0 +1,172 @@
+<section id="createShelter">
+  <div class="container">
+    <div class="row">
+      <!-- section title -->
+      <div class="col-md-12 text-center">
+        <h3 class="section-title no-padding">{{'CREATE-SHELTER.TITLE' | translate}}</h3>
+      </div>
+      <!-- end section title -->
+    </div>
+    <div class="row margin-ten no-margin-bottom">
+
+      <div class="col-md-12 col-sm-12 sm-margin-bottom-ten">
+        <div class="col-md-12 col-sm-12 no-padding">
+          <form #create="ngForm" role="form" action="" novalidate autocomplete="off">
+
+            <h5>{{'CREATE-SHELTER.DATA' | translate}}</h5>
+            <div class="row clearfix">
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-SHELTER.NAME' | translate}}</label>
+                  <textarea id="name" type="text" [(ngModel)]="shelter.name" #name="ngModel" class="form-control" name="name" required
+                         aria-required="true" value="{{shelter.name}}"></textarea>
+                  <p hidden id="name-error" class="alert alert-danger">
+                    {{'CREATE-SHELTER.NAME_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-5">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-SHELTER.DESCRIPTION' | translate}}</label>
+                  <textarea id="description" type="text" [(ngModel)]="shelter.description" #description="ngModel" class="form-control" name="description" required
+                         aria-required="true" value="{{shelter.description}}"></textarea>
+                  <p hidden id="description-error" class="alert alert-danger">
+                    {{'CREATE-SHELTER.DESCRIPTION_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-SHELTER.SCHEDULE' | translate}}</label>
+                  <textarea id="schedule" type="text" [(ngModel)]="shelter.schedule" #schedule="ngModel" class="form-control" name="description" required
+                            aria-required="true" value="{{shelter.schedule}}"></textarea>
+                  <p hidden id="schedule-error" class="alert alert-danger">
+                    {{'CREATE-SHELTER.SCHEDULE_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row clearfix">
+              <div class="col-md-3">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-SHELTER.PHONE' | translate}}</label>
+                  <input id="phone" type="text" [(ngModel)]="shelter.phone" #phone="ngModel" class="form-control" name="phone" required
+                            aria-required="true" value="{{shelter.phone}}">
+                  <p hidden id="phone-error" class="alert alert-danger">
+                    {{'CREATE-SHELTER.PHONE_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-SHELTER.EMAIL' | translate}}</label>
+                  <input id="email" type="text" [(ngModel)]="shelter.email" #email="ngModel" class="form-control" name="email" required
+                         aria-required="true" value="{{shelter.email}}">
+                  <p hidden id="email-error" class="alert alert-danger">
+                    {{'CREATE-SHELTER.EMAIL_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <h5>{{'CREATE-SHELTER.UBICATION' | translate}}</h5>
+
+            <div class="row clearfix">
+              <div class="col-md-4">
+                <div class="form-group form-group-default">
+                  <label>{{'CREATE-SHELTER.PROVINCE' | translate}}</label>
+                  <ng-select
+                    [allowClear]="true"
+                    [options]="provinces"
+                    [(ngModel)]="shelter.province"
+                    id="province"
+                    #province="ngModel"
+                    name="province"
+                    value="shelter.province"
+                  >
+                  </ng-select>
+                  <p hidden id="province-error" class="alert alert-danger" padding-left>
+                    {{'CREATE-SHELTER.PROVINCE_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-SHELTER.CITY' | translate}}</label>
+                  <input id="city" type="text" [(ngModel)]="shelter.city" #city="ngModel" class="form-control" name="city" required
+                         aria-required="true" value="{{shelter.city}}">
+                  <p hidden id="city-error" class="alert alert-danger" padding-left>
+                    {{'CREATE-SHELTER.CITY_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-SHELTER.ADDRESS' | translate}}</label>
+
+                  <input id="address" type="text" [(ngModel)]="shelter.address" #address="ngModel" class="form-control" name="address" required
+                         aria-required="true" value="{{shelter.address}}">
+                  <p hidden id="address-error" class="alert alert-danger" padding-left>
+                    {{'CREATE-SHELTER.ADDRESS_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row clearfix">
+              <p class="font-weight-100">{{'CREATE-SHELTER.PLEASE' | translate}}</p>
+              <div class="form-group form-group-default">
+                <input placeholder="{{'CREATE-SHELTER.SEARCH' | translate}}" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+              </div>
+              <p hidden id="location-error" class="alert alert-danger" padding-left>
+                {{'CREATE-SHELTER.LOCATION' | translate}}
+              </p>
+              <div class="col-md-12" id="slider" style="height:400px">
+                <sebm-google-map [latitude]="latitude" [longitude]="longitude" style="width:100%;height: 100%" (mapClick)="mapClicked($event)">
+                  <sebm-google-map-marker [latitude]="marker.lat" [longitude]="marker.lon"></sebm-google-map-marker>
+                </sebm-google-map>
+              </div>
+            </div>
+
+            <h5>{{'CREATE-SHELTER.UPLOAD' | translate}}</h5>
+            <div class="row clearfix">
+              <input #fileInput id="image" name="image" class="form-control" type="file" multiple (change)="fileChangeEvent($event)">
+            </div>
+            <p hidden id="input-error" class="alert alert-danger" padding-left>
+              {{'CREATE-SHELTER.INPUT_ERROR' | translate}}
+            </p>
+            <div class="row clearfix">
+              <div class="col-md-12">
+                <div class="form-group form-group-default" aria-required="true">
+                  <p class="font-weight-100">{{ 'REGISTER.TERMS' | translate }}</p>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <button (click)="createShelter()" class="btn-primary btn btn-medium button">{{ 'REGISTER.TITLE' | translate }}</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<modal #modal>
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">{{'SERVER.ERROR' | translate}}</h4>
+  </modal-header>
+  <modal-body>
+    {{errorMessages}}
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-primary" (click)="modal.close()">Ok</button>
+  </modal-footer>
+</modal>
+
+

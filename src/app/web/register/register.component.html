@@ -9,7 +9,7 @@
     </div>
     <div class="row margin-ten no-margin-bottom">
 
-      <div class="col-md-9 col-sm-12 sm-margin-bottom-ten">
+      <div class="col-md-12 col-sm-12 sm-margin-bottom-ten">
         <div class="col-md-12 col-sm-12 no-padding">
           <form #register="ngForm" role="form" action="" novalidate autocomplete="off">
             <h5>{{ 'REGISTER.PERSONAL' | translate }}</h5>
@@ -19,10 +19,10 @@
                   <label>{{ 'REGISTER.NAME' | translate }}</label>
                   <input id="name" type="text" [(ngModel)]="particular.name" #name="ngModel" class="form-control" name="name" required
                          aria-required="true" value="{{particular.name}}">
-                  <p hidden id="name-error" class="alert alert-danger">
-                    {{ 'REGISTER.NAME_ERROR' | translate }}
-                  </p>
                 </div>
+                <p hidden id="name-error" class="alert alert-danger">
+                  {{ 'REGISTER.NAME_ERROR' | translate }}
+                </p>
               </div>
 
               <div class="col-md-4">
@@ -127,5 +127,17 @@
     </div>
   </div>
 </section>
+
+<modal #modal>
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">{{'SERVER.ERROR' | translate}}</h4>
+  </modal-header>
+  <modal-body>
+    {{errorMessages}}
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-primary" (click)="modal.close()">Ok</button>
+  </modal-footer>
+</modal>
 
 

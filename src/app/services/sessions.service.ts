@@ -28,6 +28,7 @@ export class SessionsService{
     };
 
     let headers = new Headers({
+      'Content-Language': localStorage.getItem(ApiConfigService.LANGUAGE),
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest'
     });

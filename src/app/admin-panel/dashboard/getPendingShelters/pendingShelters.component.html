@@ -1,0 +1,109 @@
+<!-- START PANEL -->
+<div class="padding-30 sm-no-padding xs-no-padding">
+    <div class="panel panel-default">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-tabs-primary nav-tabs-fillup">
+            <li class="active">
+                <a data-toggle="tab" href="#shelters"><span>Compañías</span></a>
+            </li>
+
+        </ul>
+        <!-- END Nav tabs -->
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- Tab Companies -->
+            <div class="tab-pane slide-left active" id="shelters">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-transparent">
+                            <div class="panel-heading">
+                                <div class="panel-title">Gestión de Compañías
+
+                                </div>
+                                <div class="tools pull-right">
+                                    <button type="button"
+                                            class="btn btn-primary btn-cons btn-animated from-top pg pg-arrow_down"
+                                            (click)="createCinemaCompanyModal()">
+                                        <span>Añadir nueva</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Fecha</th>
+                                            <th>Nombre</th>
+                                            <th>Provincia</th>
+                                            <th>Ciudad</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr *ngFor="let s of shelters | paginate: { itemsPerPage: 8, currentPage: currentPage, totalItems: totalItems }">
+                                            <td class="v-align-middle">
+                                                <p>{{s.shelter_id}}</p>
+                                            </td>
+                                            <td class="v-align-middle">
+                                                <p>{{s.created}}</p>
+                                            </td>
+                                          <td class="v-align-middle">
+                                            <p>{{s.name}}</p>
+                                          </td>
+                                            <td class="v-align-middle">
+                                                <p>{{s.province}}</p>
+                                            </td>
+                                            <td class="v-align-middle">
+                                              <p>{{s.city}}</p>
+                                            </td>
+
+                                            <td class="v-align-middle">
+                                                <div class="btn-group btn-group-sm sm-m-t-10">
+
+                                                  <button type="button" class="btn btn-default" title="Aceptar"
+                                                    (click)="acceptShelter(s.shelter_id)"><i
+                                                    class="fa fa-check-circle-o"></i>
+                                                  </button>
+                                                    <button type="button"
+                                                            class="btn btn-default" title="Rechazar" (click)="openModalShelter(s.shelter_id)"><i
+                                                            class="fa fa-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <pagination-controls (pageChange)="listPaginatePending($event)"></pagination-controls>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Tab Companies -->
+        </div>
+        <!-- END Tab panes -->
+    </div>
+</div>
+
+<modal #modal>
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">{{'ADMIN-DASHBOARD.MODAL' | translate}}</h4>
+  </modal-header>
+  <modal-body>
+    <form #rememberForm="ngForm" role="form" action="" novalidate>
+      <div class="form-group form-group-default">
+        <div class="controls">
+          <textarea type="text" [(ngModel)]="pending.reason" #reason="ngModel" name="reason"  class="form-control" required></textarea>
+        </div>
+      </div>
+    </form>
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-primary" (click)="closeModal()">Ok</button>
+  </modal-footer>
+</modal>
+

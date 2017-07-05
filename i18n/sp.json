@@ -43,5 +43,7 @@
   },
   "SHELTER-CATALOG":{
     "SHELTERS": "Casas de acogida en:"
-  }
+  },"ADMIN-DASHBOARD":{
+  "PENDING":"Pending shelters"
+}
 }

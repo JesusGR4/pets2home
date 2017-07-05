@@ -1,10 +1,13 @@
 
 
-import { Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {CodesService} from "../../services/codes.service";
 import {Particular} from "../../models/particular";
 import {ParticularService} from "../../services/particular.service";
-
+import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
+import {TranslateService} from "ng2-translate";
+import {Router} from "@angular/router";
+import {ModalComponent} from "ng2-bs3-modal/components/modal";
 @Component({
   selector: "register",
   templateUrl: "./register.component.html"
@@ -15,8 +18,11 @@ export class RegisterPageComponent{
   public valid: boolean;
   public sent: boolean = false;
   public provinces: Array<string>;
-
-  constructor(private _particularService: ParticularService){
+  public errorMessages: any;
+  @ViewChild('modal')
+  public modal: ModalComponent;
+  public translation: string;
+  constructor(private router: Router,private _particularService: ParticularService, private translateService:TranslateService,private toastyService:ToastyService){
 
   }
   ngOnInit(){
@@ -34,13 +40,34 @@ export class RegisterPageComponent{
         this._particularService.register(this.particular).subscribe(
           res => {
             let json = res.json();
-            let code = json.code();
+            let code = json.code;
+            let rout = this.router;
             if(code == CodesService.OK_CODE){
-              window.alert('registro realizado');
+              this.translateService.get('REQUEST.SUCCESS').subscribe(
+                data => {
+                  this.translation = data;
+                }
+              );
+              var toastOptions:ToastOptions = {
+                title: this.translation,
+                msg: json.message,
+                showClose: true,
+                timeout: 3000,
+                theme: 'material',
+                onRemove: function(toast: ToastData){
+                  rout.navigateByUrl('/login');
+                }
+              };
+              this.toastyService.success(toastOptions);
+            }else{
+              this.errorMessages = json.message;
+              this.modal.open();
             }
           },
           error => {
-
+            let json = error.json();
+            this.errorMessages = json.message;
+            this.modal.open();
           }
         );
 

@@ -1,0 +1,465 @@
+<!-- PANEL films Table -->
+<div class="padding-30 sm-no-padding xs-no-padding">
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+            <div class="panel-title">Gestión de Películas
+
+            </div>
+            <div class="tools pull-right">
+                <a href="/admin-panel/dashboard/filmManagement#addNewFilm"
+                   (click)="createMovie()"
+                   class="btn btn-primary btn-cons btn-animated from-top pg pg-arrow_down">
+                    <span>Añadir nueva</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="input-group">
+                    <span class="input-group-addon primary">
+                    <i class="fa fa-search"></i>
+                    </span>
+                        <input type="text" placeholder="buscar..." class="form-control" [(ngModel)]="filter"
+                               (change)="applyFilter()">
+                    </div>
+                </div>
+
+                <div class="col-md-8"></div>
+
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th width="5%"><i class="fa fa-star-o"></i></th>
+                        <th>Nombre</th>
+                        <th>Género</th>
+                        <th>Duración</th>
+                        <th>Tags</th>
+                        <th>Acciones</th>
+                        <th>Eventos</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let m of movies | paginate: { itemsPerPage: 8, totalItems: totalItems, currentPage: currentPage}">
+                        <td class="v-align-middle">
+                            <fieldset class="rating">
+                                <input *ngIf="m.featured == 1" type="checkbox" checked [attr.id]="'star' + m.id"
+                                       name="rating" value="1"/>
+                                <label (click)="featureMovie(m)"
+                                       class="full" [attr.for]="'star' + m.id"></label>
+                            </fieldset>
+                        </td>
+                        <td class="v-align-middle">
+                            <p>{{m.title}}</p>
+                        </td>
+                        <td class="v-align-middle">
+                            <div *ngIf="genres.length !== 0">
+                                <p *ngFor="let g of m.genres">
+                                    {{genres[g - 1].label}}
+                                </p>
+                            </div>
+                        </td>
+                        <td class="v-align-middle">
+                            <p>{{m.duration}} min.</p>
+                        </td>
+                        <td class="v-align-middle">
+                            <div *ngIf="tags.length !== 0">
+                                <span *ngFor="let t of m.tags" class="label label-info">{{tags[t - 1].label}}</span>
+                            </div>
+                        </td>
+                        <td class="v-align-middle">
+                            <div class="btn-group btn-group-sm sm-m-t-10">
+                                <button type="button" class="btn btn-default"
+                                        href="/admin-panel/dashboard/filmManagement#addNewFilm" title="Editar"
+                                        (click)="editMovie(m)"><i class="fa fa-pencil"></i>
+                                </button>
+                                <button type="button" class="btn btn-default" title="Eliminar"
+                                        (click)="deleteMovieModal(m)"><i
+                                        class="fa fa-trash"></i>
+                                </button>
+                                <button *ngIf="m.published === 1" type="button" class="btn btn-default"
+                                        title="Deshabilitar"
+                                        (click)="unpublishMovie(m)">
+                                    <i class="fa fa-ban"></i>
+                                </button>
+                                <button *ngIf="m.published === 0" type="button" class="btn btn-default"
+                                        title="Habilitar"
+                                        (click)="publishMovie(m)">
+                                    <i class="fa fa-check-square-o"></i>
+                                </button>
+                            </div>
+                        </td>
+                        <td class="v-align-middle">
+                            <div class="btn-group btn-group-sm sm-m-t-10">
+                                <button type="button" class="btn btn-default" title="verUsuarios"
+                                        data-toggle="modal"
+                                        data-target="#viewUsers"><i
+                                        class="fa fa-eye"></i>
+                                </button>
+                                <button type="button" class="btn btn-default" title="crearUsuarios"
+                                        routerLink="/admin-panel/dashboard/userManagement"><i
+                                        class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <pagination-controls (pageChange)="listPaginate($event)"></pagination-controls>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- END PANEL films Table -->
+
+    <!-- PANEL add films -->
+    <div id="addNewFilm" class="panel panel-default">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <div class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+                           aria-controls="collapseOne" class="collapsed">
+                            Crear nueva película
+                        </a>
+                    </div>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+
+                        <form id="form-movie" #formMovie="ngForm" role="form" autocomplete="off"
+                              novalidate="novalidate">
+
+                            <div class="row clearfix">
+                                <div class="col-md-6">
+                                    <div class="form-group form-group-default input-group">
+                                        <label>Nombre</label>
+                                        <input type="text" class="form-control" required
+                                               name="title" [(ngModel)]="auxMovie.title" value="{{auxMovie.title}}">
+                                        <a (click)="searchMovies()" class="input-group-addon" *ngIf="movieMode != 'edit'">
+                                            Búsqueda en TheMovieDB
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-group-default">
+                                        <label>Duración</label>
+                                        <input type="number" class="form-control"
+                                               name="duration" [(ngModel)]="auxMovie.duration"
+                                               value="{{auxMovie.duration}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-group-default">
+                                        <label>Año</label>
+                                        <input type="text" class="form-control"
+                                               name="year" [(ngModel)]="auxMovie.year" value="{{auxMovie.year}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-md-3">
+                                    <div class="form-group form-group-default">
+                                        <label>País</label>
+                                        <ng-select
+                                                [allowClear]="true"
+                                                [options]="countries"
+                                                [multiple]="true"
+                                                [(ngModel)]="auxMovie.countries"
+                                                placeholder="Selecciona almenos un país"
+                                                name="countries">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-group-default">
+                                        <label>Género</label>
+                                        <ng-select
+                                                [allowClear]="true"
+                                                [options]="genres"
+                                                [multiple]="true"
+                                                [(ngModel)]="auxMovie.genres"
+                                                placeholder="Selecciona almenos un genero"
+                                                name="genres">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-group-default">
+                                        <label>Calificación</label>
+                                        <select class="full-width select2" data-init-plugin="select2"
+                                                name="year" [(ngModel)]="auxMovie.qualification_id"
+                                                value="{{auxMovie.qualification_id}}">
+                                            <option *ngFor="let q of qualifications" value="{{q.value}}">{{q.label}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-group-default">
+                                        <label>Imagen Principal</label>
+                                        <img *ngIf="auxMovie.img_url" [src]="auxMovie.img_url"
+                                             class="img-responsive" alt="">
+                                        <button *ngIf="auxMovie.img_url" type="button"
+                                                class="btn btn-primary btn-cons" (click)="removeMovieImage()">Cambiar
+                                        </button>
+                                        <image-upload *ngIf="!auxMovie.img_url"
+                                                      [url]="'http://localhost/youfeelmws/public/api/uploadPrincipal'"
+                                                      [max]="1"
+                                                      [headers]="[
+                                                {header: 'Authorization', value: 'Bearer ' + token}
+                                            ]"
+                                                      [buttonCaption]="'Selecciona una imagen'"
+                                                      [dropBoxMessage]="'Arrastra tu imagen aquí'"
+                                                      (onFileUploadFinish)="updateMovieImage($event)"
+                                                      (onRemove)="removeMovieImage($event)"></image-upload>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-sm-12">
+                                    <div class="form-group form-group-default">
+                                        <label>Descripción</label>
+                                    <textarea rows="10" class="form-control" name="descripcion"
+                                              name="description" [(ngModel)]="auxMovie.description"
+                                              value="{{auxMovie.description}}"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Director</label>
+                                        <ng-select
+                                                [allowClear]="true"
+                                                [multiple]="true"
+                                                [options]="directors"
+                                                [(ngModel)]="auxMovie.directors"
+                                                placeholder="Selecciona almenos un director"
+                                                name="directors">
+                                        </ng-select>
+                                    </div>
+
+                                    <div class="form-group form-group-default">
+                                        <label>Actores</label>
+                                        <ng-select
+                                                [allowClear]="true"
+                                                [multiple]="true"
+                                                [options]="actors"
+                                                [(ngModel)]="auxMovie.actors"
+                                                placeholder="Selecciona almenos un actor"
+                                                name="actors">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+
+                                    <div class="form-group form-group-default">
+                                        <label>Trailer</label>
+                                        <input type="text" class="form-control"
+                                               name="trailer_url" [(ngModel)]="auxMovie.trailer_url"
+                                               value="{{auxMovie.trailer_url}}">
+                                    </div>
+
+                                    <div class="form-group form-group-default">
+                                        <label>Proveedor</label>
+                                        <ng-select
+                                                [allowClear]="true"
+                                                [options]="users"
+                                                [(ngModel)]="auxMovie.user_id"
+                                                placeholder="Selecciona un proveedor"
+                                                name="provider">
+                                        </ng-select>
+                                    </div>
+
+                                    <div class="form-group form-group-default">
+                                        <label>Formatos</label>
+
+                                        <ng-select
+                                                [allowClear]="true"
+                                                [multiple]="true"
+                                                [options]="formats"
+                                                [(ngModel)]="auxMovie.formats"
+                                                placeholder="Selecciona almenos un formato"
+                                                required
+                                                name="formats">
+                                        </ng-select>
+                                    </div>
+
+                                    <div class="form-group form-group-default">
+                                        <label>Idioma Original</label>
+                                        <ng-select
+                                                [allowClear]="true"
+                                                [multiple]="true"
+                                                [options]="languages"
+                                                [(ngModel)]="auxMovie.original_languages"
+                                                placeholder="Selecciona almenos un idioma original"
+                                                name="original_languages">
+                                        </ng-select>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Versiones disponibles</label>
+
+                                        <ng-select
+                                                [allowClear]="true"
+                                                [multiple]="true"
+                                                [options]="languages"
+                                                [(ngModel)]="auxMovie.languages"
+                                                placeholder="Selecciona almenos un idioma disponible"
+                                                name="languages">
+                                        </ng-select>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Tags</label>
+
+                                        <div class="checkbox check-primary checkbox-inline">
+                                            <ng-select
+                                                    [allowClear]="true"
+                                                    [multiple]="true"
+                                                    [options]="tags"
+                                                    [(ngModel)]="auxMovie.tags"
+                                                    placeholder="Selecciona almenos una tag"
+                                                    name="tags">
+                                            </ng-select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row clearfix">
+                                <div class="col-sm-4">
+                                    <div class="form-group form-group-default">
+                                        <label>WEB</label>
+                                        <input type="text" class="form-control"
+                                               name="web" [(ngModel)]="auxMovie.web" value="{{auxMovie.web}}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group form-group-default">
+                                        <label>Facebook</label>
+                                        <input type="text" class="form-control"
+                                               name="fb_url" [(ngModel)]="auxMovie.fb_url" value="{{auxMovie.fb_url}}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group form-group-default">
+                                        <label>Twitter</label>
+                                        <input type="text" class="form-control"
+                                               name="tw_url" [(ngModel)]="auxMovie.tw_url" value="{{auxMovie.tw_url}}">
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-default">
+                                    <label>Fotogramas</label>
+                                    <div>
+                                        <image-upload [url]="'http://localhost/youfeelmws/public/api/uploadFrame'"
+                                                      [max]="10"
+                                                      [headers]="[
+                                                {header: 'Authorization', value: 'Bearer ' + token}
+                                            ]"
+                                                      [buttonCaption]="'Selecciona un fotograma'"
+                                                      [dropBoxMessage]="'Arrastra tu imagen aquí'"
+                                                      (onFileUploadFinish)="addFrame($event)"
+                                                      (onRemove)="removeFrame2($event)"></image-upload>
+                                    </div>
+                                    <div class="col-md-4" *ngFor="let frame of auxMovie.frames_url; let i=index">
+                                        <img [src]="frame"
+                                             class="img-responsive" alt="">
+                                        <button *ngIf="auxMovie.img_url" type="button"
+                                                class="btn btn-primary btn-cons" (click)="removeFrame(auxMovie.frames[i])">Quitar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                        <button *ngIf="movieMode == 'new'" [disabled]="!formMovie.valid" type="button"
+                                class="btn btn-primary btn-cons" (click)="saveMovie()">Crear
+                        </button>
+                        <button *ngIf="movieMode == 'edit'" [disabled]="!formMovie.valid" type="button"
+                                class="btn btn-primary btn-cons" (click)="updateMovie()">Guardar
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal confirm delete company -->
+    <div class="modal fade slide-up disable-scroll" id="deleteMovie" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content-wrapper">
+                <div class="modal-content">
+                    <div class="modal-header clearfix text-left">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                                class="pg-close fs-14"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body m-t-20">
+                        <p>¿Seguro que quieres eliminar la película, {{movie.title}}?</p>
+                        <!-- dialog buttons -->
+
+                        <button type="button" class="btn btn-default btn-cons m-t-45" data-dismiss="modal">Cancelar
+                        </button>
+                        <button type="button" (click)="deleteMovie(movie)" class="btn btn-primary btn-cons m-t-45"
+                                data-dismiss="modal">OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Modal confirm delete company -->
+    <!-- Modal TheMovieDB -->
+    <div class="modal fade slide-up disable-scroll" id="TheMovieDbModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content-wrapper">
+                <div class="modal-content">
+                    <div class="modal-header clearfix text-left">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                                class="pg-close fs-14"></i>
+                        </button>
+                        <h5>Listado<span class="semi-bold"> The MovieDB</span></h5>
+                    </div>
+                    <div class="modal-body m-t-20">
+                        <div class="radio radio-success">
+                            <div *ngFor="let mv of similarMovies">
+                                <input type="radio" value="{{mv.id}}" name="{{mv.title}}" id="{{mv.id}}" [(ngModel)]="selectedMovie">
+                                <label for="{{mv.id}}">{{mv.title}} ({{mv.year}})</label>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-default btn-cons m-t-45" data-dismiss="modal">Cancelar
+                        </button>
+                        <button type="button" class="btn btn-primary btn-cons m-t-45"
+                                data-dismiss="modal" (click)="getMovie()" [disabled]="selectedMovie == 0">OK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Modal confirm delete company -->
+</div>

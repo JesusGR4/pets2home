@@ -43,6 +43,9 @@ import {ShelterCatalog} from "./web/shelterCatalog/shelterCatalog.component";
 import {SingleShelterComponent} from "./web/singleShelter/singleShelter.component";
 import {LoginComponent} from "./web/login/login.component";
 import {ResetComponent} from "./web/resetPassword/reset.component";
+import {CreateShelterComponent} from "./web/createShelter/createShelter.component";
+import {DashboardShelterComponent} from "./shelter-panel/dashboard/dashboard.component";
+import {PendingSheltersManagement} from "./admin-panel/dashboard/getPendingShelters/pendingShelters.component";
 
 
 
@@ -61,6 +64,10 @@ const appRoutes:Routes = [
       {
         path: 'register',
         component: RegisterPageComponent,
+      },
+      {
+        path: 'createShelter',
+        component: CreateShelterComponent,
       },
         {
             path: 'event/:event_id',
@@ -125,105 +132,37 @@ const appRoutes:Routes = [
         },
 
     ]
+    },{
+    path: "shelter-panel", component: DashboardShelterComponent, children: [
+      {
+        path: 'examplePage',
+        component: ExamplePageComponent,
+      },
+
+    ]
     },
     {
-        path: "admin-panel", component: AdminPanelComponent, children: [
-        {
-            path: 'examplePage',
-            component: ExamplePageComponent,
-        },
-        {
-            path: 'loginPage',
-            component: LoginPageComponent,
-        },
+        path: "admin-panel", component: DashboardComponent, children: [
+
         {
             path: 'dashboard',
-            component: DashboardComponent, children: [
-            {
-                path: 'userManagement',
-                component: UserManagement,
-            },
-            {
-                path: 'profileManagement',
-                component: ProfileManagement,
-            },
+            component: AdminPanelComponent, children: [
+
             {
                 path: 'noPermissions',
                 component: NoPermissionsComponent,
             },
             {
-                path: 'cinemaManagement',
-                component: CinemaManagement,
-            },
-            {
-                path: 'filmManagement',
-                component: FilmManagement,
-            },
-            {
-                path: 'providerFilmManagement',
-                component: ProviderFilmManagement,
-            },
-            {
-                path: 'providerEventsManagement',
-                component: ProviderEventsManagement,
-            },
-            {
-                path: 'programmerFilmManagement',
-                component: ProgammerFilmManagement,
-            },
-            {
-                path: 'eventsManagement',
-                component: EventsManagement,
-            },
-            {
-                path: 'pendingsEventsManagement',
-                component: PendingEventsManagement,
-            },
-            {
-                path: 'cinemasAdminEventsManagement',
-                component: CinemasAdminEventsManagement,
-            },
-            {
-                path: 'programmerEventsManagement',
-                component: ProgrammerEventsManagement,
-            },
-            {
-                path: 'programmerEventsManagement',
-                component: ProgrammerEventsManagement,
-            },
-            {
-                path: 'programmerValidatedEventsManagement',
-                component: ProgrammerValidatedEventsManagement,
-            },
-            {
-                path: 'settings',
-                component: Settings,
-            },
-            {
-                path: 'myEvents',
-                component: MyEvents,
-            },
-            {
-                path: 'listUsers',
-                component: ListUsers,
-            },
-            {
-              path: 'customerTimeline/:customer_id',
-              component: UsersTimeline,
-            },
-            {
-                path: 'surveys',
-                component: Surveys,
-            },
-            {
-                path: 'compassuite',
-                component: Compassuite,
-            },
+                path: 'getPendingShelters',
+                component: PendingSheltersManagement,
+            }
 
         ]
         },
+
     ]
     },
+
 
 
 ];

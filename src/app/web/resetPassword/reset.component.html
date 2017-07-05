@@ -7,7 +7,7 @@
     <div class="dashboard-content">
       <div class="container text-center">
         <div class="col-md-12 text-center">
-          <h3 class="section-title no-padding">CAMBIAR CONTRASEÑA</h3>
+          <h3 class="section-title no-padding">{{'RESET.TITLE'| translate}}</h3>
         </div>
         <div class="row margin-top-section">
 
@@ -18,11 +18,11 @@
                 <div class="row">
                   <div class="col-md-4 col-centered" >
                     <div aria-required="true">
-                      <label>Email</label>
+                      <label>{{'RESET.EMAIL'| translate}}</label>
                       <div class="form-group form-group-default">
-                        <input type="text" [(ngModel)]="reset.email" #email="ngModel" name="email" placeholder="email" class="form-control" required>
+                        <input type="text" [(ngModel)]="reset.email" #email="ngModel" name="email" placeholder="{{'RESET.EMAIL'| translate}}" class="form-control" required>
                         <p [hidden]="email.valid || send == false" color="danger" padding-left>
-                          Es obligatorio introducir el email
+                          {{'RESET.EMAIL-ERROR'| translate}}
                         </p>
                       </div>
                     </div>
@@ -36,11 +36,11 @@
                 <div class="row">
                   <div class="col-md-4 col-centered">
                     <div aria-required="true">
-                      <label>Password</label>
+                      <label>{{'RESET.PASSWORD'| translate}}</label>
                       <div class="form-group form-group-default">
-                        <input type="password" [(ngModel)]="reset.password" #password="ngModel" class="form-control" name="password" placeholder="contraseña" required>
+                        <input type="password" [(ngModel)]="reset.password" #password="ngModel" class="form-control" name="password" placeholder="{{'RESET.PASSWORD'| translate}}" required>
                         <p [hidden]="password.valid || send == false" color="danger" padding-left>
-                          Es obligatorio introducir la contraseña
+                          {{'RESET.PASSWORD-ERROR'| translate}}
                         </p>
                       </div>
                     </div>
@@ -50,11 +50,11 @@
                 <div class="row">
                   <div class="col-md-4 col-centered">
                     <div aria-required="true">
-                      <label>Confirmar contraseña</label>
+                      <label>{{'RESET.CONFIRM-PASSWORD'| translate}}</label>
                       <div class="form-group form-group-default">
-                        <input type="password" [(ngModel)]="reset.password_confirmation" #confirmPassword="ngModel" class="form-control" name="confirmPassword" placeholder="Repetir contraseña" required>
+                        <input type="password" [(ngModel)]="reset.password_confirmation" #confirmPassword="ngModel" class="form-control" name="confirmPassword" placeholder="{{'RESET.CONFIRM-PASSWORD'| translate}}" required>
                         <p [hidden]="confirmPassword.valid || send == false" color="danger" padding-left>
-                          Es obligatorio introducir la contraseña
+                          {{'RESET.CONFIRM-PASSWORD-ERROR'| translate}}
                         </p>
                       </div>
                     </div>

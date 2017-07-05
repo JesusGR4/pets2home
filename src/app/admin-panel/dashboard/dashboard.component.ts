@@ -5,6 +5,7 @@ import {MessagesService} from "../../services/messages.service";
 import {CodesService} from "../../services/codes.service";
 import {Session} from "../../models/session";
 import {ApiConfigService} from "../../services/apiConfig.service";
+import {TranslateService} from "ng2-translate";
 
 declare var MyJS: any;
 declare var $: any;
@@ -22,7 +23,8 @@ export class DashboardComponent{
     constructor(
         private router: Router,
         private _sessionsService: SessionsService,
-        private _messagesService: MessagesService
+        private _messagesService: MessagesService,
+        private translate: TranslateService
     ){
         _sessionsService.user$.subscribe(
           user => {
@@ -48,7 +50,7 @@ export class DashboardComponent{
                 let json = res.json();
                 let code = json.code;
                 if(code == CodesService.OK_CODE) {
-                    this.router.navigate(['/admin-panel/loginPage']);
+                    this.router.navigate(['/index']);
                 }else{
                     this.handlerError(code);
                 }
@@ -72,5 +74,9 @@ export class DashboardComponent{
         }
         this._messagesService.showErrorMessage(message);
     }
+  setLanguage(language){
+    this.translate.use(language);
+    localStorage.setItem(ApiConfigService.LANGUAGE, language);
+  }
 
 }

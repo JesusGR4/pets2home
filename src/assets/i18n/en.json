@@ -1,0 +1,127 @@
+{
+  "SLIDE": {
+    "LAYER1": "Wanna get some pets?",
+    "LAYER2": "Get it",
+    "LAYER3": "Layer3",
+    "LAYER4": "Layer4"
+  },
+  "REGISTER":{
+    "TITLE": "Register",
+    "NAME": "Name",
+    "SURNAME": "Surname",
+    "PHONE": "Phone",
+    "PROVINCE": "Province",
+    "CITY": "City",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm password",
+    "TERMS": "If you register in our system, you agree with our terms and use conditions",
+    "PERSONAL": "Personal data",
+    "UBICATION": "Location",
+    "USER": "User data",
+    "NAME_ERROR": "Wrong name",
+    "SURNAME_ERROR": "Wrong surname",
+    "PHONE_ERROR": "Wrong phone",
+    "PROVINCE_ERROR": "Wrong province",
+    "CITY_ERROR": "Wrong city",
+    "EMAIL_ERROR": "Wrong e-mail",
+    "PASSWORD_ERROR": "Wrong password",
+    "CONFIRM_PASSWORD_ERROR": "Passwords don't match"
+  },
+  "SINGLE-SHELTER":{
+    "SHARE": "Share!",
+    "CONTACT": "Contact",
+    "SCHEDULE":"Schedule",
+    "PHONE":"Phone",
+    "EMAIL": "Email",
+    "CITY": "City",
+    "WHERE": "Where we are",
+    "ADDRESS": "Address",
+    "ANIMALS": "Our animals",
+    "WATCH": "See all",
+    "FIND": "Find us!"
+  },
+  "SHELTER-CATALOG":{
+    "SHELTERS": "Shelters at:"
+  },
+  "REQUEST":{
+    "SUCCESS":"Success!"
+  },
+  "RESET":{
+    "TITLE":"CHANGE PASSWORD",
+    "EMAIL":"Email",
+    "EMAIL-ERROR":"Email es obligatorio",
+    "PASSWORD": "Password",
+    "PASSWORD-ERROR": "Password is mandatory",
+    "CONFIRM-PASSWORD": "Confirm password",
+    "CONFIRM-PASSWORD-ERROR": "Passwords don't match"
+  },"LOGIN":{
+  "LOGIN":"LOGIN",
+  "EMAIL":"Email",
+  "EMAIL-ERROR":"Email is mandatory",
+  "PASSWORD":"Password",
+  "PASSWORD-ERROR": "Password is mandatory",
+  "SIGN":"Sign in",
+  "FORGET":"Did you forget your password?",
+  "INTRODUCE":"Introduce your email",
+  "RECOVER":"Recover password",
+  "SUCCESS":"Successful login!"
+}, "INDEX":{
+  "CHOOSE":"Choose your province",
+  "SEE":"See all",
+  "SHELTERS":"Shelters"
+},"WEB":{
+  "HOME":"Home",
+  "REGISTER":"Register!",
+  "LOG-IN":"Log in!",
+  "KNOW":"Know us",
+  "FAQ":"FAQ",
+  "ABOUT":"About Pets2Home",
+  "CONTACT":"Contact",
+  "LE":"Legal",
+  "LEGAL":"Legal warning",
+  "USE":"Use conditions"
+},
+  "SERVER":{
+    "ERROR":"Server error"
+  },
+
+  "CREATE-SHELTER":{
+    "TITLE": "Request access to the platform",
+    "DATA": "Data of the shelter",
+    "NAME": "Name",
+    "NAME_ERROR": "Name is mandatory",
+    "DESCRIPTION": "Description",
+    "DESCRIPTION_ERROR":"Description is mandatory",
+    "SCHEDULE":"Schedule",
+    "SCHEDULE_ERROR":"Schedule is mandatory",
+    "PHONE":"Phone",
+    "PHONE_ERROR": "Phone is wrong",
+    "EMAIL":"Email",
+    "EMAIL_ERROR":"Wrong email",
+    "UBICATION":"Location of the shelter",
+    "PROVINCE":"Province",
+    "PROVINCE_ERROR":"Province is mandatory",
+    "CITY": "City",
+    "CITY_ERROR":"City is mandatory",
+    "ADDRESS":"Address",
+    "ADDRESS_ERROR":"Address is mandatory",
+    "PLEASE": "Please click on the map in the location of your shelter",
+    "UPLOAD": "Upload the images of the house!",
+    "SEND":"Send",
+    "LOCATION":"Please! Choose some location",
+    "INPUT_ERROR":"You must choose a image at least",
+    "SEARCH":"Search for location"
+  },
+  "REMEMBER":{
+  "SUCCESS":"Email sent successfully"
+},"ADMIN-DASHBOARD":{
+  "PENDING":"Pending",
+  "MODAL":"Write the reason you reject this shelter"
+},
+  "PENDING":{
+    "ACCEPT":"Shelter accepted",
+    "REJECT":"Shelter rejected"
+  }
+
+}
