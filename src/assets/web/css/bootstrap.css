@@ -2941,7 +2941,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li > a {
     line-height: 1.42857143;
     border-radius:0;
-    float:left;   
+    float:left;
     text-transform:uppercase;
     margin:15px 32px;
     outline:none;
@@ -4051,7 +4051,6 @@ a.thumbnail.active {
 
 }
 .progress-bar {
-    float: left;
     width: 0;
     height: 100%;
     font-size: 12px;

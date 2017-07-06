@@ -69,7 +69,7 @@ export class WebComponent{
         location.reload();
     }
 
-    completeUrl(url){
-
-    }
+  completeUrl(url: string) {
+    return ApiConfigService.PROFILE_IMAGE_FOLDER + url;
+  }
 }
