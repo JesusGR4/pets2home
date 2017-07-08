@@ -370,6 +370,11 @@ you can use the generic selector below, but it's slower:
 	-moz-osx-font-smoothing: grayscale;
 }
 
+[class^="icon-my"], [class*=" icon-my"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'mydatepicker' !important;
+}
+
 .icon-240:before {
 	content: "\e904";
 }

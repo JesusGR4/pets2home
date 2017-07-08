@@ -9674,7 +9674,7 @@ Responsive Util
   height: 100%;
 }
 /* Responsive handlers : Login
-------------------------------------
+-------------------------------
 */
 @media (max-width: 768px) {
   .login-wrapper .login-container {
@@ -13188,9 +13188,6 @@ Main components
 @media (max-width: 767px) {
   .header {
     height: 48px;
-  }
-  .mapsSingleShelter {
-    height: 200px;
   }
   .header .notification-list,
   .header .search-link {

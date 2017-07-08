@@ -25,6 +25,8 @@ export class SingleShelterComponent{
     private sub: any;
 
     public shelter: Shelter = new Shelter();
+    public shelters: Shelter[]=[];
+    public mainPicture: any;
     constructor(private route: ActivatedRoute,
                 private _shelterService: ShelterService,
                 private _messagesService: MessagesService) {}
@@ -67,7 +69,9 @@ export class SingleShelterComponent{
         }
       )
     }
+
     private convertToShelter(json){
+      this.shelters = [];
       this.shelter.name = json.shelter.user_name;
       this.shelter.phone = json.shelter.user_phone;
       this.shelter.email = json.shelter.user_email;
@@ -77,6 +81,12 @@ export class SingleShelterComponent{
       this.shelter.address = json.shelter.shelter_address;
       this.shelter.description = json.shelter.description;
       this.shelter.schedule = json.shelter.shelter_schedule;
+      var shelters = json.images;
+      var totalItems = shelters.length;
+      this.mainPicture = shelters[0].name;
+      for(var i = 1; i< totalItems; i++){
+        this.shelters.push(shelters[i].name);
+      }
     }
     private handlerError(code, message){
         if(code == CodesService.INVALID_TOKEN){
@@ -84,5 +94,7 @@ export class SingleShelterComponent{
         }
         this._messagesService.showErrorMessage(message);
     }
-
+    completeUrl(url: string) {
+      return ApiConfigService.PROFILE_IMAGE_FOLDER + url;
+    }
 }

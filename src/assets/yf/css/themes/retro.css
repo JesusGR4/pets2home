@@ -48,7 +48,7 @@ html {
     height: 100%;
 }
 
-/* Body Triggers for layout options 
+/* Body Triggers for layout options
 ------------------------------------------------------------------
 */
 body {
@@ -163,7 +163,7 @@ body.rtl [class*="col-"] {
     left: auto;
 }
 
-/* Header 
+/* Header
 ------------------------------------
 */
 .header {
@@ -250,7 +250,7 @@ body.rtl [class*="col-"] {
     opacity: 1;
 }
 
-/* Bootstrap navbar 
+/* Bootstrap navbar
 ------------------------------------
 */
 .navbar {
@@ -283,7 +283,7 @@ body.rtl [class*="col-"] {
     background-color: transparent !important;
 }
 
-/* Main Menu Sidebar 
+/* Main Menu Sidebar
 ------------------------------------
 */
 .page-sidebar {
@@ -624,7 +624,7 @@ body.rtl [class*="col-"] {
     content: "\f10c";
 }
 
-/* Sidebar icon holder 
+/* Sidebar icon holder
 ------------------------------------
 */
 .icon-thumbnail {
@@ -932,7 +932,7 @@ body.rtl [class*="col-"] {
     min-height: 100%;
 }
 
-/* Quick View 
+/* Quick View
 ------------------------------------
 */
 .quickview-wrapper {
@@ -1244,7 +1244,7 @@ body.rtl [class*="col-"] {
     background: #fef8ae;
 }
 
-/* Page Container 
+/* Page Container
 ------------------------------------
 */
 .page-container {
@@ -1358,7 +1358,7 @@ body.rtl [class*="col-"] {
     text-shadow: none;
 }
 
-/* Overlay Search 
+/* Overlay Search
 ------------------------------------
 */
 .overlay {
@@ -1453,7 +1453,7 @@ body.rtl [class*="col-"] {
     font-size: 44px;
 }
 
-/* Pages Image Icon Sent - Pixel Perfect 
+/* Pages Image Icon Sent - Pixel Perfect
 ------------------------------------
 */
 .icon-set {
@@ -2607,7 +2607,7 @@ body {
     -moz-font-feature-settings: "kern" 1;
 }
 
-/* Headings 
+/* Headings
 ------------------------------------
 */
 h1,
@@ -2820,7 +2820,7 @@ hr.dotted {
     border-style: dotted none none;
 }
 
-/* Font Sizes 
+/* Font Sizes
 ------------------------------------
 */
 .small-text {
@@ -2854,7 +2854,7 @@ hr.dotted {
     font-weight: 300 !important;
 }
 
-/* Misc 
+/* Misc
 ------------------------------------
 */
 .logo {
@@ -2934,7 +2934,7 @@ hr.dotted {
     background-color: #ebe4f3;
 }
 
-/* Complete 
+/* Complete
 ------------------------------------
 */
 .bg-complete {
@@ -2957,7 +2957,7 @@ hr.dotted {
     background-color: #e1f0fd;
 }
 
-/* Success 
+/* Success
 ------------------------------------
 */
 .bg-success {
@@ -3003,7 +3003,7 @@ hr.dotted {
     background-color: #dbe0e7;
 }
 
-/* Danger 
+/* Danger
 ------------------------------------
 */
 .bg-danger {
@@ -3052,7 +3052,7 @@ hr.dotted {
 /* More Color Options
 ------------------------------------
 */
-/* Menu 
+/* Menu
 ------------------------------------
 */
 .bg-menu-dark {
@@ -3377,7 +3377,7 @@ hr.dotted {
     }
 }
 
-/* For Windows : Fixes 
+/* For Windows : Fixes
 ------------------------------------
 */
 .windows body,
@@ -4847,7 +4847,7 @@ body.menu-pin > .pgn-wrapper[data-position="bottom"] {
     margin: 0;
 }
 
-/* Simple 
+/* Simple
 ------------------------------------
 */
 .pgn-simple .alert {
@@ -4860,7 +4860,7 @@ body.menu-pin > .pgn-wrapper[data-position="bottom"] {
     overflow: hidden;
 }
 
-/* Bar 
+/* Bar
 ------------------------------------
 */
 .pgn-bar {
@@ -4931,7 +4931,7 @@ body.menu-pin > .pgn-wrapper[data-position="bottom"] {
     }
 }
 
-/* Circle 
+/* Circle
 ------------------------------------
 */
 .pgn-circle .alert {
@@ -5046,7 +5046,7 @@ body.menu-pin > .pgn-wrapper[data-position="bottom"] {
     }
 }
 
-/* Flip 
+/* Flip
 ------------------------------------
 */
 .pgn-wrapper[data-position^='top-'] .pgn-flip {
@@ -5405,7 +5405,7 @@ body > .pgn-wrapper {
     background-color: #4d6286;
 }
 
-/* Circular Progress : indeterminate 
+/* Circular Progress : indeterminate
 ------------------------------------
 */
 .progress-circle-indeterminate {
@@ -5440,7 +5440,7 @@ body > .pgn-wrapper {
     background-image: url('../../img/progress/progress-circle-complete.svg');
 }
 
-/* Circular Progress 
+/* Circular Progress
 ------------------------------------
 */
 .progress-circle {
@@ -5867,7 +5867,7 @@ body > .pgn-wrapper {
     border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Tabs : Simple 
+/* Tabs : Simple
 ------------------------------------
 */
 .nav-tabs-simple {
@@ -6090,7 +6090,7 @@ body > .pgn-wrapper {
     }
 }
 
-/* Tabs : Fill-up 
+/* Tabs : Fill-up
 ------------------------------------
 */
 .nav-tabs-fillup {
@@ -7076,7 +7076,7 @@ fieldset[disabled] .form-control {
     line-height: 22px;
 }
 
-/* Checkboxes and Radio buttons 
+/* Checkboxes and Radio buttons
 --------------------------------------------------
 */
 .radio,
@@ -7482,7 +7482,7 @@ body.rtl .checkbox label::after {
     }
 }
 
-/* Form Groups 
+/* Form Groups
 --------------------------------------------------
 */
 .form-group {
@@ -8119,7 +8119,7 @@ https://github.com/eternicode/bootstrap-datepicker
     border: 0;
 }
 
-/* Timepicker 
+/* Timepicker
 https://github.com/m3wolf/bootstrap3-timepicker
 */
 .bootstrap-timepicker-widget table td a i {
@@ -9135,7 +9135,7 @@ div.cs-skin-slide .cs-options ul li.cs-selected span {
 /*------------------------------------------------------------------
 [16. Tables and Datatables]
 */
-/* Generic Tables 
+/* Generic Tables
 ------------------------------------
 */
 .table {
@@ -9300,7 +9300,7 @@ div.cs-skin-slide .cs-options ul li.cs-selected span {
     margin-bottom: 0 !important;
 }
 
-/* Data-tables 
+/* Data-tables
 ------------------------------------
 */
 .table.dataTable.no-footer {
@@ -10091,7 +10091,7 @@ input.list-view-search {
     width: 100%;
 }
 
-/* Cover 
+/* Cover
 ------------------------------------
 */
 .social-wrapper .social .jumbotron {
@@ -10140,7 +10140,7 @@ input.list-view-search {
     min-height: 100%;
 }
 
-/* Feed 
+/* Feed
 ------------------------------------
 */
 .social-user-profile {
@@ -10173,7 +10173,7 @@ input.list-view-search {
     background: #69b6f3;
 }
 
-/* Cards 
+/* Cards
 ------------------------------------
 */
 .card {
@@ -10577,7 +10577,7 @@ input.list-view-search {
 /*------------------------------------------------------------------
 [20. Email App]
 */
-/* Email Components 
+/* Email Components
 --------------------------------------------------
 */
 .compose-wrapper {
@@ -10693,7 +10693,7 @@ input.list-view-search {
     width: 100% !important;
 }
 
-/* Email App Top Header 
+/* Email App Top Header
 --------------------------------------------------
 */
 .header-wrapper-email {
@@ -10708,7 +10708,7 @@ input.list-view-search {
     text-decoration: none;
 }
 
-/* Responsive Handler : Email App 
+/* Responsive Handler : Email App
 --------------------------------------------------
 */
 @media (max-width: 1024px) {
@@ -11657,7 +11657,7 @@ Responsive Util
     top: 50%;
 }
 
-/* Responsive Handlers : Lockscreen 
+/* Responsive Handlers : Lockscreen
 ------------------------------------
 */
 @media (max-width: 767px) {
@@ -11697,7 +11697,7 @@ Responsive Util
   Adapted from Vertical Timeline by Sebastiano Guerriero
   http://codyhouse.co/gem/vertical-timeline/
 */
-/* -------------------------------- 
+/* --------------------------------
 
 Modules - reusable parts of our design
 
@@ -11727,9 +11727,9 @@ Modules - reusable parts of our design
     z-index: 10;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-Main components 
+Main components
 
 -------------------------------- */
 .timeline {
@@ -12536,7 +12536,7 @@ Main components
 }
 
 /*------------------------------------------------------------------
-[26. Vector Map : Mapplic Plugin] 
+[26. Vector Map : Mapplic Plugin]
 */
 .mapplic-container {
     width: 100%;
@@ -13245,7 +13245,7 @@ Main components
     -webkit-backface-visibility: hidden;
 }
 
-/* Thumbnail for icons and profile pics 
+/* Thumbnail for icons and profile pics
 ------------------------------------
 */
 .thumbnail-wrapper {
@@ -13417,7 +13417,7 @@ Main components
     border: none;
 }
 
-/* Scroll 
+/* Scroll
 ------------------------------------
 */
 .scrollable {
@@ -13425,7 +13425,7 @@ Main components
     -webkit-overflow-scrolling: touch;
 }
 
-/* Overides 
+/* Overides
 ------------------------------------
 */
 .no-padding {
@@ -13550,429 +13550,429 @@ Main components
     overflow-x: hidden !important;
 }
 
-/* Generic Padding Helpers 
+
+/* Generic Padding Helpers
 ------------------------------------
 */
 .p-t-0 {
-    padding-top: 0px !important;
+  padding-top: 0px !important;
 }
 
 .p-r-0 {
-    padding-right: 0px !important;
+  padding-right: 0px !important;
 }
 
 .p-l-0 {
-    padding-left: 0px !important;
+  padding-left: 0px !important;
 }
 
 .p-b-0 {
-    padding-bottom: 0px !important;
+  padding-bottom: 0px !important;
 }
 
 .padding-0 {
-    padding: 0px !important;
+  padding: 0px !important;
 }
 
 .p-t-5 {
-    padding-top: 5px !important;
+  padding-top: 5px !important;
 }
 
 .p-r-5 {
-    padding-right: 5px !important;
+  padding-right: 5px !important;
 }
 
 .p-l-5 {
-    padding-left: 5px !important;
+  padding-left: 5px !important;
 }
 
 .p-b-5 {
-    padding-bottom: 5px !important;
+  padding-bottom: 5px !important;
 }
 
 .padding-5 {
-    padding: 5px !important;
+  padding: 5px !important;
 }
 
 .p-t-10 {
-    padding-top: 10px !important;
+  padding-top: 10px !important;
 }
 
 .p-r-10 {
-    padding-right: 10px !important;
+  padding-right: 10px !important;
 }
 
 .p-l-10 {
-    padding-left: 10px !important;
+  padding-left: 10px !important;
 }
 
 .p-b-10 {
-    padding-bottom: 10px !important;
+  padding-bottom: 10px !important;
 }
 
 .padding-10 {
-    padding: 10px !important;
+  padding: 10px !important;
 }
 
 .p-t-15 {
-    padding-top: 15px !important;
+  padding-top: 15px !important;
 }
 
 .p-r-15 {
-    padding-right: 15px !important;
+  padding-right: 15px !important;
 }
 
 .p-l-15 {
-    padding-left: 15px !important;
+  padding-left: 15px !important;
 }
 
 .p-b-15 {
-    padding-bottom: 15px !important;
+  padding-bottom: 15px !important;
 }
 
 .padding-15 {
-    padding: 15px !important;
+  padding: 15px !important;
 }
 
 .p-t-20 {
-    padding-top: 20px !important;
+  padding-top: 20px !important;
 }
 
 .p-r-20 {
-    padding-right: 20px !important;
+  padding-right: 20px !important;
 }
 
 .p-l-20 {
-    padding-left: 20px !important;
+  padding-left: 20px !important;
 }
 
 .p-b-20 {
-    padding-bottom: 20px !important;
+  padding-bottom: 20px !important;
 }
 
 .padding-20 {
-    padding: 20px !important;
+  padding: 20px !important;
 }
 
 .p-t-25 {
-    padding-top: 25px !important;
+  padding-top: 25px !important;
 }
 
 .p-r-25 {
-    padding-right: 25px !important;
+  padding-right: 25px !important;
 }
 
 .p-l-25 {
-    padding-left: 25px !important;
+  padding-left: 25px !important;
 }
 
 .p-b-25 {
-    padding-bottom: 25px !important;
+  padding-bottom: 25px !important;
 }
 
 .padding-25 {
-    padding: 25px !important;
+  padding: 25px !important;
 }
 
 .p-t-30 {
-    padding-top: 30px !important;
+  padding-top: 30px !important;
 }
 
 .p-r-30 {
-    padding-right: 30px !important;
+  padding-right: 30px !important;
 }
 
 .p-l-30 {
-    padding-left: 30px !important;
+  padding-left: 30px !important;
 }
 
 .p-b-30 {
-    padding-bottom: 30px !important;
+  padding-bottom: 30px !important;
 }
 
 .padding-30 {
-    padding: 30px !important;
+  padding: 30px !important;
 }
 
 .p-t-35 {
-    padding-top: 35px !important;
+  padding-top: 35px !important;
 }
 
 .p-r-35 {
-    padding-right: 35px !important;
+  padding-right: 35px !important;
 }
 
 .p-l-35 {
-    padding-left: 35px !important;
+  padding-left: 35px !important;
 }
 
 .p-b-35 {
-    padding-bottom: 35px !important;
+  padding-bottom: 35px !important;
 }
 
 .padding-35 {
-    padding: 35px !important;
+  padding: 35px !important;
 }
 
 .p-t-40 {
-    padding-top: 40px !important;
+  padding-top: 40px !important;
 }
 
 .p-r-40 {
-    padding-right: 40px !important;
+  padding-right: 40px !important;
 }
 
 .p-l-40 {
-    padding-left: 40px !important;
+  padding-left: 40px !important;
 }
 
 .p-b-40 {
-    padding-bottom: 40px !important;
+  padding-bottom: 40px !important;
 }
 
 .padding-40 {
-    padding: 40px !important;
+  padding: 40px !important;
 }
 
 .p-t-45 {
-    padding-top: 45px !important;
+  padding-top: 45px !important;
 }
 
 .p-r-45 {
-    padding-right: 45px !important;
+  padding-right: 45px !important;
 }
 
 .p-l-45 {
-    padding-left: 45px !important;
+  padding-left: 45px !important;
 }
 
 .p-b-45 {
-    padding-bottom: 45px !important;
+  padding-bottom: 45px !important;
 }
 
 .padding-45 {
-    padding: 45px !important;
+  padding: 45px !important;
 }
 
 .p-t-50 {
-    padding-top: 50px !important;
+  padding-top: 50px !important;
 }
 
 .p-r-50 {
-    padding-right: 50px !important;
+  padding-right: 50px !important;
 }
 
 .p-l-50 {
-    padding-left: 50px !important;
+  padding-left: 50px !important;
 }
 
 .p-b-50 {
-    padding-bottom: 50px !important;
+  padding-bottom: 50px !important;
 }
 
 .padding-50 {
-    padding: 50px !important;
+  padding: 50px !important;
 }
 
 .p-t-55 {
-    padding-top: 55px !important;
+  padding-top: 55px !important;
 }
 
 .p-r-55 {
-    padding-right: 55px !important;
+  padding-right: 55px !important;
 }
 
 .p-l-55 {
-    padding-left: 55px !important;
+  padding-left: 55px !important;
 }
 
 .p-b-55 {
-    padding-bottom: 55px !important;
+  padding-bottom: 55px !important;
 }
 
 .padding-55 {
-    padding: 55px !important;
+  padding: 55px !important;
 }
 
 .p-t-60 {
-    padding-top: 60px !important;
+  padding-top: 60px !important;
 }
 
 .p-r-60 {
-    padding-right: 60px !important;
+  padding-right: 60px !important;
 }
 
 .p-l-60 {
-    padding-left: 60px !important;
+  padding-left: 60px !important;
 }
 
 .p-b-60 {
-    padding-bottom: 60px !important;
+  padding-bottom: 60px !important;
 }
 
 .padding-60 {
-    padding: 60px !important;
+  padding: 60px !important;
 }
 
 .p-t-65 {
-    padding-top: 65px !important;
+  padding-top: 65px !important;
 }
 
 .p-r-65 {
-    padding-right: 65px !important;
+  padding-right: 65px !important;
 }
 
 .p-l-65 {
-    padding-left: 65px !important;
+  padding-left: 65px !important;
 }
 
 .p-b-65 {
-    padding-bottom: 65px !important;
+  padding-bottom: 65px !important;
 }
 
 .padding-65 {
-    padding: 65px !important;
+  padding: 65px !important;
 }
 
 .p-t-70 {
-    padding-top: 70px !important;
+  padding-top: 70px !important;
 }
 
 .p-r-70 {
-    padding-right: 70px !important;
+  padding-right: 70px !important;
 }
 
 .p-l-70 {
-    padding-left: 70px !important;
+  padding-left: 70px !important;
 }
 
 .p-b-70 {
-    padding-bottom: 70px !important;
+  padding-bottom: 70px !important;
 }
 
 .padding-70 {
-    padding: 70px !important;
+  padding: 70px !important;
 }
 
 .p-t-75 {
-    padding-top: 75px !important;
+  padding-top: 75px !important;
 }
 
 .p-r-75 {
-    padding-right: 75px !important;
+  padding-right: 75px !important;
 }
 
 .p-l-75 {
-    padding-left: 75px !important;
+  padding-left: 75px !important;
 }
 
 .p-b-75 {
-    padding-bottom: 75px !important;
+  padding-bottom: 75px !important;
 }
 
 .padding-75 {
-    padding: 75px !important;
+  padding: 75px !important;
 }
 
 .p-t-80 {
-    padding-top: 80px !important;
+  padding-top: 80px !important;
 }
 
 .p-r-80 {
-    padding-right: 80px !important;
+  padding-right: 80px !important;
 }
 
 .p-l-80 {
-    padding-left: 80px !important;
+  padding-left: 80px !important;
 }
 
 .p-b-80 {
-    padding-bottom: 80px !important;
+  padding-bottom: 80px !important;
 }
 
 .padding-80 {
-    padding: 80px !important;
+  padding: 80px !important;
 }
 
 .p-t-85 {
-    padding-top: 85px !important;
+  padding-top: 85px !important;
 }
 
 .p-r-85 {
-    padding-right: 85px !important;
+  padding-right: 85px !important;
 }
 
 .p-l-85 {
-    padding-left: 85px !important;
+  padding-left: 85px !important;
 }
 
 .p-b-85 {
-    padding-bottom: 85px !important;
+  padding-bottom: 85px !important;
 }
 
 .padding-85 {
-    padding: 85px !important;
+  padding: 85px !important;
 }
 
 .p-t-90 {
-    padding-top: 90px !important;
+  padding-top: 90px !important;
 }
 
 .p-r-90 {
-    padding-right: 90px !important;
+  padding-right: 90px !important;
 }
 
 .p-l-90 {
-    padding-left: 90px !important;
+  padding-left: 90px !important;
 }
 
 .p-b-90 {
-    padding-bottom: 90px !important;
+  padding-bottom: 90px !important;
 }
 
 .padding-90 {
-    padding: 90px !important;
+  padding: 90px !important;
 }
 
 .p-t-95 {
-    padding-top: 95px !important;
+  padding-top: 95px !important;
 }
 
 .p-r-95 {
-    padding-right: 95px !important;
+  padding-right: 95px !important;
 }
 
 .p-l-95 {
-    padding-left: 95px !important;
+  padding-left: 95px !important;
 }
 
 .p-b-95 {
-    padding-bottom: 95px !important;
+  padding-bottom: 95px !important;
 }
 
 .padding-95 {
-    padding: 95px !important;
+  padding: 95px !important;
 }
 
 .p-t-100 {
-    padding-top: 100px !important;
+  padding-top: 100px !important;
 }
 
 .p-r-100 {
-    padding-right: 100px !important;
+  padding-right: 100px !important;
 }
 
 .p-l-100 {
-    padding-left: 100px !important;
+  padding-left: 100px !important;
 }
 
 .p-b-100 {
-    padding-bottom: 100px !important;
+  padding-bottom: 100px !important;
 }
 
 .padding-100 {
-    padding: 100px !important;
+  padding: 100px !important;
 }
-
 /* Generic Margin Helpers
 ------------------------------------
  */
@@ -14336,7 +14336,7 @@ Main components
     border-color: #000;
 }
 
-/* Border Helpers 
+/* Border Helpers
 ------------------------------------
 */
 .b-a,
@@ -14658,7 +14658,7 @@ Main components
     vertical-align: bottom !important;
 }
 
-/* columns of same height styles 
+/* columns of same height styles
 ------------------------------------
 */
 .container-xs-height {
@@ -14950,7 +14950,7 @@ Main components
     height: 35px;
 }
 
-/* Demo Widths For GIF Animations 
+/* Demo Widths For GIF Animations
 ------------------------------------
 */
 .demo-bg-hinted {

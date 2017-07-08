@@ -47,6 +47,8 @@ export class LoginComponent{
                 let code = json.code;
                 let data = json.data;
                 let rout = this.router;
+                let image = json.image;
+                console.log(image);
                 if(code == CodesService.OK_CODE){
                   this.translateService.get('LOGIN.SUCCESS').subscribe(
                     data => {
@@ -65,8 +67,12 @@ export class LoginComponent{
                   };
                   this.toastyService.success(toastOptions);
                           ApiConfigService.setSession(data, json.token.token);
+                          ApiConfigService.setImage(image);
                           if(data.role_id ==1){
                             window.location.href = '/admin-panel/dashboard';
+                          }
+                          else{
+                            window.location.href = '/index';
                           }
                 }else{
                   this.errorMessages = json.message;
@@ -78,7 +84,6 @@ export class LoginComponent{
                 this.errorMessages = json.message;
                 this.modal.open();
               }
-
             )
         }
     }

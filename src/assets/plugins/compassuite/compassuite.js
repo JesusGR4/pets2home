@@ -2,7 +2,7 @@
         var investment = data;
 
         $('.compassuite-investment-table').empty();
-        
+
         if(investment['notOptimize']['direct_lines'].length != 0){
             var general = investment['notOptimize']['direct_lines']['general'];
             if(general['best'] == null || general['worst'] == null){
@@ -22,7 +22,7 @@
                     '<td>'+general['transactions']+'</td>' +
                     '<td>'+parseFloat(general['revenue']).toFixed(2)+'</td>' +
                     '<td>'+parseFloat(general['investment']).toFixed(2)+'</td>' +
-                    '<td>'+parseFloat(general['transactions_costs']).toFixed(2)+'</td>'+
+                    // '<td>'+parseFloat(general['transactions_costs']).toFixed(2)+'</td>'+
                     '<td class="externalCostsTd">'+parseFloat(general['external_costs']).toFixed(2)+'</td>'+
                     '<td>'+parseFloat(general['profits']).toFixed(2)+'</td>' +
                     '<td></td>' +
@@ -538,7 +538,7 @@
                         '<td>'+general['transactions']+'</td>' +
                         '<td>'+parseFloat(general['revenue']).toFixed(2)+'</td>' +
                         '<td>'+parseFloat(general['investment']).toFixed(2)+'</td>' +
-                        '<td>'+parseFloat(general['transactions_costs']).toFixed(2)+'</td>' +
+                        // '<td>'+parseFloat(general['transactions_costs']).toFixed(2)+'</td>' +
                         '<td class="externalCostsTd">'+parseFloat(general['external_costs']).toFixed(2)+'</td>' +
                         '<td>'+parseFloat(general['profits']).toFixed(2)+'</td>' +
                         '<td>'+roi+'</td>' +
@@ -589,7 +589,7 @@
                                 '<td class="hiddenRow"><div class="collapse line-'+e+'">'+line['transactions']+'</div></td>' +
                                 '<td class="hiddenRow"><div class="collapse line-'+e+'">'+parseFloat(line['revenue']).toFixed(2)+'</div></td>' +
                                 '<td class="hiddenRow"><div class="collapse line-'+e+'">'+parseFloat(line['investment']).toFixed(2)+'</div></td>' +
-                                '<td class="hiddenRow"><div class="collapse line-'+e+'">'+parseFloat(line['transactions_costs']).toFixed(2)+'</div>' +
+                                // '<td class="hiddenRow"><div class="collapse line-'+e+'">'+parseFloat(line['transactions_costs']).toFixed(2)+'</div>' +
                                 '<td class="hiddenRow externalCosts"><div class="collapse line-'+e+'"> </div></td>' +
                                 '<td class="hiddenRow"><div class="collapse line-'+e+'">'+parseFloat(line['profits']).toFixed(2)+'</div></td>' +
                                 '<td class="hiddenRow"><div class="collapse line-'+e+'">'+roi+'</div></td>' +
@@ -623,7 +623,7 @@
             '<td>'+general['source']+'<i class="fa fa-caret-down"></i>' +'</td>' +
             '<td>'+general['transactions']+'</td><td>'+general['revenue'].toFixed(2)+'</td>' +
             '<td>'+general['investment'].toFixed(2)+'</td>' +
-            '<td>'+general['transactions_costs'].toFixed(2)+'</td>' +
+            // '<td>'+general['transactions_costs'].toFixed(2)+'</td>' +
             '<td class="externalCostsTd">'+general['external_costs'].toFixed(2)+'</td>' +
             '<td>'+general['profits'].toFixed(2)+'</td>' +
             '<td>'+roi+'</td>' +
@@ -646,7 +646,7 @@
             '<td class="hiddenRow"><div class="'+name+'">'+line['transactions']+'</div></td>' +
             '<td class="hiddenRow"><div class="'+name+'">'+parseFloat(line['revenue']).toFixed(2)+'</div></td>' +
             '<td class="hiddenRow"><div class="'+name+'">'+parseFloat(line['investment']).toFixed(2)+'</div></td>' +
-            '<td class="hiddenRow"><div class="'+name+'">'+parseFloat(line['transactions_costs']).toFixed(2)+'</div>' +
+            // '<td class="hiddenRow"><div class="'+name+'">'+parseFloat(line['transactions_costs']).toFixed(2)+'</div>' +
             '<td class="hiddenRow externalCosts"><div class="'+name+'"> </div></td>' +
             '<td class="hiddenRow"><div class="'+name+'">'+parseFloat(line['profits']).toFixed(2)+'</div></td>' +
             '<td class="hiddenRow"><div class="'+name+'">'+roi+'</div></td>' +

@@ -20,11 +20,16 @@ export class ApiConfigService{
   public static CUSTOMER_CITY = "petstohome-city";
   public static LANGUAGE = "LANGUAGE-FIELD";
 
+  public static HOST2 = "http://localhost/petstohomews/public/";
+  public static PROFILE_IMAGE_FOLDER = ApiConfigService.HOST2 + 'img/';
   constructor(){
 
   }
 
 
+  public static setImage(image){
+    localStorage.setItem(ApiConfigService.PHOTO_FIELD, image);
+  }
   public static setSession(data, token = null){
     if(token != null){
       localStorage.setItem(ApiConfigService.TOKEN_FIELD, token);

@@ -526,3 +526,80 @@ table .label {
         width: 1000px;
     }
 }
+
+.widget-16-header .icon-thumbnail {
+  height: 40px;
+  width: 70px;
+}
+
+.bg-master-lighter {
+  background-color: #f3f4f5;
+}
+
+.widget-16-header .text-master{
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.surveys-p{
+ line-height: 40px;
+}
+
+label {
+    font-family: 'Montserrat';
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.multicheck {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#userFilters ng-select > div {
+    border: 1px solid #cbe4f0;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+    width: 100%;
+    border-radius: 17px;
+    background: #fafdff;
+}
+
+#userFilters ng-select > div > div.single > div.placeholder {
+    color: #5b8ca5;
+    font-size: 10.5px;
+    letter-spacing: 0.01em;
+    line-height: 18px;
+    padding: 5px 19px;
+}
+
+ng-select > div > div.single > div.toggle {
+    font-size: 5px !important;
+    color: #5b8ca5 !important;
+    line-height: 22px !important;
+    text-align: center !important;
+    padding: 5px 19px !important;
+    transform: scaleX(-2);
+}
+
+ng-select > div > div.single > div.toggle:hover {
+    background-color: transparent !important;
+}
+
+.level img {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.form-group-default.input-group {
+    width: 100%;
+}
+
+.poster .img-responsive {
+    display: block;
+    max-width: 30%;
+    height: auto;
+    margin: 20px auto;
+}

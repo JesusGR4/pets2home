@@ -11,6 +11,7 @@
  *
  * http://cameronspear.com/blog/bootstrap-dropdown-on-hover-plugin/
  */
+
 "use strict";
 var isTouchDevice = "ontouchstart" in window || navigator.msMaxTouchPoints;
 if (!isTouchDevice) {

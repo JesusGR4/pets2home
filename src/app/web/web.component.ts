@@ -43,6 +43,7 @@ export class WebComponent{
           window.location.href = '/admin-panel/dashboard';
         }
 
+
     }
 
     setLanguage(language){
@@ -66,5 +67,7 @@ export class WebComponent{
         location.reload();
     }
 
-
+  completeUrl(url: string) {
+    return ApiConfigService.PROFILE_IMAGE_FOLDER + url;
+  }
 }
