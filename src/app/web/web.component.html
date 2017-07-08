@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-default navbar-fixed-top nav-transparent overlay-nav sticky-nav nav-border-bottom"
      role="navigation">
-    <div class="container">
+    <div id="baba" class="container">
         <div class="row">
             <!-- logo -->
             <div class="col-md-2 pull-left">
@@ -36,15 +36,17 @@
                             <!--<a class="modal-popup button-login" href="#modal-login">Login | registro</a>-->
                         <!--</li>-->
                         <!-- menu item -->
-                        <li>
-                          <a routerLink="/register">{{'WEB.REGISTER' | translate}}</a>
-                        </li>
-                        <!-- menu item -->
+
+                      <li *ngIf="!session.profile">
+                        <a routerLink="/register">{{'WEB.REGISTER' | translate}}</a>
+                      </li>
+                      <!-- menu item -->
 
                       <!-- menu item -->
-                      <li>
+                      <li *ngIf="!session.profile">
                         <a routerLink="/login">{{'WEB.LOG-IN' | translate}}</a>
                       </li>
+
 
                       <li *ngIf="session.profile == 2 || session.profile == 3" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" *ngIf="session.profile_img_url && session.profile_img_url != ''">
@@ -54,9 +56,11 @@
                           <img src="assets/img/profiles/avatar.jpg" class="img-circle img-responsive hidden-xs">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                          <li *ngIf="session.profile == 2"><a href="/admin-panel/dashboard">Administración</a></li>
-                          <li *ngIf="session.profile === 2"><a routerLink="/dashboard">Actividad</a></li>
-                          <li *ngIf="session.profile === 2"><a href="javascript:;">Mis eventos</a></li>
+                          <li *ngIf="session.profile == 2"><a routerLink="/user/edit">Editar perfil</a></li>
+                          <li *ngIf="session.profile === 2"><a routerLink="/dashboard">Mis reservas</a></li>
+                          <li *ngIf="session.profile === 3"><a href="javascript:;">Mis animales</a></li>
+                          <li *ngIf="session.profile === 3"><a href="javascript:;">Mis reservas</a></li>
+                          <li *ngIf="session.profile === 3"><a href="javascript:;">Reservas pendientes</a></li>
                           <li class="separator">
                             <hr>
                           </li>

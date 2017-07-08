@@ -46,6 +46,7 @@ import {ResetComponent} from "./web/resetPassword/reset.component";
 import {CreateShelterComponent} from "./web/createShelter/createShelter.component";
 import {DashboardShelterComponent} from "./shelter-panel/dashboard/dashboard.component";
 import {PendingSheltersManagement} from "./admin-panel/dashboard/getPendingShelters/pendingShelters.component";
+import {EditProfileComponent} from "./web/editProfile/editProfile.component";
 
 
 
@@ -84,6 +85,10 @@ const appRoutes:Routes = [
       {
         path: 'shelters/:province',
         component: ShelterCatalog,
+      },
+      {
+        path: 'user/edit',
+        component: EditProfileComponent,
       },
       {
         path: 'shelter/:shelter_id',

@@ -90,6 +90,8 @@ import {Ng2Bs3ModalModule} from "ng2-bs3-modal/ng2-bs3-modal";
 import {ToastyModule} from 'ng2-toasty';
 import {DashboardShelterComponent} from "./shelter-panel/dashboard/dashboard.component";
 import {PendingSheltersManagement} from "./admin-panel/dashboard/getPendingShelters/pendingShelters.component";
+import {EditProfileComponent} from "./web/editProfile/editProfile.component";
+import {EditProfileService} from "./services/editProfile.service";
 
 @NgModule({
     declarations: [
@@ -135,6 +137,7 @@ import {PendingSheltersManagement} from "./admin-panel/dashboard/getPendingShelt
         Settings,
         EventCreateComponent,
         CinemasAdminEventsManagement,
+        EditProfileComponent,
         ProgrammerEventsManagement,
         ProviderEventsManagement,
         PendingSheltersManagement,
@@ -173,6 +176,7 @@ import {PendingSheltersManagement} from "./admin-panel/dashboard/getPendingShelt
         FormBuilder,
         ReactiveFormsModule,
         SessionsService,
+        EditProfileService,
         MessagesService,
         CodesService,
         ApiConfigService,

@@ -71,9 +71,9 @@ export class LoginComponent{
                           if(data.role_id ==1){
                             window.location.href = '/admin-panel/dashboard';
                           }
-                          // else{
-                          //   window.location.href = '/index';
-                          // }
+                          else{
+                            window.location.href = '/index';
+                          }
                 }else{
                   this.errorMessages = json.message;
                   this.modal.open();
@@ -84,7 +84,6 @@ export class LoginComponent{
                 this.errorMessages = json.message;
                 this.modal.open();
               }
-
             )
         }
     }

@@ -42,9 +42,7 @@ export class WebComponent{
         if(this.session.profile ==1){
           window.location.href = '/admin-panel/dashboard';
         }
-        if(this.session.profile ==2 || this.session.profile==3){
 
-        }
 
     }
 
