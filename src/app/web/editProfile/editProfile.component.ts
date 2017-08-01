@@ -5,6 +5,9 @@ import {ToastyService, ToastOptions, ToastData} from 'ng2-toasty';
 import {TranslateService} from "ng2-translate";
 import {EditProfileService} from "../../services/editProfile.service";
 import {ApiConfigService} from "../../services/apiConfig.service";
+import {Router} from "@angular/router";
+import {ParticularService} from "../../services/particular.service";
+import {CodesService} from "../../services/codes.service";
 declare var $: any;
 declare var window: any;
 @Component({
@@ -22,7 +25,7 @@ export class EditProfileComponent implements OnInit{
   @ViewChild('modal')
   public modal: ModalComponent;
   public translation: string;
-  constructor(private translateService:TranslateService,private toastyService:ToastyService, private _editService:EditProfileService, private el: ElementRef){
+  constructor(private router: Router, private translateService:TranslateService,private toastyService:ToastyService, private _editService:EditProfileService, private el: ElementRef){
 
   }
 
@@ -35,49 +38,48 @@ export class EditProfileComponent implements OnInit{
       'slow');
     this.getUser();
   }
-  fileChangeEvent(fileInput: any){
-    this.filesToUpload = <Array<File>> fileInput.target.files;
-  }
+
 
   editProfile(){
     this.validateForm();
+
     if(this.valid == true){
-      // this._shelterService.createShelter(this.shelter).subscribe(
-      //   res => {
-      //     let json = res.json();
-      //     let code = json.code;
-      //     let rout = this.router;
-      //     if(code == CodesService.OK_CODE){
-      //       this.translateService.get('REQUEST.SUCCESS').subscribe(
-      //         data => {
-      //           this.translation = data;
-      //         }
-      //       );
-      //       var toastOptions:ToastOptions = {
-      //         title: this.translation,
-      //         msg: json.message,
-      //         showClose: true,
-      //         timeout: 7500,
-      //         theme: 'material',
-      //         onRemove: function(toast: ToastData){
-      //           window.location.href = '/index';
-      //         }
-      //       };
-      //       this.toastyService.success(toastOptions);
-      //     }else{
-      //       this.errorMessages = json.message;
-      //       this.modal.open();
-      //     }
-      //   },
-      //   error => {
-      //     let json = error.json();
-      //     this.errorMessages = json.message;
-      //     this.modal.open();
-      //   }
-      // );
+      this._editService.editProfileService(this.particular).subscribe(
+        res => {
+          let json = res.json();
+          let code = json.code;
+          let rout = this.router;
+          if(code == CodesService.OK_CODE){
+            this.translateService.get('REQUEST.SUCCESS').subscribe(
+              data => {
+                this.translation = data;
+              }
+            );
+            var toastOptions:ToastOptions = {
+              title: this.translation,
+              msg: json.message,
+              showClose: true,
+              timeout: 7500,
+              theme: 'material',
+              onRemove: function(toast: ToastData){
+                localStorage.setItem(ApiConfigService.PHOTO_FIELD, json.image.name);
+                location.reload();
+              }
+            };
+            this.toastyService.success(toastOptions);
+          }else{
+            this.errorMessages = json.message;
+            this.modal.open();
+          }
+        },
+        error => {
+          let json = error.json();
+          this.errorMessages = json.message;
+          this.modal.open();
+        }
+      );
     }
   }
-
   private transformForSelect(datas: Array<any>){
     let result = [];
     for(let i = 0;i<datas.length; i++){
@@ -146,16 +148,18 @@ export class EditProfileComponent implements OnInit{
 
   }
 
-
   completeUrl(url: string) {
     return ApiConfigService.PROFILE_IMAGE_FOLDER + url;
   }
   private convertToParticular(json){
+    ;
     this.particular.id = json.user.id;
     this.particular.name = json.user.name;
     this.particular.surname = json.particular.surname;
     this.particular.phone = json.user.phone;
-    this.particular.image_url = json.image.name;
+    if(json.image != null){
+      this.particular.image_url = json.image.name;
+    }
     this.particular.province = json.user.province;
     this.particular.city = json.user.city;
     this.particular.email = json.user.email;

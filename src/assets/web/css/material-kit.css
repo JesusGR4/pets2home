@@ -1758,6 +1758,7 @@ label.control-label {
 .form-group {
     padding-bottom: 7px;
     margin: 27px 0 0 0;
+    padding-left: 0;
 }
 
 .form-group .form-control {
@@ -3076,6 +3077,7 @@ h2.title {
 
 .text-danger {
     color: #f44336;
+    font-size:13px;
 }
 
 .text-success {
@@ -4262,8 +4264,13 @@ h2.title {
     background: #CCCCCC;
 }
 
-.profile-page .header, .filmCatalog .header, .eventCatalog .header, .singleCinemaPage .header {
+.profile-page .header, .singleCinemaPage .header {
     height: 380px;
+    background-position: top center;
+}
+
+.filmCatalog .header, .eventCatalog .header {
+    height: 550px;
     background-position: top center;
 }
 
