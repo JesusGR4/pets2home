@@ -1,3 +1,15 @@
+    var campaigns = {
+        'Asia Nueva' : 'Climas - Artistic Metropol',
+        'Campaña de UK e Irlanda' : 'Línea de meta - Cinesmax Petrer',
+        'Ciudades Mundo' : 'Los Goonies - Multicines Avenida',
+        'Mobile Mundo' : 'El Padrino -Cines Megarama',
+        'Mundo entero' : 'Patuchas, el hombre de los mil limones - Guadalquivir Cinemas',
+        'Mundo entero clone - MOBILE' : 'La princesa prometida - Los Arcos Multicines',
+        'North America Nueva' : 'La historia interminable - Neocine Thader',
+        'SIM' : 'Todo es de color - Aragó Cinema',
+        'Travel to Spain' : 'Awake. Despierta: La vida de Yogananda - Palacio de la Prensa',
+
+    }
     function generateTable(data){
         var investment = data;
 
@@ -638,6 +650,9 @@
             definition = line['campaign'];
         }else if(line['campaign_name']!= null){
             definition = line['campaign_name'];
+        }
+        if(campaigns[definition] != null && campaigns[definition] != undefined){
+            definition = campaigns[definition]
         }
         var html2 =
             '<tr class="'+name+'">' +

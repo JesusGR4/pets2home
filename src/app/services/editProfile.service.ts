@@ -40,9 +40,7 @@ export class EditProfileService{
     formData.append('province', particular.province);
     formData.append('city', particular.city);
     formData.append('surname', particular.surname);
-
-    return this._http.post(ApiConfigService.HOST+'/user/editProfile', formData, {headers:headers});
-
+    return this._http.post(ApiConfigService.HOST+'particular/editProfile', formData, {headers:headers});
   }
 
 }

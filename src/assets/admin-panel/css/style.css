@@ -468,7 +468,7 @@ table .label {
     margin-top: 0px;
     padding: 0px;
     overflow: auto;
-    margin-right: 250px;
+    /*margin-right: 250px;*/
     min-height: 100%;
     margin-left: 0px;
 }
@@ -602,4 +602,25 @@ ng-select > div > div.single > div.toggle:hover {
     max-width: 30%;
     height: auto;
     margin: 20px auto;
+}
+
+.resume {
+    background: #e06f35;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 5px;
+    margin: 5px;
+    width: 31%;
+}
+
+.resume-number {
+    font-size: 36px;
+    display: block;
+    line-height: 64px;
+    font-weight: 800;
+    opacity: .8;
 }

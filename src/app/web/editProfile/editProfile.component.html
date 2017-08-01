@@ -2,13 +2,11 @@
 <div id="editProfile"class="row margin-top-section margin-ten">
   <div class="col-md-3 col-sm-12 text-center xs-margin-bottom-ten">
 
-    <div class="overlay gallery-hover">
-      <a href="#" data-toggle="modal" data-target="#cambiarImagen">
-        <i class="fa fa-pencil edit-icon"></i>
-        <img *ngIf="particular.image_url" [src]="completeUrl(particular.image_url)" class="img-responsive"
-             alt="">
-        <img *ngIf="!particular.image_url" src="assets/img/profiles/avatar.jpg" class="img-responsive" alt="">
-      </a>
+    <div class="overlayr">
+      <img *ngIf="particular.image_url" [src]="completeUrl(particular.image_url)" class="img-responsive"
+           alt="">
+      <img *ngIf="!particular.image_url" src="assets/img/profiles/avatar.jpg" class="img-responsive" alt="">
+      <input #fileInput id="image" name="image" class="form-control" type="file" >
     </div>
 
   </div>
@@ -80,7 +78,6 @@
             </div>
           </div>
           <h5>{{ 'REGISTER.USER' | translate }}</h5>
-
           <div class="clearfix">
             <div class="col-md-4">
               <div class="form-group form-group-default" aria-required="true">
