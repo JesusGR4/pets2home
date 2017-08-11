@@ -109,12 +109,14 @@ export class IndexComponent implements AfterViewInit{
         res =>{
           let json = res.json();
           var shelters = json.shelters;
+          var numberOfPets = json.counters;
           for(var i = 0; i<4; i++){
             var shelter = new Shelter();
             console.log(shelters[i]);
             shelter.name = shelters[i].name;
             shelter.shelter_id = shelters[i].shelter_id;
             shelter.description = shelters[i].description;
+            shelter.numberOfPets = numberOfPets[i];
             this.shelters.push(shelter);
 
           }

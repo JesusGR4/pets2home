@@ -1,4 +1,4 @@
-import { Component, Output} from '@angular/core';
+import {Component, Output, OnInit} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import {Session} from "../models/session";
 import {ApiConfigService} from "../services/apiConfig.service";
@@ -12,13 +12,14 @@ declare var FooterReveal2: any;
 declare var $: any;
 declare var window: any;
 declare var SpainMap: any;
-
+declare var paypal: any;
 @Component({
     selector: "web",
     templateUrl: "./web.component.html",
   providers: [ShelterService]
 })
-export class WebComponent{
+
+export class WebComponent implements OnInit{
     @Output()
     public session: Session = null;
 
@@ -37,12 +38,43 @@ export class WebComponent{
       }
 
     }
+
     ngOnInit(){
         this.session = ApiConfigService.getSessionByLocalStorage();
         if(this.session.profile ==1){
           window.location.href = '/admin-panel/dashboard';
         }
+      paypal.Button.render({
 
+        env: 'sandbox', // Or 'sandbox'
+
+        client: {
+          sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+          production: 'xxxxxxxxx'
+        },
+
+        commit: true, // Show a 'Pay Now' button
+        payment: function(data, actions) {
+          return actions.payment.create({
+            payment: {
+              transactions: [
+                {
+                  amount: { total: '5.00', currency: 'EUR' }
+                }
+              ]
+            }
+          });
+        },
+
+        onAuthorize: function(data, actions) {
+          return actions.payment.execute().then(function(payment) {
+
+            // The payment is complete!
+            // You can now show a confirmation message to the customer
+          });
+        }
+
+      }, '#paypal-button');
 
     }
 
