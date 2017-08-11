@@ -36,12 +36,13 @@
                             <!--<a class="modal-popup button-login" href="#modal-login">Login | registro</a>-->
                         <!--</li>-->
                         <!-- menu item -->
-
+                      <li>
+                        <a><div id="paypal-button"></div></a>
+                      </li>
                       <li *ngIf="!session.profile">
                         <a routerLink="/register">{{'WEB.REGISTER' | translate}}</a>
                       </li>
                       <!-- menu item -->
-
                       <!-- menu item -->
                       <li *ngIf="!session.profile">
                         <a routerLink="/login">{{'WEB.LOG-IN' | translate}}</a>
