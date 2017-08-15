@@ -96,6 +96,7 @@ import {AnimalCardComponent} from "./web/commonComponents/animalCard.component";
 import {AnimalService} from "./services/animal.service";
 import {AnimalCatalog} from "./web/animalCatalog/animalCatalog.component";
 import {SingleAnimalComponent} from "./web/singleAnimal/singleAnimal.component";
+import {MyAnimalsComponent} from "./web/myAnimals/myAnimals.component";
 
 @NgModule({
     declarations: [
@@ -154,7 +155,8 @@ import {SingleAnimalComponent} from "./web/singleAnimal/singleAnimal.component";
         CreateShelterComponent,
         AnimalCardComponent,
         AnimalCatalog,
-        SingleAnimalComponent
+        SingleAnimalComponent,
+        MyAnimalsComponent
     ],
     imports: [
         BrowserModule,

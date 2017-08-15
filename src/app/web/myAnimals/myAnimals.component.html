@@ -1,18 +1,16 @@
-<div id="shelterCatalog" class="cinemaList">
+<div id="myAnimals" class="cinemaList">
   <div class="header header-filter parallax-fix" id="slider"
-       style="background-image: url('../../assets/img/theaters/shelter.jpg');background-size:cover;">
+       style="background-image: url('http://rockrivertimes.com/wpcms/wp-content/uploads/2015/09/bigstock-Cat-And-Dog-Together-80807387-800x445.jpg');background-size:cover;">
   </div>
-
   <div class="main main-raised no-padding">
     <div class="dashboard-content">
       <div class="container">
         <div class="text-center">
-          <h3 class="section-title no-padding">{{ 'SHELTER-CATALOG.SHELTERS' | translate }} {{province}}</h3>
+          <h3 class="section-title no-padding">{{ 'ANIMAL-CATALOG.MY-ANIMALS' | translate }}  </h3>
         </div>
-        <div *ngFor="let s of shelters" class="col-md-4 col-sm-12">
-          <shelterCard [shelter]="s"></shelterCard>
-        </div>
-
+        <div *ngFor="let a of animals" class="col-md-4 col-sm-12">
+          <animalCard [animal]="a"></animalCard>
+        </div></div>
       <div *ngIf="totalItems==8" class="col-md-12 text-center">
         <button type="button"
                 class="btn btn-primary pull-center"
@@ -20,7 +18,7 @@
           <span>{{ 'ANIMAL-CATALOG.MORE' | translate }}</span>
         </button>
       </div>
-      </div>
     </div>
+  </div>
 </div>
-</div>
+

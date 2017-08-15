@@ -57,16 +57,13 @@
                         <ul class="dropdown-menu dropdown-menu-right">
                           <li *ngIf="session.profile == 2"><a routerLink="/user/edit">Editar perfil</a></li>
                           <li *ngIf="session.profile === 2"><a routerLink="/dashboard">Mis reservas</a></li>
-                          <li *ngIf="session.profile === 3"><a href="javascript:;">Mis animales</a></li>
-                          <li *ngIf="session.profile === 3"><a href="javascript:;">Mis reservas</a></li>
-                          <li *ngIf="session.profile === 3"><a href="javascript:;">Reservas pendientes</a></li>
+                          <li *ngIf="session.profile === 3"><a routerLink="/myAnimals">Mis animales</a></li>
                           <li class="separator">
                             <hr>
                           </li>
                           <li><a class="modal-popup" (click)="onLogout()">Logout</a></li>
                         </ul>
                       </li>
-
                     </ul>
                 </div>
             </div>

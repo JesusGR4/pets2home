@@ -49,6 +49,7 @@ import {PendingSheltersManagement} from "./admin-panel/dashboard/getPendingShelt
 import {EditProfileComponent} from "./web/editProfile/editProfile.component";
 import {AnimalCatalog} from "./web/animalCatalog/animalCatalog.component";
 import {SingleAnimalComponent} from "./web/singleAnimal/singleAnimal.component";
+import {MyAnimalsComponent} from "./web/myAnimals/myAnimals.component";
 
 
 
@@ -96,6 +97,10 @@ const appRoutes:Routes = [
       {
         path: 'shelter/:shelter_id',
         component: SingleShelterComponent,
+      },
+      {
+        path: 'myAnimals',
+        component: MyAnimalsComponent,
       },{
         path: 'shelter/animals/:shelter_id',
         component: AnimalCatalog,
@@ -137,10 +142,14 @@ const appRoutes:Routes = [
             path: 'cinemaList',
             component: CinemaList,
         },
+
         {
             path: 'singleCinema',
             component: SingleCinema,
         },
+
+
+
         {
         path: 'dashboard',
         component: Dashboard,
