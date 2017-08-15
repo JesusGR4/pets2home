@@ -60,7 +60,7 @@ export class ShelterCatalog{
             this.province = params['province'];
         });
 
-      this.sheltersToCards()
+      this.sheltersToCards();
       $('html,body').animate({
           scrollTop: $("#shelterCatalog").offset().top},
         'slow');
@@ -74,17 +74,20 @@ export class ShelterCatalog{
         this.province = params['province'];
       });
     }
+
     sheltersToCards(){
     this._shelterService.getSheltersByProvincePaginate(this.province, this.currentPage).subscribe(
       res =>{
         let json = res.json();
         var shelters = json.shelters;
         this.totalItems = shelters.length;
+        var numberOfPets = json.counters;
         for(var i = 0; i<this.totalItems; i++){
           var shelter = new Shelter();
           shelter.name = shelters[i].name;
           shelter.shelter_id = shelters[i].shelter_id;
           shelter.description = shelters[i].description;
+          shelter.numberOfPets = numberOfPets[i];
           this.shelters.push(shelter);
         }
       }

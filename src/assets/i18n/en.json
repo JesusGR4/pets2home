@@ -122,6 +122,14 @@
   "PENDING":{
     "ACCEPT":"Shelter accepted",
     "REJECT":"Shelter rejected"
+  },
+  "ANIMAL-CATALOG":{
+    "SHELTER-NAME":"Animals from ",
+    "MORE": "See more"
+  },
+  "ANIMAL-CARD":{
+    "AGE":"Age",
+    "GENDER": "Gender"
   }
 
 }

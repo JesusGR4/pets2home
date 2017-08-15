@@ -7,6 +7,8 @@ import {Movie} from "../../models/movie";
 import {ShelterService} from "../../services/shelter.service";
 import {Shelter} from "../../models/shelter.js";
 import {ApiConfigService} from "../../services/apiConfig.service";
+import {AnimalService} from "../../services/animal.service";
+import {Animal} from "../../models/animal";
 
 
 declare var $: any;
@@ -16,20 +18,21 @@ declare var PopUp: any;
 @Component({
     selector: "singleShelter",
     templateUrl: "./singleShelter.component.html",
-    providers:[ShelterService]
+    providers:[ShelterService, AnimalService]
 })
 
 export class SingleShelterComponent{
 
     id: number;
     private sub: any;
-
     public shelter: Shelter = new Shelter();
     public shelters: Shelter[]=[];
+    public animals: Animal[]=[];
     public mainPicture: any;
     constructor(private route: ActivatedRoute,
                 private _shelterService: ShelterService,
-                private _messagesService: MessagesService) {}
+                private _messagesService: MessagesService,
+                private _animalService:AnimalService) {}
 
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
@@ -37,7 +40,7 @@ export class SingleShelterComponent{
         });
       this.getShelterDetails();
       PopUp($, window);
-
+      this.listAnimals();
     }
 
     ngAfterViewInit(){
@@ -69,6 +72,41 @@ export class SingleShelterComponent{
         }
       )
     }
+  listAnimals(){
+      this._animalService.listAnimals(this.id).subscribe(
+        res => {
+          let json = res.json();
+          let code = json.code;
+          let message = json.message;
+          let animals = json.animals;
+          let totalAnimals = (animals.length >3) ?3 : animals.length;
+          if(code == CodesService.OK_CODE){
+            if(animals.length != 0){
+              for(var i=0; i<totalAnimals; i++){
+                var animal = new Animal();
+                animal.id = animals[i].id;
+                animal.name = animals[i].name;
+                animal.age = animals[i].age;
+                animal.gender = animals[i].gender;
+                if(json.images.length != 0 || json.images.length != null ){
+                  if(json.images[0] != null) animal.mainPicture = json.images[0].name;
+                }
+                this.animals.push(animal);
+              }
+            }
+          }else{
+            this.handlerError(code, message);
+          }
+        },
+        error => {
+          let errorMessage = <any>error;
+          if(errorMessage !== null){
+            this._messagesService.showServerErrorMessage(errorMessage);
+          }
+        }
+      )
+    }
+
 
     private convertToShelter(json){
       this.shelters = [];
@@ -83,10 +121,13 @@ export class SingleShelterComponent{
       this.shelter.schedule = json.shelter.shelter_schedule;
       var shelters = json.images;
       var totalItems = shelters.length;
-      this.mainPicture = shelters[0].name;
-      for(var i = 1; i< totalItems; i++){
-        this.shelters.push(shelters[i].name);
+      if(totalItems != 0 ){
+        this.mainPicture = shelters[0].name;
+        for(var i = 1; i< totalItems; i++){
+          this.shelters.push(shelters[i].name);
+        }
       }
+
     }
     private handlerError(code, message){
         if(code == CodesService.INVALID_TOKEN){

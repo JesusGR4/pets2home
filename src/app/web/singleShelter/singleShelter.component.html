@@ -11,7 +11,11 @@
       <div class="container">
         <div class="col-md-3 col-xs-12 image-block">
           <!-- post image -->
-          <div class="blog-image margin-eleven"><img class="img-responsive" [src]="completeUrl(mainPicture)" alt=""></div>
+          <div class="blog-image margin-eleven">
+            <div *ngIf="mainPicture"><img class="img-responsive" [src]="completeUrl(mainPicture)" alt=""></div>
+            <div *ngIf="mainPicture == null"><img class="img-responsive" src="https://www.aspca.org/sites/default/files/keeping-animals-in-homes_pet-statistics_main-image.jpg" alt=""></div>
+          </div>
+
           <!-- end post image -->
           <!-- Galery -->
           <div class="blog-galery">
@@ -42,7 +46,6 @@
           </div>
           <!-- end social icon -->
         </div>
-
         <!-- sidebar  -->
         <div class="col-md-9 col-xs-12  xs-margin-top-ten">
           <!-- title -->
@@ -100,24 +103,15 @@
             </ul>
           </div>
         </div>
-        <div>
+        <div *ngIf="animals.length != 0">
           <div class="col-md-12  no-padding">
             <h4 class="pull-left">{{ 'SINGLE-SHELTER.ANIMALS' | translate }}</h4>
-            <a href="javascript:;" [routerLink]="['/shelters', search]" class='btn btn-primary pull-right'>{{ 'SINGLE-SHELTER.WATCH' | translate }}</a>
+            <a href="javascript:;" [routerLink]="['/shelter/animals', id]" class='btn btn-primary pull-right'>{{ 'SINGLE-SHELTER.WATCH' | translate }}</a>
 
           </div>
           <div class="row">
-            <div class="col-md-3">
-              <eventCard></eventCard>
-            </div>
-            <div class="col-md-3">
-              <eventCard></eventCard>
-            </div>
-            <div class="col-md-3">
-              <eventCard></eventCard>
-            </div>
-            <div class="col-md-3">
-              <eventCard></eventCard>
+            <div *ngFor="let s of animals" class="col-md-4 col-sm-12">
+              <animalCard [animal]="s"></animalCard>
             </div>
           </div>
         </div>

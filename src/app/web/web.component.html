@@ -26,7 +26,9 @@
                         <li>
                           <a><img src="../../assets/img/United-Kingdom.png" width="20" (click)="setLanguage('en')"></a>
                         </li>
-
+                      <li>
+                        <a><div id="button-paypal"></div></a>
+                      </li>
                         <li>
                             <a routerLink="/index" >{{'WEB.HOME' | translate}}</a>
                         </li>
@@ -36,9 +38,7 @@
                             <!--<a class="modal-popup button-login" href="#modal-login">Login | registro</a>-->
                         <!--</li>-->
                         <!-- menu item -->
-                      <li>
-                        <a><div id="paypal-button"></div></a>
-                      </li>
+
                       <li *ngIf="!session.profile">
                         <a routerLink="/register">{{'WEB.REGISTER' | translate}}</a>
                       </li>

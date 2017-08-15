@@ -85,18 +85,15 @@
         </div>
       </div>
     </div>
-
-    <div id="cards" *ngIf="shelters.length!=0" class="section section-basic bg-gray">
+    <div id="cards" *ngIf="shelters.length!=0" >
       <div class="container">
         <div class="col-md-12 title no-padding">
           <span class="pull-left">{{'INDEX.SHELTERS' | translate}}</span>
           <a href="javascript:;" [routerLink]="['/shelters', search]" class='btn btn-primary pull-right'>{{'INDEX.SEE' | translate}}</a>
         </div>
-        <div class="row">
-          <div *ngFor="let s of shelters" class="col-md-3">
+          <div *ngFor="let s of shelters" class="col-md-4 col-sm-12">
             <shelterCard [shelter]="s"></shelterCard>
           </div>
-        </div>
       </div>
     </div>
   </div>

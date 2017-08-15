@@ -47,6 +47,7 @@ import {CreateShelterComponent} from "./web/createShelter/createShelter.componen
 import {DashboardShelterComponent} from "./shelter-panel/dashboard/dashboard.component";
 import {PendingSheltersManagement} from "./admin-panel/dashboard/getPendingShelters/pendingShelters.component";
 import {EditProfileComponent} from "./web/editProfile/editProfile.component";
+import {AnimalCatalog} from "./web/animalCatalog/animalCatalog.component";
 
 
 
@@ -93,6 +94,9 @@ const appRoutes:Routes = [
       {
         path: 'shelter/:shelter_id',
         component: SingleShelterComponent,
+      },{
+        path: 'shelter/animals/:shelter_id',
+        component: AnimalCatalog,
       },
 
         {
