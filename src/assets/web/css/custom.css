@@ -11,10 +11,7 @@ section {
     background-color: #fff !important;
     color: #000 !important;
 }
-.col-centered{
-  float: none;
-  margin: 0 auto;
-}
+
 .fb-btn {
     border: 2px solid #3B5998;
     display: inline-block;
@@ -1152,7 +1149,7 @@ Steps Basic Style
     }
 
     .cd-breadcrumb li > *, .cd-multi-steps li > * {
-        font-size: 14px;
+        font-size: 10px;
         text-transform: uppercase;
     }
 }
@@ -1234,7 +1231,7 @@ Triangle breadcrumb
         left: 100%;
         height: 0;
         width: 0;
-        border: 24px solid transparent;
+        border: 21px solid transparent;
         border-right-width: 0;
         border-left-width: 20px;
     }
@@ -1553,7 +1550,7 @@ Add a counter to the multi-steps indicator
 }
 
 .versions .title {
-    font-size: 22px;
+    /*font-size: 22px;*/
     line-height: 24px;
     font-weight: 700;
     color: #888;
@@ -1777,10 +1774,8 @@ fieldset input[type='radio'] + label:hover:after {
 /* YF Cards */
 .yf-card {
     background: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    -webkit-transition: box-shadow 0.3s;
-    transition: box-shadow 0.3s;
-    margin: 8px;
+    margin: 14px;
+    min-height: 420px;
 }
 
 .yf-card a {
@@ -1817,6 +1812,16 @@ fieldset input[type='radio'] + label:hover:after {
     text-transform: uppercase;
 }
 
+.filmCatalog .yf-card__thumb img, .index .yf-card__thumb img {
+    height: -moz-calc(100% - (0px + 0px));
+    height: -webkit-calc(100% - (0px + 0px));
+    height: calc(100% - (0px + 0px));
+}
+
+.filmCatalog .yf-card, .indexCatalog .yf-card {
+    min-height: 525px;
+}
+
 .yf-card__thumb {
     height: 145px;
     overflow: hidden;
@@ -1826,9 +1831,12 @@ fieldset input[type='radio'] + label:hover:after {
 }
 
 .film-type .yf-card__thumb {
-    height: 358px !important;
+    height: 380px !important;
 }
-
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
 .film-type:hover .yf-card__thumb {
     height: 285px !important;
 }
@@ -1851,7 +1859,7 @@ fieldset input[type='radio'] + label:hover:after {
     transform: scale(1);
     width: 100%;
     position: relative;
-   /* top: -36px;*/
+    /* top: -36px;*/
 }
 
 .yf-card:hover .yf-card__thumb img {
@@ -1867,7 +1875,7 @@ fieldset input[type='radio'] + label:hover:after {
 
 .yf-card__body {
     position: relative;
-    padding: 20px;
+    padding: 10px 15px;
     height: 65px;
     -webkit-transition: height 0.3s;
     transition: height 0.3s;
@@ -1876,7 +1884,7 @@ fieldset input[type='radio'] + label:hover:after {
 }
 
 .yf-card:hover .yf-card__body {
-    height: 140px;
+    height: 138px;
 }
 
 .yf-card__category {
@@ -1899,14 +1907,16 @@ fieldset input[type='radio'] + label:hover:after {
 
 .yf-card__title {
     padding: 0px;
-    margin-bottom: 0px;
-    font-size: 18px;
+    margin-bottom: 5px;
+    font-size: 16px;
     color: #000;
     font-weight: 400;
     max-height: 24px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .yf-card:hover .yf-card__title {
@@ -1983,8 +1993,12 @@ fieldset input[type='radio'] + label:hover:after {
     margin-left: 10px;
 }
 
-.card-data li {
-    width: 30%;
+.card-data li:first-child {
+    float: left;
+}
+
+.card-data li:last-child {
+    float: right;
 }
 
 .icon {
@@ -2027,10 +2041,7 @@ fieldset input[type='radio'] + label:hover:after {
 }
 
 .card-data i {
-    color: #fff;
-    background: #546e7a;
-    padding: 4px;
-    border-radius: 2px;
+    color: #546e7a;
     font-size: 16px;
 }
 
@@ -2386,7 +2397,6 @@ ng-select > div:before{
     -webkit-transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-
 
 .margin-bottom-three {
     margin-bottom: 3% !important;
@@ -2992,7 +3002,7 @@ h4, .h4 {
 .lightbox-gallery img {
     width: 100%;
     border-radius: 6px;
-    border: 4px solid #fff;
+    border: 10px solid #fff;
 }
 
 .blog-details-headline {
@@ -3064,7 +3074,7 @@ h4, .h4 {
 }
 
 .data-numb {
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: black;
     font-weight: 600;
 }
@@ -3937,6 +3947,11 @@ h5.description {
 #collapse-filter ng-select > div > div.multiple input {
     color: #fff;
     font-weight: 400;
+    font-size: 14px;
+}
+
+ng-select > div > div.multiple input {
+    font-size: 14px;
 }
 
 #collapse-filter ng-select > div > div.multiple {
@@ -4065,13 +4080,6 @@ h3 i {
 .sponsors li {
     padding: 0px 32px;
     min-width: 180px;
-}
-
-@media (max-width: 466px) {
-    .list-inline li {
-        min-width: 340px;
-        width: 100%;
-    }
 }
 
 .panel-collapse .list-inline {
@@ -4433,6 +4441,11 @@ Main components
 @media (max-width: 480px) {
     .timeline-container {
         width: 94%;
+    }
+
+    .image-block {
+        position: relative;
+        bottom: 50px;
     }
 }
 
@@ -4855,10 +4868,6 @@ td a .icon {
     background-color: #fff;
 }
 
-.list-inline {
-    text-align: center;
-}
-
 .share .list-inline {
     text-align: left;
 }
@@ -5048,7 +5057,7 @@ td a .icon {
 .li-number {
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     margin: 8px;
-    font-size: 42px;
+    font-size: 22px;
     color: rgba(153, 153, 153, 0.52);
     font-weight: 400;
     padding: 3px 10px;
@@ -5065,15 +5074,15 @@ td a .icon {
     opacity: .5;
 }
 
-.press img:hover{
+.press img:hover {
     opacity: 1;
 }
 
-.cinemaData .text-black{
+.cinemaData .text-black {
     display: inherit !important;
 }
 
-.cinemaData .img-thumbnail{
+.cinemaData .img-thumbnail {
     max-width: 200px;
 }
 
@@ -5107,6 +5116,7 @@ td a .icon {
     padding-right: 0.2em;
     padding-bottom: 0.4em;
 }
+
 @media screen and (min-width: 40.063em) {
     .grid {
         float: left;
@@ -5123,6 +5133,7 @@ td a .icon {
     overflow: hidden;
     position: relative;
 }
+
 .card__image > img {
     display: block;
     margin-bottom: 0;
@@ -5132,6 +5143,7 @@ td a .icon {
     -o-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
 }
+
 .card__image:hover > img {
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
@@ -5153,6 +5165,7 @@ td a .icon {
     -moz-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
 }
+
 .card__title:hover {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
@@ -5193,10 +5206,12 @@ td a .icon {
     margin-right: -1em;
     margin-bottom: 0.75em;
 }
+
 .card__meta.card__meta--last {
     margin-bottom: 0;
     padding: 0;
 }
+
 .card__meta li {
     color: #f8f8f8;
     display: inline;
@@ -5207,6 +5222,7 @@ td a .icon {
     font-variant: small-caps;
     letter-spacing: 1px;
 }
+
 .card__meta li:not(:last-child):after {
     content: "\25cf";
     font-style: normal;
@@ -5214,6 +5230,7 @@ td a .icon {
     color: rgba(255, 255, 255, 0.25);
     right: -0.6em;
 }
+
 .card__meta li > a {
     color: #f8f8f8;
 }
@@ -5221,6 +5238,80 @@ td a .icon {
 .g-loader > img {
     visibility: hidden;
 }
+
 .pointer {
     cursor: pointer;
+}
+
+.proposeMovie {
+    margin-top: 10px;
+    font-size: 11px;
+}
+
+.little-letter {
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.resume-event {
+    font-size: 20px;
+}
+
+.eventList .yf-card:hover .yf-card__body {
+    height: 140px;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+* html .clearfix {
+    zoom: 1;
+}
+
+/* IE6 */
+*:first-child + html .clearfix {
+    zoom: 1;
+}
+
+@media (max-width: 640px) {
+    .counter-section {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .active > a {
+        border-bottom: none;
+    }
+
+    .nav-pills > li > a{
+        position: relative;
+        display: -webkit-inline-box;
+    }
+
+    .text-black {
+        font-size: 12px;
+        letter-spacing: 0;
+    }
+
+    .white-popup-block {
+        width: 100%;
+    }
+}
+
+.btn-white{
+    display: table-cell;
+}
+
+.tp-caption.light_medium_30_shadowed {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 24px;
+    font-weight: 300;
 }

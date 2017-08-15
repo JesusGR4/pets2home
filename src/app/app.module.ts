@@ -92,6 +92,9 @@ import {DashboardShelterComponent} from "./shelter-panel/dashboard/dashboard.com
 import {PendingSheltersManagement} from "./admin-panel/dashboard/getPendingShelters/pendingShelters.component";
 import {EditProfileComponent} from "./web/editProfile/editProfile.component";
 import {EditProfileService} from "./services/editProfile.service";
+import {AnimalCardComponent} from "./web/commonComponents/animalCard.component";
+import {AnimalService} from "./services/animal.service";
+import {AnimalCatalog} from "./web/animalCatalog/animalCatalog.component";
 
 @NgModule({
     declarations: [
@@ -148,6 +151,8 @@ import {EditProfileService} from "./services/editProfile.service";
         ProgammerFilmManagement,
         Compassuite,
         CreateShelterComponent,
+        AnimalCardComponent,
+        AnimalCatalog
     ],
     imports: [
         BrowserModule,
@@ -174,6 +179,7 @@ import {EditProfileService} from "./services/editProfile.service";
     providers: [
         appRoutingProviders,
         FormBuilder,
+        AnimalService,
         ReactiveFormsModule,
         SessionsService,
         EditProfileService,

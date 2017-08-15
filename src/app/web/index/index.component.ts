@@ -82,9 +82,7 @@ export class IndexComponent implements AfterViewInit{
         }
         this._messagesService.showErrorMessage(message);
     }
-
     ngOnInit(){
-
       new SpainMap({
         id: 'map', //(Requerido) Elemento HTML en el que se renderizará el mapa
         width: 700, //(Requerido) Ancho del mapa
@@ -100,7 +98,6 @@ export class IndexComponent implements AfterViewInit{
         }.bind(this)
       });
       $('#map').children().first().attr('width','100%');
-
     }
     sheltersToCards(province){
       this.shelters = [];
@@ -110,9 +107,9 @@ export class IndexComponent implements AfterViewInit{
           let json = res.json();
           var shelters = json.shelters;
           var numberOfPets = json.counters;
-          for(var i = 0; i<4; i++){
+          let totalShelters = (shelters.length >3) ?3 : shelters.length;
+          for(var i = 0; i<totalShelters; i++){
             var shelter = new Shelter();
-            console.log(shelters[i]);
             shelter.name = shelters[i].name;
             shelter.shelter_id = shelters[i].shelter_id;
             shelter.description = shelters[i].description;
@@ -120,7 +117,6 @@ export class IndexComponent implements AfterViewInit{
             this.shelters.push(shelter);
 
           }
-
         }
       );
     }

@@ -1,13 +1,13 @@
 <!-- Shelter Card -->
-<article class="yf-card type-1">
+<article class="yf-card yf-card-cinema">
   <header class="yf-card__thumb">
-    <a href="#"><img src="http://www.youfeelm.com/wp-content/uploads/que-bello-es-vivir-poster.jpg" ></a>
+    <a href="#"><img src="https://www.aspca.org/sites/default/files/keeping-animals-in-homes_pet-statistics_main-image.jpg" ></a>
   </header>
   <div class="yf-card__body">
     <div class="yf-card__title"><a href="javascript:;" [routerLink]="['/shelter', shelter.shelter_id]">{{shelter.name}}</a></div>
     <p class="yf-card__description">{{shelter.description}}</p>
   </div>
-  <footer class="yf-card__footer">
+  <footer class="yf-card__footer p-b-10">
     Número de animales {{shelter.numberOfPets}}
   </footer>
 </article>

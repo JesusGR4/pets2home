@@ -2936,18 +2936,14 @@ legend {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 */
 }
 
-.sr-only {
-    position: inherit;
-    width: 100%;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+.sr-only-progress {
+    position: absolute;
+    margin: 0 20px;
     border: 0;
     line-height: 30px;
     text-transform: uppercase;
     letter-spacing: .1em;
+    color: #000;
 }
 
 .progress .progress-bar {
@@ -2976,6 +2972,10 @@ legend {
 
 .progress .progress-bar.progress-bar-danger {
     background-color: #f44336;
+}
+
+.progress .progress-bar.progress-bar-grey {
+    background-color: #999999;
 }
 
 .progress.progress-line-primary {
@@ -3476,7 +3476,7 @@ h2.title {
 
 .modal-content .modal-footer {
     border-top: none;
-    padding: 7px;
+    padding: 20px;
 }
 
 .modal-content .modal-footer button {
@@ -4269,8 +4269,18 @@ h2.title {
     background-position: top center;
 }
 
-.filmCatalog .header, .eventCatalog .header {
-    height: 550px;
+.filmCatalog .header {
+    height: 450px;
+    background-position: top center;
+}
+
+.eventCatalog .header {
+    height: 450px;
+    background-position: top center;
+}
+
+.event-create .header {
+    height: 400px;
     background-position: top center;
 }
 
@@ -4368,27 +4378,32 @@ h2.title {
 }
 
 /* Event Cards Types */
-.type-1 .progress-bar {
+.type-1 .progress-bar, .type-1 .btn {
     background-color: #F57C00;
     color: #fff;
 }
 
-.type-1 .btn, .type-2 .btn, .type-3 .btn, .type-4 .btn {
+.btn-movie, .btn-movie:hover {
     background-color: #304269;
     color: #fff;
 }
 
-.type-2 .progress-bar {
+/*.type-1 .btn, .type-2 .btn, .type-3 .btn, .type-4 .btn {
+    background-color: #304269;
+    color: #fff;
+}*/
+
+.type-2 .progress-bar, .type-2 .btn {
     background-color: #4caf50;
     color: #fff;
 }
 
-.type-3 .progress-bar {
+.type-3 .progress-bar, .type-3 .btn {
     background-color: #5C6BC0;
     color: #fff;
 }
 
-.type-4 .progress-bar {
+.type-4 .progress-bar, .type-4 .btn {
     background-color: #607D8B;
     color: #fff;
 }
@@ -4636,10 +4651,6 @@ a:last-child:after{
     color: #fff !important;
 }
 
-.yf-card__title a {
-    color: #888 !important;
-}
-
 .nav-pills .btn {
     color: #999 !important;
 }
@@ -4678,4 +4689,35 @@ tbody .disabled{
 ng-select > div {
     border: none !important;
     border-bottom: 1px solid #ccc !important;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 30px;
+    color: #fff;
+    text-align: left;
+    background-color: #000;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+    -webkit-transition: width .6s ease;
+    -o-transition: width .6s ease;
+    transition: width .6s ease;
+}
+
+.progress-bar .sr-only {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: unset;
+    border: 0;
+    color: rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-left: 20px;
+    font-weight: 600;
 }

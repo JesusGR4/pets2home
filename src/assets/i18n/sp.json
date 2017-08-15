@@ -118,9 +118,17 @@
   "PENDING":"Pendientes",
   "MODAL":"Escribe la razón por la que rechazas esta casa de acogida"
 },
-  "PENDING":{
-    "ACCEPT":"Casa de acogida aceptada",
-    "REJECT":"Casa de acogida rechazada"
+  "PENDING": {
+    "ACCEPT": "Casa de acogida aceptada",
+    "REJECT": "Casa de acogida rechazada"
+  },
+    "ANIMAL-CATALOG":{
+      "SHELTER-NAME":"Animales de ",
+      "MORE": "Ver más"
+    },
+  "ANIMAL-CARD":{
+    "AGE":"Edad",
+    "GENDER": "Género"
   }
 
 }

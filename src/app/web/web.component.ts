@@ -53,7 +53,6 @@ export class WebComponent implements OnInit{
           production: 'xxxxxxxxx'
         },
 
-        commit: true, // Show a 'Pay Now' button
         payment: function(data, actions) {
           return actions.payment.create({
             payment: {
@@ -65,7 +64,6 @@ export class WebComponent implements OnInit{
             }
           });
         },
-
         onAuthorize: function(data, actions) {
           return actions.payment.execute().then(function(payment) {
 
