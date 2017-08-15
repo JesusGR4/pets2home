@@ -136,7 +136,8 @@
     "GENDER": "Gender",
     "BREED": "Breed",
     "MEDICAL-HISTORY": "Medical history",
-    "SIZE": "Size"
+    "SIZE": "Size",
+    "MY-ANIMALS": "My animals"
   }
 
 }

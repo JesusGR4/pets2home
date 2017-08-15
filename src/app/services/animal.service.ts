@@ -40,6 +40,21 @@ export class AnimalService {
       {headers: headers}
     )
   }
+  getMyAnimals(currentPage){
+    var parameters = {
+      'currentPage' : currentPage,
+    };
+
+    let headers = new Headers({
+      'Content-Language': localStorage.getItem(ApiConfigService.LANGUAGE),
+      'Content-Type': 'application/json',
+      'Authorization': "Bearer "+localStorage.getItem(ApiConfigService.TOKEN_FIELD)
+    });
+    return this._http.post(ApiConfigService.HOST + "shelter/getMyAnimals",
+      parameters,
+      {headers: headers}
+    )
+  }
 
   getAnimalById(animal_id){
     var parameters = {

@@ -63,8 +63,8 @@ export class WebComponent implements OnInit{
     }
 
     onLogout(){
-        this._sessionsServices.logout();
-        location.reload();
+      this._sessionsServices.logout();
+      window.location.href = '/';
     }
 
   completeUrl(url: string) {
