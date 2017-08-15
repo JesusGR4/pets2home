@@ -40,4 +40,20 @@ export class AnimalService {
       {headers: headers}
     )
   }
+
+  getAnimalById(animal_id){
+    var parameters = {
+      'animal_id' : animal_id,
+    };
+
+    let headers = new Headers({
+      'Content-Language': localStorage.getItem(ApiConfigService.LANGUAGE),
+      'Content-Type': 'application/json',
+
+    });
+    return this._http.post(ApiConfigService.HOST + "getAnimalById",
+      parameters,
+      {headers: headers}
+    )
+  }
 }

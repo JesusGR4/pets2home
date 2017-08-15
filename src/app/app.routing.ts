@@ -48,6 +48,8 @@ import {DashboardShelterComponent} from "./shelter-panel/dashboard/dashboard.com
 import {PendingSheltersManagement} from "./admin-panel/dashboard/getPendingShelters/pendingShelters.component";
 import {EditProfileComponent} from "./web/editProfile/editProfile.component";
 import {AnimalCatalog} from "./web/animalCatalog/animalCatalog.component";
+import {SingleAnimalComponent} from "./web/singleAnimal/singleAnimal.component";
+
 
 
 
@@ -97,7 +99,11 @@ const appRoutes:Routes = [
       },{
         path: 'shelter/animals/:shelter_id',
         component: AnimalCatalog,
+      },{
+        path: 'animal/:animal_id',
+        component: SingleAnimalComponent,
       },
+
 
         {
             path: 'filmCatalog',

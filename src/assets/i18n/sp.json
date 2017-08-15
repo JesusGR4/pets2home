@@ -129,6 +129,13 @@
   "ANIMAL-CARD":{
     "AGE":"Edad",
     "GENDER": "Género"
+  },
+  "SINGLE-ANIMAL":{
+    "AGE":"Edad",
+    "GENDER": "Género",
+    "BREED": "Comportamiento",
+    "MEDICAL-HISTORY": "Historial médico",
+    "SIZE": "Tamaño"
   }
 
 }
