@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="assets/web/css/custom.css" />
+<script type="text/javascript" src="assets/web/js/jquery.magnific-popup.min.js"></script>
+
+<link rel="stylesheet" href="assets/web/css/magnific-popup.css" />
+<div class="singleCinemaPage" id="singleAnimal">
+  <div class="header header-filter parallax-fix" id="slider"
+       style="background-image: url('https://www.cesarsway.com/sites/newcesarsway/files/styles/large_article_preview/public/Why%20dogs%20eat%20grass_0.jpg?itok=fu5yHnol'); background-size:cover">
+  </div>
+  <div class="main main-raised">
+    <div class="dashboard-content">
+      <div class="container">
+        <div class="col-md-3 col-xs-12 image-block">
+          <!-- post image -->
+          <div class="blog-image margin-eleven">
+            <div *ngIf="mainPicture"><img class="img-responsive" [src]="completeUrl(mainPicture)" alt=""></div>
+            <div *ngIf="mainPicture == null"><img class="img-responsive" src="https://www.aspca.org/sites/default/files/keeping-animals-in-homes_pet-statistics_main-image.jpg" alt=""></div>
+          </div>
+          <!-- end post image -->
+          <!-- Galery -->
+          <div class="blog-galery">
+            <div class="row lightbox-gallery">
+              <div class="col-md-4 col-sm-6" *ngFor="let frame of images">
+                <!-- photo item -->
+                <a [href]="completeUrl(frame)"
+                   target="_blank"
+                   title="{{animal.name}}"><img
+                  [src]="completeUrl(frame)" alt=""
+                  class="project-img-gallery"></a>
+                <!-- end photo item -->
+              </div>
+            </div>
+          </div>
+          <!-- END Galery -->
+          <!-- social icon -->
+          <div class="col-md-8 col-sm-9 product-details-social no-padding">
+            <!-- social media sharing -->
+            <h4 class="black-text text-uppercase text-small vertical-align-middle margin-right-five">{{ 'SINGLE-SHELTER.SHARE' | translate }} </h4>
+            <div class="social-line">
+              <a href="javascript" class="btn-simple" target="_blank"><i
+                class="fa fa-facebook"></i></a>
+              <a href="javascript" class="btn-simple" target="_blank"><i
+                class="fa fa-twitter"></i></a>
+            </div>
+            <!-- end social media sharing -->
+          </div>
+          <!-- end social icon -->
+        </div>
+        <!-- sidebar  -->
+        <div class="col-md-9 col-xs-12  xs-margin-top-ten">
+          <!-- title -->
+          <h2 class="blog-details-headline text-black">{{animal.name}}</h2>
+
+          <div class="thin-separator-line bg-youfeelm no-margin-lr"></div>
+          <!-- END title -->
+          <div class="col-md-12 col-xs-12">
+            <div class="col-md-6 col-xs-6">
+
+              <div class="text-black text-uppercase">{{ 'SINGLE-ANIMAL.AGE' | translate }} <span class="event-details">{{animal.age}}</span>
+              </div><br>
+              <div class="text-black text-uppercase">{{ 'SINGLE-ANIMAL.GENDER' | translate }} <span class="event-details">{{animal.gender}}</span>
+              </div><br>
+              <div class="text-black text-uppercase">{{ 'SINGLE-ANIMAL.BREED' | translate }} <span class="event-details">{{animal.breed}}</span>
+              </div><br>
+              <div class="text-black text-uppercase">{{ 'SINGLE-ANIMAL.MEDICAL-HISTORY' | translate }} <span class="event-details">{{animal.medicalHistory}}</span>
+              </div><br>
+              <div *ngIf="animal.type == 1">
+                <div class="text-black text-uppercase">{{ 'SINGLE-ANIMAL.SIZE' | translate }} <span class="event-details">{{animal.size}}</span>
+                </div><br>
+              </div>
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

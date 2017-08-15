@@ -95,6 +95,7 @@ import {EditProfileService} from "./services/editProfile.service";
 import {AnimalCardComponent} from "./web/commonComponents/animalCard.component";
 import {AnimalService} from "./services/animal.service";
 import {AnimalCatalog} from "./web/animalCatalog/animalCatalog.component";
+import {SingleAnimalComponent} from "./web/singleAnimal/singleAnimal.component";
 
 @NgModule({
     declarations: [
@@ -152,7 +153,8 @@ import {AnimalCatalog} from "./web/animalCatalog/animalCatalog.component";
         Compassuite,
         CreateShelterComponent,
         AnimalCardComponent,
-        AnimalCatalog
+        AnimalCatalog,
+        SingleAnimalComponent
     ],
     imports: [
         BrowserModule,

@@ -44,36 +44,6 @@ export class WebComponent implements OnInit{
         if(this.session.profile ==1){
           window.location.href = '/admin-panel/dashboard';
         }
-      paypal.Button.render({
-
-        env: 'sandbox', // Or 'sandbox'
-
-        client: {
-          sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
-          production: 'xxxxxxxxx'
-        },
-
-        payment: function(data, actions) {
-          return actions.payment.create({
-            payment: {
-              transactions: [
-                {
-                  amount: { total: '5.00', currency: 'EUR' }
-                }
-              ]
-            }
-          });
-        },
-        onAuthorize: function(data, actions) {
-          return actions.payment.execute().then(function(payment) {
-
-            // The payment is complete!
-            // You can now show a confirmation message to the customer
-          });
-        }
-
-      }, '#paypal-button');
-
     }
 
     setLanguage(language){
