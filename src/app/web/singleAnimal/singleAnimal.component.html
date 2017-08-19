@@ -63,7 +63,7 @@
               </div><br>
               <div class="text-black text-uppercase">{{ 'SINGLE-ANIMAL.MEDICAL-HISTORY' | translate }} <span class="event-details">{{animal.medicalHistory}}</span>
               </div><br>
-              <div *ngIf="animal.type == 1">
+              <div *ngIf="animal.type === 1">
                 <div class="text-black text-uppercase">{{ 'SINGLE-ANIMAL.SIZE' | translate }} <span class="event-details">{{animal.size}}</span>
                 </div><br>
               </div>

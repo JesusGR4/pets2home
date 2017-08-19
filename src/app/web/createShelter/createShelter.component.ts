@@ -72,7 +72,6 @@ export class CreateShelterComponent implements OnInit{
       });
     });
   }
-
   fileChangeEvent(fileInput: any){
     this.filesToUpload = <Array<File>> fileInput.target.files;
   }
@@ -129,6 +128,7 @@ export class CreateShelterComponent implements OnInit{
     this.shelter.longitude = $event.coords.lng;
   }
 
+
   private validateForm(){
     var phoneReg = new RegExp("^[9|6|7][0-9]{8}$");
     var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
@@ -141,7 +141,6 @@ export class CreateShelterComponent implements OnInit{
     }
     else{
       $('#name-error').hide();
-
     }
     if($('#surname').val()==""){
       $('#surname-error').show();
@@ -150,6 +149,7 @@ export class CreateShelterComponent implements OnInit{
     else{
       $('#surname-error').hide();
     }
+
     if(!phoneReg.test($('#phone').val())){
       $('#phone-error').show();
       this.valid = false;

@@ -5,6 +5,7 @@ export class Animal{
   public breed: string;
   public age: number;
   public medicalHistory: string;
+  public type: any;
   public size: string;
   public shelter_id: number;
   public mainPicture: string;
@@ -20,6 +21,7 @@ export class Animal{
     this.size="";
     this.shelter_id = 0;
     this.images ="";
+    this.type ="";
     this.mainPicture ="";
   }
 }

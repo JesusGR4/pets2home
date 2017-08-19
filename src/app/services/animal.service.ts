@@ -55,7 +55,6 @@ export class AnimalService {
       {headers: headers}
     )
   }
-
   getAnimalById(animal_id){
     var parameters = {
       'animal_id' : animal_id,
@@ -70,5 +69,48 @@ export class AnimalService {
       parameters,
       {headers: headers}
     )
+  }
+
+  createAnimal(animal){
+    let headers = new Headers({
+      'Content-Language': localStorage.getItem(ApiConfigService.LANGUAGE),
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': "Bearer "+localStorage.getItem(ApiConfigService.TOKEN_FIELD)
+    });
+    let inputEl: HTMLInputElement = this.el.nativeElement.querySelector('[type="file"]');
+    let fileCount: number = inputEl.files.length;
+    let formData = new FormData();
+    if (fileCount > 0) { // a file was selected
+      for (let i = 0; i < fileCount; i++) {
+        formData.append('file'+i, inputEl.files.item(i));
+      }
+
+      formData.append('length', fileCount);
+
+      formData.append('name', animal.name);
+      formData.append('breed', animal.breed);
+      formData.append('gender', animal.gender);
+      formData.append('age', animal.age);
+      formData.append('medicalHistory', animal.medicalHistory);
+      formData.append('type', animal.type);
+      formData.append('size', animal.size);
+
+      return this._http.post(ApiConfigService.HOST+'shelter/createAnimal', formData, {headers:headers});
+    }else{
+
+    }
+  }
+
+  deleteAnimal(id){
+    var parameters = {
+      'animal_id' : id,
+    };
+    let headers = new Headers({
+      'Content-Language': localStorage.getItem(ApiConfigService.LANGUAGE),
+      'X-Requested-With': 'XMLHttpRequest',
+      'Authorization': "Bearer "+localStorage.getItem(ApiConfigService.TOKEN_FIELD)
+    });
+
+    return this._http.post(ApiConfigService.HOST+'shelter/deleteAnimal', parameters, {headers:headers});
   }
 }

@@ -69,7 +69,8 @@
 }, "INDEX":{
   "CHOOSE":"Choose your province",
   "SEE":"See all",
-  "SHELTERS":"Shelters"
+  "SHELTERS":"Shelters",
+  "CREATE":"Create a new animal"
 },"WEB":{
   "HOME":"Home",
   "REGISTER":"Register!",
@@ -80,7 +81,10 @@
   "CONTACT":"Contact",
   "LE":"Legal",
   "LEGAL":"Legal warning",
-  "USE":"Use conditions"
+  "USE":"Use conditions",
+  "EDIT-PROFILE":"Edit profile",
+  "MY-ANIMALS":"My animals",
+  "CREATE-ANIMAL": "Create animal"
 },
   "SERVER":{
     "ERROR":"Server error"
@@ -125,11 +129,13 @@
   },
   "ANIMAL-CATALOG":{
     "SHELTER-NAME":"Animals from ",
-    "MORE": "See more"
+    "MORE": "See more",
+    "MY-ANIMALS": "My animals"
   },
   "ANIMAL-CARD":{
     "AGE":"Age",
-    "GENDER": "Gender"
+    "GENDER": "Gender",
+    "DELETE": "Delete"
   },
   "SINGLE-ANIMAL":{
     "AGE":"Age",
@@ -138,6 +144,23 @@
     "MEDICAL-HISTORY": "Medical history",
     "SIZE": "Size",
     "MY-ANIMALS": "My animals"
+  },
+  "CREATE-ANIMAL":{
+    "TITLE":"Create animal",
+    "NAME":"Name",
+    "NAME_ERROR":"Name is mandatory",
+    "GENDER":"Gender",
+    "GENDER_ERROR":"Gender is mandatory",
+    "BREED":"Breed",
+    "BREED_ERROR":"Breed is mandatory",
+    "AGE":"Age",
+    "AGE_ERROR":"Age is mandatory",
+    "MEDICAL-HISTORY":"Medical history",
+    "MEDICAL-HISTORY_ERROR":"Medical history is mandatory",
+    "TYPE":"Type",
+    "TYPE_ERROR":"Type is mandatory",
+    "SIZE":"Size",
+    "SIZE_ERROR":"Size is mandatory"
   }
 
 }

@@ -1,0 +1,135 @@
+<section id="createAnimal">
+  <div class="container">
+    <div class="row">
+      <!-- section title -->
+      <div class="col-md-12 text-center">
+        <h3 class="section-title no-padding">{{'CREATE-ANIMAL.TITLE' | translate}}</h3>
+      </div>
+      <!-- end section title -->
+    </div>
+    <div class="row margin-ten no-margin-bottom">
+
+      <div class="col-md-12 col-sm-12 sm-margin-bottom-ten">
+        <div class="col-md-12 col-sm-12 no-padding">
+          <form #create="ngForm" role="form" action="" novalidate autocomplete="off">
+
+            <h5>{{'CREATE-SHELTER.DATA' | translate}}</h5>
+            <div class="row clearfix">
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-ANIMAL.NAME' | translate}}</label>
+                  <textarea id="name" type="text" [(ngModel)]="animal.name" #name="ngModel" class="form-control" name="name" required
+                            aria-required="true" value="{{animal.name}}"></textarea>
+                  <p hidden id="name-error" class="alert alert-danger">
+                    {{'CREATE-ANIMAL.NAME_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-ANIMAL.GENDER' | translate}}</label>
+                  <textarea id="gender" type="text" [(ngModel)]="animal.gender" #gender="ngModel" class="form-control" name="gender" required
+                            aria-required="true" value="{{animal.value}}"></textarea>
+                  <p hidden id="gender-error" class="alert alert-danger">
+                    {{'CREATE-ANIMAL.GENDER_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-ANIMAL.BREED' | translate}}</label>
+                  <textarea id="breed" type="text" [(ngModel)]="animal.breed" #breed="ngModel" class="form-control" name="breed" required
+                            aria-required="true" value="{{animal.breed}}"></textarea>
+                  <p hidden id="breed-error" class="alert alert-danger">
+                    {{'CREATE-ANIMAL.BREED_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row clearfix">
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-ANIMAL.AGE' | translate}}</label>
+                  <textarea id="age" type="text" [(ngModel)]="animal.age" #age="ngModel" class="form-control" name="age" required
+                            aria-required="true" value="{{animal.age}}"></textarea>
+                  <p hidden id="age-error" class="alert alert-danger">
+                    {{'CREATE-ANIMAL.AGE_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-ANIMAL.MEDICAL-HISTORY' | translate}}</label>
+                  <textarea id="medicalHistory" type="text" [(ngModel)]="animal.medicalHistory" #medicalHistory="ngModel" class="form-control" name="medicalHistory" required
+                            aria-required="true" value="{{animal.medicalHistory}}"></textarea>
+                  <p hidden id="medicalHistory-error" class="alert alert-danger">
+                    {{'CREATE-ANIMAL.MEDICAL-HISTORY_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-ANIMAL.TYPE' | translate}}</label>
+                  <ng-select
+                    [allowClear]="true"
+                    [options]="types"
+                    [(ngModel)]="animal.type"
+                    (selected)="typeSelected($event)"
+                    id="type"
+                    #province="ngModel"
+                    name="type"
+                    value="animal.type"
+                  >
+                  </ng-select>
+                  <p hidden id="type-error" class="alert alert-danger">
+                    {{'CREATE-ANIMAL.TYPE_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row clearfix">
+              <div class="col-md-4" id="sizeDiv">
+                <div class="form-group form-group-default" aria-required="true">
+                  <label>{{'CREATE-ANIMAL.SIZE' | translate}}</label>
+                  <textarea id="size" type="text" [(ngModel)]="animal.size" #size="ngModel" class="form-control" name="size" required
+                            aria-required="true" value="{{animal.size}}"></textarea>
+                  <p hidden id="size-error" class="alert alert-danger">
+                    {{'CREATE-ANIMAL.SIZE_ERROR' | translate}}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <h5>{{'CREATE-SHELTER.UPLOAD' | translate}}</h5>
+            <div class="row clearfix">
+              <input #fileInput id="image" name="image" class="form-control" type="file" multiple (change)="fileChangeEvent($event)">
+            </div>
+            <p hidden id="input-error" class="alert alert-danger" padding-left>
+              {{'CREATE-SHELTER.INPUT_ERROR' | translate}}
+            </p>
+          </form>
+          <button (click)="createAnimal()" class="btn-primary btn btn-medium button">{{ 'REGISTER.TITLE' | translate }}</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<modal #modal>
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">{{'SERVER.ERROR' | translate}}</h4>
+  </modal-header>
+  <modal-body>
+    {{errorMessages}}
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-primary" (click)="modal.close()">Ok</button>
+  </modal-footer>
+</modal>
+
+
+
