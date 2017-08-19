@@ -1,9 +1,13 @@
-import { Component, OnInit, Output} from '@angular/core';
+import { Component, OnInit, Output, ViewChild} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import {Animal} from "../../models/animal";
 import {MessagesService} from "../../services/messages.service";
 import {AnimalService} from "../../services/animal.service";
-
+import {ApiConfigService} from "../../services/apiConfig.service";
+import {ModalComponent} from "ng2-bs3-modal/components/modal";
+import {ToastyService, ToastyConfig, ToastOptions, ToastData} from 'ng2-toasty';
+import {TranslateService} from "ng2-translate";
+import {CodesService} from "../../services/codes.service";
 declare var $: any;
 declare var window: any;
 
@@ -14,16 +18,20 @@ declare var window: any;
 })
 
 export class MyAnimalsComponent{
-
+  rol: string;
   private sub: any;
   public animals: Animal[] = [];
   public currentPage = 1;
   public totalItems : number = 0;
   public shelter : number;
   public shelter_name: string;
-  constructor(private router: Router, private route: ActivatedRoute, private _messagesService: MessagesService, private _animalService: AnimalService){
+  @ViewChild('modal')
+  public modal: ModalComponent;
+  public translation : string;
+  public errorMessages: any;
+  constructor(private router: Router, private route: ActivatedRoute, private _messagesService: MessagesService, private _animalService: AnimalService,  private translateService: TranslateService,private toastyService:ToastyService){
+    this.rol = localStorage.getItem(ApiConfigService.ROL_FIELD);
   }
-
   ngOnInit(){
     this.animalsToCards();
     $('html,body').animate({
@@ -55,5 +63,42 @@ export class MyAnimalsComponent{
   more(){
     this.currentPage = this.currentPage + 1;
     this.animalsToCards();
+  }
+  deleteAnimal(id){
+
+    this._animalService.deleteAnimal(id).subscribe(
+      res => {
+        let json = res.json();
+        let code = json.code;let rout = this.router;
+        let aux = this;
+        if(code == CodesService.OK_CODE){
+          this.translateService.get('REQUEST.SUCCESS').subscribe(
+            data => {
+              this.translation = data;
+            }
+          );
+          var toastOptions:ToastOptions = {
+            title: this.translation,
+            showClose: true,
+            timeout: 7500,
+            theme: 'material',
+            onRemove: function(toast: ToastData){
+              this.currentPage = 1;
+              this.animals = [];
+              aux.animalsToCards();
+            }
+          };
+          this.toastyService.success(toastOptions);
+        }else{
+          this.errorMessages = json.message;
+          this.modal.open();
+        }
+      },
+      error => {
+        let json = error.json();
+        this.errorMessages = json.message;
+        this.modal.open();
+      }
+    )
   }
 }

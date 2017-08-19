@@ -69,7 +69,8 @@
 }, "INDEX":{
   "CHOOSE":"Elige tu provincia",
   "SEE":"Ver todos",
-  "SHELTERS":"Casas de acogida"
+  "SHELTERS":"Casas de acogida",
+  "CREATE":"Crear un nuevo animal"
 },"WEB":{
   "HOME":"Inicio",
   "REGISTER":"¡Regístrate!",
@@ -80,7 +81,10 @@
   "CONTACT":"Contacto",
   "LE":"Legal",
   "LEGAL":"Aviso legal",
-  "USE":"Condiciones de uso"
+  "USE":"Condiciones de uso",
+  "EDIT-PROFILE":"Editar perfil",
+  "MY-ANIMALS":"Mis animales",
+  "CREATE-ANIMAL": "Crear animal"
 },
   "SERVER":{
     "ERROR":"Error de servidor"
@@ -124,11 +128,13 @@
   },
     "ANIMAL-CATALOG":{
       "SHELTER-NAME":"Animales de ",
-      "MORE": "Ver más"
+      "MORE": "Ver más",
+      "MY-ANIMALS": "Mis animales"
     },
   "ANIMAL-CARD":{
     "AGE":"Edad",
-    "GENDER": "Género"
+    "GENDER": "Género",
+    "DELETE": "Borrar"
   },
   "SINGLE-ANIMAL":{
     "AGE":"Edad",
@@ -137,6 +143,23 @@
     "MEDICAL-HISTORY": "Historial médico",
     "SIZE": "Tamaño",
     "MY-ANIMALS": "Mis animales"
+  },
+  "CREATE-ANIMAL":{
+    "TITLE":"Crear animal",
+    "NAME":"Nombre",
+    "NAME_ERROR":"El nombre es obligatorio",
+    "GENDER":"Género",
+    "GENDER_ERROR":"El género es obligatorio",
+    "BREED":"Raza",
+    "BREED_ERROR":"La raza es obligatoria",
+    "AGE":"Edad",
+    "AGE_ERROR":"La edad es obligatoria",
+    "MEDICAL-HISTORY":"Historial médico",
+    "MEDICAL-HISTORY_ERROR":"El historial médico es obligatorio",
+    "TYPE":"Tipo",
+    "TYPE_ERROR":"El tipo es obligatorio",
+    "SIZE":"Tamaño",
+    "SIZE_ERROR":"El tamaño es obligatorio"
   }
 
 }

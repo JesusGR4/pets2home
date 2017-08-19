@@ -55,9 +55,9 @@
                           <img src="assets/img/profiles/avatar.jpg" class="img-circle img-responsive hidden-xs">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right">
-                          <li *ngIf="session.profile == 2"><a routerLink="/user/edit">Editar perfil</a></li>
-                          <li *ngIf="session.profile === 2"><a routerLink="/dashboard">Mis reservas</a></li>
-                          <li *ngIf="session.profile === 3"><a routerLink="/myAnimals">Mis animales</a></li>
+                          <li *ngIf="session.profile == 2"><a routerLink="/user/edit">{{'WEB.EDIT-PROFILE' | translate}}</a></li>
+                          <li *ngIf="session.profile === 3"><a routerLink="/myAnimals">{{'WEB.MY-ANIMALS' | translate}}</a></li>
+                          <li *ngIf="session.profile === 3"><a routerLink="/createAnimal">{{'WEB.CREATE-ANIMAL' | translate}}</a></li>
                           <li class="separator">
                             <hr>
                           </li>

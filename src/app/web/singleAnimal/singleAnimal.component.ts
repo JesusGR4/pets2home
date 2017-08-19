@@ -52,16 +52,16 @@ export class SingleAnimalComponent{
           this.animal.breed = animal.breed;
           this.animal.age = animal.age;
           this.animal.medicalHistory = animal.medicalHistory;
-          //this.mainPicture = images[0].name;
-          images.shift();
           if(animal.type==1) this.animal.size = animal.size;
           var totalImages = images.length;
+          this.mainPicture = images[0].name;
+          images.shift();
           for(var i=0;  i< totalImages; i++){
             this.images.push(images[i].name);
           }
+
         }
       },
-
       error => {
         let errorMessage = <any>error;
         if(errorMessage !== null){

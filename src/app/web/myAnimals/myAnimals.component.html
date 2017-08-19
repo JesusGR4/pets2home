@@ -9,8 +9,10 @@
           <h3 class="section-title no-padding">{{ 'ANIMAL-CATALOG.MY-ANIMALS' | translate }}  </h3>
         </div>
         <div *ngFor="let a of animals" class="col-md-4 col-sm-12">
+          <div *ngIf="rol == 3"><button type="button" class="btn btn-danger" (click)="deleteAnimal(a.id)">{{ 'ANIMAL-CARD.DELETE' | translate }}</button></div>
           <animalCard [animal]="a"></animalCard>
         </div></div>
+
       <div *ngIf="totalItems==8" class="col-md-12 text-center">
         <button type="button"
                 class="btn btn-primary pull-center"
@@ -22,3 +24,14 @@
   </div>
 </div>
 
+<modal #modal>
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">{{'SERVER.ERROR' | translate}}</h4>
+  </modal-header>
+  <modal-body>
+    {{errorMessages}}
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-primary" (click)="modal.close()">Ok</button>
+  </modal-footer>
+</modal>

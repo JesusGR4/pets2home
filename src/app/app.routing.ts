@@ -50,6 +50,7 @@ import {EditProfileComponent} from "./web/editProfile/editProfile.component";
 import {AnimalCatalog} from "./web/animalCatalog/animalCatalog.component";
 import {SingleAnimalComponent} from "./web/singleAnimal/singleAnimal.component";
 import {MyAnimalsComponent} from "./web/myAnimals/myAnimals.component";
+import {CreateAnimalComponent} from "./web/createAnimal/createAnimal.component";
 
 
 
@@ -101,6 +102,10 @@ const appRoutes:Routes = [
       {
         path: 'myAnimals',
         component: MyAnimalsComponent,
+      },
+      {
+        path: 'createAnimal',
+        component: CreateAnimalComponent,
       },{
         path: 'shelter/animals/:shelter_id',
         component: AnimalCatalog,
