@@ -51,12 +51,14 @@ import {AnimalCatalog} from "./web/animalCatalog/animalCatalog.component";
 import {SingleAnimalComponent} from "./web/singleAnimal/singleAnimal.component";
 import {MyAnimalsComponent} from "./web/myAnimals/myAnimals.component";
 import {CreateAnimalComponent} from "./web/createAnimal/createAnimal.component";
+import {NotFoundComponent} from "./web/notFoundComponent/notFoundComponent.component";
 
 
 
 
 const appRoutes:Routes = [
     {path: '', redirectTo: '/index', pathMatch: 'full'},
+
     {
         path: "", component: WebComponent, children: [
         {
@@ -191,11 +193,11 @@ const appRoutes:Routes = [
 
     ]
     },
-
+  {path: 'notFound', component: NotFoundComponent},
+  {path: '**', redirectTo: '/notFound'}
 
 
 ];
 
 export const appRoutingProviders:any[] = [];
-
 export const routing:ModuleWithProviders = RouterModule.forRoot(appRoutes);

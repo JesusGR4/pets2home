@@ -82,7 +82,6 @@ export class PendingSheltersManagement implements OnInit{
     }
   ngAfterViewInit() {
     TableJS($,window);
-    console.log(this.totalItems);
   }
 
   listPaginatePending($event){

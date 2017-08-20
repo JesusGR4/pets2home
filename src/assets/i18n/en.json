@@ -70,7 +70,8 @@
   "CHOOSE":"Choose your province",
   "SEE":"See all",
   "SHELTERS":"Shelters",
-  "CREATE":"Create a new animal"
+  "CREATE":"Create a new animal",
+  "NO-ELEMENTS": "No results for your search!"
 },"WEB":{
   "HOME":"Home",
   "REGISTER":"Register!",
@@ -125,7 +126,14 @@
 },
   "PENDING":{
     "ACCEPT":"Shelter accepted",
-    "REJECT":"Shelter rejected"
+    "REJECT":"Shelter rejected",
+    "MANAGEMENT":"Shelters management",
+    "DATE": "Date",
+    "NAME": "Name",
+    "PROVINCE": "Province",
+    "CITY":"City",
+    "SHELTERS":"Shelters",
+    "ACTIONS":"Actions"
   },
   "ANIMAL-CATALOG":{
     "SHELTER-NAME":"Animals from ",
@@ -145,6 +153,9 @@
     "SIZE": "Size",
     "MY-ANIMALS": "My animals"
   },
+  "NOT-FOUND":{
+    "BACK":"Back to index"
+  },
   "CREATE-ANIMAL":{
     "TITLE":"Create animal",
     "NAME":"Name",
@@ -161,6 +172,8 @@
     "TYPE_ERROR":"Type is mandatory",
     "SIZE":"Size",
     "SIZE_ERROR":"Size is mandatory"
+  },
+  "APP":{
+    "COOKIE": "By continuing to browse the site, you're agreeing to our use of cookies"
   }
-
 }

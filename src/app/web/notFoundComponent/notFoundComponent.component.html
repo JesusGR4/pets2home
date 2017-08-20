@@ -1,0 +1,4 @@
+<img src="http://ajra.es/wp-content/uploads/Error-404.jpeg">
+<hr>
+<div *ngIf="rol == 1"><a href="/admin-panel/dashboard"  class='btn btn-primary col-centered'>{{'NOT-FOUND.BACK' | translate}}</a></div>
+<div *ngIf="rol != 1 || rol == null"><a href="/index" class='btn btn-primary col-centered'>{{'NOT-FOUND.BACK' | translate}}</a></div>

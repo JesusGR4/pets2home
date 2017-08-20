@@ -86,13 +86,17 @@ export class AnimalService {
       }
 
       formData.append('length', fileCount);
-
       formData.append('name', animal.name);
       formData.append('breed', animal.breed);
       formData.append('gender', animal.gender);
       formData.append('age', animal.age);
       formData.append('medicalHistory', animal.medicalHistory);
       formData.append('type', animal.type);
+      if(animal.type == "Perro"){
+        formData.append('type', 1);
+      }else{
+        formData.append('type', 0);
+      }
       formData.append('size', animal.size);
 
       return this._http.post(ApiConfigService.HOST+'shelter/createAnimal', formData, {headers:headers});

@@ -70,7 +70,6 @@
                   </p>
                 </div>
               </div>
-
               <div class="col-md-4">
                 <div class="form-group form-group-default" aria-required="true">
                   <label>{{'CREATE-ANIMAL.TYPE' | translate}}</label>
@@ -80,7 +79,7 @@
                     [(ngModel)]="animal.type"
                     (selected)="typeSelected($event)"
                     id="type"
-                    #province="ngModel"
+                    #type="ngModel"
                     name="type"
                     value="animal.type"
                   >

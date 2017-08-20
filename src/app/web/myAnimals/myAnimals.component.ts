@@ -16,11 +16,10 @@ declare var window: any;
   templateUrl: "./myAnimals.component.html",
   providers: [AnimalService]
 })
-
 export class MyAnimalsComponent{
   rol: string;
   private sub: any;
-  public animals: Animal[] = [];
+  public animalList: Animal[] = [];
   public currentPage = 1;
   public totalItems : number = 0;
   public shelter : number;
@@ -32,6 +31,7 @@ export class MyAnimalsComponent{
   constructor(private router: Router, private route: ActivatedRoute, private _messagesService: MessagesService, private _animalService: AnimalService,  private translateService: TranslateService,private toastyService:ToastyService){
     this.rol = localStorage.getItem(ApiConfigService.ROL_FIELD);
   }
+
   ngOnInit(){
     this.animalsToCards();
     $('html,body').animate({
@@ -53,13 +53,14 @@ export class MyAnimalsComponent{
           animal.age = animals[i].age;
           animal.gender = animals[i].gender;
           if(json.images.length != 0 || json.images.length != null){
-            if(json.images[0] != null) animal.mainPicture = json.images[0].name;
+            if(json.images[i] != null) animal.mainPicture = json.images[i].name;
           }
-          this.animals.push(animal);
+          this.animalList.push(animal);
         }
       }
     )
   }
+
   more(){
     this.currentPage = this.currentPage + 1;
     this.animalsToCards();
@@ -80,11 +81,11 @@ export class MyAnimalsComponent{
           var toastOptions:ToastOptions = {
             title: this.translation,
             showClose: true,
-            timeout: 7500,
+            timeout: 1000,
             theme: 'material',
             onRemove: function(toast: ToastData){
-              this.currentPage = 1;
-              this.animals = [];
+              aux.currentPage = 1;
+              aux.animalList = [];
               aux.animalsToCards();
             }
           };

@@ -98,10 +98,12 @@ import {AnimalCatalog} from "./web/animalCatalog/animalCatalog.component";
 import {SingleAnimalComponent} from "./web/singleAnimal/singleAnimal.component";
 import {MyAnimalsComponent} from "./web/myAnimals/myAnimals.component";
 import {CreateAnimalComponent} from "./web/createAnimal/createAnimal.component";
-
+import {NotFoundComponent} from "./web/notFoundComponent/notFoundComponent.component";
+import { CookieLawModule } from 'angular2-cookie-law';
 @NgModule({
     declarations: [
         AppComponent,
+        NotFoundComponent,
         WebComponent,
         AdminPanelComponent,
         ExampleTableComponent,
@@ -162,6 +164,7 @@ import {CreateAnimalComponent} from "./web/createAnimal/createAnimal.component";
     ],
 
     imports: [
+        CookieLawModule,
         BrowserModule,
         FormsModule,
         HttpModule,

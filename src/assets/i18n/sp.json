@@ -70,7 +70,8 @@
   "CHOOSE":"Elige tu provincia",
   "SEE":"Ver todos",
   "SHELTERS":"Casas de acogida",
-  "CREATE":"Crear un nuevo animal"
+  "CREATE":"Crear un nuevo animal",
+  "NO-ELEMENTS": "¡No hay resultados para tu búsqueda!"
 },"WEB":{
   "HOME":"Inicio",
   "REGISTER":"¡Regístrate!",
@@ -85,6 +86,8 @@
   "EDIT-PROFILE":"Editar perfil",
   "MY-ANIMALS":"Mis animales",
   "CREATE-ANIMAL": "Crear animal"
+},"NOT-FOUND":{
+  "BACK":"Vuelta al índice"
 },
   "SERVER":{
     "ERROR":"Error de servidor"
@@ -120,7 +123,14 @@
     "SUCCESS":"Email enviado"
   },"ADMIN-DASHBOARD":{
   "PENDING":"Pendientes",
-  "MODAL":"Escribe la razón por la que rechazas esta casa de acogida"
+  "MODAL":"Escribe la razón por la que rechazas esta casa de acogida",
+  "MANAGEMENT":"Administración de casas de acogida",
+  "DATE": "Fecha",
+  "NAME": "Nombre",
+  "PROVINCE": "Provincia",
+  "CITY":"Ciudad",
+  "SHELTERS":"Casas de acogida",
+  "ACTIONS":"Acciones"
 },
   "PENDING": {
     "ACCEPT": "Casa de acogida aceptada",
@@ -160,6 +170,9 @@
     "TYPE_ERROR":"El tipo es obligatorio",
     "SIZE":"Tamaño",
     "SIZE_ERROR":"El tamaño es obligatorio"
+  },
+  "APP":{
+    "COOKIE": "Si continuas navegando por la web, suponemos que estás de acuerdo con nuestra ley de cookies"
   }
 
 }
