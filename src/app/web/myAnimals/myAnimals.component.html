@@ -8,11 +8,10 @@
         <div class="text-center">
           <h3 class="section-title no-padding">{{ 'ANIMAL-CATALOG.MY-ANIMALS' | translate }}  </h3>
         </div>
-        <div *ngFor="let a of animals" class="col-md-4 col-sm-12">
+        <div *ngFor="let a of animalList" class="col-md-4 col-sm-12">
           <div *ngIf="rol == 3"><button type="button" class="btn btn-danger" (click)="deleteAnimal(a.id)">{{ 'ANIMAL-CARD.DELETE' | translate }}</button></div>
           <animalCard [animal]="a"></animalCard>
         </div></div>
-
       <div *ngIf="totalItems==8" class="col-md-12 text-center">
         <button type="button"
                 class="btn btn-primary pull-center"

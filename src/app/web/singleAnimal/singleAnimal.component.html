@@ -54,7 +54,6 @@
           <!-- END title -->
           <div class="col-md-12 col-xs-12">
             <div class="col-md-6 col-xs-6">
-
               <div class="text-black text-uppercase">{{ 'SINGLE-ANIMAL.AGE' | translate }} <span class="event-details">{{animal.age}}</span>
               </div><br>
               <div class="text-black text-uppercase">{{ 'SINGLE-ANIMAL.GENDER' | translate }} <span class="event-details">{{animal.gender}}</span>
@@ -63,7 +62,7 @@
               </div><br>
               <div class="text-black text-uppercase">{{ 'SINGLE-ANIMAL.MEDICAL-HISTORY' | translate }} <span class="event-details">{{animal.medicalHistory}}</span>
               </div><br>
-              <div *ngIf="animal.type === 1">
+              <div *ngIf="animal.type == 1">
                 <div class="text-black text-uppercase">{{ 'SINGLE-ANIMAL.SIZE' | translate }} <span class="event-details">{{animal.size}}</span>
                 </div><br>
               </div>

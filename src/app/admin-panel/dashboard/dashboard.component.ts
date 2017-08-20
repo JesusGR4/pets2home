@@ -50,7 +50,7 @@ export class DashboardComponent{
                 let json = res.json();
                 let code = json.code;
                 if(code == CodesService.OK_CODE) {
-                    this.router.navigate(['/index']);
+                  window.location.href = '/index';
                 }else{
                     this.handlerError(code);
                 }

@@ -8,7 +8,6 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 })
 export class NoPermissionsComponent{
-
     constructor(
     ){
 

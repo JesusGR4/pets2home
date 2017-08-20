@@ -36,7 +36,6 @@ export class SingleAnimalComponent{
         scrollTop: $("#singleAnimal").offset().top},
       'slow');
   }
-
   getAnimalDetails(){
     this._animalService.getAnimalById(this.id).subscribe(
       res => {
@@ -52,10 +51,12 @@ export class SingleAnimalComponent{
           this.animal.breed = animal.breed;
           this.animal.age = animal.age;
           this.animal.medicalHistory = animal.medicalHistory;
+          this.animal.type = animal.type;
           if(animal.type==1) this.animal.size = animal.size;
           var totalImages = images.length;
           this.mainPicture = images[0].name;
           images.shift();
+          var totalImages = images.length;
           for(var i=0;  i< totalImages; i++){
             this.images.push(images[i].name);
           }

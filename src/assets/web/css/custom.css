@@ -1822,6 +1822,17 @@ fieldset input[type='radio'] + label:hover:after {
     min-height: 525px;
 }
 
+.centre-image{
+  position: absolute;
+  width: 100px; /*the image width*/
+  height: 100px; /*the image height*/
+  left: 50%;
+  top: 50%;
+  margin-left: -50px; /*half the image width*/
+  margin-top: -50px; /*half the image height*/
+
+}
+
 .yf-card__thumb {
     height: 145px;
     overflow: hidden;

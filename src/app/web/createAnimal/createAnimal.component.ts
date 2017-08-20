@@ -44,7 +44,7 @@ export class CreateAnimalComponent implements OnInit{
   createAnimal(){
     this.validateForm();
     if(this.valid == true){
-      console.log(this.animal);
+
       this._animalService.createAnimal(this.animal).subscribe(
         res => {
           let json = res.json();
@@ -84,18 +84,17 @@ export class CreateAnimalComponent implements OnInit{
     let result = [];
     for(let i = 0;i<datas.length; i++){
       let label = datas[i];
-      result.push({value: i, label: label});
+      result.push({value: label, label: label});
     }
     return result;
   }
   public typeSelected($event){
-    if($event.value == 1){
+    if($event.value == "Perro"){
       $('#sizeDiv').show();
     }else{
       $('#sizeDiv').hide();
     }
   }
-
   private validateForm(){
     this.valid = true;
     let inputEl: HTMLInputElement = this.el.nativeElement.querySelector('[type="file"]');
@@ -120,7 +119,6 @@ export class CreateAnimalComponent implements OnInit{
     else{
       $('#gender-error').hide();
     }
-
     if($('#age').val()<1 ){
       $('#age-error').show();
       this.valid = false;
@@ -147,13 +145,12 @@ export class CreateAnimalComponent implements OnInit{
       this.valid = false;
     }else{
       $('#input-error').hide();
-
     }
-    if(this.animal.type==null || this.animal.type==""){
+    console.log(this.animal.type == false);
+    if(this.animal.type == "" || this.animal.type == null){
       $('#type-error').show();
       this.valid = false;
-    }
-    else{
+    }else{
       $('#type-error').hide();
     }
   }

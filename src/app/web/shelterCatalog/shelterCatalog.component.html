@@ -9,17 +9,22 @@
         <div class="text-center">
           <h3 class="section-title no-padding">{{ 'SHELTER-CATALOG.SHELTERS' | translate }} {{province}}</h3>
         </div>
-        <div *ngFor="let s of shelters" class="col-md-4 col-sm-12">
-          <shelterCard [shelter]="s"></shelterCard>
+        <div *ngIf="shelters.length == 0">
+          {{'INDEX.NO-ELEMENTS' | translate}}
         </div>
+        <div *ngIf="shelters.length != 0">
+          <div *ngFor="let s of shelters" class="col-md-4 col-sm-12">
+            <shelterCard [shelter]="s"></shelterCard>
+          </div>
 
-      <div *ngIf="totalItems==8" class="col-md-12 text-center">
-        <button type="button"
-                class="btn btn-primary pull-center"
-                (click)="more()">
-          <span>{{ 'ANIMAL-CATALOG.MORE' | translate }}</span>
-        </button>
-      </div>
+          <div *ngIf="totalItems==8" class="col-md-12 text-center">
+            <button type="button"
+                    class="btn btn-primary pull-center"
+                    (click)="more()">
+              <span>{{ 'ANIMAL-CATALOG.MORE' | translate }}</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 </div>
