@@ -48,7 +48,7 @@ export class AnimalCatalog{
           animal.age = animals[i].age;
           animal.gender = animals[i].gender;
           if(json.images.length != 0 || json.images.length != null){
-            if(json.images[0] != null) animal.mainPicture = json.images[0].name;
+            animal.mainPicture = json.images[i].name;
           }
           this.animals.push(animal);
         }

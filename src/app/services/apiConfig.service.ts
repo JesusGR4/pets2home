@@ -67,6 +67,7 @@ export class ApiConfigService{
         session.city_id = localStorage.getItem(ApiConfigService.CUSTOMER_CITY);
       }
     }
+    console.log(session.profile_img_url);
     return session;
   }
 

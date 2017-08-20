@@ -88,20 +88,16 @@
             <!-- START User Info-->
 
           <div class="visible-lg visible-md m-t-10">
-                <div class="pull-left p-r-10 p-t-10 fs-14 font-heading">
-                    <span class="bold">{{session.name}}</span> <span class="text-master">{{session.surnames}}</span>
-                </div>
+
                 <div class="dropdown pull-right">
                     <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-              <span class="thumbnail-wrapper d32 circular inline m-t-5">
-                <img  *ngIf="session.profile_img_url" [src]="session.profile_img_url" alt="" width="32" height="32">
-                <img  *ngIf="!session.profile_img_url" src="../assets/img/profiles/avatar.jpg" alt="" width="32" height="32">
-            </span>
+                      <div class="pull-left p-r-10 p-t-10 fs-14 font-heading">
+                        <span class="bold">{{session.name}}</span>
+                      </div>
                     </button>
                     <ul class="dropdown-menu profile-dropdown" role="menu">
-                        <li><a [routerLink]="['profileManagement']"><i class="pg-settings_small"></i>Configuración</a>
-                        </li>
+
                         <li class="bg-master-lighter">
                             <a (click)="logout()" class="clearfix">
                                 <span class="pull-left">Logout</span>

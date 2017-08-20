@@ -20,7 +20,7 @@ export class EditProfileComponent implements OnInit{
   public valid: boolean;
   public filesToUpload: Array<File>;
   public provinces: Array<string>;
-
+  rol: string;
   public errorMessages: any;
   @ViewChild('modal')
   public modal: ModalComponent;
@@ -36,6 +36,10 @@ export class EditProfileComponent implements OnInit{
 
         scrollTop: $("#baba").offset().top},
       'slow');
+    this.rol = localStorage.getItem(ApiConfigService.ROL_FIELD);
+    if(this.rol != "2"){
+      window.location.href = '/notAllowed';
+    }
     this.getUser();
   }
 

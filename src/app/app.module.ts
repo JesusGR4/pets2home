@@ -100,6 +100,7 @@ import {MyAnimalsComponent} from "./web/myAnimals/myAnimals.component";
 import {CreateAnimalComponent} from "./web/createAnimal/createAnimal.component";
 import {NotFoundComponent} from "./web/notFoundComponent/notFoundComponent.component";
 import { CookieLawModule } from 'angular2-cookie-law';
+import {NotAllowedComponent} from "./web/notAllowedComponent/notAllowedComponent";
 @NgModule({
     declarations: [
         AppComponent,
@@ -160,7 +161,8 @@ import { CookieLawModule } from 'angular2-cookie-law';
         AnimalCatalog,
         SingleAnimalComponent,
         MyAnimalsComponent,
-        CreateAnimalComponent
+        CreateAnimalComponent,
+        NotAllowedComponent
     ],
 
     imports: [

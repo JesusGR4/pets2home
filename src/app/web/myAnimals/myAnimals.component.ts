@@ -37,8 +37,10 @@ export class MyAnimalsComponent{
     $('html,body').animate({
         scrollTop: $("#myAnimals").offset().top},
       'slow');
+    if(this.rol != "3"){
+      window.location.href = '/notAllowed';
+    }
   }
-
   animalsToCards(){
     this._animalService.getMyAnimals(this.currentPage).subscribe(
       res => {

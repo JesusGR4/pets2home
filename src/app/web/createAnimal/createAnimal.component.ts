@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
 import {AnimalService} from "../../services/animal.service";
 import {ModalComponent} from "ng2-bs3-modal/components/modal";
 import {Animal} from "../../models/animal";
+import {ApiConfigService} from "../../services/apiConfig.service";
 declare var $: any;
 declare var window: any;
 
@@ -27,6 +28,7 @@ export class CreateAnimalComponent implements OnInit{
   public modal: ModalComponent;
   public translation : string;
   public errorMessages: any;
+  rol : string;
   constructor(private router: Router, private translateService: TranslateService,private toastyService:ToastyService, private el: ElementRef, private _animalService: AnimalService){
   }
 
@@ -35,8 +37,11 @@ export class CreateAnimalComponent implements OnInit{
     $('html,body').animate({
         scrollTop: $("#createAnimal").offset().top},
       'slow');
+    this.rol = localStorage.getItem(ApiConfigService.ROL_FIELD);
+    if(this.rol != "3"){
+      window.location.href = '/notAllowed';
+    }
   }
-
   fileChangeEvent(fileInput: any){
     this.filesToUpload = <Array<File>> fileInput.target.files;
   }
