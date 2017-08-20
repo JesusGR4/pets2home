@@ -45,12 +45,11 @@
                       <li *ngIf="!session.profile">
                         <a routerLink="/login">{{'WEB.LOG-IN' | translate}}</a>
                       </li>
-
                       <li *ngIf="session.profile == 2 || session.profile == 3" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" *ngIf="session.profile_img_url && session.profile_img_url != ''">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" *ngIf="session.profile_img_url != 'null'">
                           <img [src]="completeUrl(session.profile_img_url)" class="img-circle img-responsive hidden-xs">
                         </a>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" *ngIf="!session.profile_img_url || !session.profile_img_url == ''">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" *ngIf="session.profile_img_url =='null'">
                           <img src="assets/img/profiles/avatar.jpg" class="img-circle img-responsive hidden-xs">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right">

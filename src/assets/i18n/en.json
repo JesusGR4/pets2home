@@ -154,7 +154,8 @@
     "MY-ANIMALS": "My animals"
   },
   "NOT-FOUND":{
-    "BACK":"Back to index"
+    "BACK":"Back to index",
+    "ALLOWED":"You are not allowed to do this action"
   },
   "CREATE-ANIMAL":{
     "TITLE":"Create animal",

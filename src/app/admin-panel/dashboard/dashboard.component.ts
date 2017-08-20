@@ -19,6 +19,7 @@ declare var window: any;
 })
 export class DashboardComponent{
     public session: Session = null;
+    rol : string;
     public id: number = 1;
     constructor(
         private router: Router,
@@ -33,10 +34,12 @@ export class DashboardComponent{
           }
         );
     }
-
     ngOnInit(){
-        this.session = ApiConfigService.getSessionByLocalStorage();
-
+      this.session = ApiConfigService.getSessionByLocalStorage();
+      this.rol = localStorage.getItem(ApiConfigService.ROL_FIELD);
+      if(this.rol != "1"){
+          window.location.href = '/notAllowed';
+      }
     }
 
     ngAfterViewInit() {

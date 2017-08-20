@@ -89,7 +89,7 @@ export class SingleShelterComponent{
                 animal.age = animals[i].age;
                 animal.gender = animals[i].gender;
                 if(json.images.length != 0 || json.images.length != null ){
-                  if(json.images[0] != null) animal.mainPicture = json.images[0].name;
+                  animal.mainPicture = json.images[i].name;
                 }
                 this.animals.push(animal);
               }
@@ -97,6 +97,7 @@ export class SingleShelterComponent{
           }else{
             this.handlerError(code, message);
           }
+
         },
         error => {
           let errorMessage = <any>error;
@@ -106,8 +107,6 @@ export class SingleShelterComponent{
         }
       )
     }
-
-
     private convertToShelter(json){
       this.shelters = [];
       this.shelter.name = json.shelter.user_name;
@@ -115,7 +114,7 @@ export class SingleShelterComponent{
       this.shelter.email = json.shelter.user_email;
       this.shelter.city = json.shelter.user_city;
       this.shelter.latitude = json.shelter.shelter_latitude;
-      this.shelter.longitude = json.shelter.shelter_longitude;
+      this.shelter.longitude = json.shelter.shelter_altitude;
       this.shelter.address = json.shelter.shelter_address;
       this.shelter.description = json.shelter.description;
       this.shelter.schedule = json.shelter.shelter_schedule;

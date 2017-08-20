@@ -87,7 +87,8 @@
   "MY-ANIMALS":"Mis animales",
   "CREATE-ANIMAL": "Crear animal"
 },"NOT-FOUND":{
-  "BACK":"Vuelta al índice"
+  "BACK":"Vuelta al índice",
+  "ALLOWED":"No tienes permitida esta acción"
 },
   "SERVER":{
     "ERROR":"Error de servidor"
@@ -123,18 +124,19 @@
     "SUCCESS":"Email enviado"
   },"ADMIN-DASHBOARD":{
   "PENDING":"Pendientes",
-  "MODAL":"Escribe la razón por la que rechazas esta casa de acogida",
-  "MANAGEMENT":"Administración de casas de acogida",
-  "DATE": "Fecha",
-  "NAME": "Nombre",
-  "PROVINCE": "Provincia",
-  "CITY":"Ciudad",
-  "SHELTERS":"Casas de acogida",
-  "ACTIONS":"Acciones"
+  "MODAL":"Escribe la razón por la que rechazas esta casa de acogida"
+
 },
   "PENDING": {
     "ACCEPT": "Casa de acogida aceptada",
-    "REJECT": "Casa de acogida rechazada"
+    "REJECT": "Casa de acogida rechazada",
+    "MANAGEMENT":"Administración de casas de acogida",
+    "DATE": "Fecha",
+    "NAME": "Nombre",
+    "PROVINCE": "Provincia",
+    "CITY":"Ciudad",
+    "SHELTERS":"Casas de acogida",
+    "ACTIONS":"Acciones"
   },
     "ANIMAL-CATALOG":{
       "SHELTER-NAME":"Animales de ",

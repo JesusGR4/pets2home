@@ -52,13 +52,14 @@ import {SingleAnimalComponent} from "./web/singleAnimal/singleAnimal.component";
 import {MyAnimalsComponent} from "./web/myAnimals/myAnimals.component";
 import {CreateAnimalComponent} from "./web/createAnimal/createAnimal.component";
 import {NotFoundComponent} from "./web/notFoundComponent/notFoundComponent.component";
+import {NotAllowedComponent} from "./web/notAllowedComponent/notAllowedComponent";
 
 
 
 
 const appRoutes:Routes = [
     {path: '', redirectTo: '/index', pathMatch: 'full'},
-
+    {path: 'notAllowed', component: NotAllowedComponent},
     {
         path: "", component: WebComponent, children: [
         {
