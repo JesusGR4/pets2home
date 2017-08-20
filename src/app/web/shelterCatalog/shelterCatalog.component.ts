@@ -1,21 +1,11 @@
 import { Component, OnInit, Output} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import {MoviesService} from "../../services/movies.service";
-import {Movie} from "../../models/movie";
+
 import {MessagesService} from "../../services/messages.service";
 import {Session} from "../../models/session";
 import {CodesService} from "../../services/codes.service";
 import {ApiConfigService} from "../../services/apiConfig.service";
-import {CountriesService} from "../../services/countries.service";
-import {GenresService} from "../../services/genres.service";
-import {LanguagesService} from "../../services/languages.service";
-import {QualificationsService} from "../../services/qualifications.service";
-import {TagsService} from "../../services/tags.service";
-import {Genre} from "../../models/genre";
-import {Country} from "../../models/country";
-import {Tag} from "../../models/tag";
-import {Language} from "../../models/language";
-import {Qualification} from "../../models/qualification";
+
 import {Shelter} from "../../models/shelter.js";
 import {ShelterService} from "../../services/shelter.service";
 
@@ -37,12 +27,7 @@ export class ShelterCatalog{
     public filter: {genres_id?: number[], countries_id?: number[], year?: number, languages_id?: number[],
         qualifications_id?: number[], tags_id?: number[], director_id?: number[], actor_id?: number[]} = {};
 
-    public movies : Movie[] = [];
-    public genres : Genre[] = [];
-    public countries : Country[] = [];
-    public tags : Tag[] = [];
-    public languages : Language[] = [];
-    public qualifications : Qualification[] = [];
+
     public shelters: Shelter[] = [];
     public currentPage = 1;
     public totalItems : number = 0;

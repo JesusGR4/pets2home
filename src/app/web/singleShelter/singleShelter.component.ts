@@ -1,9 +1,8 @@
 import { Component, OnInit, Output} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import {MoviesService} from "../../services/movies.service";
+
 import {MessagesService} from "../../services/messages.service";
 import {CodesService} from "../../services/codes.service";
-import {Movie} from "../../models/movie";
 import {ShelterService} from "../../services/shelter.service";
 import {Shelter} from "../../models/shelter.js";
 import {ApiConfigService} from "../../services/apiConfig.service";
