@@ -73,6 +73,9 @@ export class ShelterCatalog{
           shelter.shelter_id = shelters[i].shelter_id;
           shelter.description = shelters[i].description;
           shelter.numberOfPets = numberOfPets[i];
+          if(json.images.length != 0 || json.images.length != null){
+            if(json.images[i]) shelter.img_url = json.images[i].name;
+          }
           this.shelters.push(shelter);
         }
       }

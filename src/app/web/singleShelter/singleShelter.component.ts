@@ -112,8 +112,8 @@ export class SingleShelterComponent{
       this.shelter.phone = json.shelter.user_phone;
       this.shelter.email = json.shelter.user_email;
       this.shelter.city = json.shelter.user_city;
-      this.shelter.latitude = json.shelter.shelter_latitude;
-      this.shelter.longitude = json.shelter.shelter_altitude;
+      this.shelter.latitude = parseFloat(json.shelter.shelter_latitude);
+      this.shelter.longitude = parseFloat(json.shelter.shelter_altitude);
       this.shelter.address = json.shelter.shelter_address;
       this.shelter.description = json.shelter.description;
       this.shelter.schedule = json.shelter.shelter_schedule;

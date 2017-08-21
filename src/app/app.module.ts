@@ -41,6 +41,9 @@ import {NotFoundComponent} from "./web/notFoundComponent/notFoundComponent.compo
 import { CookieLawModule } from 'angular2-cookie-law';
 import {NotAllowedComponent} from "./web/notAllowedComponent/notAllowedComponent";
 import {DashboardComponent} from "./admin-panel/dashboard/dashboard.component";
+export function createTranslateLoader(http: Http) {
+  return new TranslateStaticLoader(http, '/assets/i18n', '.json');
+}
 @NgModule({
     declarations: [
         AppComponent,
@@ -84,7 +87,7 @@ import {DashboardComponent} from "./admin-panel/dashboard/dashboard.component";
 
         TranslateModule.forRoot({
           provide: TranslateLoader,
-          useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/i18n', '.json'),
+          useFactory: (createTranslateLoader),
           deps: [Http]
         })
     ],

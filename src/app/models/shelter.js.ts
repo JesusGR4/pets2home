@@ -25,8 +25,8 @@ export class Shelter{
     this.province="";
     this.city="";
     this.password="";
-    this.longitude="";
-    this.latitude="";
+    this.longitude=0;
+    this.latitude=0;
     this.address="";
     this.description="";
     this.schedule="";

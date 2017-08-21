@@ -126,6 +126,8 @@ export class CreateShelterComponent implements OnInit{
     this.shelter.latitude = $event.coords.lat;
     this.marker.lon = $event.coords.lng;
     this.shelter.longitude = $event.coords.lng;
+    console.log(this.shelter.longitude);
+    console.log(this.shelter.latitude);
   }
 
 
