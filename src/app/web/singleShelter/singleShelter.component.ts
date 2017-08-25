@@ -117,6 +117,7 @@ export class SingleShelterComponent{
       this.shelter.address = json.shelter.shelter_address;
       this.shelter.description = json.shelter.description;
       this.shelter.schedule = json.shelter.shelter_schedule;
+      console.log(this.shelter);
       var shelters = json.images;
       var totalItems = shelters.length;
       if(totalItems != 0 ){

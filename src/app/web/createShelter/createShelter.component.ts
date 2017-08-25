@@ -35,6 +35,7 @@ export class CreateShelterComponent implements OnInit{
   public search: {search?: string} = {};
   public latitude = 37.34959;
   public longitude = -5.84431;
+
   public zoom = 6;
   public searchControl: FormControl;
   public errorMessages: any;
@@ -47,6 +48,8 @@ export class CreateShelterComponent implements OnInit{
 
   }
   ngOnInit(){
+
+
     this.searchControl = new FormControl();
     this.provinces = this.transformForSelect(["Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real", "Córdoba", "Cuenca", "Gerona", "Granada", "Guadalajara", "Guipúzcoa", "Huelva", "Huesca", "Islas Baleares", "Jaén", "La Coruña", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid", "Málaga", "Murcia", "Navarra", "Orense", "Palencia", "Pontevedra", "Salamanca", "Santa Cruz de Tenerife", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya", "Zamora", "Zaragoza"]);
     $('html,body').animate({
