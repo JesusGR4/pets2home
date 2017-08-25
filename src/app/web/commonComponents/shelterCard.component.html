@@ -1,13 +1,15 @@
 <!-- Shelter Card -->
 <article class="yf-card yf-card-cinema">
   <header class="yf-card__thumb">
-    <a href="#"><img src="https://www.aspca.org/sites/default/files/keeping-animals-in-homes_pet-statistics_main-image.jpg" ></a>
+    <a href="javascript:;" [routerLink]="['/shelter', shelter.shelter_id]" *ngIf="shelter.img_url != ''"><img [src]="completeUrl(shelter.img_url)"></a>
+    <a href="javascript:;"  *ngIf="shelter.img_url == ''"><img src="http://www.youfeelm.com/wp-content/uploads/ABELLA-CINES-Lugo-510x339.png"></a>
+
   </header>
   <div class="yf-card__body">
     <div class="yf-card__title"><a href="javascript:;" [routerLink]="['/shelter', shelter.shelter_id]">{{shelter.name}}</a></div>
-    <p class="yf-card__description">{{shelter.description}}</p>
+    <p class="yf-card__description small">{{shelter.description}}</p>
   </div>
   <footer class="yf-card__footer p-b-10">
-    Número de animales {{shelter.numberOfPets}}
+    <small>Número de animales {{shelter.numberOfPets}}</small>
   </footer>
 </article>

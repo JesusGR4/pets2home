@@ -87,7 +87,7 @@ export class ShelterService{
       formData.append('email', shelter.email);
       formData.append('province', shelter.province);
       formData.append('city', shelter.city);
-      formData.append('altitude', shelter.longitude);
+      formData.append('longitude', shelter.longitude);
       formData.append('latitude', shelter.latitude);
       formData.append('description', shelter.description);
       formData.append('schedule', shelter.schedule);

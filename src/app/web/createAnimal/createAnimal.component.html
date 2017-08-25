@@ -30,7 +30,7 @@
                 <div class="form-group form-group-default" aria-required="true">
                   <label>{{'CREATE-ANIMAL.GENDER' | translate}}</label>
                   <textarea id="gender" type="text" [(ngModel)]="animal.gender" #gender="ngModel" class="form-control" name="gender" required
-                            aria-required="true" value="{{animal.value}}"></textarea>
+                            aria-required="true" value="{{animal.gender}}"></textarea>
                   <p hidden id="gender-error" class="alert alert-danger">
                     {{'CREATE-ANIMAL.GENDER_ERROR' | translate}}
                   </p>

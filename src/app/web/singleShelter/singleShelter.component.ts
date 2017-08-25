@@ -1,9 +1,8 @@
 import { Component, OnInit, Output} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import {MoviesService} from "../../services/movies.service";
+
 import {MessagesService} from "../../services/messages.service";
 import {CodesService} from "../../services/codes.service";
-import {Movie} from "../../models/movie";
 import {ShelterService} from "../../services/shelter.service";
 import {Shelter} from "../../models/shelter.js";
 import {ApiConfigService} from "../../services/apiConfig.service";
@@ -113,11 +112,12 @@ export class SingleShelterComponent{
       this.shelter.phone = json.shelter.user_phone;
       this.shelter.email = json.shelter.user_email;
       this.shelter.city = json.shelter.user_city;
-      this.shelter.latitude = json.shelter.shelter_latitude;
-      this.shelter.longitude = json.shelter.shelter_altitude;
+      this.shelter.latitude = parseFloat(json.shelter.shelter_latitude);
+      this.shelter.longitude = parseFloat(json.shelter.shelter_altitude);
       this.shelter.address = json.shelter.shelter_address;
       this.shelter.description = json.shelter.description;
       this.shelter.schedule = json.shelter.shelter_schedule;
+      console.log(this.shelter);
       var shelters = json.images;
       var totalItems = shelters.length;
       if(totalItems != 0 ){

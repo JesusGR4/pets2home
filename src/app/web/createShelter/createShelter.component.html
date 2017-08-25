@@ -127,7 +127,9 @@
                 {{'CREATE-SHELTER.LOCATION' | translate}}
               </p>
               <div class="col-md-12" id="slider" style="height:400px">
-                <sebm-google-map [latitude]="latitude" [longitude]="longitude" style="width:100%;height: 100%" (mapClick)="mapClicked($event)">
+                <sebm-google-map [latitude]="latitude" [longitude]="longitude" style="width:100%;height: 100%" (mapClick)="mapClicked($event)"  [zoom]="12"
+                                 [disableDefaultUI]="false"
+                                 [zoomControl]="false">
                   <sebm-google-map-marker [latitude]="marker.lat" [longitude]="marker.lon"></sebm-google-map-marker>
                 </sebm-google-map>
               </div>
